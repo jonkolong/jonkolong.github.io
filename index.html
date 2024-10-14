@@ -1,134 +1,491 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JDIH | Kab. Deli Serdang</title>
+  <link rel="icon" type="image/x-icon" href="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" />
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Fonts and Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-<link href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718002763.png" rel="icon">
+<body>
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-body-secondary">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#"><img
+          src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" alt=""
+          style="height: 30px" />JDIH</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="subjek.html">Subjek</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jenis.html">Jenis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tahun.html">Tahun</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="glosarium.html">Glosarium</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tematik.html">Tematik</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
 
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<link rel="stylesheet" href="assets/style.css">
+  <!-- Keterangan Title -->
+  <div class="title-jdih mt-5 text-center">
+    <img src="https://dev.deliserdangkab.go.id/wp-content/berkas/1727773011.png" style="width: 100px;" alt="">
+    <h4 class="mt-3 mb-4">Pemerintah Kabupaten Deli Serdang</h4>
+  </div>
 
-<title>Portal Kabupaten Deli Serdang</title>
-  </head>
-  <body>
+  <!-- Cari Gaya Start -->
+  <!-- <div class="row mt-4">
+    <div class="col-lg-8 offset-lg-2"> -->
+      <div class="container card bg-jdih border-0 rounded-4">
+        <div class="card-body py-4 px-2">
+          <form method="get" id="searchForm" class="mb-0" action="">
+              <div class="row g-4">
+                  <div class="col-md-8 col-sm-12">
+                      <div class="position-relative">
+                          <div class="position-absolute translate-middle-y top-50 start-0 mx-6">
+                          </div>
+                          <input type="text" class="form-control form-control-solid ps-14"
+                                name="keywords" value="" placeholder="Klik tombol Detil untuk pencarian tingkat lanjut" id="input-keywords" />
+                      </div>
+                  </div>
+                  <div class="col-md-2 col-sm-12 d-grid">
+                    <button class="btn btn-md btn-danger text-nowrap" type="submit"><i class="bi bi-search me-2"> Cari</i></button>
+                  </div>
+                  <div class="col-md-2 col-sm-12 d-grid">
+                    <a id="cari-detil-link" data-bs-toggle="collapse" href="#cari-detil-form" 
+                    class="btn btn-md btn-warning text-nowrap" type="submit"><i class="bi bi-zoom-in me-2"> Detil</i></a>
+                  </div>
+              </div>
 
-    <main class="container">
-
-        <div class="judul-besar d-flex flex-column justify-content-center align-items-center mt-4">
-            <img src="img/1718002763.png" alt="logo-pemkab"    
-            class="img-fluid" style=" width: 150px;">
-            <h3 class="judul text-center mt-2 mb-5 text-uppercase text-primary opensans fw-bold">Portal Kabupaten Deli Serdang</h3>
+              <!--begin::Detil form-->
+              <div class="collapse mt-2" id="cari-detil-form">
+                  <!--begin::Separator-->
+                  <div class="separator separator-dashed mt-9 mb-6"></div>
+                  <!--end::Separator-->
+                  <!--begin::Row-->
+                  <div class="row g-8 mb-8">
+                      <!--begin::Col-->
+                      <div class="col-xxl-6 mt-2">
+                          <label class="fs-6 form-label">Tentang</label>
+                          <input type="text" class="form-control form-control-solid"
+                                name="tentang" value="" placeholder="Tentang Peraturan" />
+                      </div>
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <div class="col-xxl-6 mt-2">
+                          <label class="fs-6 form-label">Nomor</label>
+                          <input type="text" class="form-control form-control-solid"
+                                name="nomor" value="" placeholder="Nomor Peraturan" />
+                      </div>
+                      <!--end::Col-->
+                  </div>
+                  <!--end::Row-->
+                  <!--begin::Row-->
+                  <div class="row g-8 mb-8">
+                      <!--begin::Col-->
+                      <div class="col-xxl-6 mt-2">
+                          <label class="fs-6 form-label">Tahun</label>
+                          <select class="form-select form-select-solid" name="tahun" data-control="select2" data-placeholder="Tahun Peraturan" data-hide-search="true" aria-label="Default select example">
+                            <option value="">Pilih</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                          </select>
+                      </div>
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <div class="col-xxl-6 mt-2">
+                          <label class="fs-6 form-label">Entitas</label>
+                          <!--begin::Select-->
+                          <select class="form-select form-select-solid" name="entitas" data-control="select2" data-placeholder="Nama Entitas" data-hide-search="true" aria-label="Default select example">
+                              <option value="">Pilih</option>
+                              <option value="1">Badan Keuangan dan Aset Daerah</option>
+                              <option value="2">Inspektorat</option>
+                              <option value="3">Badan Pendapatan Daearh</option>
+                          </select>
+                          <!--end::Select-->
+                      </div>
+                      <!--end::Col-->
+                  </div>
+                  <!--end::Row-->
+                  <!--begin::Row-->
+                  <div class="row g-8 mb-8">
+                      <!--begin::Col-->
+                      <div class="col-xxl-6 mt-2">
+                          <label class="fs-6 form-label">Jenis</label>
+                          <select class="form-select form-select-solid" name="jenis" data-control="select2" data-placeholder="Jenis Peraturan" data-hide-search="true" aria-label="Default select example">
+                              <option value="">Pilih</option>
+                              <option value="1">Peraturan Daerah (Perda)</option>
+                              <option value="2">Peraturan Bupati (Perbup)</option>
+                              <option value="3">Perjanjian Kerjasama</option>
+                              <option value="4">Nota Kesepahaman</option>
+                              <option value="5">Surat Edaran</option>
+                          </select>
+                      </div>
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <div class="col-xxl-6 mt-2">
+                          <label class="fs-6 form-label">Tag</label>
+                          <!--begin::Select-->
+                          <select class="form-select form-select-solid" name="tag" data-control="select2" data-placeholder="Tag Peraturan" data-hide-search="true" aria-label="Default select example">
+                              <option value="">Pilih</option>
+                              <option value="1">Administrasi dan Tata Usaha Negara</option>
+                              <option value="2">Agraria, Pertanahan, Tata Ruang</option>
+                              <option value="3">APBD</option>
+                              <option value="4">Arsip</option>
+                          </select>
+                          <!--end::Select-->
+                      </div>
+                      <!--end::Col-->
+                  </div>
+                  <!--end::Row-->
+              </div>
+              <!--end::Detil form-->
+          </form>
         </div>
+      </div>
+  <!-- Cari Gaya End -->
 
-        <h4 class="text-center text-primary text-uppercase fw-bold">Layanan Publik</h4>
-        <div class="d-flex flex-wrap gap-4 m-4 justify-content-center">
-            
-            <a href="https://portal.deliserdangkab.go.id" target="_blank" class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">Situs Resmi</h6>
-                </div>
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=com.SalakDeli.com&pcampaignid=web_share" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="https://play-lh.googleusercontent.com/ySJq3nHTtqwcMTTbTseJtFhYhDqOTvv5RBhimr-hDC_Cm1uyzYiZDuLbY1-A15SuUes=s256-rw" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light"><i class="bi bi-google-play me-1"></i>Salak Deli</h6>
-                </div>
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=ePADI.Bapenda.Deliserdang&pcampaignid=web_share" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="https://play-lh.googleusercontent.com/0nSiMbcvOvH6id7D0sFZJaILnLkJ5QP_F25ceye08EwiXU6pcoA7M1lkRFSOAcoDcZk=s64-rw" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light"><i class="bi bi-google-play me-1"></i>ePadi</h6>
-                </div>
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=id.go.deliserdangkab.dlh.jumpamadu&pcampaignid=web_share" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="https://play-lh.googleusercontent.com/nP44KM2u3VNrEH3-c0YiURT7rxxHVllfOWZh_Y09I9cK2dCUXlZwdy9bLuOywSGEC9s=s256-rw" 
-                class="card-img-top p-3 img-fluid rounded-5" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light"><i class="bi bi-google-play me-1"></i>Jumpa Madu</h6>
-                </div>
-            </a>
-
-            <a href="https://play.google.com/store/apps/details?id=id.go.deliserdangkab.delipedia&pcampaignid=web_share" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="https://play-lh.googleusercontent.com/K-EZxsc1DG4ooW-go60fgMLGMg-A5fe9LeLOPycgRzHp0k6uU3aM12OFnXb93_FZhFw=s256-rw" 
-                class="card-img-top p-3 img-fluid rounded-5" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light"><i class="bi bi-google-play me-1"></i>Delipedia</h6>
-                </div>
-            </a>
-
-            <a href="https://smartcity.deliserdangkab.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">Smart City</h6>
-                </div>
-            </a>
-
-            <a href="https://spbe.deliserdangkab.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">SPBE</h6>
-                </div>
-            </a>
-
-            <a href="https://jdih.deliserdangkab.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">JDIH</h6>
-                </div>
-            </a>
-
-            <a href="https://lapor.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">LAPOR</h6>
-                </div>
-            </a>
-
-            <a href="https://ppid.deliserdangkab.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">PPID</h6>
-                </div>
-            </a>
-            
-            <a href="https://portal.deliserdangkab.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">OPD</h6>
-                </div>
-            </a>
-
-            <a href="https://radio.deliserdangkab.go.id" target="_blank"class="card menu-item rounded-4 shadow border-0">
-                <img src="img/1718002763.png" 
-                class="card-img-top p-3 img-fluid" alt="logo">
-                <div class="card-body bg-primary rounded-bottom-4">
-                  <h6 class="card-text text-center text-light">Radio DSB</h6>
-                </div>
-            </a>
-            
+  <!-- Card besar start -->
+  <div class="row mb-4 mt-2 p-4">
+    <div class="col">
+      <div class="card container rounded-4 p-3 border-0 shadow-ms">
+        <!-- Card body start -->
+        <div class="card my-2 border-0 shadow-sm">
+          <div class="card-body d-flex rounded-2">
+            <div class="me-6 flex-shrink-0 d-none d-sm-block">
+              <i class="bi bi-book me-2 fs-5"></i>
+            </div>
+            <div class="flex-grow-1">
+              <a href="perbup.html" class="text-decoration-none text-dark">
+                <h5>Peraturan Daerah</h5>
+              </a>
+              <p>Berisi kumpulan Peraturan Daerah Kabupaten Deli Serdang</p>
+              <small><a href="perbup.html" class="text-decoration-none text-dark">Lihat peraturan <i
+                    class="bi bi-box-arrow-up-right"></i></a>
+              </small>
+            </div>
+          </div>
         </div>
-    </main>
+        <!-- Card body end -->
+        <!-- Card body start -->
+        <div class="card my-2 border-0 shadow-sm">
+          <div class="card-body p-6 d-flex">
+            <div class="me-6 flex-shrink-0 d-none d-sm-block">
+              <i class="bi bi-book me-2 fs-5"></i>
+            </div>
+            <div class="flex-grow-1">
+              <a href="" class="text-decoration-none text-dark">
+                <h5>Peraturan Bupati</h5>
+              </a>
+              <p>Berisi kumpulan Peraturan Bupati Deli Serdang</p>
+              <small><a href="" class="text-decoration-none text-dark">Lihat peraturan <i
+                    class="bi bi-box-arrow-up-right"></i></a>
+              </small>
+            </div>
+          </div>
+        </div>
+        <!-- Card body end -->
+        <!-- Card body start -->
+        <!-- <div class="card my-2 border-0 shadow-sm">
+          <div class="card-body p-6 d-flex">
+            <div class="me-6 flex-shrink-0 d-none d-sm-block">
+              <i class="bi bi-book me-2 fs-5"></i>
+            </div>
+            <div class="flex-grow-1">
+              <a href="" class="text-decoration-none text-dark">
+                <h5>Peraturan Perundang-undangan Pusat</h5>
+              </a>
+              <p>Berisi kumpulan Peraturan Perundang-undangan pusat seperti UU, PP, Perpres, dan lainnya.</p>
+              <small><a href="" class="text-decoration-none text-dark">Lihat peraturan <i
+                    class="bi bi-box-arrow-up-right"></i></a>
+              </small>
+            </div>
+          </div>
+        </div> -->
+        <!-- Card body end -->
+        <!-- Card body start -->
+        <!-- <div class="card my-2 border-0 shadow-sm">
+          <div class="card-body p-6 d-flex">
+            <div class="me-6 flex-shrink-0 d-none d-sm-block">
+              <i class="bi bi-book me-2 fs-5"></i>
+            </div>
+            <div class="flex-grow-1">
+              <a href="" class="text-decoration-none text-dark">
+                <h5>Peraturan Kementerian/Lembaga</h5>
+              </a>
+              <p>Berisi kumpulan Peraturan Kementerian/Lembaga seperti Permendagri, Permendikbud, dan lainnya.</p>
+              <small><a href="" class="text-decoration-none text-dark">Lihat peraturan <i
+                    class="bi bi-box-arrow-up-right"></i></a>
+              </small>
+            </div>
+          </div>
+        </div> -->
+        <!-- Card body end -->
+      </div>
+    </div>
+  </div>
+  <!-- Card besar end -->
 
-  </body>
+  <!-- Peraturan Dan Input Terbaru Start -->
+  <div class="container">
+    <div class="row align-items-start mb-4">
+      <!-- Peraturan Terbaru Start -->
+      <div class="col-md-6 mb-2">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="text-center"><i class="bi bi-file-earmark-arrow-down"></i> Peraturan Terbaru</h5>
+            <!-- Isi Peraturan Terbaru Start -->
+            <div class="card mb-2 border-0 shadow">
+              <div class="card-body p-6 d-flex">
+                <div class="me-6 flex-shrink-0 d-none d-sm-block">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <a href="" class="text-decoration-none text-dark">
+                    <p>Peraturan Bupati Nomor 171 Tahun 2023 tentang Sistem Pemerintahan Berbasis Elektronik</p>
+                  </a>
+                  <p class="text-end text-primary"><small>Diundangkan hari ini</small></p>
+                </div>
+              </div>
+            </div>
+            <!-- Isi Peraturan Terbaru End -->
+            <!-- Isi Peraturan Terbaru Start -->
+            <div class="card mb-2 border-0 shadow">
+              <div class="card-body p-6 d-flex">
+                <div class="me-6 flex-shrink-0 d-none d-sm-block">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <a href="" class="text-decoration-none text-dark">
+                    <p>Peraturan Bupati Nomor 171 Tahun 2023 tentang Sistem Pemerintahan Berbasis Elektronik</p>
+                  </a>
+                  <p class="text-end text-primary"><small>Diundangkan hari ini</small></p>
+                </div>
+              </div>
+            </div>
+            <!-- Isi Peraturan Terbaru End -->
+            <!-- Isi Peraturan Terbaru Start -->
+            <div class="card mb-2 border-0 shadow">
+              <div class="card-body p-6 d-flex">
+                <div class="me-6 flex-shrink-0 d-none d-sm-block">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <a href="" class="text-decoration-none text-dark">
+                    <p>Peraturan Bupati Nomor 171 Tahun 2023 tentang Sistem Pemerintahan Berbasis Elektronik</p>
+                  </a>
+                  <p class="text-end text-primary"><small>Diundangkan hari ini</small></p>
+                </div>
+              </div>
+            </div>
+            <!-- Isi Peraturan Terbaru End -->
+          </div>
+        </div>
+      </div>
+      <!-- Peraturan Terbaru End -->
+
+      <!-- Pemisah -->
+
+      <!-- Input Terbaru Start -->
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="text-center"><i class="bi bi-file-earmark-arrow-up"></i> Input Terbaru</h5>
+            <!-- Isi Peraturan Terbaru Start -->
+            <div class="card mb-2 border-0 shadow">
+              <div class="card-body p-6 d-flex">
+                <div class="me-6 flex-shrink-0 d-none d-sm-block">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <a href="" class="text-decoration-none text-dark">
+                    <p>Peraturan Bupati Nomor 171 Tahun 2023 tentang Sistem Pemerintahan Berbasis Elektronik</p>
+                  </a>
+                  <p class="text-end text-danger"><small>Diinput 3 jam yang lalu</small></p>
+                </div>
+              </div>
+            </div>
+            <!-- Isi Peraturan Terbaru End -->
+            <!-- Isi Peraturan Terbaru Start -->
+            <div class="card mb-2 border-0 shadow">
+              <div class="card-body p-6 d-flex">
+                <div class="me-6 flex-shrink-0 d-none d-sm-block">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <a href="" class="text-decoration-none text-dark">
+                    <p>Peraturan Bupati Nomor 171 Tahun 2023 tentang Sistem Pemerintahan Berbasis Elektronik</p>
+                  </a>
+                  <p class="text-end text-danger"><small>Diinput 3 jam yang lalu</small></p>
+                </div>
+              </div>
+            </div>
+            <!-- Isi Peraturan Terbaru End -->
+            <!-- Isi Peraturan Terbaru Start -->
+            <div class="card mb-2 border-0 shadow">
+              <div class="card-body p-6 d-flex">
+                <div class="me-6 flex-shrink-0 d-none d-sm-block">
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <a href="" class="text-decoration-none text-dark">
+                    <p>Peraturan Bupati Nomor 171 Tahun 2023 tentang Sistem Pemerintahan Berbasis Elektronik</p>
+                  </a>
+                  <p class="text-end text-danger"><small>Diinput 3 jam yang lalu</small></p>
+                </div>
+              </div>
+            </div>
+            <!-- Isi Peraturan Terbaru End -->
+          </div>
+        </div>
+      </div>
+      <!-- Input Terbaru End -->
+    </div>
+  </div>
+  <!-- Peraturan Dan Input Terbaru End -->
+
+  <!-- Standar Layanan Start -->
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row border rounded-4 p-3 mx-0 mb-4 shadow bg-white">
+      <!-- Left Box -->
+      <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column">
+        <div class="featured-image mb-3">
+          <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png"
+            class="img-fluid d-none d-md-block" alt="" />
+          <p class="text-center">Standar Layanan<br />JDIH Pemkab Deli Serdang</p>
+        </div>
+      </div>
+      <!-- Right Box -->
+      <div class="col-md-6">
+        <div class="row align-items-center">
+          <div class="row-col-1">
+            <div class="card border-0 shadow-sm p-2 mb-2">
+              <p><small>Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi.</small></p>
+            </div>
+          </div>
+          <div class="row-cols-1">
+            <div class="card border-0 shadow-sm p-2 mb-2">
+              <p><small>Produk hukum dalam Database JDIH Pemkab Deli Serdang sudah diklasifikasikan berdasarkan jenis,
+                  tema, tahun, maupun asal produk hukum.</small></p>
+            </div>
+          </div>
+          <div class="row-cols-1">
+            <div class="card border-0 shadow-sm p-2 mb-2">
+              <p><small>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis
+                  dan tanpa syarat.</small></p>
+            </div>
+          </div>
+          <div class="row-cols-1">
+            <div class="card border-0 shadow-sm p-2 mb-2">
+              <p>
+                <small>Saran dan kritik atas layanan pada Database JDIH Pemkab Deli Serdang dapat ditujukan kepada
+                  Bagian Hukum Setda Kab. Deli Serdang<br />baghukum@deliserdangkab.go.id</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Standar Layanan End -->
+
+  <!-- Statistik WEB start -->
+  <div class="container mb-4 align-items-center">
+    <div class="card rounded-4 ">
+      <p class="text-center mt-5 fs-4 ">STATISTIK WEB</p>
+      <p class="text-center">Update terakhir pada 10 September 2024 09.00</p>
+      <div class="card-body mb-4">
+        <div class="row">
+          <!-- Card dalam pertama -->
+          <div class="col-md-4">
+            <div class="card border-0 text-center">
+              <i class="bi bi-person-video3 display-1 text-center"></i>
+              <div class="card-body ">
+                <h5 class="card-title">81,37 ribu</h5>
+                <p class="card-text fw-light">300 Pengunjung</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card dalam kedua -->
+          <div class="col-md-4">
+            <div class="card border-0 text-center">
+              <i class="bi bi-person-video2 display-1 text-center"></i>
+              <div class="card-body">
+                <h5 class="card-title">2,58 juta</h5>
+                <p class="card-text fw-light ">300 Pengunjung</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card dalam ketiga -->
+          <div class="col-md-4">
+            <div class="card border-0 text-center">
+              <i class="bi bi-people-fill display-1 text-center"></i>
+              <div class="card-body">
+                <h5 class="card-title">27,81 juta</h5>
+                <p class="card-text fw-light">300 Pengunjung</p>
+              </div>
+            </div>
+          </div><!-- Statistik WEB start -->
+        </div>
+      </div>
+      <p class="text-center mb-3 text-danger"><small>* Dalam 7 hari terakhir rata-rata jumlah pengunjung harian sebanyak
+          91,46 ribu.</small></p>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Footer Start -->
+  <footer class="bd-footer py-4 bg-body-tertiary shadow-lg rounded-top-4">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="text-center">Hak Cipta © 2023<br />Pemerintah Kabupaten Deli Serdang</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/script.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>
