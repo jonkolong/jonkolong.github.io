@@ -18,60 +18,214 @@
   </head>
   <body>
   <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-body-secondary">
+  <!-- Slider text start -->
+  <marquee class="bg-jdih" behavior="" direction="">
+    <div class="">
+      <div class="text-slider text-warning">
+        Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi dan telah diklasifikasikan berdasarkan jenis, tema, tahun, maupun asal produk hukum.<i class="bi bi-dot mx-1"></i>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis dan tanpa syarat.<i class="bi bi-dot mx-1"></i>
+      </div>
+    </div>
+  </marquee>
+  <!-- Slider text end -->
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="index.html"><img
-          src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" alt=""
+      <a class="navbar-brand fw-semibold text-jdih" href="#"><img
+          src="img/logo_jdih.png" alt=""
           style="height: 30px" />JDIH</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-light"></span>
-      </button>
+      </button>      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="subjek.html">Subjek</a>
+            <a class="nav-link active" href="#"><i class="bi bi-house me-1"></i>Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="jenis.html">Jenis</a>
+            <a class="nav-link" href="profil.html"><i class="bi bi-person-badge me-1"></i>Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tahun.html">Tahun</a>
+            <a class="nav-link" href="bantuan-hukum.html"><i class="bi bi-info-circle me-1"></i>Bantuan Hukum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="glosarium.html">Glosarium</a>
+            <a class="nav-link" href="https://jdihn.go.id/" target="_blank"><i class="bi bi-globe2 me-1"></i>JDIHN</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tematik.html">Tematik</a>
+        </ul>
+      </div>
+      <a href="login.html" class="btn btn-jdih"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Navbar Bottom Start -->
+  <nav class="navbar navbar-mobile fixed-bottom d-lg-none">
+    <div class="container">
+      <div class="menu-bar card border-0 shadow-sm pt-2 pe-4 w-100">
+        <ul class="menu-list text-center d-flex justify-content-around align-content-center">
+          <li class="menu-icon">
+            <a href="index.html">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-house fs-3"></i>
+                <label for="">Beranda</label>
+              </div>
+            </a>
+          </li>
+          <li class="menu-icon">
+            <a href="terbaru.html">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-journal-arrow-up fs-3"></i>
+                <label for="">Terbaru</label>
+              </div>
+            </a>
+          </li>
+          <li class="menu-icon">
+            <a href="https://jdihn.go.id/">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-globe2 fs-3"></i>
+                <label for="">JDIHN</label>
+              </div>
+            </a>
+          </li>
+          <li class="menu-icon">
+            <a href="">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-three-dots fs-3"></i>
+                <label for="">Lainnya</label>
+              </div>
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- Navbar End -->
+  <!-- Navbar Bottom End -->
 
-    <!-- Karosel Start -->
-    <div class="container-fluid my-4">
-      <div id="carouselExampleFade" class="carousel slide carousel-fade">
-        <div class="carousel-inner shadow">
-          <div class="carousel-item active">
-            <img src="https://jdih.deliserdangkab.go.id/wp-content/filewebsite/99fa53b99a41973e4b65990b0e662ba3.jpg" class="d-block w-100" alt="..." />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Karosel End -->
+  <!-- Keterangan Title Start -->
+  <div class="title-jdih mt-4 text-center">
+    <img src="img/logo_jdih.png" style="width: 100px;" alt="">
+    <h5 class="mt-3">Jaringan Dokumentasi Informasi Hukum</h5>
+    <h4 class="mb-4">Pemerintah Kabupaten Deli Serdang</h4>
+  </div>
+  <!-- Keterangan Title End -->
 
-    <!-- Cari Start -->
-    <div class="row">
+  <!-- Card Pencarian Start -->
+  <div class="container">
+    <div class="row card my-3 mx-2 py-3 px-2 rounded-4 border-0 bg-jdih">
       <div class="col">
-        <form class="container d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="cari Peraturan Bupati disini" />
-          <button class="btn btn-sm btn-danger text-nowrap" type="submit"><i class="bi bi-search me-2"> Cari</i></button>
+        <!-- Pencarian Start -->
+        <form method="get" id="searchForm" class="mb-0" action="">
+          <div class="row g-4">
+              <div class="col-md-8 col-sm-12">
+                  <div class="position-relative">
+                      <div class="position-absolute translate-middle-y top-50 start-0 mx-4">
+                      </div>
+                      <input type="text" class="form-control ps-14"
+                            name="keywords" value="" placeholder="Klik tombol Detil untuk pencarian tingkat lanjut" id="input-keywords" />
+                  </div>
+              </div>
+              <div class="col-md-2 col-sm-12 d-grid">
+                <button class="btn btn-md btn-danger text-nowrap" type="submit"><i class="bi bi-search me-2"> Cari</i></button>
+              </div>
+              <div class="col-md-2 col-sm-12 d-grid">
+                <a id="cari-detil-link" data-bs-toggle="collapse" href="#cari-detil-form" 
+                class="btn btn-md btn-warning text-nowrap" type="submit"><i class="bi bi-zoom-in me-2"> Detil</i></a>
+              </div>
+          </div>
+
+          <!--begin::Detil form-->
+          <div class="collapse mt-2" id="cari-detil-form">
+              <!--begin::Separator-->
+              <div class="mt-5 mb-4"></div>
+              <!--end::Separator-->
+              <!--begin::Row-->
+              <div class="row g-5 mb-5">
+                  <!--begin::Col-->
+                  <div class="col-xxl-6 mt-2">
+                      <label class="fs-6 form-label">Tentang</label>
+                      <input type="text" class="form-control"
+                            name="tentang" value="" placeholder="Tentang Peraturan" />
+                  </div>
+                  <!--end::Col-->
+                  <!--begin::Col-->
+                  <div class="col-xxl-6 mt-2">
+                      <label class="fs-6 form-label">Nomor</label>
+                      <input type="text" class="form-control"
+                            name="nomor" value="" placeholder="Nomor Peraturan" />
+                  </div>
+                  <!--end::Col-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-5 mb-5">
+                  <!--begin::Col-->
+                  <div class="col-xxl-6 mt-2">
+                      <label class="fs-6 form-label">Tahun</label>
+                      <select class="form-select" name="tahun" data-control="select2" data-placeholder="Tahun Peraturan" data-hide-search="true" aria-label="Default select example">
+                        <option value="">Pilih</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                      </select>
+                  </div>
+                  <!--end::Col-->
+                  <!--begin::Col-->
+                  <div class="col-xxl-6 mt-2">
+                      <label class="fs-6 form-label">Entitas</label>
+                      <!--begin::Select-->
+                      <select class="form-select" name="entitas" data-control="select2" data-placeholder="Nama Entitas" data-hide-search="true" aria-label="Default select example">
+                          <option value="">Pilih</option>
+                          <option value="1">Badan Keuangan dan Aset Daerah</option>
+                          <option value="2">Inspektorat</option>
+                          <option value="3">Badan Pendapatan Daearh</option>
+                      </select>
+                      <!--end::Select-->
+                  </div>
+                  <!--end::Col-->
+              </div>
+              <!--end::Row-->
+              <!--begin::Row-->
+              <div class="row g-5 mb-5">
+                  <!--begin::Col-->
+                  <div class="col-xxl-6 mt-2">
+                      <label class="fs-6 form-label">Jenis</label>
+                      <select class="form-select" name="jenis" data-control="select2" data-placeholder="Jenis Peraturan" data-hide-search="true" aria-label="Default select example">
+                          <option value="">Pilih</option>
+                          <option value="1">Peraturan Daerah (Perda)</option>
+                          <option value="2">Peraturan Bupati (Perbup)</option>
+                          <option value="3">Perjanjian Kerjasama</option>
+                          <option value="4">Nota Kesepahaman</option>
+                          <option value="5">Surat Edaran</option>
+                      </select>
+                  </div>
+                  <!--end::Col-->
+                  <!--begin::Col-->
+                  <div class="col-xxl-6 mt-2">
+                      <label class="fs-6 form-label">Tag</label>
+                      <!--begin::Select-->
+                      <select class="form-select" name="tag" data-control="select2" data-placeholder="Tag Peraturan" data-hide-search="true" aria-label="Default select example">
+                          <option value="">Pilih</option>
+                          <option value="1">Administrasi dan Tata Usaha Negara</option>
+                          <option value="2">Agraria, Pertanahan, Tata Ruang</option>
+                          <option value="3">APBD</option>
+                          <option value="4">Arsip</option>
+                      </select>
+                      <!--end::Select-->
+                  </div>
+                  <!--end::Col-->
+              </div>
+              <!--end::Row-->
+          </div>
+          <!--end::Detil form-->
         </form>
+        <!-- Pencarian End -->
       </div>
     </div>
-    <!-- Cari End -->
+  </div>
+  <!-- Card Pencarian End -->
 
     <!-- Card besar start -->
     <div class="row mb-4 mt-2 p-4">
@@ -636,18 +790,61 @@
       </nav>
     </div>
 
-    <!-- Footer Start -->
-    <footer class="bd-footer py-4 bg-body-tertiary shadow-lg rounded-top-4">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <p class="text-center">Hak Cipta © 2023<br />Pemerintah Kabupaten Deli Serdang</p>
-          </div>
+  <!-- Footer Start -->
+  <footer class="bg-jdih pt-5 pb-5">
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-md-6 text-center mb-4">
+          <h5 class="text-start text-light">Link terkait</h5>
+          <table class="">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
+                <td><a href="https://jdihn.go.id/" target="_blank" class="text-light text-decoration-none">JDIH Nasional</a></td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></td>
+                <td><a href="https://portal.deliserdangkab.go.id" target="_blank" class="text-light text-decoration-none">Situs Resmi Pemkab Deli Serdang</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 text-center">
+          <h5 class="text-start text-light">Kontak kami</h5>
+          <hr class="m-0 mb-1">
+          <table class="container">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
+                <td>Jl. Negara No. 1, Kel. Petapahan,<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20517</td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></td>
+                <td><a href="mailto:baghukum.deliserdangkab.go.id" class="text-light text-decoration-none">baghukum@deliserdangkab.go.id</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </footer>
-    <!-- Footer End -->
+      <div class="row mt-4">
+        <div class="col">
+          <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/script.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>

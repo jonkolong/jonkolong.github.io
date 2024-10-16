@@ -1,281 +1,384 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Detil | JDIH Kab. Deli Serdang</title>
-    <link rel="icon" type="image/x-icon" href="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" />
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Fonts and Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <!-- Animations -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
+<html lang="id" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JDIH | Kab. Deli Serdang</title>
+  <link rel="icon" type="image/x-icon" href="img/logo_jdih.png" />
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Fonts and Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- Slider text start -->
+  <marquee class="bg-jdih" behavior="" direction="">
+    <div class="">
+      <div class="text-slider text-warning">
+        Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi dan telah diklasifikasikan berdasarkan jenis, tema, tahun, maupun asal produk hukum.<i class="bi bi-dot mx-1"></i>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis dan tanpa syarat.<i class="bi bi-dot mx-1"></i>
+      </div>
+    </div>
+  </marquee>
+  <!-- Slider text end -->
+
   <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-body-secondary">
+  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="index.html"><img
-          src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" alt=""
+      <a class="navbar-brand fw-semibold text-jdih" href="#"><img
+          src="img/logo_jdih.png" alt=""
           style="height: 30px" />JDIH</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-light"></span>
-      </button>
+      </button>      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="subjek.html">Subjek</a>
+            <a class="nav-link active" href="#"><i class="bi bi-house me-1"></i>Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="jenis.html">Jenis</a>
+            <a class="nav-link" href="profil.html"><i class="bi bi-person-badge me-1"></i>Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tahun.html">Tahun</a>
+            <a class="nav-link" href="bantuan-hukum.html"><i class="bi bi-info-circle me-1"></i>Bantuan Hukum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="glosarium.html">Glosarium</a>
+            <a class="nav-link" href="https://jdihn.go.id/" target="_blank"><i class="bi bi-globe2 me-1"></i>JDIHN</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tematik.html">Tematik</a>
+        </ul>
+      </div>
+      <a href="login.html" class="btn btn-jdih"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Navbar Bottom Start -->
+  <nav class="navbar navbar-mobile fixed-bottom d-lg-none">
+    <div class="container">
+      <div class="menu-bar card border-0 shadow-sm pt-2 pe-4 w-100">
+        <ul class="menu-list text-center d-flex justify-content-around align-content-center">
+          <li class="menu-icon">
+            <a href="#">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-house fs-3"></i>
+                <label for="">Beranda</label>
+              </div>
+            </a>
+          </li>
+          <li class="menu-icon">
+            <a href="terbaru.html">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-journal-arrow-up fs-3"></i>
+                <label for="">Terbaru</label>
+              </div>
+            </a>
+          </li>
+          <li class="menu-icon">
+            <a href="https://jdihn.go.id/">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-globe2 fs-3"></i>
+                <label for="">JDIHN</label>
+              </div>
+            </a>
+          </li>
+          <li class="menu-icon">
+            <a href="">
+              <div class="card bg-transparent border-0">
+                <i class="bi bi-three-dots fs-3"></i>
+                <label for="">Lainnya</label>
+              </div>
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- Navbar End -->
+  <!-- Navbar Bottom End -->
 
-    <!-- Judul Start -->
-    <div class="container my-4">
-      <div class="card border-0 shadow-sm">
-        <h5 class="card-header border-0 text-bg-danger p-3">Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</h5>
-        <div class="card-body">
-          <p class="card-text fs-5">Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</p>
-        </div>
+  <!-- Keterangan Title Start -->
+  <div class="title-jdih mt-4 text-center">
+    <img src="img/logo_jdih.png" style="width: 100px;" alt="">
+    <h5 class="mt-3">Jaringan Dokumentasi Informasi Hukum</h5>
+    <h4 class="mb-4">Pemerintah Kabupaten Deli Serdang</h4>
+  </div>
+  <!-- Keterangan Title End -->
+
+  <!-- Judul Start -->
+  <div class="container my-4">
+    <div class="card border-0 shadow-sm">
+      <h5 class="card-header border-0 text-bg-primary p-3">Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</h5>
+      <div class="card-body">
+        <p class="card-text fs-5">Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</p>
       </div>
     </div>
-    <!-- Judul End -->
+  </div>
+  <!-- Judul End -->
 
-    <div class="container mb-4">
-      <div class="row">
-        <!-- Kolom kiri start -->
-        <div class="col-md-6 my-2">
-            <div class="card border-0 shadow-sm mb-2">
-                <h5 class="card-header text-center border-0 text-bg-danger p-3"><i class="bi bi-bookmark-fill"></i> Materi Pokok Peraturan</h5>
-                <div class="card-body">
-                  <p class="card-text">
-                    <small>Peraturan Bupati ini mengatur mengenai pengelolaan Sistem Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dan pengelolaan Informasi Elektronik dan Dokumen Elektronik. Penyelenggaraan Sistem Elektronik di
-                    lingkungan Pemerintah Kabupaten Deli Serdang dilaksanakan secara andal, aman, dan dapat dipertanggungjawabkan sesuai dengan ketentuan peraturan perundang-undangan.
-                  </small></p>
-                  <!-- Button trigger modal -->
-                  <div class="text-end">
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal1">Abstrak</button>
-                  </div>
-                  <!-- Button trigger modal -->
-    
-                  <!-- Modal start -->
-                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered container">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-6" id="exampleModalLabel1">Abstrak Peraturan</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <small>
-                            <p>Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</p>
-                            <p>60 halaman</p>
-                            <div class="row">
-                              <div class="col-2">
-                                <p>Abstrak</p>
-                              </div>
-                              <div class="col-10">
-                                <ul>
-                                  <li>
-                                    Untuk mendukung tugas dan wewenang untuk pengelolaan sistem elektronik, informasi elektronik, dan dokumen elektronik di lingkungan BPK, perlu menetapkan Peraturan Bupati Deli Serdang tentang Pengelolaan
-                                    Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang.
-                                  </li>
-                                  <li>
-                                    Dasar hukum Peraturan Bupati ini adalah UU Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik sebagaimana telah diubah dengan UU Nomor 19 Tahun 2016; PP Nomor 71 Tahun 2019 tentang Penyelenggaraan
-                                    Sistem dan Transaksi Elektronik.
-                                  </li>
-                                  <li>
-                                    Peraturan Bupati ini mengatur mengenai pengelolaan Sistem Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dan pengelolaan Informasi Elektronik dan Dokumen Elektronik. Penyelenggaraan Sistem
-                                    Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dilaksanakan secara andal, aman, dan dapat dipertanggungjawabkan sesuai dengan ketentuan peraturan perundang-undangan.
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-2">
-                                <p>Catatan</p>
-                              </div>
-                              <div class="col-10">
-                                <ul>
-                                  <li>Peraturan Bupati Deli Serdang ini mulai berlaku pada tanggal 24 November 2023.</li>
-                                  <li>Penjelasan 5 hlm.</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </small>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Tutup</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Modal end -->
-                </div>
-              </div>
-              <!-- Materi pokok end -->
-
-          <!-- Metadata start -->
+  <div class="container mb-4">
+    <div class="row">
+      <!-- Kolom kiri start -->
+      <div class="col-md-6 my-2">
           <div class="card border-0 shadow-sm mb-2">
-            <h5 class="card-header text-center border-0 text-bg-danger p-3"><i class="bi bi-bookmark-fill"></i> Metadata Peraturan</h5>
-            <div class="card-body">
-              <p class="card-text">
-                  <table class="table table-striped">
-                    </thead>
-                    <tbody style="font-size: small;">
-                      <tr class="table-active">
-                        <th>Tipe Dokumen</th>
-                        <td>Peraturan Perundang-undangan</td>
-                      </tr>
-                      <tr>
-                        <th>T.E.U.</th>
-                        <td>Indonesia, Pemkab Deli Serdang</td>
-                      </tr>
-                      <tr>
-                        <th>Nomor</th>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <th>Bentuk</th>
-                        <td>Peraturan Bupati Deli Serdang</td>
-                      </tr>
-                      <tr>
-                        <th>Bentuk Singkat</th>
-                        <td>Perbup</td>
-                      </tr>
-                      <tr>
-                        <th>Tahun</th>
-                        <td>2023</td>
-                      </tr>
-                      <tr>
-                        <th>Tempat Penetapan</th>
-                        <td>Lubuk Pakam</td>
-                      </tr>
-                      <tr>
-                        <th>Tanggal Penetapan</th>
-                        <td>17 Nopember 2023</td>
-                      </tr>
-                      <tr>
-                        <th>Tanggal Berlaku</th>
-                        <td>17 Nopember 2023</td>
-                      </tr>
-                      <tr>
-                        <th>Sumber</th>
-                        <td>LN.2020/No.262, TLN No. 6580, LL: 10 hlm</td>
-                      </tr>
-                      <tr>
-                        <th>Subjek</th>
-                        <td>
-                          <ul>
-                            <li>
-                              Administrasi dan Tata Usaha Negara
-                            </li>
-                            <li>
-                              Telekomunikasi, Informatika, dan Internet
-                            </li>
-                          </ul>
-                        </td>                              
-                      </tr>
-                      <tr>
-                        <th>Status</th>
-                        <td>Berlaku</td>
-                      </tr>
-                      <tr>
-                        <th>Bahasa</th>
-                        <td>Indonesia</td>
-                      </tr>
-                      <tr>
-                        <th>Lokasi</th>
-                        <td>Kabupaten Deli Serdang</td>
-                      </tr>
-                      <tr>
-                        <th>Bidang</th>
-                        <td>-</td>
-                      </tr>
-                    </tbody>                
-                  </table>
-              </p>
-              
-            </div>
-          </div>
-          <!-- Metadata end -->
-        </div>
-        
-        
-        <!-- Kolom kiri end -->
-
-        <!-- Kolom kanan start -->
-        <div class="col-md-6 my-2">
-          <!-- Card file peraturan start -->
-          <div class="card border-0 shadow-sm mb-2">
-            <h5 class="card-header text-center border-0 text-bg-danger p-3"><i class="bi bi-file-earmark-pdf-fill"></i> File-File Peraturan</h5>
-            <div class="card-body">
-              <p class="card-text">
-                <small>Perbup_1_2018</small>
-              </p>
+              <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-bookmark-fill"></i> Materi Pokok Peraturan</h5>
+              <div class="card-body">
+                <p class="card-text">
+                  <small>Peraturan Bupati ini mengatur mengenai pengelolaan Sistem Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dan pengelolaan Informasi Elektronik dan Dokumen Elektronik. Penyelenggaraan Sistem Elektronik di
+                  lingkungan Pemerintah Kabupaten Deli Serdang dilaksanakan secara andal, aman, dan dapat dipertanggungjawabkan sesuai dengan ketentuan peraturan perundang-undangan.
+                </small></p>
+                <!-- Button trigger modal -->
                 <div class="text-end">
-                  <a href="perbup/2023_Peraturan_Bupati_01.pdf"  target="_blank" class="btn btn-sm btn-danger text-end"><i class="bi bi-cloud-download"></i> Unduh</button></a>
+                  <button type="button" class="btn btn-sm btn-jdih" data-bs-toggle="modal" data-bs-target="#exampleModal1">Abstrak</button>
                 </div>
-            </div>
-          </div>
-          <!-- Card file peraturan end -->
-          <!-- Card Status Peraturan start -->
-          <div class="card border-0 shadow-sm mb-2">
-            <h5 class="card-header text-center border-0 text-bg-danger p-3"><i class="bi bi-info-square-fill"></i> Status Peraturan</h5>
-            <div class="card-body">
-              <p class="card-text">
-                <small>belum tersedia</small>
-              </p>
-            </div>
-          </div>
-          <!-- Card Status Peraturan end -->
-                    <!-- Uji Materi MK start -->
-                    <div class="card border-0 shadow-sm mb-2">
-                      <h5 class="card-header text-center border-0 text-bg-danger p-3"><i class="bi bi-info-square-fill"></i> Uji Materi Mahkamah Konstitusi</h5>
-                      <div class="card-body">
-                        <p class="card-text">
-                          <small>belum tersedia</small>
-                        </p>
+                <!-- Button trigger modal -->
+  
+                <!-- Modal start -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered container">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-6" id="exampleModalLabel1">Abstrak Peraturan</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <small>
+                          <p>Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</p>
+                          <p>60 halaman</p>
+                          <div class="row">
+                            <div class="col-2">
+                              <p>Abstrak</p>
+                            </div>
+                            <div class="col-10">
+                              <ul>
+                                <li>
+                                  Untuk mendukung tugas dan wewenang untuk pengelolaan sistem elektronik, informasi elektronik, dan dokumen elektronik di lingkungan BPK, perlu menetapkan Peraturan Bupati Deli Serdang tentang Pengelolaan
+                                  Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang.
+                                </li>
+                                <li>
+                                  Dasar hukum Peraturan Bupati ini adalah UU Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik sebagaimana telah diubah dengan UU Nomor 19 Tahun 2016; PP Nomor 71 Tahun 2019 tentang Penyelenggaraan
+                                  Sistem dan Transaksi Elektronik.
+                                </li>
+                                <li>
+                                  Peraturan Bupati ini mengatur mengenai pengelolaan Sistem Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dan pengelolaan Informasi Elektronik dan Dokumen Elektronik. Penyelenggaraan Sistem
+                                  Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dilaksanakan secara andal, aman, dan dapat dipertanggungjawabkan sesuai dengan ketentuan peraturan perundang-undangan.
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-2">
+                              <p>Catatan</p>
+                            </div>
+                            <div class="col-10">
+                              <ul>
+                                <li>Peraturan Bupati Deli Serdang ini mulai berlaku pada tanggal 24 November 2023.</li>
+                                <li>Penjelasan 5 hlm.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </small>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-jdih" data-bs-dismiss="modal">Tutup</button>
                       </div>
                     </div>
-                    <!-- Uji Materi MK end -->
-                    <!-- Kolom kanan end -->
                   </div>
-      </div>
-    </div>
+                </div>
+                <!-- Modal end -->
+              </div>
+            </div>
+            <!-- Materi pokok end -->
 
-    <!-- Footer Start -->
-    <footer class="bd-footer py-4 bg-body-tertiary shadow-lg rounded-top-4">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <p class="text-center">Hak Cipta © 2023<br />Pemerintah Kabupaten Deli Serdang</p>
+        <!-- Metadata start -->
+        <div class="card border-0 shadow-sm mb-2">
+          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-bookmark-fill"></i> Metadata Peraturan</h5>
+          <div class="card-body">
+            <p class="card-text">
+                <table class="table table-striped">
+                  </thead>
+                  <tbody style="font-size: small;">
+                    <tr class="table-active">
+                      <th>Tipe Dokumen</th>
+                      <td>Peraturan Perundang-undangan</td>
+                    </tr>
+                    <tr>
+                      <th>T.E.U.</th>
+                      <td>Indonesia, Pemkab Deli Serdang</td>
+                    </tr>
+                    <tr>
+                      <th>Nomor</th>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <th>Bentuk</th>
+                      <td>Peraturan Bupati Deli Serdang</td>
+                    </tr>
+                    <tr>
+                      <th>Bentuk Singkat</th>
+                      <td>Perbup</td>
+                    </tr>
+                    <tr>
+                      <th>Tahun</th>
+                      <td>2023</td>
+                    </tr>
+                    <tr>
+                      <th>Tempat Penetapan</th>
+                      <td>Lubuk Pakam</td>
+                    </tr>
+                    <tr>
+                      <th>Tanggal Penetapan</th>
+                      <td>17 Nopember 2023</td>
+                    </tr>
+                    <tr>
+                      <th>Tanggal Berlaku</th>
+                      <td>17 Nopember 2023</td>
+                    </tr>
+                    <tr>
+                      <th>Sumber</th>
+                      <td>LN.2020/No.262, TLN No. 6580, LL: 10 hlm</td>
+                    </tr>
+                    <tr>
+                      <th>Subjek</th>
+                      <td>
+                        <ul>
+                          <li>
+                            Administrasi dan Tata Usaha Negara
+                          </li>
+                          <li>
+                            Telekomunikasi, Informatika, dan Internet
+                          </li>
+                        </ul>
+                      </td>                              
+                    </tr>
+                    <tr>
+                      <th>Status</th>
+                      <td>Berlaku</td>
+                    </tr>
+                    <tr>
+                      <th>Bahasa</th>
+                      <td>Indonesia</td>
+                    </tr>
+                    <tr>
+                      <th>Lokasi</th>
+                      <td>Kabupaten Deli Serdang</td>
+                    </tr>
+                    <tr>
+                      <th>Bidang</th>
+                      <td>-</td>
+                    </tr>
+                  </tbody>                
+                </table>
+            </p>
+            
           </div>
         </div>
+        <!-- Metadata end -->
       </div>
-    </footer>
-    <!-- Footer End -->
+      
+      
+      <!-- Kolom kiri end -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
+      <!-- Kolom kanan start -->
+      <div class="col-md-6 my-2">
+        <!-- Card file peraturan start -->
+        <div class="card border-0 shadow-sm mb-2">
+          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-file-earmark-pdf-fill"></i> File-File Peraturan</h5>
+          <div class="card-body">
+            <p class="card-text">
+              <small>Perbup_1_2018</small>
+            </p>
+              <div class="text-end">
+                <a href="perbup/2023_Peraturan_Bupati_01.pdf"  target="_blank" class="btn btn-sm btn-jdih text-end"><i class="bi bi-cloud-download"></i> Unduh</button></a>
+              </div>
+          </div>
+        </div>
+        <!-- Card file peraturan end -->
+        <!-- Card Status Peraturan start -->
+        <div class="card border-0 shadow-sm mb-2">
+          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-info-square-fill"></i> Status Peraturan</h5>
+          <div class="card-body">
+            <p class="card-text">
+              <small>belum tersedia</small>
+            </p>
+          </div>
+        </div>
+        <!-- Card Status Peraturan end -->
+                  <!-- Uji Materi MK start -->
+                  <div class="card border-0 shadow-sm mb-2">
+                    <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-info-square-fill"></i> Uji Materi Mahkamah Konstitusi</h5>
+                    <div class="card-body">
+                      <p class="card-text">
+                        <small>belum tersedia</small>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Uji Materi MK end -->
+                  <!-- Kolom kanan end -->
+                </div>
+    </div>
+  </div>
+
+  <!-- Footer Start -->
+  <footer class="bg-jdih pt-5 pb-5">
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-md-6 text-center mb-4">
+          <h5 class="text-start text-light">Link terkait</h5>
+          <table class="">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
+                <td><a href="https://jdihn.go.id/" target="_blank" class="text-light text-decoration-none">JDIH Nasional</a></td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></td>
+                <td><a href="https://portal.deliserdangkab.go.id" target="_blank" class="text-light text-decoration-none">Situs Resmi Pemkab Deli Serdang</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 text-center">
+          <h5 class="text-start text-light">Kontak kami</h5>
+          <hr class="m-0 mb-1">
+          <table class="container">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
+                <td>Jl. Negara No. 1, Kel. Petapahan,<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20517</td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></td>
+                <td><a href="mailto:baghukum.deliserdangkab.go.id" class="text-light text-decoration-none">baghukum@deliserdangkab.go.id</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/script.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>

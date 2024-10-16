@@ -18,42 +18,43 @@
 </head>
 
 <body>
+  <!-- Slider text start -->
+  <marquee class="bg-jdih" behavior="" direction="">
+    <div class="">
+      <div class="text-slider text-warning">
+        Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi dan telah diklasifikasikan berdasarkan jenis, tema, tahun, maupun asal produk hukum.<i class="bi bi-dot mx-1"></i>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis dan tanpa syarat.<i class="bi bi-dot mx-1"></i>
+      </div>
+    </div>
+  </marquee>
+  <!-- Slider text end -->
+
   <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg d-none d-lg-block bg-transparent">
+  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="#"><img
+      <a class="navbar-brand fw-semibold text-jdih" href="#"><img
           src="img/logo_jdih.png" alt=""
           style="height: 30px" />JDIH</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-light"></span>
-      </button>
-      
+      </button>      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="jenis.html">Profil</a>
+            <a class="nav-link active" href="#"><i class="bi bi-house me-1"></i>Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="subjek.html">Subjek</a>
+            <a class="nav-link" href="profil.html"><i class="bi bi-person-badge me-1"></i>Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="jenis.html">Jenis</a>
+            <a class="nav-link" href="bantuan-hukum.html"><i class="bi bi-info-circle me-1"></i>Bantuan Hukum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tahun.html">Tahun</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="glosarium.html">Glosarium</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tematik.html">Tematik</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://jdihn.go.id/" target="_blank" rel="noopener noreferrer">JDIHN</a>
+            <a class="nav-link" href="https://jdihn.go.id/" target="_blank"><i class="bi bi-globe2 me-1"></i>JDIHN</a>
           </li>
         </ul>
       </div>
+      <a href="login.html" class="btn btn-jdih"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a>
     </div>
   </nav>
   <!-- Navbar End -->
@@ -61,53 +62,37 @@
   <!-- Navbar Bottom Start -->
   <nav class="navbar navbar-mobile fixed-bottom d-lg-none">
     <div class="container">
-      <div class="menu-bar card border-0 shadow-sm pt-2 w-100">
+      <div class="menu-bar card border-0 shadow-sm pt-2 pe-4 w-100">
         <ul class="menu-list text-center d-flex justify-content-around align-content-center">
           <li class="menu-icon">
-            <a href="index.html">
+            <a href="#">
               <div class="card bg-transparent border-0">
-                <i class="bi bi-grid fs-3"></i>
-                <label for="">Home</label>
+                <i class="bi bi-house fs-3"></i>
+                <label for="">Beranda</label>
               </div>
             </a>
           </li>
           <li class="menu-icon">
-            <a href="subjek.html">
+            <a href="terbaru.html">
               <div class="card bg-transparent border-0">
-                <i class="bi bi-grid fs-3"></i>
-                <label for="">Subjek</label>
+                <i class="bi bi-journal-arrow-up fs-3"></i>
+                <label for="">Terbaru</label>
               </div>
             </a>
           </li>
           <li class="menu-icon">
-            <a href="jenis.html">
+            <a href="https://jdihn.go.id/">
               <div class="card bg-transparent border-0">
-                <i class="bi bi-grid fs-3"></i>
-                <label for="">Jenis</label>
+                <i class="bi bi-globe2 fs-3"></i>
+                <label for="">JDIHN</label>
               </div>
             </a>
           </li>
           <li class="menu-icon">
-            <a href="tahun.html">
+            <a href="">
               <div class="card bg-transparent border-0">
-                <i class="bi bi-grid fs-3"></i>
-                <label for="">Tahun</label>
-              </div>
-            </a>
-          </li>
-          <li class="menu-icon">
-            <a href="glosarium.html">
-              <div class="card bg-transparent border-0">
-                <i class="bi bi-grid fs-3"></i>
-                <label for="">Glosarium</label>
-              </div>
-            </a>
-          </li>
-          <li class="menu-icon">
-            <a href="tematik.html">
-              <div class="card bg-transparent border-0">
-                <i class="bi bi-grid fs-3"></i>
-                <label for="">Tematik</label>
+                <i class="bi bi-three-dots fs-3"></i>
+                <label for="">Lainnya</label>
               </div>
             </a>
           </li>
@@ -382,9 +367,8 @@
   <!-- Card Peraturan start -->
 
   <!-- Standar Layanan Start -->
-  <div class="container-fluid bg-jdih d-flex justify-content-center align-items-center mt-5">
+  <!-- <div class="container-fluid bg-jdih d-flex justify-content-center align-items-center mt-5">
     <div class="container row p-3 mx-0">
-      <!-- Left Box -->
       <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column">
         <div class="featured-image mb-3">
           <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png"
@@ -392,7 +376,6 @@
           <p class="text-center">Standar Layanan<br />JDIH Pemkab Deli Serdang</p>
         </div>
       </div>
-      <!-- Right Box -->
       <div class="col-md-6">
         <div class="row align-items-center">
           <div class="row-col-1">
@@ -423,7 +406,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- Standar Layanan End -->
 
   <!-- Statistik Web dan Survei Start -->
@@ -465,8 +448,8 @@
   <!-- Statistik Web dan Survei End -->
 
   <!-- Footer Start -->
-  <footer class="bg-jdih pt-4">
-    <div class="container">
+  <footer class="bg-jdih pt-5 pb-5">
+    <div class="container pb-5">
       <div class="row">
         <div class="col-md-6 text-center mb-4">
           <h5 class="text-start text-light">Link terkait</h5>
