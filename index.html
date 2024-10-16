@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
 
 <body>
   <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-body-secondary">
+  <nav class="navbar navbar-expand-lg bg-transparent">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="#"><img
           src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" alt=""
@@ -58,24 +58,26 @@
   </nav>
   <!-- Navbar End -->
 
-  <!-- Keterangan Title -->
-  <div class="title-jdih mt-5 text-center">
+  <!-- Keterangan Title Start -->
+  <div class="title-jdih mt-4 text-center">
     <img src="img/logo_jdih.png" style="width: 100px;" alt="">
-    <h4 class="mt-3 mb-4">Pemerintah Kabupaten Deli Serdang</h4>
+    <h5 class="mt-3">Jaringan Dokumentasi Informasi Hukum</h5>
+    <h4 class="mb-4">Pemerintah Kabupaten Deli Serdang</h4>
   </div>
+  <!-- Keterangan Title End -->
 
   <!-- Card Pencarian Start -->
-  <div class="row mb-2 mt-2 p-4">
-    <div class="col">
-      <div class="card container bg-jdih rounded-4 p-3 border-0 shadow-ms">
+  <div class="container">
+    <div class="row card my-3 mx-2 py-3 px-2 rounded-4 border-0 bg-jdih">
+      <div class="col">
         <!-- Pencarian Start -->
         <form method="get" id="searchForm" class="mb-0" action="">
           <div class="row g-4">
               <div class="col-md-8 col-sm-12">
                   <div class="position-relative">
-                      <div class="position-absolute translate-middle-y top-50 start-0 mx-6">
+                      <div class="position-absolute translate-middle-y top-50 start-0 mx-4">
                       </div>
-                      <input type="text" class="form-control form-control-solid ps-14"
+                      <input type="text" class="form-control ps-14"
                             name="keywords" value="" placeholder="Klik tombol Detil untuk pencarian tingkat lanjut" id="input-keywords" />
                   </div>
               </div>
@@ -91,32 +93,32 @@
           <!--begin::Detil form-->
           <div class="collapse mt-2" id="cari-detil-form">
               <!--begin::Separator-->
-              <div class="separator separator-dashed mt-9 mb-6"></div>
+              <div class="mt-5 mb-4"></div>
               <!--end::Separator-->
               <!--begin::Row-->
-              <div class="row g-8 mb-8">
+              <div class="row g-5 mb-5">
                   <!--begin::Col-->
                   <div class="col-xxl-6 mt-2">
                       <label class="fs-6 form-label">Tentang</label>
-                      <input type="text" class="form-control form-control-solid"
+                      <input type="text" class="form-control"
                             name="tentang" value="" placeholder="Tentang Peraturan" />
                   </div>
                   <!--end::Col-->
                   <!--begin::Col-->
                   <div class="col-xxl-6 mt-2">
                       <label class="fs-6 form-label">Nomor</label>
-                      <input type="text" class="form-control form-control-solid"
+                      <input type="text" class="form-control"
                             name="nomor" value="" placeholder="Nomor Peraturan" />
                   </div>
                   <!--end::Col-->
               </div>
               <!--end::Row-->
               <!--begin::Row-->
-              <div class="row g-8 mb-8">
+              <div class="row g-5 mb-5">
                   <!--begin::Col-->
                   <div class="col-xxl-6 mt-2">
                       <label class="fs-6 form-label">Tahun</label>
-                      <select class="form-select form-select-solid" name="tahun" data-control="select2" data-placeholder="Tahun Peraturan" data-hide-search="true" aria-label="Default select example">
+                      <select class="form-select" name="tahun" data-control="select2" data-placeholder="Tahun Peraturan" data-hide-search="true" aria-label="Default select example">
                         <option value="">Pilih</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
@@ -130,7 +132,7 @@
                   <div class="col-xxl-6 mt-2">
                       <label class="fs-6 form-label">Entitas</label>
                       <!--begin::Select-->
-                      <select class="form-select form-select-solid" name="entitas" data-control="select2" data-placeholder="Nama Entitas" data-hide-search="true" aria-label="Default select example">
+                      <select class="form-select" name="entitas" data-control="select2" data-placeholder="Nama Entitas" data-hide-search="true" aria-label="Default select example">
                           <option value="">Pilih</option>
                           <option value="1">Badan Keuangan dan Aset Daerah</option>
                           <option value="2">Inspektorat</option>
@@ -142,11 +144,11 @@
               </div>
               <!--end::Row-->
               <!--begin::Row-->
-              <div class="row g-8 mb-8">
+              <div class="row g-5 mb-5">
                   <!--begin::Col-->
                   <div class="col-xxl-6 mt-2">
                       <label class="fs-6 form-label">Jenis</label>
-                      <select class="form-select form-select-solid" name="jenis" data-control="select2" data-placeholder="Jenis Peraturan" data-hide-search="true" aria-label="Default select example">
+                      <select class="form-select" name="jenis" data-control="select2" data-placeholder="Jenis Peraturan" data-hide-search="true" aria-label="Default select example">
                           <option value="">Pilih</option>
                           <option value="1">Peraturan Daerah (Perda)</option>
                           <option value="2">Peraturan Bupati (Perbup)</option>
@@ -160,7 +162,7 @@
                   <div class="col-xxl-6 mt-2">
                       <label class="fs-6 form-label">Tag</label>
                       <!--begin::Select-->
-                      <select class="form-select form-select-solid" name="tag" data-control="select2" data-placeholder="Tag Peraturan" data-hide-search="true" aria-label="Default select example">
+                      <select class="form-select" name="tag" data-control="select2" data-placeholder="Tag Peraturan" data-hide-search="true" aria-label="Default select example">
                           <option value="">Pilih</option>
                           <option value="1">Administrasi dan Tata Usaha Negara</option>
                           <option value="2">Agraria, Pertanahan, Tata Ruang</option>
@@ -174,7 +176,7 @@
               <!--end::Row-->
           </div>
           <!--end::Detil form-->
-      </form>
+        </form>
         <!-- Pencarian End -->
       </div>
     </div>
@@ -182,186 +184,147 @@
   <!-- Card Pencarian End -->
 
   <!-- Card Dokumen Hukum Start -->
-  <div class="row mb-2 mt-2 p-4">
-  <div class="col">
-    <div class="card container rounded-4 p-3 border-0 shadow-ms">
-      <h4 class="text-center text-uppercase fw-semibold mb-4">Dokumen Hukum</h4>
-      <!-- Menu Card Icon Start -->
-      <div class="d-flex justify-content-around align-items-center">
-          <!-- Icon 1 Start -->
-          <a href="#" class="card border-0" style="width: 150px; height: 150px;">
-            <h1 class="text-center mb-0">
-              <img src="img/scale_balance.gif" style="width: 50%;" alt="">
-            </h1>
-            <h2 class="text-center mb-0">135</h2>
-            <p class="text-center">Perundang-undangan</p>
-          </a>
-          <!-- Icon 1 End -->
-          <!-- Icon 2 Start -->
-          <a href="#" class="card border-0" style="width: 150px; height: 150px;">
-            <h1 class="text-center mb-0">
-              <img src="img/law-book.gif" style="width: 50%;" alt="">
-            </h1>
-            <h2 class="text-center mb-0">76</h2>
-            <p class="text-center">Monografi Hukum</p>
-          </a>
-          <!-- Icon 2 End -->
-          <!-- Icon 3 Start -->
-          <a href="#" class="card border-0" style="width: 150px; height: 150px;">
-            <h1 class="text-center mb-0">
-              <img src="img/folder.gif" style="width: 50%;" alt="">
-            </h1>
-            <h2 class="text-center mb-0">27</h2>
-            <p class="text-center">Artikel Hukum</p>
-          </a>
-          <!-- Icon 3 End -->
-          <!-- Icon 4 Start -->
-          <a href="#" class="card border-0" style="width: 150px; height: 150px;">
-            <h1 class="text-center mb-0">
-              <img src="img/gavel.gif" style="width: 50%;" alt="">
-            </h1>
-            <h2 class="text-center mb-0">6</h2>
-            <p class="text-center">Putusan/ <br>Yurisprudensi</p>
-          </a>
-          <!-- Icon 4 End -->
-        </div>
-      <!-- Menu Card Icon End -->
+  <div class="container mt-5">
+    <div class="row card my-3 mx-2 py-3 px-2 rounded-4 border-0">
+      <div class="col">
+        <h4 class="text-center text-uppercase fw-semibold mb-4">Dokumen Hukum</h4>
+        <!-- Menu Card Icon Start -->
+        <div class="d-flex justify-content-around align-items-center">
+            <!-- Icon 1 Start -->
+            <a href="#" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="img/scale_balance.gif" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">135</h2>
+              <p class="text-center">Perundang-undangan</p>
+            </a>
+            <!-- Icon 1 End -->
+            <!-- Icon 2 Start -->
+            <a href="#" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="img/law-book.gif" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">76</h2>
+              <p class="text-center">Monografi Hukum</p>
+            </a>
+            <!-- Icon 2 End -->
+            <!-- Icon 3 Start -->
+            <a href="#" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="img/folder.gif" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">27</h2>
+              <p class="text-center">Artikel Hukum</p>
+            </a>
+            <!-- Icon 3 End -->
+            <!-- Icon 4 Start -->
+            <a href="#" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="img/gavel.gif" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">6</h2>
+              <p class="text-center">Putusan/ <br>Yurisprudensi</p>
+            </a>
+            <!-- Icon 4 End -->
+          </div>
+        <!-- Menu Card Icon End -->
+      </div>
     </div>
-  </div>
   </div>
   <!-- Card Dokumen Hukum End -->
 
   <!-- Card Peraturan start -->
-  <div class="row mb-2 mt-2 p-4">
-    <div class="col">
-      <div class="card container rounded-4 p-3 border-0 shadow-ms">
+  <div class="container mt-5">
+    <div class="row card my-3 mx-2 py-3 px-2 rounded-4 border-0">
+      <div class="col">
         <!-- Card body start -->
-        <div class="card my-2 border-0 shadow-sm">
-          <div class="card-body d-flex rounded-2">
-            <div class="me-6 flex-shrink-0 d-none d-sm-block">
-              <i class="bi bi-book me-2 fs-5"></i>
-            </div>
-            <div class="flex-grow-1">
-              <a href="perbup.html" class="text-decoration-none text-dark">
-                <h5>Peraturan Daerah</h5>
-              </a>
-              <p>Berisi kumpulan Peraturan Daerah Kabupaten Deli Serdang</p>
-              <small><a href="perbup.html" class="text-decoration-none text-dark">Lihat peraturan <i
-                    class="bi bi-box-arrow-up-right"></i></a>
-              </small>
+        <a href="perda.html">
+          <div class="card bg-danger-subtle mt-2 mb-4 border-0 shadow-sm">
+            <div class="card-body d-flex rounded-2">
+              <div class="me-2 flex-shrink-0 d-none d-sm-block">
+                <i class="bi bi-book me-2 fs-5"></i>
+              </div>
+              <div class="flex-grow-1">
+                <div class="text-decoration-none">
+                  <h5>Peraturan Daerah</h5>
+                </div>
+                <p>Berisi kumpulan Peraturan Daerah Kabupaten Deli Serdang</p>
+                <small class="text-decoration-none">Lihat peraturan 
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </small>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
         <!-- Card body end -->
         <!-- Card body start -->
-        <div class="card my-2 border-0 shadow-sm">
-          <div class="card-body p-6 d-flex">
-            <div class="me-6 flex-shrink-0 d-none d-sm-block">
-              <i class="bi bi-book me-2 fs-5"></i>
-            </div>
-            <div class="flex-grow-1">
-              <a href="" class="text-decoration-none text-dark">
-                <h5>Peraturan Bupati</h5>
-              </a>
-              <p>Berisi kumpulan Peraturan Bupati Deli Serdang</p>
-              <small><a href="" class="text-decoration-none text-dark">Lihat peraturan <i
-                    class="bi bi-box-arrow-up-right"></i></a>
-              </small>
+        <a href="perbup.html">
+          <div class="card bg-warning-subtle mt-2 mb-4 border-0 shadow-sm">
+            <div class="card-body d-flex rounded-2">
+              <div class="me-2 flex-shrink-0 d-none d-sm-block">
+                <i class="bi bi-book me-2 fs-5"></i>
+              </div>
+              <div class="flex-grow-1">
+                <div class="text-decoration-none">
+                  <h5>Peraturan Bupati</h5>
+                </div>
+                <p>Berisi kumpulan Peraturan Bupati Deli Serdang</p>
+                <small class="text-decoration-none">Lihat peraturan 
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </small>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
         <!-- Card body end -->
         <!-- Card body start -->
-        <div class="card my-2 border-0 shadow-sm">
-          <div class="card-body p-6 d-flex">
-            <div class="me-6 flex-shrink-0 d-none d-sm-block">
-              <i class="bi bi-book me-2 fs-5"></i>
-            </div>
-            <div class="flex-grow-1">
-              <a href="" class="text-decoration-none text-dark">
-                <h5>Surat Keputusan</h5>
-              </a>
-              <p>Berisi kumpulan Surat Keputusan</p>
-              <small><a href="" class="text-decoration-none text-dark">Lihat peraturan <i
-                    class="bi bi-box-arrow-up-right"></i></a>
-              </small>
+        <a href="keputusan.html">
+          <div class="card bg-primary-subtle mt-2 mb-4 border-0 shadow-sm">
+            <div class="card-body d-flex rounded-2">
+              <div class="me-2 flex-shrink-0 d-none d-sm-block">
+                <i class="bi bi-book me-2 fs-5"></i>
+              </div>
+              <div class="flex-grow-1">
+                <div class="text-decoration-none">
+                  <h5>Surat Keputusan</h5>
+                </div>
+                <p>Berisi kumpulan Surat Keputusan</p>
+                <small class="text-decoration-none">Lihat peraturan 
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </small>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
         <!-- Card body end -->
         <!-- Card body start -->
-        <div class="card my-2 border-0 shadow-sm">
-          <div class="card-body p-6 d-flex">
-            <div class="me-6 flex-shrink-0 d-none d-sm-block">
-              <i class="bi bi-cloud-arrow-up me-2 fs-5"></i>
-            </div>
-            <div class="flex-grow-1">
-              <a href="" class="text-decoration-none text-dark">
-                <h5>Peraturan Terbaru</h5>
-              </a>
-              <p>Berisi kumpulan Peraturan terbaru</p>
-              <small><a href="" class="text-decoration-none text-dark">Lihat peraturan <i
-                    class="bi bi-box-arrow-up-right"></i></a>
-              </small>
+        <a href="terbaru.html">
+          <div class="card bg-success-subtle my-2 border-0 shadow-sm">
+            <div class="card-body d-flex rounded-2">
+              <div class="me-2 flex-shrink-0 d-none d-sm-block">
+                <i class="bi bi-cloud-arrow-up me-2 fs-5"></i>
+              </div>
+              <div class="flex-grow-1">
+                <div class="text-decoration-none">
+                  <h5>Peraturan Terbaru</h5>
+                </div>
+                <p>Berisi kumpulan Peraturan Terbaru</p>
+                <small class="text-decoration-none">Lihat peraturan 
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </small>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
         <!-- Card body end -->
       </div>
     </div>
   </div>
-  <!-- Card Peraturan end -->
-
-  <!-- Berita JDIH Start -->
-  <!-- <div class="row p-4">
-    <div class="col">
-      <div class="container rounded-4 p-3 border-0 shadow-ms">
-        <marquee behavior="" direction="">
-          <a href="#" class="m-1">
-            <div class="card border-0 shadow" style="width: 18rem;">
-              <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1728269157.JPG" class="card-img-top img-fluid" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sosialisasi Aplikasi JDIH</h5>
-                <p class="card-text">Bagian Hukum Setdakab Deli Serdang</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="m-1">
-            <div class="card border-0 shadow" style="width: 18rem;">
-              <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1728269157.JPG" class="card-img-top img-fluid" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sosialisasi Aplikasi JDIH</h5>
-                <p class="card-text">Bagian Hukum Setdakab Deli Serdang</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="m-1">
-            <div class="card border-0 shadow" style="width: 18rem;">
-              <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1728269157.JPG" class="card-img-top img-fluid" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sosialisasi Aplikasi JDIH</h5>
-                <p class="card-text">Bagian Hukum Setdakab Deli Serdang</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="m-1">
-            <div class="card border-0 shadow" style="width: 18rem;">
-              <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1728269157.JPG" class="card-img-top img-fluid" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Sosialisasi Aplikasi JDIH</h5>
-                <p class="card-text">Bagian Hukum Setdakab Deli Serdang</p>
-              </div>
-            </div>
-          </a>
-        </marquee>    
-      </div>
-    </div>
-  </div> -->
-  <!-- Berita JDIH End -->
+  <!-- Card Peraturan start -->
 
   <!-- Standar Layanan Start -->
-  <div class="container d-flex justify-content-center align-items-center">
-    <div class="row border-0 rounded-4 p-3 mx-0 mb-4 bg-white">
+  <div class="container-fluid bg-jdih d-flex justify-content-center align-items-center mt-5">
+    <div class="container row p-3 mx-0">
       <!-- Left Box -->
       <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column">
         <div class="featured-image mb-3">
@@ -404,62 +367,50 @@
   </div>
   <!-- Standar Layanan End -->
 
-  <!-- Statistik WEB start -->
-  <div class="container mb-4 align-items-center">
-    <div class="card border-0 rounded-4 ">
-      <p class="text-center mt-5 fs-4 ">STATISTIK WEB</p>
-      <p class="text-center">Update terakhir pada 10 September 2024 09.00</p>
-      <div class="card-body mb-4">
-        <div class="row">
-          <!-- Card dalam pertama -->
-          <div class="col-md-4">
-            <div class="card border-0 text-center">
-              <i class="bi bi-person-video3 display-1 text-center"></i>
-              <div class="card-body ">
-                <h5 class="card-title">81,37 ribu</h5>
-                <p class="card-text fw-light">300 Pengunjung</p>
-              </div>
-            </div>
-          </div>
-          <!-- Card dalam kedua -->
-          <div class="col-md-4">
-            <div class="card border-0 text-center">
-              <i class="bi bi-person-video2 display-1 text-center"></i>
-              <div class="card-body">
-                <h5 class="card-title">2,58 juta</h5>
-                <p class="card-text fw-light ">300 Pengunjung</p>
-              </div>
-            </div>
-          </div>
-          <!-- Card dalam ketiga -->
-          <div class="col-md-4">
-            <div class="card border-0 text-center">
-              <i class="bi bi-people-fill display-1 text-center"></i>
-              <div class="card-body">
-                <h5 class="card-title">27,81 juta</h5>
-                <p class="card-text fw-light">300 Pengunjung</p>
-              </div>
-            </div>
-          </div><!-- Statistik WEB start -->
+  <!-- Statistik Web dan Survei Start -->
+  <div class="container-fluid bg-transparent mt-3 mb-4 py-4">
+    <h5 class="text-center text-uppercase text-primary-emphasis"><i class="bi bi-clipboard2-pulse me-1"></i>Statistik Pengunjung</h5>
+    <div class="d-flex justify-content-around px-4 gap-2">
+      <!-- Card start -->
+      <div class="card rounded-4 bg-transparent border-0 text-center" style="width: 150px;">
+        <i class="bi bi-person-video3 display-1 text-primary-emphasis text-center"></i>
+        <div class="card-body">
+          <h5 class="card-title text-primary-emphasis">80</h5>
+          <p class="card-text text-primary-emphasis">hari ini</p>
         </div>
       </div>
-      <p class="text-center mb-3 text-danger"><small>* Dalam 7 hari terakhir rata-rata jumlah pengunjung harian sebanyak
-          91,46 ribu.</small></p>
+      <!-- Card start -->
+      <!-- Card start -->
+      <div class="card rounded-4 bg-transparent border-0 text-center" style="width: 150px;">
+        <i class="bi bi-person-video display-1 text-primary-emphasis text-center"></i>
+        <div class="card-body">
+          <h5 class="card-title text-primary-emphasis">362</h5>
+          <p class="card-text text-primary-emphasis">7 hari terakhir</p>
+        </div>
+      </div>
+      <!-- Card start -->
+      <!-- Card start -->
+      <div class="card rounded-4 bg-transparent border-0 text-center" style="width: 150px;">
+        <i class="bi bi-person-video2 display-1 text-primary-emphasis text-center"></i>
+        <div class="card-body">
+          <h5 class="card-title text-primary-emphasis">1254</h5>
+          <p class="card-text text-primary-emphasis">30 hari terakhir</p>
+        </div>
+      </div>
+      <!-- Card start -->
+    </div>
+    <div class="survei text-center mt-4">
+      <a href="#" class="btn btn-jdih"><i class="bi bi-check2-square me-1"></i>Isi Survei</a>
     </div>
   </div>
-  <!-- Statistik WEB end -->
+  <!-- Statistik Web dan Survei End -->
 
   <!-- Footer Start -->
-  <footer class="bd-footer py-4 bg-jdih shadow-lg rounded-top-4">
+  <footer class="bg-jdih pt-4">
     <div class="container">
-      <div class="row mb-4">
-        <div class="col">
-          <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
-        </div>
-      </div>
       <div class="row">
         <div class="col-md-6 text-center mb-4">
-          <h5 class="text-start">Link terkait</h5>
+          <h5 class="text-start text-light">Link terkait</h5>
           <table class="">
             <tbody>
               <tr class="text-start">
@@ -474,13 +425,13 @@
           </table>
         </div>
         <div class="col-md-6 text-center">
-          <h5 class="text-start">Kontak kami</h5>
+          <h5 class="text-start text-light">Kontak kami</h5>
           <hr class="m-0 mb-1">
-          <table class="">
+          <table class="container">
             <tbody>
               <tr class="text-start">
                 <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
-                <td>Jl. Negara No. 1 Petapahan, Kecamatan Lubuk Pakam Kabupaten Deli Serdang, Kode Pos 20517</td>
+                <td>Jl. Negara No. 1, Kel. Petapahan,<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20517</td>
               </tr>
               <tr class="text-start">
                 <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></td>
@@ -488,6 +439,11 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
         </div>
       </div>
     </div>
