@@ -1,41 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Halaman Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;1,100;1,200;1,400;1,500;1,600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Css -->
-    <link rel="stylesheet" href="login.css" />
-  </head>
+<html lang="id" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JDIH | Kab. Deli Serdang</title>
+  <link rel="icon" type="image/x-icon" href="img/logo_jdih.png" />
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Fonts and Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
   <body>
-    <!-- Main Container -->
+    <!-- Main Container Start -->
     <div class="container d-flex justify-content-center align-items-center min-vh-100 kotakUtama">
       <!-- Login Container -->
       <div class="row border rounded-5 p-3 bg-white shadow boxArea">
         <!-- Left Box -->
-        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column leftBox">
+        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
           <div class="featured-image mb-3">
             <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" class="img-fluid gambarLogin d-none d-md-block" alt="gambarLogin" />
           </div>
           <small
-            ><p class="text-center text-white fs-5 leftText">Jaringan Dokumentasi<br />Informasi Hukum</p></small
+            ><p class="text-center text-white fs-5 left-text">Jaringan Dokumentasi<br />Informasi Hukum</p></small
           >
           <small class="text-center text-white text-wrap mb-3">Kabupaten Deli Serdang</small>
         </div>
 
         <!-- Right Box -->
-        <div class="col-md-6 rightBox">
+        <div class="col-md-6 right-box">
           <div class="row align-items-center">
             <div class="header-text mb-4">
               <p class="text-center mt-4">Selamat datang!</p>
@@ -54,26 +52,49 @@
                   <label class="form-check-label" for="checkbox"><small>Ingat saya</small></label>
                 </div>
                 <div class="forgot">
-                  <small><a href="forgot.html">Lupa kata sandi?</a></small>
+                  <small><a href="" data-bs-toggle="modal" data-bs-target="#lupaModal">Lupa kata sandi?</a></small>
                 </div>
               </div>
               <div class="input-group mb-3">
-                <button class="login-btn w-100 fs-6" id="submit" name="submit"><i class="bi bi-box-arrow-in-right me-2"></i>Login</button>
+                <button class="btn btn-jdih w-100 fs-6" id="submit" name="submit"><i class="bi bi-box-arrow-in-right me-2"></i>Login</button>
               </div>
               <div class="input-group mb-3">
-                <button class="logoG w-100 fs-6" id="googleid" name="googleid"><img src="img/GLogo.svg" class="me-2" alt="logoG" /><small>Masuk dengan Google</small></button>
+                <button class="btn btn-secondary w-100 fs-6" id="googleid" name="googleid"><img src="img/GLogo.svg" class="me-2" alt="logoG" /><small>Masuk dengan Google</small></button>
               </div>
             </form>
             <div class="row">
-              <small class="text-center">Tidak punya akun? <a href="register.html" class="text-danger">Daftar</a></small>
+              <small class="text-center">Tidak punya akun? <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#lupaModal">Daftar</a></small>
               <small class="text-end"
-                ><a href="index.html"><i class="bi bi-reply text-secondary fs-4"></i></a
+                ><a href="index.html"><i class="bi bi-house-fill text-jdih fs-4"></i></a
               ></small>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Main Container End -->
+
+    <!-- lainnya Modal start -->
+    <div class="modal modal fade" id="lupaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered container">
+        <div class="modal-content">
+          <p class="m-3">
+            Untuk mereset kata sandi, lupa username, dan mendaftarkan akun unit kerja silahkan hubungi Bagian Hukum Sekretariat Daerah Kabupaten Deli Serdang
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- lainnya Modal end -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="assets/js/script.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

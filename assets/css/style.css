@@ -190,3 +190,40 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 .menu-icon label {
   font-size: clamp(12px, 1vw + 2px, 14px);
 }
+
+.modal-content {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .8) !important;
+  backdrop-filter: blur(5px);
+}
+
+/* Left box */
+.left-box {
+  background: rgb(9,9,121);
+  background: radial-gradient(circle, rgba(9,9,121,1) 35%, rgba(0,9,90,1) 100%);
+  padding: 40px 30px 40px 40px;
+}
+
+.gambarLogin {
+  width: 250px;
+}
+
+.left-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+small {
+  width: 17rem;
+}
+
+/* Right box */
+.logoG {
+  width: 20px;
+}
+
+/* Custom placeholder */
+::placeholder {
+  font-size: 14px;
+  font-style: italic;
+}
