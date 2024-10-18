@@ -1,13 +1,27 @@
-// Theme Toggle Functionality
-const themeToggle = document.getElementById('theme-toggle');
-const htmlElement = document.documentElement;
+// Drop down search
+// var tipeJenisDokumen = {
+//   "Peraturan Perundang-undangan": [
+//     "Peraturan Daerah",
+//     "Peraturan Bupati",
+//     "Surat Keputusan"
+//   ],
+//   "Monografi Hukum": [
+//     "Buku Hukum",
+//     "Naskah Akademik"
+//   ],
+//   "Artikel": [
+//     "Artikel Hukum",
+//     "Kliping Koran"
+//   ],
+//   "Putusan": [
+//     "Putusan"
+//   ]
+// }
 
-themeToggle.addEventListener('click', () => {
-  if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
-    htmlElement.setAttribute('data-bs-theme', 'light');
-    themeToggle.innerHTML = '<i class="bi bi-moon-fill"></i>'; // Change icon to moon
-  } else {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-    themeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>'; // Change icon to sun
-  }
-});
+// window.onload = function() {
+//   const SelectTipe = document.getElementById('tipe'),
+//   selectJenis = document.getElementById('jenis'),
+//   select = document.querySelectorAll('select')
+
+//   selectJenis.disabled = true
+// }

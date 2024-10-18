@@ -100,10 +100,6 @@ a {text-decoration: none;}
 
 ul {list-style: none;}
 
-.peraturans li, p, small, b {
-  text-align: justify;
-}
-
 body {
   background: var(--bs-background-2);
 }
@@ -177,10 +173,20 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 }
 
 .menu-icon {
-  width: 100px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   transition: all 200ms ease;
   border-radius: 20px;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+.menu-icon i {
+  color: var(--bs-utama-gelap);
+}
+
+.menu-icon label {
+  color: var(--bs-utama-gelap);
 }
 
 .menu-icon:hover {
