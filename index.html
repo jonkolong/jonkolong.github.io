@@ -53,42 +53,31 @@
   </nav>
   <!-- Mobile Navbar Bottom end -->
 
-  <!-- lainnya Modal start -->
+  <!-- Login Modal start -->
   <div class="modal modal-sm fade" id="lainnyaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content pt-4">
-        <p class="text-center fw-semibold">Menu Lainnya</p>
-        <ul class="d-flex justify-content-around align-items-center me-4">
-          <li class="icon-card text-center">
-            <a href="profil.html">
-              <div class="icon-set profil card bg-danger-subtle text-danger-emphasis">
-                <i class="icon-logo fa-solid fa-id-badge"></i>
-                <label for="">Profil</label>
-              </div>
-            </a>
-          </li>
-          <li class="icon-card text-center">
-            <a href="bantuanhukum.html">
-              <div class="icon-set bantuan-hukum card bg-primary-subtle text-primary-emphasis">
-                <i class="icon-logo fa-solid fa-scale-balanced"></i>
-                <label for="">Bantuan Hukum</label>
-              </div>
-            </a>
-          </li>
-          <li class="icon-card text-center">
-            <a href="faq.html">
-              <div class="icon-set faq card bg-warning-subtle text-warning-emphasis">
-                <i class="icon-logo fa-solid fa-circle-question"></i>
-                <label for="">FAQ</label>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+        <h4 class="text-center fw-semibold">Halaman Login</h4>
+        <form class="p-3">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Alamat email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Kata sandi</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Ingat saya</label>
+          </div>
+          <button type="submit" class="btn btn-info w-100"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</button>
+        </form>
+        <!-- <a href="login.html" type="button" class="m-3 btn bg-info-subtle"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a> -->
       </div>
     </div>
   </div>
-  <!-- lainnya Modal end -->
+  <!-- Login Modal end -->
 
   <!-- Jam digital start -->
   <div id="app" class="container text-center mt-5">
