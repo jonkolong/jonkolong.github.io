@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+
+  /* color 1 */
+  --bs-kominfo: #012970;
+  --bs-utama: #012970;
+  --bs-utama-gelap: #002769;
+  --bs-utama-terang: #4154f1;
+  --bs-ungu: #717ff5;
+  --bs-kelabu: #444444;
+
+  /* color 2 */
+  --bs-primary: #00425a;
+  --bs-primary-shadow: #022836;
+  --bs-secondary: #fc7300;
+  --bs-third: #dadada;
+  --bs-secondary-shadow: #4c4e50;
+  --bs-light: #fc7300;
+  --bs-light-shadow: #c25700;
+  --bs-background: #f9f9f9;
+  --bs-background-2: #ececec;
+  --bs-backup-primary: #0d6efd;
+  --bs-backup-secondary: #6c757d;
+
+  /* icon bg color */
+  --bs-icon-1: #B7E0FF;
+  --bs-icon-2: #4affba;
+  --bs-icon-3: #ffa67a;
+  --bs-icon-4: #fff36d;
+  --bs-icon-5: #F95454;
+  --bs-icon-6: #7E60BF;
+
+  /* Fonts */
+  --fo-googlesans: "Google Sans", sans-serif;
+  --fo-opensans: "Open Sans", sans-serif;
+  --fo-montserrat: "Monserrat", sans-serif;
+  --fo-livvic: "Livvic", sans-serif;
+  --fo-mons-alternates: "Montserrat Alternates", sans-serif;
+  --fo-poppins: "Poppins", sans-serif;
+  --fo-outfit: "Outfit", sans-serif;
+  --fo-dmsans: "DM Sans", sans-serif;
+  --fo-rubik: "Rubik", sans-serif;
+  --fo-notosans: "Noto Sans", sans-serif;
+  --fo-saira: "Saira", sans-serif;
+  --fo-didact-gothic: "Didact Gothic", sans-serif;
+  --fo-play: "Play", sans-serif;
+  --fo-lexend: "Lexend", sans-serif;
+  --fo-inter: "Inter", sans-serif;
+  --fo-nunito: "Nunito", sans-serif;
+}
+
+.googlesans{font-family:var(--fo-googlesans);}.opensans{font-family:var(--fo-opensans);}.montserrat{font-family:var(--fo-montserrat);}.mons-alternates{font-family:var(--fo-mons-alternates);}.dmsans{font-family:var(--fo-dmsans);}.rubik{font-family:var(--fo-rubik);}.notosans{font-family:var(--fo-notosans);}.saira{font-family:var(--fo-saira);}.didact{font-family:var(--fo-didact-gothic);}.play{font-family:var(--fo-play);}.lexend{font-family:var(--fo-lexend);}.nunito{font-family:var(--fo-nunito);}.poppins{font-family:var(--fo-poppins);}.outfit{font-family:var(--fo-outfit);}.livvic{font-family:var(--fo-livvic);}.inter{font-family:var(--fo-inter);}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--fo-outfit);
+}
+
+.btn {
+  transition: all 200ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  letter-spacing: 2px;
+}
+
+a {text-decoration: none;}
+
+ul {list-style: none;}
+
+body {
+  /* background: var(--bs-background-2); */
+  background-image: url(/assets/img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg);
+  height: 100dvh;  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 200ms ease;
+}
+
+.nav-item .nav-link {
+  border-radius: 5px;
+  transition: all 200ms ease;
+}
+
+nav ul li {
+  margin: 4px;
+  color: var(--bs-utama-gelap);
+}
+
+nav ul li .active {
+  font-weight: 500;
+  color: var(--bs-jdih) !important;
+  background: var(--bs-third);
+  border-radius: 5px;
+  transition: all 200ms ease;
+}
+
+nav ul li a:hover {
+  color: var(--bs-utama-gelap) !important;
+  background: var(--bs-third);
+  border-radius: 5px;
+}
+
+.text-bg-primary {
+  background-color: var(--bs-utama-gelap) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--bs-utama-gelap);
+  transition: all 200ms ease;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  /* transform: translateY(-3px); */
+  letter-spacing: 1px;
+}
+
+.card {
+  transition: all 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.theme-toggle {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+}
+
+/* Mobile navbar */
+.mobile-bar {
+  height: 80px;
+  display: flex;
+  border-radius: 20px;
+  background: rgba(200, 200, 200, 0.5);
+  backdrop-filter: blur(5px);
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 35px;
+}
+
+.icon-card .home {
+  color: var(--bs-primary-shadow);
+  background-color: var(--bs-icon-1);
+}
+
+.icon-card .terbaru {
+  color: var(--bs-primary-shadow);
+  background-color: var(--bs-icon-2);
+}
+.icon-card .jdihn {
+  color: var(--bs-primary-shadow);
+  background-color: var(--bs-icon-3);
+}
+.icon-card .lainnya {
+  color: var(--bs-primary-shadow);
+  background-color: var(--bs-icon-4);
+}
+
+.icon-set {
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 20px;
+}
+
+.icon-set .icon-logo {
+  font-size: 30px;
+}
+
+.icon-set label {
+  font-size: clamp(10px, 1vw + 1px, 12px);
+  font-weight: 600;
+}
+
+.modal-content {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .8) !important;
+  backdrop-filter: blur(5px);
+}
+
+/* Jam digital */
+.time-part {
+  font-size: 3.5rem;
+}
+.hours {
+  color: var(--bs-icon-2); /* Warna untuk jam */
+}
+.minutes {
+  color: var(--bs-icon-1); /* Warna untuk menit */
+}
+.seconds {
+  color: var(--bs-icon-4); /* Warna untuk detik */
+}
+.date-part {
+  font-size: 2rem;
+}
+.day {
+  color: var(--bs-icon-1); /* Warna untuk tanggal */
+}
+.month {
+  color: var(--bs-icon-2); /* Warna untuk bulan */
+}
+.year {
+  color: var(--bs-icon-3); /* Warna untuk tahun */
+}
