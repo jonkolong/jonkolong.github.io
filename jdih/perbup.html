@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Vue JS -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="assets/js/app.js" defer></script>
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -246,127 +247,74 @@
   </div>
   <!-- Vue cari end -->
 
-  <!-- Perbup Card Start -->
-  <div class="container peraturans mt-4"
-  data-aos="fade-up"
-  data-aos-delay="50"
+  <!-- Peraturan vue start -->
+  <div id="peraturan" class="container peraturans mt-4" 
+  data-aos="fade-up" 
+  data-aos-delay="50" 
   data-aos-once="true">
     <div class="card rounded-4 p-3 border-0">
       <h4 class="text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Bupati</h4>
       <div class="d-flex flex-column">
-        <!-- Card body start -->
-        <div class="card my-2 border-0 shadow">
+  
+        <!-- v-for untuk looping peraturanBupati -->
+        <div class="card my-2 border-0 shadow" v-for="item in peraturanBupati" :key="item.idData">
           <div class="card-body d-flex rounded-2">
             <div class="me-6 flex-shrink-0 d-none d-sm-block">
               <h1><i class="bi bi-file-pdf me-2 text-danger"></i></h1>
             </div>
             <div class="flex-grow-1">
-              <a href="detail.html" class="text-decoration-none text-dark"><h5>Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</h5></a>
-              <p>Perubahan Atas Peraturan Bupati Nomor 1 Tahun 2018 Tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</p>
+              <a :href="item.urlDetailPeraturan" class="text-decoration-none text-dark">
+                <h5>{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
+              </a>
+              <p>{{ item.judul }}</p>
               <small><strong>Status Peraturan</strong></small>
               <hr />
               <div class="row">
                 <div class="col-2">
-                  <p class="badge text-bg-danger"><small>Mencabut:</small></p>
+                  <p class="badge text-bg-secondary"><small>Mencabut:</small></p>
                 </div>
                 <div class="col-10">
                   <small>
                     <ol type="a">
-                      <li><a href="#">Peraturan Bupati No. 4 Tahun 2016</a> tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</li>
+                      <li><a href="#" class="text-secondary">{{ item.jenis }} No. {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</a> Tentang {{ item.judul }}</li>
                     </ol>
                   </small>
                 </div>
               </div>
               <div class="row">
                 <div class="col-2">
-                  <p class="badge text-bg-warning"><small>Mengubah:</small></p>
+                  <p class="badge text-bg-info"><small>Mengubah:</small></p>
                 </div>
                 <div class="col-10">
                   <small>
                     <ol type="a">
-                      <li><a href="#">Peraturan Bupati No. 1 Tahun 2018</a> tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</li>
+                      <li><a href="#" class="text-info">{{ item.jenis }} No. {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</a> Tentang {{ item.judul }}</li>
                     </ol>
                   </small>
                 </div>
               </div>
               <hr />
               <p>
-                <small
-                  >Unduh: <a href="assets/docs/perbup/2023_Peraturan_Bupati_01.pdf" target="_blank" class="text-decoration-none text-danger"><i class="bi bi-file-earmark-pdf"></i> 2023_Peraturan_Bupati_01</a></small
-                >
+                <small>Unduh: <a :href="item.urlDownload" target="_blank" class="text-decoration-none text-danger"><i class="bi bi-file-earmark-pdf"></i> {{ item.jenis }} Deli Serdang Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</a></small>
               </p>
               <div class="mb-2">
-                <small class="me-2"><span class="badge text-bg-success">Administrasi dan Tata Usaha Negara</span> <span class="badge text-bg-info">Telekomunikasi, Informatika, dan Internet</span></small>
+                <small class="me-2" v-for="tag in item.subjek">
+                  <span class="badge text-bg-success fw-normal">{{ tag }}</span>
+                </small>
               </div>
               <!-- Button trigger modal -->
               <div class="text-end">
                 <button type="button" class="btn btn-sm btn-jdih" data-bs-toggle="modal" data-bs-target="#perbupModal1"><i class="bi bi-file-earmark-text me-1"></i>Abstrak</button>
               </div>
-              <!-- Button trigger modal -->
-
             </div>
           </div>
         </div>
-        <!-- Card body end -->
-        <!-- Card body start -->
-        <div class="card my-2 border-0 shadow">
-          <div class="card-body d-flex rounded-2">
-            <div class="me-6 flex-shrink-0 d-none d-sm-block">
-              <h1><i class="bi bi-file-pdf me-2 text-danger"></i></h1>
-            </div>
-            <div class="flex-grow-1">
-              <a href="detail2.html" class="text-decoration-none text-dark"><h5>Peraturan Bupati No. 1 Tahun 2018</h5></a>
-              <p>Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</p>
-              <small class="d-none"><strong>Status Peraturan</strong></small>
-              <hr class="d-none" />
-              <div class="row d-none">
-                <div class="col-2">
-                  <p class="badge text-bg-danger"><small>Dicabut:</small></p>
-                </div>
-                <div class="col-10">
-                  <small>
-                    <ol type="a">
-                      <li>Peraturan Bupati No. 4 Tahun 2016 tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</li>
-                    </ol>
-                  </small>
-                </div>
-              </div>
-              <div class="row d-none">
-                <div class="col-2">
-                  <p class="badge text-bg-warning"><small>Mengubah:</small></p>
-                </div>
-                <div class="col-10">
-                  <small>
-                    <ol type="a">
-                      <li>Peraturan Bupati No. 1 Tahun 2018 tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</li>
-                    </ol>
-                  </small>
-                </div>
-              </div>
-              <hr />
-              <p>
-                <small
-                  >Unduh: <a href="assets/dosc/perbup/2023_Peraturan_Bupati_01.pdf" target="_blank" class="text-decoration-none text-danger"><i class="bi bi-file-earmark-pdf"></i> 2023_Peraturan_Bupati_01</a></small
-                >
-              </p>
-              <div class="mb-2">
-                <small class="me-2"><span class="badge text-bg-success">Administrasi dan Tata Usaha Negara</span> <span class="badge text-bg-info">Telekomunikasi, Informatika, dan Internet</span></small>
-              </div>
-              <!-- Button trigger modal -->
-              <div class="text-end">
-                <button type="button" class="btn btn-sm btn-jdih" data-bs-toggle="modal" data-bs-target="#perbupModal1"><i class="bi bi-file-earmark-text me-1"></i>Abstrak</button>
-              </div>
-              <!-- Button trigger modal -->
-
-            </div>
-          </div>
-        </div>
-        <!-- Card body end -->
-
+        <!-- Akhir dari card yang diulang -->
+        
       </div>
     </div>
   </div>
-  <!-- Perbup Card End -->
+  <!-- Peraturan vue end -->
 
   <!-- Perbup Modal start -->
   <div class="modal fade" id="perbupModal1" tabindex="-1" aria-labelledby="perbupModalLabel1" aria-hidden="true">
@@ -501,6 +449,7 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/peraturan.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

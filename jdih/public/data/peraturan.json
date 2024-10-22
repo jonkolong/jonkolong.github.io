@@ -3,18 +3,47 @@
     [
         {
             "idData": 1,
-            "tahun_pengundangan": 2018,
-            "tanggal_pengundangan": 20180428,
+            "tahun_pengundangan": 2021,
+            "tanggal_pengundangan": 20210128,
+            "tipe": "Peraturan",
             "jenis": "Peraturan Bupati",
-            "noPeraturan": "1",
+            "noPeraturan": "107",
             "judul": "Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang",
             "noPanggil": "012018",
             "singkatanJenis": "perbup",
             "tempatTerbit": "Lubuk Pakam",
+            "namaKldi": "Deli Serdang",
             "penerbit": "Pemkab Deli Serdang",
             "deskripsiFisik": "",
             "sumber": "LN.2020/No.262, TLN No. 6580, LL: 10 hlm",
-            "subjek": "Telekomunikasi dan Informatika",
+            "subjek": 
+                [
+                    "Telekomunikasi dan Informatika",
+                    "SPBE"
+                ],
+            "sebabAkibat":  
+                {
+                "mencabut": [
+                    {
+                        "jenis": "Peraturan Bupati",
+                        "noPeraturan": "59",
+                        "namaKldi": "Deli Serdang",
+                        "tahun": "2016",
+                        "judul": "Penyelenggaraan e-Government di Lingkungan Pemerintah Kabupaten Deli Serdang"
+                    }
+                ],
+                
+                "mengganti": [
+                    {
+                        "jenis": "Peraturan Bupati",
+                        "noPeraturan": "7",
+                        "namaKldi": "Deli Serdang",
+                        "tahun": "2020",
+                        "judul": "Penyelenggaraan Digitalisasi Pelayanan Masyarakat di Lingkungan Pemerintah Kabupaten Deli Serdang"
+                    }
+                ]
+            },
+
             "isbn": "",
             "status": "berlaku",
             "bahasa": "Bahasa Indonesia",
@@ -31,18 +60,36 @@
         },
         {
             "idData": 2,
-            "tahun_pengundangan": 2023,
-            "tanggal_pengundangan": 20230116,
+            "tahun_pengundangan": 2020,
+            "tanggal_pengundangan": 20200116,
+            "tipe": "Peraturan",
             "jenis": "Peraturan Bupati",
-            "noPeraturan": "1",
+            "noPeraturan": "7",
             "judul": "Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang",
             "noPanggil": "012023",
             "singkatanJenis": "perbup",
             "tempatTerbit": "Lubuk Pakam",
+            "namaKldi": "Deli Serdang",
             "penerbit": "Pemkab Deli Serdang",
             "deskripsiFisik": "",
             "sumber": "",
-            "subjek": "Telekomunikasi dan Informatika",
+            "subjek": 
+                {
+                    "1": "Telekomunikasi dan Informatika",
+                    "2": "SPBE"
+                },
+            "sebabAkibat":  
+                {
+                "mengganti": [
+                    {
+                        "jenis": "Peraturan Bupati",
+                        "noPeraturan": "59",
+                        "namaKldi": "Deli Serdang",
+                        "tahun": "2016",
+                        "judul": "Penyelenggaraan e-Government di Lingkungan Pemerintah Kabupaten Deli Serdang"
+                    }
+                ]
+            }, 
             "isbn": "",
             "status": "berlaku",
             "bahasa": "Bahasa Indonesia",
@@ -54,8 +101,8 @@
             "fileDownload": "/assets/docs/perbup/perbup_1_2023.pdf",
             "urlDownload": "/assets/docs/perbup/perbup_1_2023.pdf",
             "urlDetailPeraturan": "detail.html",
-            "operasi": 2,
-            "display": 2
+            "operasi": 1,
+            "display": 1
         }
     ]
 }

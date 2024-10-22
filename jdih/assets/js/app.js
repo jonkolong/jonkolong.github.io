@@ -2,6 +2,7 @@ const { createApp, ref } = Vue;
 
 createApp({
   setup() {
+    
     const keywords = ref('');
     const tentang = ref('');
     const nomor = ref('');
