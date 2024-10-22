@@ -84,17 +84,15 @@
   letter-spacing: 2px;
 }
 
-a {text-decoration: none;}
+a {
+  text-decoration: none;
+  color: var(--bs-kelabu);
+}
 
 ul {list-style: none;}
 
 body {
-  /* background: var(--bs-background-2); */
-  background-image: url(/assets/img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg);
-  height: 100dvh;  
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--bs-background-2);
   transition: all 200ms ease;
 }
 
@@ -167,14 +165,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   background-color: var(--bs-icon-1);
 }
 
-.icon-card .terbaru {
-  color: var(--bs-primary-shadow);
-  background-color: var(--bs-icon-2);
-}
-.icon-card .jdihn {
-  color: var(--bs-primary-shadow);
-  background-color: var(--bs-icon-3);
-}
 .icon-card .lainnya {
   color: var(--bs-primary-shadow);
   background-color: var(--bs-icon-4);
@@ -204,28 +194,18 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   backdrop-filter: blur(5px);
 }
 
-/* Jam digital */
-.time-part {
-  font-size: 3.5rem;
+/* Status Pengaduan */
+.status-tiket .info-status {
+  width: 150px;
+  height: 150px;
+  border: none;
 }
-.hours {
-  color: var(--bs-icon-2); /* Warna untuk jam */
+
+.status-tiket .info-status i {
+  font-size: 50px;
 }
-.minutes {
-  color: var(--bs-icon-1); /* Warna untuk menit */
-}
-.seconds {
-  color: var(--bs-icon-4); /* Warna untuk detik */
-}
-.date-part {
-  font-size: 2rem;
-}
-.day {
-  color: var(--bs-icon-1); /* Warna untuk tanggal */
-}
-.month {
-  color: var(--bs-icon-2); /* Warna untuk bulan */
-}
-.year {
-  color: var(--bs-icon-3); /* Warna untuk tahun */
+
+.status-tiket .info-status label {
+  font-size: clamp(12px, 1vw + 2px, 16px);
+  font-weight: 500;
 }
