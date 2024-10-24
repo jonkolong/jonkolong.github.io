@@ -72,7 +72,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: var(--fo-outfit);
+  font-family: var(--fo-livvic);
 }
 
 .btn {
@@ -126,6 +126,7 @@ nav ul li a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--bs-utama-gelap);
+  font-weight: 600;
   transition: all 200ms ease;
 }
 
