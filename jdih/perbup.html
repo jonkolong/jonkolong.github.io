@@ -248,7 +248,7 @@
   <!-- Vue cari end -->
 
   <!-- Peraturan vue start -->
-  <div id="peraturan" class="container peraturans mt-4" 
+  <div id="peraturan" class="container mt-4" 
   data-aos="fade-up" 
   data-aos-delay="50" 
   data-aos-once="true">
@@ -267,24 +267,31 @@
                 <h5>{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
               </a>
               <p>{{ item.judul }}</p>
-              <hr />
-              <p>
-                Status: 
-                <span :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
-                  {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
-                </span>
-              </p>
-              
-              <p>
-                <small>Unduh: <a :href="item.urlDownload" target="_blank" class="text-decoration-none text-danger"><i class="bi bi-file-earmark-pdf"></i> {{ item.fileDownload }}</a></small>
-              </p>
-              <div class="mb-2 d-flex">
+              <div class="d-flex">
                 <small class="me-2">
                   <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
                 </small>
-              <!-- Button trigger modal -->
-                <button type="button" class="btn btn-sm ms-auto btn-jdih" data-bs-toggle="modal" data-bs-target="#perbupModal1"><i class="bi bi-file-earmark-text me-1"></i>Abstrak</button>
               </div>
+     
+              <div class="d-flex mt-2">
+                <p>
+                  Status: 
+                    <span :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
+                      {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
+                    </span>
+                </p>
+                <ul class="d-flex align-items-center ms-auto">
+                  <li class="">
+                    <a :href="item.urlDownload" target="_blank">
+                      <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
+                    </a>
+                    <a :href="item.urlDetailPeraturan">
+                      <i class="card border-0 fs-3 text-primary me-4 fa-solid fa-file-circle-exclamation"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -296,15 +303,16 @@
   <!-- Peraturan vue end -->
 
   <!-- Perbup Modal start -->
-  <div class="modal fade" id="perbupModal1" tabindex="-1" aria-labelledby="perbupModalLabel1" aria-hidden="true">
+  <!-- <div class="modal fade" id="perbupModal1" tabindex="-1" aria-labelledby="perbupModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered container">
-      <div class="modal-content">
+      <div id="peraturan" class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-6" id="perbupModalLabel1"><i class="bi bi-file-earmark-text me-1"></i>Abstrak Peraturan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <small>
+            <p>Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</p>
             <p>Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</p>
             <p>60 halaman</p>
             <div class="row">
@@ -346,7 +354,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- Perbup Modal end -->
 
   <!-- Pagination Start -->

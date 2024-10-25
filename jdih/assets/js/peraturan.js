@@ -3,6 +3,7 @@ const { createApp, ref, onMounted } = Vue;
 createApp({
   setup() {
     const peraturanBupati = ref([]); // State untuk menyimpan data JSON
+    const currentPeraturan = ref({}); // State untuk menyimpan data item yang akan ditampilkan di modal
 
     // Ambil data dari file JSON lokal menggunakan Axios
     const fetchData = async () => {
@@ -15,12 +16,22 @@ createApp({
       }
     };
 
+    // Fungsi untuk membuka modal dan menetapkan data item yang dipilih
+    const showModal = (item) => {
+      currentPeraturan.value = item;
+      // Gunakan Bootstrap modal untuk membuka modal secara programatis
+      const modal = new bootstrap.Modal(document.getElementById('perbupModal1'));
+      modal.show();
+    };
+
     onMounted(() => {
       fetchData(); // Ambil data ketika komponen di-mount
     });
 
     return {
-      peraturanBupati
+      peraturanBupati,
+      currentPeraturan,
+      showModal
     };
   }
-}).mount('#peraturan'); // Ganti 'app' dengan 'peraturan'
+}).mount('#peraturan'); // Targetkan elemen dengan id "peraturan"
