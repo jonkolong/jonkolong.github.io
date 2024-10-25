@@ -65,4 +65,4 @@ createApp({
       resetForm
     };
   }
-}).mount('#app');
+}).mount('#search');
