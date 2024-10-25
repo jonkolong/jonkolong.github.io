@@ -48,7 +48,7 @@
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon text-light"></span>
+        <span class="navbar-toggler-icon text-light" aria-label="Toggle navigation"></span>
       </button>      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
@@ -254,7 +254,7 @@
     data-aos-delay="50" 
     data-aos-once="true">
       <h4 class="text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Bupati</h4>
-      <div class="peraturan-card card border-0 rounded-4 shadow-sm p-3 mt-4" v-for="item in peraturanBupati" :key="item.idData">
+      <div class="peraturan-card card border-0 rounded-4 shadow-sm p-3 mt-4" v-for="item in peraturans" :key="item.idData">
         <a :href="item.urlDetailPeraturan" class="text-decoration-none">
           <h5 class="livvic">{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
         </a>
@@ -312,56 +312,56 @@
   </div>
   <!-- Pagination End -->
 
-<!-- Footer Start -->
-<footer class="bg-jdih pt-5"
-  data-aos="fade-up"
-  data-aos-delay="50"
-  data-aos-once="true">
-  <div class="container pb-5">
-    <div class="row">
-      <div class="col-md-6 text-center mb-4">
-        <h5 class="text-start text-light">Link terkait</h5>
-        <table class="">
-          <tbody>
-            <tr class="text-start">
-              <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
-              <td><a href="https://jdihn.go.id/" target="_blank" class="text-light text-decoration-none">JDIH Nasional</a></td>
-            </tr>
-            <tr class="text-start">
-              <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></td>
-              <td><a href="https://portal.deliserdangkab.go.id" target="_blank" class="text-light text-decoration-none">Situs Resmi Pemkab Deli Serdang</a></td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- Footer Start -->
+  <footer class="bg-jdih pt-5"
+    data-aos="fade-up"
+    data-aos-delay="50"
+    data-aos-once="true">
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-md-6 text-center mb-4">
+          <h5 class="text-start text-light">Link terkait</h5>
+          <table class="">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
+                <td><a href="https://jdihn.go.id/" target="_blank" class="text-light text-decoration-none">JDIH Nasional</a></td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
+                <td><a href="https://portal.deliserdangkab.go.id" target="_blank" class="text-light text-decoration-none">Situs Resmi Pemkab Deli Serdang</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 text-center">
+          <h5 class="text-start text-light">Kontak kami</h5>
+          <hr class="m-0 mb-1">
+          <table class="container">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
+                <td>Jl. Negara No. 1, Kel. Petapahan,<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20517</td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></i></td>
+                <td><a href="mailto:baghukum.deliserdangkab.go.id" class="text-light text-decoration-none">baghukum@deliserdangkab.go.id</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="col-md-6 text-center">
-        <h5 class="text-start text-light">Kontak kami</h5>
-        <hr class="m-0 mb-1">
-        <table class="container">
-          <tbody>
-            <tr class="text-start">
-              <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
-              <td>Jl. Negara No. 1, Kel. Petapahan,<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20517</td>
-            </tr>
-            <tr class="text-start">
-              <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></td>
-              <td><a href="mailto:baghukum.deliserdangkab.go.id" class="text-light text-decoration-none">baghukum@deliserdangkab.go.id</a></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row mt-4">
+        <div class="col">
+          <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
+        </div>
+      </div>
+      <div class="card pb-4 border-0 bg-transparent d-md-none">
+        <div class="card pb-5 border-0 bg-transparent d-md-none"></div>
       </div>
     </div>
-    <div class="row mt-4">
-      <div class="col">
-        <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
-      </div>
-    </div>
-    <div class="card pb-4 border-0 bg-transparent d-md-none">
-      <div class="card pb-5 border-0 bg-transparent d-md-none"></div>
-    </div>
-  </div>
-</footer>
-<!-- Footer End -->
+  </footer>
+  <!-- Footer End -->
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
