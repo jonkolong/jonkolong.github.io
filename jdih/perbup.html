@@ -70,7 +70,9 @@
         data-aos="fade-left"
         data-aos-delay="50"
         data-aos-once="true">
-        <i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+        <i class="fa-solid fa-arrow-right-to-bracket me-1"></i>
+        Login
+      </a>
     </div>
   </nav>
   <!-- Navbar End -->
@@ -148,7 +150,7 @@
             </a>
           </li>
         </ul>
-        <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+        <a href="login.html" type="button" class="btn btn-jdih m-3"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
       </div>
     </div>
   </div>
@@ -256,7 +258,7 @@
       <h4 class="text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Bupati</h4>
       <div class="peraturan-card card border-0 rounded-4 shadow-sm p-3 mt-4" v-for="item in peraturans" :key="item.idData">
         <a :href="item.urlDetailPeraturan" class="text-decoration-none">
-          <h5 class="livvic">{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
+          <h5 class="livvic fw-semibold">{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
         </a>
         <p class="mb-1">Tentang {{ item.judul }}</p>
         <div class="d-flex">
@@ -266,19 +268,21 @@
         </div>
 
         <div class="d-flex mt-2">
-          <p>
+          <p class="livvic fw-medium">
             Status: 
-              <span :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
+              <span class="livvic fw-medium" :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
                 {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
               </span>
           </p>
           <ul class="d-flex align-items-center ms-auto">
-            <li class="">
+            <li class="d-flex align-items-center">
               <a :href="item.urlDownload" target="_blank">
-                <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
+                <img src="assets/img/download-file.gif" class="card border-0 me-2" style="height: 40px;" alt="">
+                <!-- <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i> -->
               </a>
               <a :href="item.urlDetailPeraturan">
-                <i class="card border-0 fs-3 text-primary me-4 fa-solid fa-file-circle-exclamation"></i>
+                <img src="assets/img/file-info.gif" class="card border-0 me-4" style="height: 40px;" alt="">
+                <!-- <i class="card border-0 fs-3 text-primary me-4 fa-solid fa-file-circle-exclamation"></i> -->
               </a>
             </li>
           </ul>
