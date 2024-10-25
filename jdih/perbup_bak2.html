@@ -247,47 +247,60 @@
   </div>
   <!-- Vue cari end -->
 
-  <!-- Peraturan Start -->
-  <div id="peraturan" class="container border-0 p-3 mt-4">
-    <div class="container card border-0 rounded-4 d-flex flex-column p-4"
-    data-aos="fade-up" 
-    data-aos-delay="50" 
-    data-aos-once="true">
+  <!-- Peraturan vue start -->
+  <div id="peraturan" class="container mt-4" 
+  data-aos="fade-up" 
+  data-aos-delay="50" 
+  data-aos-once="true">
+    <div class="card rounded-4 p-3 border-0">
       <h4 class="text-center"><i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Bupati</h4>
-      <div class="peraturan-card card border-0 rounded-4 shadow-sm p-3 mt-4" v-for="item in peraturanBupati" :key="item.idData">
-        <a :href="item.urlDetailPeraturan" class="text-decoration-none">
-          <h5 class="livvic">{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
-        </a>
-        <p class="mb-1">Tentang {{ item.judul }}</p>
-        <div class="d-flex">
-          <small class="me-2">
-            <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
-          </small>
-        </div>
-
-        <div class="d-flex mt-2">
-          <p>
-            Status: 
-              <span :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
-                {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
-              </span>
-          </p>
-          <ul class="d-flex align-items-center ms-auto">
-            <li class="">
-              <a :href="item.urlDownload" target="_blank">
-                <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
+      <div class="d-flex flex-column">
+  
+        <!-- peraturan looping start -->
+        <div class="card my-2 border-0 shadow" v-for="item in peraturanBupati" :key="item.idData">
+          <div class="card-body d-flex rounded-2">
+            <div class="me-6 flex-shrink-0 d-none d-sm-block">
+              <h1><i class="bi bi-file-pdf me-2 text-danger"></i></h1>
+            </div>
+            <div class="flex-grow-1">
+              <a :href="item.urlDetailPeraturan" class="text-decoration-none text-dark">
+                <h5>{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
               </a>
-              <a :href="item.urlDetailPeraturan">
-                <i class="card border-0 fs-3 text-primary me-4 fa-solid fa-file-circle-exclamation"></i>
-              </a>
-            </li>
-          </ul>
+              <p>{{ item.judul }}</p>
+              <div class="d-flex">
+                <small class="me-2">
+                  <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
+                </small>
+              </div>
+     
+              <div class="d-flex mt-2">
+                <p>
+                  Status: 
+                    <span :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
+                      {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
+                    </span>
+                </p>
+                <ul class="d-flex align-items-center ms-auto">
+                  <li class="">
+                    <a :href="item.urlDownload" target="_blank">
+                      <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
+                    </a>
+                    <a :href="item.urlDetailPeraturan">
+                      <i class="card border-0 fs-3 text-primary me-4 fa-solid fa-file-circle-exclamation"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
         </div>
+        <!-- peraturan looping end -->
 
       </div>
     </div>
   </div>
-  <!-- Peraturan End -->
+  <!-- Peraturan vue end -->
 
   <!-- Pagination Start -->
   <div class="container d-flex justify-content-center mt-3"
