@@ -22,8 +22,12 @@
 </head>
 
 <body class="bg-body-secondary">
+
   <!-- Slider text start -->
-  <marquee class="bg-jdih" behavior="" direction="">
+  <marquee class="bg-jdih" behavior="" direction=""
+  data-aos="fade-down"
+  data-aos-delay="50"
+  data-aos-once="true">
     <div class="">
       <div class="text-slider text-warning">
         <i class="bi bi-star-fill"></i> STANDAR LAYANAN <i class="bi bi-star-fill"></i> Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi dan telah diklasifikasikan berdasarkan jenis, tema, tahun, maupun asal produk hukum.<i class="bi bi-dot mx-1"></i>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis dan tanpa syarat.<i class="bi bi-dot mx-1"></i>
@@ -33,20 +37,24 @@
   <!-- Slider text end -->
 
   <!-- Navbar Start -->
-  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent">
+  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent"
+  data-aos="fade-in"
+  data-aos-delay="50"
+  data-aos-once="true">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="#"><img
+      <a class="navbar-brand fw-semibold" href="index.html"><img
           src="assets/img/logo_jdih.png" alt=""
-          style="height: 30px" />JDIH
+          style="height: 30px" 
+          />JDIH
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon text-light"></span>
       </button>      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" href="#"><i class="fa-solid fa-home me-1"></i>Beranda</a>
+            <a class="nav-link" href="index.html"><i class="fa-solid fa-home me-1"></i>Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profil.html"><i class="fa-solid fa-id-badge me-1"></i>Profil</a>
@@ -59,10 +67,24 @@
           </li>
         </ul>
       </div>
-      <a href="login.html" class="btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+      <a href="login.html" class="btn btn-jdih"
+        data-aos="fade-left"
+        data-aos-delay="50"
+        data-aos-once="true">
+        <i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
     </div>
   </nav>
   <!-- Navbar End -->
+
+  <!-- Dark mode start -->
+  <div class="dark-mode container text-end">
+    <button class="btn bg-warning border-0 mt-2 me-4" 
+    style="width: 30px;height: 30px;border-radius: 50%;"
+    onclick="toggleTheme()">
+      <i class="bi bi-sun-fill text-dark d-flex justify-content-center align-items-center"></i>
+    </button>
+  </div>
+  <!-- Dark mode end -->
 
   <!-- Mobile Navbar Bottom start -->
   <nav class="mobile-navbar navbar-expand fixed-bottom container d-lg-none">
@@ -327,6 +349,8 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="assets/js/peraturan.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/dark.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

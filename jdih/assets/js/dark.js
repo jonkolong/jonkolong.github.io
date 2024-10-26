@@ -16,20 +16,27 @@ function setCookie(name, value, days) {
     const themeButton = document.querySelector('.dark-mode button');
     const themeIcon = themeButton.querySelector('i');
 
+    // Menambahkan kelas transisi
+    document.body.classList.add('transition');
+
     if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
-      htmlElement.setAttribute('data-bs-theme', 'light');
-      themeButton.classList.remove('bg-light');
-      themeButton.classList.add('bg-warning');
-      themeIcon.classList.remove('bi-moon-fill');
-      themeIcon.classList.add('bi-sun-fill');
-      setCookie('theme', 'light', 7);
+      setTimeout(() => {
+        htmlElement.setAttribute('data-bs-theme', 'light');
+        themeButton.classList.remove('bg-light');
+        themeButton.classList.add('bg-warning');
+        themeIcon.classList.remove('bi-moon-fill');
+        themeIcon.classList.add('bi-sun-fill');
+        setCookie('theme', 'light', 7);
+      }, 300); // Tambahkan delay 300ms atau sesuai keinginan
     } else {
-      htmlElement.setAttribute('data-bs-theme', 'dark');
-      themeButton.classList.remove('bg-warning');
-      themeButton.classList.add('bg-light');
-      themeIcon.classList.remove('bi-sun-fill');
-      themeIcon.classList.add('bi-moon-fill');
-      setCookie('theme', 'dark', 7);
+      setTimeout(() => {
+        htmlElement.setAttribute('data-bs-theme', 'dark');
+        themeButton.classList.remove('bg-warning');
+        themeButton.classList.add('bg-light');
+        themeIcon.classList.remove('bi-sun-fill');
+        themeIcon.classList.add('bi-moon-fill');
+        setCookie('theme', 'dark', 7);
+      }, 300); // Tambahkan delay 300ms atau sesuai keinginan
     }
   }
 

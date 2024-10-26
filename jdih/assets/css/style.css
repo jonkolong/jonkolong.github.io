@@ -112,6 +112,11 @@ body {
   background: var(--bs-background-2);
 }
 
+/* Menambahkan transisi halus untuk elemen-elemen */
+body, .container, .list-group-item {
+  transition: background-color 500ms, color 500ms;
+}
+
 .nav-item .nav-link {
   border-radius: 5px;
   transition: all 200ms ease;
