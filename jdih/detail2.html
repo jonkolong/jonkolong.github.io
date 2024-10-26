@@ -17,12 +17,11 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Vue JS -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="assets/js/app.js" defer></script>
   <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
-<body>
+<body class="bg-body-secondary">
   <!-- Slider text start -->
   <marquee class="bg-jdih" behavior="" direction="">
     <div class="">
@@ -36,13 +35,13 @@
   <!-- Navbar Start -->
   <nav class="navbar navbar-expand d-none d-lg-block bg-transparent">
     <div class="container">
-      <a class="navbar-brand fw-semibold text-jdih" href="#"><img
+      <a class="navbar-brand fw-semibold" href="#"><img
           src="assets/img/logo_jdih.png" alt=""
           style="height: 30px" />JDIH
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon text-light"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
@@ -149,229 +148,140 @@
   </div>
   <!-- Keterangan Title End -->
 
-  <!-- Judul Start -->
-  <div class="container my-4">
-    <div class="card border-0 shadow-sm">
-      <h5 class="card-header border-0 text-bg-primary p-3"><i class="bi bi-journal-bookmark-fill me-1"></i>Peraturan Bupati No. 1 Tahun 2018</h5>
-      <div class="card-body">
-        <p class="card-text fs-5">Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</p>
+  <div id="peraturan">
+    <!-- Judul Start -->
+    <div class="container my-4">
+      <div class="card border-0 rounded-4 shadow-sm"
+      v-if="peraturans.length">
+        <h5 class="card-header border-0 rounded-top-4 text-bg-primary p-3">
+          {{ peraturans[1].jenis }} {{ peraturans[1].namaKldi }} Nomor {{ peraturans[1].noPeraturan }} Tahun {{ peraturans[1].tahun_pengundangan }}
+        </h5>
+        <div class="card-body">
+          <p class="card-text">Tentang {{ peraturans[1].judul }}</p>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Judul End -->
-
-  <div class="container mb-4">
-    <div class="row">
-      <!-- Kolom kiri start -->
-      <div class="col-md-6 my-2">
-          <div class="card border-0 shadow-sm mb-2">
-              <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-bookmark-fill"></i> Materi Pokok Peraturan</h5>
-              <div class="card-body">
-                <p class="card-text">
-                  <small>Peraturan Bupati ini mengatur mengenai pengelolaan Sistem Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dan pengelolaan Informasi Elektronik dan Dokumen Elektronik. Penyelenggaraan Sistem Elektronik di
-                  lingkungan Pemerintah Kabupaten Deli Serdang dilaksanakan secara andal, aman, dan dapat dipertanggungjawabkan sesuai dengan ketentuan peraturan perundang-undangan.
-                </small></p>
-                <!-- Button trigger modal -->
-                <div class="text-end">
-                  <button type="button" class="btn btn-sm btn-jdih" data-bs-toggle="modal" data-bs-target="#abstrakModal1"><i class="bi bi-file-earmark-text me-1"></i>Abstrak</button>
-                </div>
-                <!-- Button trigger modal -->
-              </div>
-            </div>
-            <!-- Materi pokok end -->
-        
-        <!-- Modal start -->
-        <div class="modal fade" id="abstrakModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered container">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-6" id="exampleModalLabel1"><i class="bi bi-file-earmark-text me-1"></i>Abstrak Peraturan</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <small>
-                  <p>Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</p>
-                  <p>60 halaman</p>
-                  <div class="row">
-                    <div class="col-2">
-                      <p>Abstrak</p>
-                    </div>
-                    <div class="col-10">
-                      <ul>
-                        <li>
-                          Untuk mendukung tugas dan wewenang untuk pengelolaan sistem elektronik, informasi elektronik, dan dokumen elektronik di lingkungan BPK, perlu menetapkan Peraturan Bupati Deli Serdang tentang Pengelolaan
-                          Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang.
-                        </li>
-                        <li>
-                          Dasar hukum Peraturan Bupati ini adalah UU Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik sebagaimana telah diubah dengan UU Nomor 19 Tahun 2016; PP Nomor 71 Tahun 2019 tentang Penyelenggaraan
-                          Sistem dan Transaksi Elektronik.
-                        </li>
-                        <li>
-                          Peraturan Bupati ini mengatur mengenai pengelolaan Sistem Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dan pengelolaan Informasi Elektronik dan Dokumen Elektronik. Penyelenggaraan Sistem
-                          Elektronik di lingkungan Pemerintah Kabupaten Deli Serdang dilaksanakan secara andal, aman, dan dapat dipertanggungjawabkan sesuai dengan ketentuan peraturan perundang-undangan.
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-2">
-                      <p>Catatan</p>
-                    </div>
-                    <div class="col-10">
-                      <ul>
-                        <li>Peraturan Bupati Deli Serdang ini mulai berlaku pada tanggal 24 November 2023.</li>
-                        <li>Penjelasan 5 hlm.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </small>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal"><i class="bi bi-escape me-1"></i>Tutup</button>
-              </div>
+    <!-- Judul End -->
+  
+    <!-- Detail Start -->
+    <div class="container mb-4">
+      <div class="row">
+        <!-- Kolom kiri start -->
+        <div class="col-md-6 my-2">
+          <div class="card border-0 rounded-4 shadow-sm mb-2">
+            <h5 class="card-header rounded-top-4 text-center border-0 text-bg-primary p-3">
+              <i class="bi bi-bookmark-fill"></i> Metadata Peraturan
+            </h5>
+            <div class="card-body">
+              <table class="table table-striped" style="font-size: small;">
+                <thead>
+                  <tr>
+                    <th>Metadata</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-active" v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Tipe Dokumen</th>
+                    <td>{{ peraturans[1].tipe }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Jenis</th>
+                    <td>{{ peraturans[1].jenis }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">T.E.U.</th>
+                    <td>{{ peraturans[1].teuBadan }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Bidang Hukum</th>
+                    <td>{{ peraturans[1].bidangHukum }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Bentuk</th>
+                    <td>{{ peraturans[1].jenis }} {{ peraturans[1].namaKldi }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Bentuk Singkat</th>
+                    <td>{{ peraturans[1].singkatanJenis }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Nomor</th>
+                    <td>{{ peraturans[1].noPeraturan }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Tahun</th>
+                    <td>{{ peraturans[1].tahun_pengundangan }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Judul</th>
+                    <td>{{ peraturans[1].judul }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Tempat Penetapan</th>
+                    <td>{{ peraturans[1].tempatTerbit }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Tanggal Penetapan</th>
+                    <td>{{ peraturans[1].tanggal_pengundangan }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Sumber</th>
+                    <td>{{ peraturans[1].sumber }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Subjek</th>
+                    <td>{{ peraturans[1].subjek }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Bahasa</th>
+                    <td>{{ peraturans[1].bahasa }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Abstrak</th>
+                    <td>{{ peraturans[1].abstrak }}</td>
+                  </tr>
+                  <tr v-if="peraturans.length">
+                    <th style="white-space: nowrap;">Status</th>
+                    <td>{{ peraturans[1].status }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-        <!-- Modal end -->
-
-        <!-- Metadata start -->
-        <div class="card border-0 shadow-sm mb-2">
-          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-bookmark-fill"></i> Metadata Peraturan</h5>
-          <div class="card-body">
-            <p class="card-text">
-                <table class="table table-striped">
-                  </thead>
-                  <tbody style="font-size: small;">
-                    <tr class="table-active">
-                      <th>Tipe Dokumen</th>
-                      <td>Peraturan Perundang-undangan</td>
-                    </tr>
-                    <tr>
-                      <th>T.E.U.</th>
-                      <td>Indonesia, Pemkab Deli Serdang</td>
-                    </tr>
-                    <tr>
-                      <th>Nomor</th>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <th>Bentuk</th>
-                      <td>Peraturan Bupati Deli Serdang</td>
-                    </tr>
-                    <tr>
-                      <th>Bentuk Singkat</th>
-                      <td>Perbup</td>
-                    </tr>
-                    <tr>
-                      <th>Tahun</th>
-                      <td>2023</td>
-                    </tr>
-                    <tr>
-                      <th>Tempat Penetapan</th>
-                      <td>Lubuk Pakam</td>
-                    </tr>
-                    <tr>
-                      <th>Tanggal Penetapan</th>
-                      <td>17 Nopember 2023</td>
-                    </tr>
-                    <tr>
-                      <th>Tanggal Berlaku</th>
-                      <td>17 Nopember 2023</td>
-                    </tr>
-                    <tr>
-                      <th>Sumber</th>
-                      <td>LN.2020/No.262, TLN No. 6580, LL: 10 hlm</td>
-                    </tr>
-                    <tr>
-                      <th>Subjek</th>
-                      <td>
-                        <ul>
-                          <li>
-                            Administrasi dan Tata Usaha Negara
-                          </li>
-                          <li>
-                            Telekomunikasi, Informatika, dan Internet
-                          </li>
-                        </ul>
-                      </td>                              
-                    </tr>
-                    <tr>
-                      <th>Status</th>
-                      <td>Berlaku</td>
-                    </tr>
-                    <tr>
-                      <th>Bahasa</th>
-                      <td>Indonesia</td>
-                    </tr>
-                    <tr>
-                      <th>Lokasi</th>
-                      <td>Kabupaten Deli Serdang</td>
-                    </tr>
-                    <tr>
-                      <th>Bidang</th>
-                      <td>Kabupaten Deli Serdang</td>
-                    </tr>
-                  </tbody>                
-                </table>
-            </p>
-            
-          </div>
-        </div>
-        <!-- Metadata end -->
-      </div>
-      
-      
-      <!-- Kolom kiri end -->
-
-      <!-- Kolom kanan start -->
-      <div class="col-md-6 my-2">
-        <!-- Card file peraturan start -->
-        <div class="card border-0 shadow-sm mb-2">
-          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-file-earmark-pdf-fill"></i> File-File Peraturan</h5>
-          <div class="card-body">
-            <p class="card-text">
-              <small>Perbup_1_2018</small>
-            </p>
+        <!-- Kolom kiri end -->
+  
+        <!-- Kolom kanan start -->
+        <div class="col-md-6 my-2">
+          <div class="card border-0 rounded-4 shadow-sm mb-2">
+            <h5 class="card-header text-center border-0 rounded-top-4 text-bg-primary p-3">
+              <i class="bi bi-file-earmark-pdf-fill"></i> File-File Peraturan
+            </h5>
+            <div class="card-body">
+              <p class="card-text">
+                <small>{{ peraturans.length ? peraturans[1].fileDownload : '' }}</small>
+              </p>
               <div class="text-end">
-                <a href="assets/docs/perbup/2023_Peraturan_Bupati_01.pdf"  target="_blank" class="btn btn-sm btn-jdih text-end"><i class="bi bi-cloud-download"></i> Unduh</button></a>
+                <a :href="peraturans.length ? peraturans[1].urlDownload : ''" target="_blank" class="btn btn-sm btn-jdih">
+                  <i class="bi bi-cloud-download"></i> Unduh
+                </a>
               </div>
+            </div>
+          </div>
+          <div class="card border-0 rounded-4 shadow-sm mt-4 mb-2">
+            <h5 class="card-header text-center border-0 rounded-top-4 text-bg-primary p-3">
+              <i class="bi bi-info-square-fill"></i> Status Peraturan
+            </h5>
+            <div class="card-body">
+              <small>{{ peraturans.length ? peraturans[1].status : '' }}</small>
+            </div>
           </div>
         </div>
-        <!-- Card file peraturan end -->
-        <!-- Card Status Peraturan start -->
-        <div class="card border-0 shadow-sm mb-2">
-          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-info-square-fill"></i> Status Peraturan</h5>
-          <div class="card-body">
-            <p class="card-text">
-              <small class="d-none">
-                <p class="text-bg-danger p-2 rounded-3">Mencabut</p>
-                <ol type="a">
-                  <li><a href="#">Peraturan Bupati No. 4 Tahun 2016</a> tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</li>
-                </ol>
-              </small>
-              <small>
-                <p class="text-bg-warning p-2 rounded-3">Diubah dengan</p>
-                <ol type="a">
-                  <li><a href="detail.html">Peraturan Bupati Deli Serdang Nomor 1 Tahun 2023</a> tentang Pengelolaan Sistem Elektronik, Informasi Elektronik, dan Dokumen Elektronik di Lingkungan Pemerintah Kabupaten Deli Serdang</li>
-                </ol>
-              </small>
-            </p>
-          </div>
-        </div>
-        <!-- Card Status Peraturan end -->
-        <!-- Uji Materi MK start -->
-        <div class="card border-0 shadow-sm mb-2">
-          <h5 class="card-header text-center border-0 text-bg-primary p-3"><i class="bi bi-info-square-fill"></i> Uji Materi Mahkamah Konstitusi</h5>
-          <div class="card-body">
-            <p class="card-text">
-              <small>belum tersedia</small>
-            </p>
-          </div>
-        </div>
-        <!-- Uji Materi MK end -->
         <!-- Kolom kanan end -->
       </div>
     </div>
+    <!-- Detail End -->
   </div>
 
   <!-- Footer Start -->
@@ -423,7 +333,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/peraturan.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
