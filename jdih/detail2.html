@@ -167,7 +167,7 @@
     <div class="container mb-4">
       <div class="row">
         <!-- Kolom kiri start -->
-        <div class="col-md-6 my-2">
+        <div class="col-md-8 my-2">
           <div class="card border-0 rounded-4 shadow-sm mb-2">
             <h5 class="card-header rounded-top-4 text-center border-0 text-bg-primary p-3">
               <i class="bi bi-bookmark-fill"></i> Metadata Peraturan
@@ -182,67 +182,67 @@
                 </thead>
                 <tbody>
                   <tr class="table-active" v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Tipe Dokumen</th>
+                    <th>Tipe Dokumen</th>
                     <td>{{ peraturans[1].tipe }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Jenis</th>
+                    <th>Jenis</th>
                     <td>{{ peraturans[1].jenis }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">T.E.U.</th>
+                    <th>T.E.U.</th>
                     <td>{{ peraturans[1].teuBadan }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Bidang Hukum</th>
+                    <th>Bidang Hukum</th>
                     <td>{{ peraturans[1].bidangHukum }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Bentuk</th>
+                    <th>Bentuk</th>
                     <td>{{ peraturans[1].jenis }} {{ peraturans[1].namaKldi }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Bentuk Singkat</th>
+                    <th>Bentuk Singkat</th>
                     <td>{{ peraturans[1].singkatanJenis }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Nomor</th>
+                    <th>Nomor</th>
                     <td>{{ peraturans[1].noPeraturan }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Tahun</th>
+                    <th>Tahun</th>
                     <td>{{ peraturans[1].tahun_pengundangan }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Judul</th>
+                    <th>Judul</th>
                     <td>{{ peraturans[1].judul }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Tempat Penetapan</th>
+                    <th>Tempat Penetapan</th>
                     <td>{{ peraturans[1].tempatTerbit }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Tanggal Penetapan</th>
+                    <th>Tanggal Penetapan</th>
                     <td>{{ peraturans[1].tanggal_pengundangan }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Sumber</th>
+                    <th>Sumber</th>
                     <td>{{ peraturans[1].sumber }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Subjek</th>
+                    <th>Subjek</th>
                     <td>{{ peraturans[1].subjek }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Bahasa</th>
+                    <th>Bahasa</th>
                     <td>{{ peraturans[1].bahasa }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Abstrak</th>
+                    <th>Abstrak</th>
                     <td>{{ peraturans[1].abstrak }}</td>
                   </tr>
                   <tr v-if="peraturans.length">
-                    <th style="white-space: nowrap;">Status</th>
+                    <th>Status</th>
                     <td>{{ peraturans[1].status }}</td>
                   </tr>
                 </tbody>
@@ -253,10 +253,10 @@
         <!-- Kolom kiri end -->
   
         <!-- Kolom kanan start -->
-        <div class="col-md-6 my-2">
+        <div class="col-md-4 my-2">
           <div class="card border-0 rounded-4 shadow-sm mb-2">
             <h5 class="card-header text-center border-0 rounded-top-4 text-bg-primary p-3">
-              <i class="bi bi-file-earmark-pdf-fill"></i> File-File Peraturan
+              <i class="bi bi-file-earmark-pdf-fill"></i> Berkas Peraturan
             </h5>
             <div class="card-body">
               <p class="card-text">
@@ -269,14 +269,7 @@
               </div>
             </div>
           </div>
-          <div class="card border-0 rounded-4 shadow-sm mt-4 mb-2">
-            <h5 class="card-header text-center border-0 rounded-top-4 text-bg-primary p-3">
-              <i class="bi bi-info-square-fill"></i> Status Peraturan
-            </h5>
-            <div class="card-body">
-              <small>{{ peraturans.length ? peraturans[1].status : '' }}</small>
-            </div>
-          </div>
+          
         </div>
         <!-- Kolom kanan end -->
       </div>

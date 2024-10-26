@@ -167,7 +167,7 @@
     <div class="container mb-4">
       <div class="row">
         <!-- Kolom kiri start -->
-        <div class="col-md-6 my-2">
+        <div class="col-md-8 my-2">
           <div class="card border-0 rounded-4 shadow-sm mb-2">
             <h5 class="card-header rounded-top-4 text-center border-0 text-bg-primary p-3">
               <i class="bi bi-bookmark-fill"></i> Metadata Peraturan
@@ -176,7 +176,7 @@
               <table class="table table-striped" style="font-size: small;">
                 <thead>
                   <tr>
-                    <th>Item</th>
+                    <th>Metadata</th>
                     <th>Detail</th>
                   </tr>
                 </thead>
@@ -241,6 +241,10 @@
                     <th>Abstrak</th>
                     <td>{{ peraturans[2].abstrak }}</td>
                   </tr>
+                  <tr v-if="peraturans.length">
+                    <th>Status</th>
+                    <td>{{ peraturans[2].status }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -249,10 +253,10 @@
         <!-- Kolom kiri end -->
   
         <!-- Kolom kanan start -->
-        <div class="col-md-6 my-2">
+        <div class="col-md-4 my-2">
           <div class="card border-0 rounded-4 shadow-sm mb-2">
             <h5 class="card-header text-center border-0 rounded-top-4 text-bg-primary p-3">
-              <i class="bi bi-file-earmark-pdf-fill"></i> File-File Peraturan
+              <i class="bi bi-file-earmark-pdf-fill"></i> Berkas Peraturan
             </h5>
             <div class="card-body">
               <p class="card-text">
@@ -265,14 +269,7 @@
               </div>
             </div>
           </div>
-          <div class="card border-0 rounded-4 shadow-sm mt-4 mb-2">
-            <h5 class="card-header text-center border-0 rounded-top-4 text-bg-primary p-3">
-              <i class="bi bi-info-square-fill"></i> Status Peraturan
-            </h5>
-            <div class="card-body">
-              <small>{{ peraturans.length ? peraturans[2].status : '' }}</small>
-            </div>
-          </div>
+          
         </div>
         <!-- Kolom kanan end -->
       </div>
