@@ -1,25 +1,27 @@
-const { createApp } = Vue;
+const { ref, onMounted, createApp } = Vue;
 
 createApp({
-    data() {
-        return {
-            peraturan: [],
-            idData: 1 // Ganti dengan ID yang diinginkan
-        };
-    },
-    mounted() {
-        this.getPeraturanById();
-    },
-    methods: {
-        getPeraturanById() {
-            axios.get('https://jonkolong.github.io/jdih/public/data/peraturan.json')
-                .then(response => {
-                    const peraturanList = response.data.data; // Pastikan untuk menggunakan data yang benar
-                    this.peraturan = peraturanList.filter(peraturan => peraturan.id === this.idData);
-                })
-                .catch(error => {
-                    console.error("Terjadi kesalahan:", error);
-                });
-        }
-    }
+  setup() {
+    const metadata = ref([]);
+    const selectedPeraturan = ref(null);
+
+    onMounted(() => {
+      axios.get('https://jonkolong.github.io/jdih/public/data/peraturan.json')
+        .then(response => {
+          metadata.value = response.data; // Simpan seluruh data
+          if (metadata.value.length > 0) {
+            selectedPeraturan.value = metadata.value[0]; // Pilih peraturan pertama secara default
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+    });
+
+    const selectPeraturan = (peraturan) => {
+      selectedPeraturan.value = peraturan; // Set peraturan yang dipilih
+    };
+
+    return { metadata, selectedPeraturan, selectPeraturan };
+  }
 }).mount('#filter');
