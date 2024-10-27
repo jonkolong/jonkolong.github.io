@@ -2,7 +2,38 @@
     "Peraturan Bupati":
     [
         {
-            "idData": "1",
+            "idData": "4",
+            "tahun_pengundangan": "2022",
+            "tanggal_pengundangan": "2021-01-28",
+            "tipe": "Peraturan Perundang-undangan",
+            "jenis": "Peraturan Daerah",
+            "noPeraturan": "5",
+            "judul": "Bantuan Hukum Untuk Masyarakat Miskin",
+            "noPanggil": "-",
+            "singkatanJenis": "perda",
+            "tempatTerbit": "Lubuk Pakam",
+            "namaKldi": "Deli Serdang",
+            "penerbit": "Pemkab Deli Serdang",
+            "deskripsiFisik": "-",
+            "sumber": "-",
+            "subjek": "Bantuan Hukum",
+            "isbn": "-",
+            "status": "berlaku",
+            "bahasa": "Bahasa Indonesia",
+            "bidangHukum": "Kabupaten Deli Serdang",
+            "teuBadan": "Kabupaten Deli Serdang",
+            "nomorIndukBuku": "-",
+            "abstrak": "Untuk mendukung tugas dan wewenang untuk memberikan bantuan hukum bagi masyarakat miskin.",
+            "urlAbstrak": "abstrak4.html",
+            "fileDownload": "perda_5_tahun_2022.pdf",
+            "urlDownload": "public/docs/perda/perda_5_2022.pdf",
+            "urlDetailPeraturan": "detail4.html",
+            "operasi": "1",
+            "display": "1"
+        },
+
+        {
+            "idData": "3",
             "tahun_pengundangan": "2021",
             "tanggal_pengundangan": "2021-01-28",
             "tipe": "Peraturan Perundang-undangan",
@@ -64,7 +95,7 @@
         },
 
         {
-            "idData": "3",
+            "idData": "1",
             "tahun_pengundangan": "2016",
             "tanggal_pengundangan": "2016-02-13",
             "tipe": "Peraturan Perundang-undangan",
