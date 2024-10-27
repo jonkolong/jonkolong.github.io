@@ -1,27 +1,36 @@
-const { ref, onMounted, createApp } = Vue;
-
-createApp({
-  setup() {
-    const metadata = ref([]);
-    const selectedPeraturan = ref(null);
-
-    onMounted(() => {
-      axios.get('https://jonkolong.github.io/jdih/public/data/peraturan.json')
-        .then(response => {
-          metadata.value = response.data; // Simpan seluruh data
-          if (metadata.value.length > 0) {
-            selectedPeraturan.value = metadata.value[0]; // Pilih peraturan pertama secara default
-          }
-        })
-        .catch(error => {
-          console.error("Error fetching data:", error);
-        });
-    });
-
-    const selectPeraturan = (peraturan) => {
-      selectedPeraturan.value = peraturan; // Set peraturan yang dipilih
+const app = Vue.createApp({
+  data() {
+    return {
+      searchQuery: '',
+      sortOption: 'newest',
+      peraturans: []
     };
-
-    return { metadata, selectedPeraturan, selectPeraturan };
+  },
+  computed: {
+    sortedAndFilteredPeraturans() {
+      // Filter items to show only "Peraturan Daerah"
+      return this.peraturans
+        .filter(item => item.jenis === 'Peraturan Daerah')
+        .sort((a, b) => {
+          if (this.sortOption === 'newest') {
+            return b.tahun_pengundangan - a.tahun_pengundangan;
+          } else if (this.sortOption === 'oldest') {
+            return a.tahun_pengundangan - b.tahun_pengundangan;
+          }
+          return 0;
+        });
+    }
+  },
+  mounted() {
+    axios.get('https://jonkolong.github.io/jdih/public/data/peraturan.json')
+      .then(response => {
+        this.peraturans = response.data;
+        console.log('Fetched data:', this.peraturans);  // Log the data to check if it’s being fetched correctly
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
   }
-}).mount('#filter');
+});
+
+app.mount('#filter');

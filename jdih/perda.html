@@ -21,7 +21,7 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
-<body class="bg-body-secondary" id="peraturan">
+<body class="bg-body-secondary">
 
   <!-- Slider text start -->
   <marquee class="bg-jdih" behavior="" direction=""
@@ -176,78 +176,80 @@
   </div>
   <!-- Keterangan Title End -->
 
-  <!-- Peraturan Daerah Start -->
-  <div class="container p-3">
+  <div id="filter" class="container p-3">
+    <!-- Kontainer utama untuk Vue -->
     <div class="container card bg-secondary-subtle border-0 rounded-4 p-2">
-      <h4 class="text-center mt-2"><i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Daerah</h4>
+        <h4 class="text-center mt-2">
+            <i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Daerah
+        </h4>
 
-      <div class="row p-3">
-        <div class="col-md-9 mb-2">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" 
-            placeholder="Cari Peraturan Daerah" aria-label="Search" />
-            <button class="btn btn-danger" style="white-space: nowrap;" type="submit">
-              <i class="fas fa-search me-1"></i>
-              Cari
-            </button>
-          </form>
-        </div>
-        <div class="col-md-3 d-flex align-items-center">
-          <label class="me-2" for="">Sortir</label>
-          <select class="form-select">
-            <option value="newest" selected>Terbaru</option>
-            <option value="oldest">Terlama</option>
-            <option value="valid">Berlaku</option>
-            <option value="invalid">Tidak berlaku</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Peraturan Start -->
-      <div class="row">
-        <div class="row-cols-auto d-flex flex-column p-4"
-        data-aos="fade-up" 
-        data-aos-delay="50" 
-        data-aos-once="true">
-          <div class="peraturan-card card border-0 rounded-4 shadow-sm p-3 mt-4" v-for="item in peraturans" :key="item.jenis">
-            <a :href="item.urlDetailPeraturan" class="text-decoration-none">
-              <h5 class="livvic fw-semibold">{{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}</h5>
-            </a>
-            <p class="mb-1">Tentang {{ item.judul }}</p>
-            <div class="d-flex">
-              <small class="me-2">
-                <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
-              </small>
+        <!-- Pencarian dan Sortir -->
+        <div class="row p-3">
+            <div class="col-md-9 mb-2">
+                <form class="d-flex" @submit.prevent>
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        v-model="searchQuery"
+                        placeholder="Cari Peraturan Daerah"
+                        aria-label="Search"
+                    />
+                    <button class="btn btn-danger" type="submit">
+                        <i class="fas fa-search me-1"></i> Cari
+                    </button>
+                </form>
             </div>
-
-            <div class="d-flex mt-2">
-              <small class="livvic fw-medium" style="font-size: clamp(8px, 1vw + 2px, 12px);">
-                Status: 
-                  <span class="livvic fw-medium" style="font-size: clamp(8px, 1vw + 2px, 12px);" 
-                  :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
-                    {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
-                  </span>
-              </small>
-              <ul class="d-flex align-items-center ms-auto">
-                <li class="d-flex align-items-center">
-                  <a :href="item.urlDownload" target="_blank">
-                    <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
-                  </a>
-                  <a :href="item.urlDetailPeraturan">
-                    <i class="card border-0 fs-3 text-warning me-4 fa-solid fa-circle-info"></i>
-                  </a>
-                </li>
-              </ul>
+            <div class="col-md-3 d-flex align-items-center">
+                <label class="me-2" for="sort">Sortir</label>
+                <select class="form-select" v-model="sortOption">
+                    <option value="newest">Terbaru</option>
+                    <option value="oldest">Terlama</option>
+                    <option value="valid">Berlaku</option>
+                    <option value="invalid">Tidak berlaku</option>
+                </select>
             </div>
-
-          </div>
         </div>
-      </div>
-      <!-- Peraturan End -->
 
+        <!-- Daftar Peraturan -->
+        <div class="row">
+            <div
+                class="row-cols-auto d-flex flex-column p-4"
+                v-for="item in sortedAndFilteredPeraturans"
+                :key="item.id"
+            >
+                <div class="peraturan-card card border-0 rounded-4 shadow-sm p-3 mt-4">
+                    <a :href="item.urlDetailPeraturan" class="text-decoration-none">
+                        <h5 class="fw-semibold">
+                            {{ item.jenis }} {{ item.namaKldi }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}
+                        </h5>
+                    </a>
+                    <p class="mb-1">Tentang {{ item.judul }}</p>
+                    <div class="d-flex">
+                        <small class="me-2">
+                            <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
+                        </small>
+                    </div>
+                    <div class="d-flex mt-2">
+                        <small>Status: <span :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
+                            {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
+                        </span></small>
+                        <ul class="d-flex align-items-center ms-auto">
+                            <li>
+                                <a :href="item.urlDownload" target="_blank">
+                                    <i class="fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
+                                </a>
+                                <a :href="item.urlDetailPeraturan">
+                                    <i class="fs-3 text-warning me-4 fa-solid fa-circle-info"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Peraturan End -->
     </div>
   </div>
-  <!-- Peraturan Daerah End -->
 
   <!-- Pagination Start -->
   <div class="container d-flex justify-content-center"
@@ -327,8 +329,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="assets/js/peraturan.js"></script>
-  <script src="assets/js/search.js"></script>
+  <script src="assets/js/filter.js"></script>
   <script src="assets/js/dark.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -1,8 +1,8 @@
 {
-    "Peraturan Daerah":
+    "Peraturan":
     [
         {
-            "idData": "1",
+            "idData": "5",
             "tahun_pengundangan": "2022",
             "tanggal_pengundangan": "2021-01-28",
             "tipe": "Peraturan Perundang-undangan",
@@ -33,7 +33,7 @@
         },
 
         {
-            "idData": "2",
+            "idData": "4",
             "tahun_pengundangan": "2021",
             "tanggal_pengundangan": "2021-01-28",
             "tipe": "Peraturan Perundang-undangan",
@@ -61,11 +61,8 @@
             "urlDetailPeraturan": "detail5.html",
             "operasi": "1",
             "display": "1"
-        }
-    ],
+        },
 
-    "Peraturan Bupati":
-    [
         {
             "idData": "3",
             "tahun_pengundangan": "2021",
