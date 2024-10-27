@@ -1,8 +1,8 @@
 {
-    "Peraturan Bupati":
+    "Peraturan Daerah":
     [
         {
-            "idData": "4",
+            "idData": "1",
             "tahun_pengundangan": "2022",
             "tanggal_pengundangan": "2021-01-28",
             "tipe": "Peraturan Perundang-undangan",
@@ -32,6 +32,40 @@
             "display": "1"
         },
 
+        {
+            "idData": "2",
+            "tahun_pengundangan": "2021",
+            "tanggal_pengundangan": "2021-01-28",
+            "tipe": "Peraturan Perundang-undangan",
+            "jenis": "Peraturan Daerah",
+            "noPeraturan": "3",
+            "judul": "Pajak dan Retribusi Daerah",
+            "noPanggil": "-",
+            "singkatanJenis": "perda",
+            "tempatTerbit": "Lubuk Pakam",
+            "namaKldi": "Deli Serdang",
+            "penerbit": "Pemkab Deli Serdang",
+            "deskripsiFisik": "-",
+            "sumber": "",
+            "subjek": "Pajak dan Retribusi",
+            "isbn": "-",
+            "status": "berlaku",
+            "bahasa": "Bahasa Indonesia",
+            "bidangHukum": "Badan Pendapatan Daerah",
+            "teuBadan": "Kabupaten Deli Serdang",
+            "nomorIndukBuku": "-",
+            "abstrak": "Untuk mendukung tugas dan wewenang untuk pengelolaan pajak dan retribusi daerah.",
+            "urlAbstrak": "abstrak1.html",
+            "fileDownload": "perda_3_tahun_2021.pdf",
+            "urlDownload": "public/docs/perda/perda_3_2021.pdf",
+            "urlDetailPeraturan": "detail5.html",
+            "operasi": "1",
+            "display": "1"
+        }
+    ],
+
+    "Peraturan Bupati":
+    [
         {
             "idData": "3",
             "tahun_pengundangan": "2021",
