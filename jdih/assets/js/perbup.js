@@ -9,12 +9,11 @@ createApp({
         const fetchRegulations = async () => {
             try {
                 const response = await axios.get('https://jonkolong.github.io/jdih/public/data/peraturan.json');
-                // Filter data untuk hanya menampilkan Peraturan Daerah
-                regulations.value = response.data.Peraturan.filter(item => item.jenis === 'Peraturan Daerah');
-                console.log(regulations.value); // Debugging: lihat data yang diambil
+                // Filter hanya untuk jenis "Peraturan Daerah"
+                regulations.value = response.data.Peraturan.filter(item => item.jenis === 'Peraturan Bupati');
             } catch (err) {
                 error.value = 'Terjadi kesalahan saat mengambil data.';
-                console.error(err); // Debugging: lihat kesalahan di konsol
+                console.error(err);
             } finally {
                 loading.value = false;
             }
