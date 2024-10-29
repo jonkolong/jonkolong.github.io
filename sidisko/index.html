@@ -227,10 +227,49 @@
   data-aos="fade-up"
   data-aos-delay="50"
   data-aos-once="true">
-    <div class="container card bg-success-subtle rounded-4 border-0 p-3">
-      <h5 class="card-title text-center">
-        <i class="fa-solid fa-clipboard-list me-1"></i>
-        Tiket terakhir</h5>
+    <div class="container card bg-info-subtle rounded-4 border-0 p-3">
+      <div class="card-title text-center row mb-3">
+        <h5 class="col-12">
+          <i class="fa-solid fa-clipboard-list me-2"></i>
+          Tiket terakhir
+        </h5>
+
+        <div class="row">
+          <div class="col-12">
+              <form class="row g-2 align-items-center" role="search">
+                  <div class="col-12 col-lg-6">
+                      <input class="form-control" type="search" placeholder="Ketik kata pencarian disini" aria-label="Search">
+                  </div>
+                  <div class="col-12 col-lg-2">
+                      <select class="form-select" aria-label="Status">
+                          <option value="terbaru" selected>Terbaru</option>
+                          <option value="selesai">Selesai</option>
+                          <option value="diproses">Diproses</option>
+                          <option value="disposisi">Disposisi</option>
+                          <option value="diterima">Diterima</option>
+                          <option value="ditolak">Ditolak</option>
+                      </select>
+                  </div>
+                  <div class="col-12 col-lg-2">
+                      <select class="form-select" aria-label="Unit Kerja">
+                          <option value="uni" selected>Semua Unit Kerja</option>
+                          <option value="dinsos">Dinas Sosial</option>
+                          <option value="disdukcapil">Dinas Kependudukan dan Pencatatan Sipil</option>
+                          <option value="baghukum">Bagian Hukum</option>
+                          <option value="bagorganisasi">Bagian Organisasi</option>
+                      </select>
+                  </div>
+                  <div class="col-12 col-lg-2">
+                      <button class="btn btn-primary w-100" type="submit">
+                          <i class="bi bi-search me-1"></i>Search
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+      
+
+      </div>
         
       <div class="card rounded-4 border-0 shadow-sm p-3">
         <p class="d-flex">
@@ -259,6 +298,23 @@
         </div>
 
       </div>
+
+      <nav aria-label="...">
+        <ul class="pagination justify-content-center mt-3">
+          <li class="page-item disabled">
+            <span class="page-link"><i class="fa-solid fa-arrow-left"></i></span>
+          </li>
+          <li class="page-item active" aria-current="page">
+            <span class="page-link text-bg-primary">1</span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#"><i class="fa-solid fa-arrow-right"></i></a>
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </div>
   <!-- Tiket History End -->
