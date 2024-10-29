@@ -2,6 +2,7 @@
     {
         "id": "5",
         "tiketId": "pd7gf5",
+        "tanggalTiket": "2024-10-05",
         "unitKerja": {
             "userId": "44444444",
             "namaUser": "bagorganisasi",
@@ -32,6 +33,7 @@
     {
         "id": "4",
         "tiketId": "rvZ5th",
+        "tanggalTiket": "2024-10-04",
         "unitKerja": {
             "userId": "33333333",
             "namaUser": "disdukcapil",
@@ -62,6 +64,7 @@
     {
         "id": "3",
         "tiketId": "pdu83a",
+        "tanggalTiket": "2024-10-03",
         "unitKerja": {
             "userId": "33333333",
             "namaUser": "disdukcapil",
@@ -92,6 +95,7 @@
     {
         "id": "2",
         "tiketId": "jr7g3Y",
+        "tanggalTiket": "2024-10-02",
         "unitKerja": {
             "userId": "22222222",
             "namaUser": "disdukcapil",
@@ -122,6 +126,7 @@
     {
         "id": "1",
         "tiketId": "jr5a34",
+        "tanggalTiket": "2024-10-01",
         "unitKerja": {
             "userId": "11111111",
             "namaUser": "dinsos",
