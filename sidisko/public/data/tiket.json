@@ -1,12 +1,152 @@
 [
     {
-        "id": 1,
-        "tiketId": "5a34",
+        "id": "5",
+        "tiketId": "pd7gf5",
         "unitKerja": {
-            "userId": "12345678",
-            "unitKerja": "Dinas Sosial",
-            "namaUser": "dinsos"
-        }
-        
+            "userId": "44444444",
+            "namaUser": "bagorganisasi",
+            "unitKerjaId": "Bagian Organisasi"
+        },
+        "menu": "Aplikasi",
+        "layanan": "Pengembangan Aplikasi",
+        "keterangan": "Mohon pengembangan aplikasi Sukma Deli berbasis API",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "disposisi",
+        "urlDetil": "/detil5.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
+        "id": "4",
+        "tiketId": "rvZ5th",
+        "unitKerja": {
+            "userId": "33333333",
+            "namaUser": "disdukcapil",
+            "unitKerjaId": "Dinas Kependudukan dan Pencatatan Sipil"
+        },
+        "menu": "Reservasi",
+        "layanan": "Pendampingan Virtual Meeting",
+        "keterangan": "Mohon bantuan untuk acara zoom meeting di Aula Cendana Lt. 2",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "diproses",
+        "urlDetil": "/detil4.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
+        "id": "3",
+        "tiketId": "pdu83a",
+        "unitKerja": {
+            "userId": "33333333",
+            "namaUser": "disdukcapil",
+            "unitKerjaId": "Dinas Kependudukan dan Pencatatan Sipil"
+        },
+        "menu": "Pusat Data",
+        "layanan": "Pemakaian Nama Subdomain",
+        "keterangan": "salakdeli.deliserdangkab.go.id",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "diproses",
+        "urlDetil": "/detil3.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
+        "id": "2",
+        "tiketId": "jr7g3Y",
+        "unitKerja": {
+            "userId": "22222222",
+            "namaUser": "disdukcapil",
+            "unitKerjaId": "Dinas Kependudukan dan Pencatatan Sipil"
+        },
+        "menu": "Jaringan",
+        "layanan": "Koneksi Internet",
+        "keterangan": "Internet sangat lambat, buka google ja googlenya nanya yahoo",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "selesai",
+        "urlDetil": "/detil2.html",
+        "urlChat": "",
+        "rating": "5"
+    },
+    {
+        "id": "1",
+        "tiketId": "jr5a34",
+        "unitKerja": {
+            "userId": "11111111",
+            "namaUser": "dinsos",
+            "unitKerja": "Dinas Sosial"
+        },
+        "menu": "Jaringan",
+        "layanan": "Instalasi Jaringan",
+        "keterangan": "Router hidup mati",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "disposisi",
+        "urlDetil": "/detil1.html",
+        "urlChat": "",
+        "rating": ""
     }
 ]

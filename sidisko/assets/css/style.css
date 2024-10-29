@@ -92,7 +92,6 @@ a {
 ul {list-style: none;}
 
 body {
-  background: var(--bs-background-2);
   transition: all 200ms ease;
 }
 
@@ -125,7 +124,6 @@ nav ul li a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--bs-utama-gelap);
   font-weight: 600;
   transition: all 200ms ease;
 }
@@ -195,18 +193,8 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   backdrop-filter: blur(5px);
 }
 
-/* Status Pengaduan */
-.status-tiket .info-status {
-  width: 150px;
-  height: 150px;
-  border: none;
-}
-
-.status-tiket .info-status i {
-  font-size: 50px;
-}
-
-.status-tiket .info-status label {
+/* Tiket Status */
+.tiket-status p {
   font-size: clamp(12px, 1vw + 2px, 16px);
   font-weight: 500;
 }
