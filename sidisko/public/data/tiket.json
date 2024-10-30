@@ -3,11 +3,9 @@
         "id": "5",
         "tiketId": "pd7gf5",
         "tanggalTiket": "2024-10-05",
-        "unitKerja": {
-            "userId": "44444444",
-            "namaUser": "bagorganisasi",
-            "unitKerjaId": "Bagian Organisasi"
-        },
+        "unitKerja": "Bagian Organisasi",
+        "userId": "55555555",
+        "username": "bagorganisasi",
         "menu": "Aplikasi",
         "layanan": "Pengembangan Aplikasi",
         "keterangan": "Mohon pengembangan aplikasi Sukma Deli berbasis API",
@@ -34,11 +32,9 @@
         "id": "4",
         "tiketId": "rvZ5th",
         "tanggalTiket": "2024-10-04",
-        "unitKerja": {
-            "userId": "33333333",
-            "namaUser": "disdukcapil",
-            "unitKerjaId": "Dinas Kependudukan dan Pencatatan Sipil"
-        },
+        "unitKerja": "Dinas Pertanian",
+        "userId": "44444444",
+        "username": "distan",
         "menu": "Reservasi",
         "layanan": "Pendampingan Virtual Meeting",
         "keterangan": "Mohon bantuan untuk acara zoom meeting di Aula Cendana Lt. 2",
@@ -65,11 +61,9 @@
         "id": "3",
         "tiketId": "pdu83a",
         "tanggalTiket": "2024-10-03",
-        "unitKerja": {
-            "userId": "33333333",
-            "namaUser": "disdukcapil",
-            "unitKerjaId": "Dinas Kependudukan dan Pencatatan Sipil"
-        },
+        "unitKerja": "Dinas Kependudukan dan Pencatatan Sipil",
+        "userId": "33333333",
+        "username": "disdukcapil",
         "menu": "Pusat Data",
         "layanan": "Pemakaian Nama Subdomain",
         "keterangan": "salakdeli.deliserdangkab.go.id",
@@ -96,11 +90,9 @@
         "id": "2",
         "tiketId": "jr7g3Y",
         "tanggalTiket": "2024-10-02",
-        "unitKerja": {
-            "userId": "22222222",
-            "namaUser": "disdukcapil",
-            "unitKerjaId": "Dinas Kependudukan dan Pencatatan Sipil"
-        },
+        "unitKerja": "Dinas Kependudukan dan Pencatatan Sipil",
+        "userId": "22222222",
+        "username": "disdukcapil",
         "menu": "Jaringan",
         "layanan": "Koneksi Internet",
         "keterangan": "Internet sangat lambat, buka google ja googlenya nanya yahoo",
@@ -127,11 +119,9 @@
         "id": "1",
         "tiketId": "jr5a34",
         "tanggalTiket": "2024-10-01",
-        "unitKerja": {
-            "userId": "11111111",
-            "namaUser": "dinsos",
-            "unitKerja": "Dinas Sosial"
-        },
+        "unitKerja": "Dinas Sosial",
+        "userId": "11111111",
+        "username": "dinsos",
         "menu": "Jaringan",
         "layanan": "Instalasi Jaringan",
         "keterangan": "Router hidup mati",
