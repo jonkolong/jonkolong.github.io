@@ -1,5 +1,63 @@
 [
     {
+        "id": "13",
+        "tiketId": "jr56tF",
+        "tanggalTiket": "2024-10-15",
+        "unitKerja": "Inspektorat",
+        "userId": "14141414",
+        "username": "inspektorat",
+        "menu": "Jaringan",
+        "layanan": "Koneksi Internet",
+        "keterangan": "Permohonan peningkatan bandwidth internet",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "selesai",
+        "urlDetil": "/detil13.html",
+        "urlChat": "",
+        "rating": "3"
+    },
+    {
+        "id": "12",
+        "tiketId": "reyTg4",
+        "tanggalTiket": "2024-10-15",
+        "unitKerja": "Badan Kepegawaian dan Pengembangan Sumber Daya Manusia",
+        "userId": "13131313",
+        "username": "bkpsdm",
+        "menu": "Reservasi",
+        "layanan": "Narasumber",
+        "keterangan": "Permohonan untuk menjadi narasumber pada kegiatan Sosialisasi Aplikasi Kinerja DS",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "disposisi",
+        "urlDetil": "/detil12.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
         "id": "11",
         "tiketId": "reJg78",
         "tanggalTiket": "2024-10-12",
