@@ -1,5 +1,121 @@
 [
     {
+        "id": "11",
+        "tiketId": "reJg78",
+        "tanggalTiket": "2024-10-12",
+        "unitKerja": "Badan Pendapatan Daerah",
+        "userId": "12121212",
+        "username": "bapenda",
+        "menu": "Reservasi",
+        "layanan": "Pembuatan Ruang Virtual Meeting",
+        "keterangan": "Izin pembuatan room zoom untuk acara sosialisasi",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "diterima",
+        "urlDetil": "/detil11.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
+        "id": "10",
+        "tiketId": "reJg78",
+        "tanggalTiket": "2024-10-12",
+        "unitKerja": "Dinas Lingkungan Hidup",
+        "userId": "10101010",
+        "username": "dlh",
+        "menu": "Reservasi",
+        "layanan": "Pembuatan Ruang Virtual Meeting",
+        "keterangan": "Izin pembuatan room zoom untuk acara sosialisasi",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "diterima",
+        "urlDetil": "/detil10.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
+        "id": "9",
+        "tiketId": "pdo78F",
+        "tanggalTiket": "2024-10-12",
+        "unitKerja": "Dinas Cipta Karya dan Tata Ruang",
+        "userId": "99999999",
+        "username": "cikataru",
+        "menu": "Aplikasi",
+        "layanan": "Pemakaian Nama Subdomain",
+        "keterangan": "Mohon izin pemakaian nama subdomain cktr.deliserdangkab.go.id",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "selesai",
+        "urlDetil": "/detil9.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
+        "id": "8",
+        "tiketId": "ap5113",
+        "tanggalTiket": "2024-10-11",
+        "unitKerja": "Dinas Lingkungan Hidup",
+        "userId": "88888888",
+        "username": "dlh",
+        "menu": "Aplikasi",
+        "layanan": "Pembangunan Aplikasi",
+        "keterangan": "Mohon pengembangan aplikasi Jumpa Madu",
+        "urlFoto": [
+            {
+                "urlFoto1": "/public/foto/foto1.jpg",
+                "urlFoto2": "/public/foto/foto2.jpg",
+                "urlFoto3": "/public/foto/foto3.jpg"
+            }
+        ], 
+        "urlDocs": [
+            {
+                "urlDoc1": "public/doc/doc1.pdf",
+                "urlDoc2": "public/doc/doc2.pdf",
+                "urlDoc3": "public/doc/doc3.pdf"
+            }
+        ],
+        "status": "diterima",
+        "urlDetil": "/detil8.html",
+        "urlChat": "",
+        "rating": ""
+    },
+    {
         "id": "7",
         "tiketId": "ap7gf5",
         "tanggalTiket": "2024-10-10",
