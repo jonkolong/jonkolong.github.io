@@ -67,6 +67,7 @@
       <div class="mb-3">
         <label for="itemsPerPage" class="form-label">Tampilkan</label>
         <select v-model="itemsPerPage" class="form-select" id="itemsPerPage">
+          <option value="4">4</option>
           <option value="6">6</option>
           <option value="10">10</option>
           <option value="20">20</option>
@@ -87,7 +88,7 @@
 
     <!-- Menampilkan data -->
     <div class="row">
-      <div v-for="ticket in paginatedTickets" :key="ticket.idData" class="col-md-4">
+      <div v-for="ticket in paginatedTickets" :key="ticket.id" class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title">{{ ticket.layanan }}</h5>

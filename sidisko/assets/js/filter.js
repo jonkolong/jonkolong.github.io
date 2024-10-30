@@ -2,17 +2,16 @@ const { createApp, ref, onMounted, computed } = Vue;
 
 createApp({
   setup() {
-    const tickets = ref([]); // Untuk menyimpan data tiket
-    const searchQuery = ref(""); // Untuk menyimpan input pencarian
-    const selectedStatus = ref(""); // Untuk menyimpan status yang dipilih
-    const selectedUnitKerja = ref(""); // Untuk menyimpan unit kerja yang dipilih
-    const selectedMenu = ref(""); // Untuk menyimpan menu yang dipilih
-    const selectedLayanan = ref(""); // Untuk menyimpan layanan yang dipilih
-    const itemsPerPage = ref(6); // Jumlah tiket per halaman
-    const currentPage = ref(1); // Halaman saat ini
-    const sortOrder = ref("latest"); // Opsi sortir
+    const tickets = ref([]);
+    const searchQuery = ref("");
+    const selectedStatus = ref("");
+    const selectedUnitKerja = ref("");
+    const selectedMenu = ref("");
+    const selectedLayanan = ref("");
+    const itemsPerPage = ref(6);
+    const currentPage = ref(1);
+    const sortOrder = ref("latest");
 
-    // Layanan yang berhubungan dengan setiap menu
     const menuLayanan = {
       Aplikasi: ["Pengembangan Aplikasi", "Pembangunan Aplikasi"],
       Jaringan: ["Instalasi Jaringan", "Koneksi Internet"],
@@ -20,46 +19,36 @@ createApp({
       Reservasi: ["Pendampingan Virtual Meeting", "Pembuatan Ruang Virtual Meeting"],
     };
 
-    // Fungsi untuk mengambil data menggunakan Axios
     const fetchData = async () => {
       try {
         const response = await axios.get('https://jonkolong.github.io/sidisko/public/data/tiket.json');
-        tickets.value = response.data; // Menyimpan data ke dalam tickets
-        console.log(tickets.value); // Cek data di console
+        tickets.value = response.data;
       } catch (error) {
         console.error("Error mengambil data:", error);
       }
     };
 
-    // Mengambil data saat komponen di-mount
     onMounted(() => {
       fetchData();
     });
 
-    // Mengupdate layanan berdasarkan menu yang dipilih
     const updateSelectedLayanan = () => {
-      selectedLayanan.value = ""; // Reset layanan yang dipilih
+      selectedLayanan.value = "";
     };
 
-    // Computed property untuk mendapatkan layanan berdasarkan menu yang dipilih
     const filteredLayanan = computed(() => {
       return selectedMenu.value ? menuLayanan[selectedMenu.value] : [];
     });
 
-    // Fungsi untuk memformat tanggal menjadi DD NamaBulan YYYY
     const formatTanggal = (tanggal) => {
-      const bulan = [
-        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-      ];
+      const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
       const date = new Date(tanggal);
-      const day = String(date.getDate()).padStart(2, '0'); // Menambahkan leading zero
-      const month = bulan[date.getMonth()]; // Mengambil nama bulan
-      const year = date.getFullYear(); // Mengambil tahun
-      return `${day} ${month} ${year}`; // Mengembalikan format yang diinginkan
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = bulan[date.getMonth()];
+      const year = date.getFullYear();
+      return `${day} ${month} ${year}`;
     };
 
-    // Computed property untuk memfilter tiket berdasarkan pencarian, status, unit kerja, menu, dan layanan
     const filteredTickets = computed(() => {
       return tickets.value.filter(ticket => {
         const matchesSearch = ticket.layanan.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
@@ -74,11 +63,10 @@ createApp({
       }).sort((a, b) => {
         const dateA = new Date(a.tanggalTiket);
         const dateB = new Date(b.tanggalTiket);
-        return sortOrder.value === "latest" ? dateB - dateA : dateA - dateB; // Sort by date
+        return sortOrder.value === "latest" ? dateB - dateA : dateA - dateB;
       });
     });
 
-    // Pagination
     const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage.value));
 
     const paginatedTickets = computed(() => {
@@ -87,9 +75,8 @@ createApp({
       return filteredTickets.value.slice(start, end);
     });
 
-    // Fungsi untuk mengubah halaman
     const changePage = (page) => {
-      if (page < 1 || page > totalPages.value) return; // Cek batas halaman
+      if (page < 1 || page > totalPages.value) return;
       currentPage.value = page;
     };
 
@@ -108,7 +95,8 @@ createApp({
       paginatedTickets,
       changePage,
       updateSelectedLayanan,
-      formatTanggal, // Menambahkan fungsi formatTanggal
+      formatTanggal,
+      totalPages, // Mengembalikan total halaman untuk pagination
     };
   }
 }).mount('#filter');
