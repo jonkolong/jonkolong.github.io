@@ -11,6 +11,7 @@ createApp({
     const itemsPerPage = ref(6);
     const currentPage = ref(1);
     const sortOrder = ref("latest");
+    const isFilterVisible = ref(false); // Untuk menyimpan status visibilitas filter
 
     const menuLayanan = {
       "Aplikasi": ["Pengembangan Aplikasi", "Pembangunan Aplikasi"],
@@ -21,7 +22,7 @@ createApp({
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://jonkolong.github.io/sidisko/public/data/tickets.json');
+        const response = await axios.get('http://localhost:5500/sidisko/public/data/tickets.json');
         tickets.value = response.data;
       } catch (error) {
         console.error("Gagal mengambil data:", error);
@@ -80,6 +81,12 @@ createApp({
       currentPage.value = page;
     };
 
+    const toggleFilter = () => {
+      setTimeout(() => {
+        isFilterVisible.value = !isFilterVisible.value;
+      }, 200); // Delay 300ms sebelum menampilkan filter
+    };
+
     return {
       tickets,
       searchQuery,
@@ -97,6 +104,8 @@ createApp({
       updateSelectedLayanan,
       formatTanggal,
       totalPages,
+      isFilterVisible,
+      toggleFilter,
     };
   }
 }).mount('#filter');

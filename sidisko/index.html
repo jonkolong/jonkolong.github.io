@@ -260,13 +260,18 @@
         <!-- Form pencarian start -->
         <form @submit.prevent>
           <div class="d-flex mb-1 gap-2">
-            <input type="text" class="form-control" placeholder="ketikkan kata kunci..." v-model="searchQuery">
-            <button class="btn btn-primary fw-semibold" style="white-space: nowrap;"
-            type="button" @click="searchTickets"><i class="fa-solid fa-glasses me-2"></i>Cari</button>
+            <input type="text" class="form-control rounded-5" placeholder="ketikkan kata kunci..." v-model="searchQuery">
+            <button class="btn btn-danger rounded-5 fw-semibold" style="white-space: nowrap;" type="button" @click="searchTickets">
+              <i class="fa-solid fa-magnifying-glass me-2"></i>Cari
+            </button>
+            <button class="btn rounded-circle text-bg-secondary" type="button" @click="toggleFilter">
+              <i class="fa-solid" :class="isFilterVisible ? 'fa-arrow-up' : 'fa-arrow-down'"></i>
+            </button>
           </div>
-          
-          <div class="row">
-          <!-- Dropdown untuk Status -->
+
+          <!-- batas pencarian hidden -->
+          <div v-if="isFilterVisible" class="row mt-2">
+            <!-- Dropdown untuk Status -->
             <div class="col-sm-6 col-lg-4 mb-1">
               <label for="status" class="form-label mb-0">Status</label>
               <select v-model="selectedStatus" class="form-select" id="status">
@@ -315,16 +320,6 @@
               </select>
             </div>
 
-            <!-- Filter Jumlah Hasil per Halaman -->
-            <div class="col-sm-6 col-lg-4 mb-1">
-                <label for="resultsPerPage" class="form-label mb-0">Jumlah</label>
-                <select id="resultsPerPage" v-model="itemsPerPage" class="form-select">
-                  <option value="6">6</option>
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                </select>
-            </div>
-
             <!-- Dropdown untuk Sortir berdasarkan Tanggal -->
             <div class="col-sm-6 col-lg-4 mb-1">
               <label for="sortBy" class="form-label mb-0">Urutkan</label>
@@ -334,6 +329,15 @@
               </select>
             </div>
 
+            <!-- Filter Jumlah Hasil per Halaman -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="resultsPerPage" class="form-label mb-0">Jumlah</label>
+              <select id="resultsPerPage" v-model="itemsPerPage" class="form-select">
+                <option value="6">6</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+            </div>
           </div>
         </form>
         <!-- Form pencarian end -->

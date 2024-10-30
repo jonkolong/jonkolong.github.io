@@ -197,3 +197,6 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   font-size: clamp(12px, 1vw + 2px, 16px);
   font-weight: 500;
 }
+
+/* Animasi dan Transisi */
+
