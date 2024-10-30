@@ -22,7 +22,7 @@ createApp({
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5500/sidisko/public/data/tickets.json');
+        const response = await axios.get('https://jonkolong.github.io/sidisko/public/data/tickets.json');
         tickets.value = response.data;
       } catch (error) {
         console.error("Gagal mengambil data:", error);
