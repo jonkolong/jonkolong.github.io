@@ -1,136 +1,455 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi Pengaduan</title>
-  <!-- CDN Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SiDisko | Diskominfostan Kab. Deli Serdang</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/router.svg" />
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Fonts and Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Vue JS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
-  <!-- Root element dengan id "filter" -->
-  <div id="filter" class="container my-5">
-    <h1>Data Tiket</h1>
-    
-    <!-- Form pencarian -->
-    <form @submit.prevent>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Cari tiket..." v-model="searchQuery">
-        <button class="btn btn-outline-secondary" type="button" @click="searchTickets">Cari</button>
+
+<body class="bg-body-secondary" id="filter">
+
+  <!-- Topbar Start -->
+  <nav class="navbar navbar-expand bg-dark-subtle">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#"><img
+        src="assets/img/router.svg" alt=""
+        style="height: 30px" />
+        <span class="ms-2 googlesans">SIDISKO</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-3">
+        <div class="notifikasi">
+          <div class="card bg-transparent border-0"
+          style="cursor: pointer;">
+            <i class="fa-regular fa-bell fs-4"></i>
+          </div>
+        </div>
+
+        <div class="dark-mode">
+          <button class="btn bg-warning border-0" 
+          style="width: 30px;height: 30px;border-radius: 50%;"
+          onclick="toggleTheme()">
+          <i class="bi bi-sun-fill text-dark d-flex justify-content-center align-items-center"></i>
+          </button>
+        </div>
+
+        <div class="login-logout">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="public/img/user.jpg" style="width: 30px;border-radius: 50%;" alt="">
+              <span class="ms-2">Angela</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><button class="dropdown-item" type="button"><i class="fa-solid fa-user me-2"></i>Profil</button></li>
+              <li><button class="dropdown-item" type="button"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Keluar</button></li>
+            </ul>
+          </div>
+
+        </div>
       </div>
       
-      <!-- Dropdown untuk Status -->
-      <div class="mb-3">
-        <label for="status" class="form-label">Pilih Status</label>
-        <select v-model="selectedStatus" class="form-select" id="status">
-          <option value="">Semua</option>
-          <option value="diterima">Diterima</option>
-          <option value="disposisi">Disposisi</option>
-          <option value="diproses">Diproses</option>
-          <option value="selesai">Selesai</option>
-          <option value="ditolak">Ditolak</option>
-        </select>
-      </div>
+    </div>
+  </nav>
+  <!-- Topbar End -->
 
-      <!-- Dropdown untuk Unit Kerja -->
-      <div class="mb-3">
-        <label for="unitKerja" class="form-label">Pilih Unit Kerja</label>
-        <select v-model="selectedUnitKerja" class="form-select" id="unitKerja">
-          <option value="">Semua</option>
-          <option value="Bagian Organisasi">Bagian Organisasi</option>
-          <option value="Dinas Pertanian">Dinas Pertanian</option>
-          <option value="Dinas Kependudukan dan Pencatatan Sipil">Dinas Kependudukan dan Pencatatan Sipil</option>
-          <option value="Dinas Sosial">Dinas Sosial</option>
-        </select>
-      </div>
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent"
+  data-aos="fade-in"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <div class="container">
 
-      <!-- Dropdown untuk Menu -->
-      <div class="mb-3">
-        <label for="menu" class="form-label">Pilih Menu</label>
-        <select v-model="selectedMenu" @change="updateSelectedLayanan" class="form-select" id="menu">
-          <option value="">Semua</option>
-          <option value="Aplikasi">Aplikasi</option>
-          <option value="Jaringan">Jaringan</option>
-          <option value="Pusat Data">Pusat Data</option>
-          <option value="Reservasi">Reservasi</option>
-        </select>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="fa-solid fa-home me-1"></i>Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="buat-tiket.html"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat Tiket</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="progress.html" target="_blank"><i class="fa-solid fa-truck-fast me-1"></i>Progres</a>
+          </li>
+        </ul>
       </div>
+      
+    </div>
+  </nav>
+  <!-- Navbar End -->
 
-      <!-- Dropdown untuk Layanan -->
-      <div class="mb-3">
-        <label for="layanan" class="form-label">Pilih Layanan</label>
-        <select v-model="selectedLayanan" class="form-select" id="layanan">
-          <option value="">Semua</option>
-          <option v-for="layanan in filteredLayanan" :key="layanan" :value="layanan">{{ layanan }}</option>
-        </select>
+  <!-- Mobile Navbar Bottom start -->
+  <nav class="mobile-navbar navbar-expand fixed-bottom container d-lg-none"
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <ul class="mobile-bar">
+      <li class="icon-card">
+        <a href="#">
+          <div class="icon-set home card bg-primary-subtle">
+            <i class="icon-logo text-primary fa-solid fa-house"></i>
+            <label class="text-primary" for="">Beranda</label>
+          </div>
+        </a>
+      </li>
+      <li class="icon-card">
+        <a href="buat-tiket.html">
+          <div class="icon-set terbaru card bg-success-subtle">
+            <i class="icon-logo text-success fa-solid fa-file-arrow-up"></i>
+            <label class="text-success" for="">Buat tiket</label>
+          </div>
+        </a>
+      </li>
+      <li class="icon-card">
+        <a href="progress.html" target="_blank">
+          <div class="icon-set jdihn card bg-info-subtle">
+            <i class="icon-logo text-info fa-solid fa-truck-fast"></i>
+            <label class="text-info" for="">Progres</label>
+          </div>
+        </a>
+      </li>
+      <li class="icon-card">
+        <a href="" data-bs-toggle="modal" data-bs-target="#lainnyaModal">
+          <div class="icon-set login card bg-danger-subtle">
+            <i class="icon-logo text-danger fa-solid fa-arrow-right-from-bracket"></i>
+            <!-- <i class="icon-logo fa-solid fa-arrow-right-to-bracket"></i> -->
+            <label class="text-danger" for="">Logout</label>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Mobile Navbar Bottom end -->
+
+  <!-- lainnya Modal start -->
+  <div class="modal modal-sm fade" id="lainnyaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content pt-4">
+        <p class="text-center fw-semibold">Menu Lainnya</p>
+        <ul class="d-flex justify-content-around align-items-center me-4">
+          <li class="icon-card text-center">
+            <a href="profil.html">
+              <div class="icon-set profil card bg-danger-subtle text-danger-emphasis">
+                <i class="icon-logo fa-solid fa-id-badge"></i>
+                <label for="">Profil</label>
+              </div>
+            </a>
+          </li>
+          <li class="icon-card text-center">
+            <a href="bantuanhukum.html">
+              <div class="icon-set bantuan-hukum card bg-primary-subtle text-primary-emphasis">
+                <i class="icon-logo fa-solid fa-scale-balanced"></i>
+                <label for="">Bantuan Hukum</label>
+              </div>
+            </a>
+          </li>
+          <li class="icon-card text-center">
+            <a href="faq.html">
+              <div class="icon-set faq card bg-warning-subtle text-warning-emphasis">
+                <i class="icon-logo fa-solid fa-circle-question"></i>
+                <label for="">FAQ</label>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
       </div>
+    </div>
+  </div>
+  <!-- lainnya Modal end -->
 
-      <!-- Filter Jumlah Hasil per Halaman -->
-      <div class="mb-3">
-          <label for="resultsPerPage" class="form-label">Jumlah hasil</label>
-          <select id="resultsPerPage" v-model="itemsPerPage" class="form-select">
-            <option value="6">6</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-          </select>
+  <!-- Breadcrumb start -->
+  <nav class="container px-4"
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-once="true" 
+  style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+      <!-- <li class="breadcrumb-item active" aria-current="page"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat tiket</li> -->
+    </ol>
+  </nav>
+  <!-- Breadcrumb end -->
+
+  <!-- Status Start -->
+  <div class="tiket-status container mt-4"
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <div class="row card my-3 mx-2 pt-3 px-2 rounded-4 border-0">
+      <div class="col">
+        <h4 class="text-center fw-semibold mb-4">
+          <i class="fa-solid fa-square-poll-vertical me-1"></i>
+          Status Tiket</h4>
+        <!-- Menu Card Icon Start -->
+        <div class="d-flex justify-content-around align-items-center">
+            <!-- Icon 1 Start -->
+            <a href="" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="assets/img/hotspot.gif" class="rounded-4" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">13</h2>
+              <p class="text-center">Jaringan</p>
+            </a>
+            <!-- Icon 1 End -->
+            <!-- Icon 2 Start -->
+            <a href="" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="assets/img/server.gif" class="rounded-4" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">6</h2>
+              <p class="text-center">Pusat Data</p>
+            </a>
+            <!-- Icon 2 End -->
+            <!-- Icon 3 Start -->
+            <a href="" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="assets/img/responsive.gif" class="rounded-4" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">12</h2>
+              <p class="text-center">Aplikasi</p>
+            </a>
+            <!-- Icon 3 End -->
+            <!-- Icon 4 Start -->
+            <a href="" class="card border-0" style="width: 150px; height: 150px;">
+              <h1 class="text-center mb-0">
+                <img src="assets/img/hotel-ring.gif" class="rounded-4" style="width: 50%;" alt="">
+              </h1>
+              <h2 class="text-center mb-0">8</h2>
+              <p class="text-center">Reservasi</p>
+            </a>
+            <!-- Icon 4 End -->
+          </div>
+        <!-- Menu Card Icon End -->
       </div>
+    </div>
+  </div>
+  <!-- Status End -->
 
-      <!-- Dropdown untuk Sortir berdasarkan Tanggal -->
-      <div class="mb-3">
-        <label for="sortBy" class="form-label">Urutkan Berdasarkan Tanggal</label>
-        <select v-model="sortOrder" class="form-select" id="sortBy">
-          <option value="latest">Terbaru</option>
-          <option value="oldest">Terlama</option>
-        </select>
+  <!-- Data Tiket Start -->
+  <div class="container p-3"
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
+      <div class="card-title row mb-3">
+        <h5 class="col-12 text-center ">
+          <i class="fa-solid fa-clipboard-list me-2"></i>
+          Pencarian Tiket
+        </h5>
+
+        <!-- Form pencarian start -->
+        <form @submit.prevent>
+          <div class="d-flex mb-1 gap-2">
+            <input type="text" class="form-control" placeholder="ketikkan kata kunci..." v-model="searchQuery">
+            <button class="btn btn-primary fw-semibold" style="white-space: nowrap;"
+            type="button" @click="searchTickets"><i class="fa-solid fa-glasses me-2"></i>Cari</button>
+          </div>
+          
+          <div class="row">
+          <!-- Dropdown untuk Status -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="status" class="form-label mb-0">Status</label>
+              <select v-model="selectedStatus" class="form-select" id="status">
+                <option value="">Semua</option>
+                <option value="diterima">Diterima</option>
+                <option value="disposisi">Disposisi</option>
+                <option value="diproses">Diproses</option>
+                <option value="selesai">Selesai</option>
+                <option value="ditolak">Ditolak</option>
+              </select>
+            </div>
+
+            <!-- Dropdown untuk Unit Kerja -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="unitKerja" class="form-label mb-0">Unit Kerja</label>
+              <select v-model="selectedUnitKerja" class="form-select" id="unitKerja">
+                <option value="">Semua</option>
+                <option value="Bagian Organisasi">Bagian Organisasi</option>
+                <option value="Dinas Pertanian">Dinas Pertanian</option>
+                <option value="Dinas Kependudukan dan Pencatatan Sipil">Dinas Kependudukan dan Pencatatan Sipil</option>
+                <option value="Dinas Sosial">Dinas Sosial</option>
+              </select>
+            </div>
+
+            <!-- Dropdown untuk Menu -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="menu" class="form-label mb-0">Menu</label>
+              <select v-model="selectedMenu" @change="updateSelectedLayanan" class="form-select" id="menu">
+                <option value="">Semua</option>
+                <option value="Aplikasi">Aplikasi</option>
+                <option value="Jaringan">Jaringan</option>
+                <option value="Pusat Data">Pusat Data</option>
+                <option value="Reservasi">Reservasi</option>
+              </select>
+            </div>
+
+            <!-- Dropdown untuk Layanan -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="layanan" class="form-label mb-0">Layanan</label>
+              <select v-model="selectedLayanan" class="form-select" id="layanan">
+                <option value="">Semua</option>
+                <option v-for="layanan in filteredLayanan" :key="layanan" :value="layanan">{{ layanan }}</option>
+              </select>
+            </div>
+
+            <!-- Filter Jumlah Hasil per Halaman -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+                <label for="resultsPerPage" class="form-label mb-0">Jumlah</label>
+                <select id="resultsPerPage" v-model="itemsPerPage" class="form-select">
+                  <option value="6">6</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                </select>
+            </div>
+
+            <!-- Dropdown untuk Sortir berdasarkan Tanggal -->
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="sortBy" class="form-label mb-0">Urutkan</label>
+              <select v-model="sortOrder" class="form-select" id="sortBy">
+                <option value="latest">Terbaru</option>
+                <option value="oldest">Terlama</option>
+              </select>
+            </div>
+
+          </div>
+        </form>
+        <!-- Form pencarian end -->
+
       </div>
-    </form>
+    </div>
+  </div>
+  <!-- Data Tiket End -->
 
-    <!-- Daftar Tiket -->
-    <div class="row">
-      <div v-for="ticket in paginatedTickets" :key="ticket.id" class="col-md-4">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title">{{ ticket.layanan }}</h5>
-            <p class="card-text"><strong>Keterangan:</strong> {{ ticket.keterangan }}</p>
-            <p class="card-text"><strong>Unit Kerja:</strong> {{ ticket.unitKerja }}</p>
-            <p class="card-text"><strong>Tanggal:</strong> {{ formatTanggal(ticket.tanggalTiket) }}</p>
-            <p class="card-text"><strong>Status:</strong> <span class="badge bg-primary">{{ ticket.status }}</span></p>
-            <a :href="ticket.urlDetil" class="btn btn-primary">Lihat Detil</a>
+  <!-- Data Hasil Start -->
+  <div class="container p-3">
+    <div class="container card bg-dark-subtle rounded-4 border-0 p-1">
+
+    <h5 class="col-12 text-center mt-2">
+      <i class="fa-solid fa-clipboard-list me-2"></i>
+      Data Tiket
+    </h5>
+      <div class="container p-3">
+        <div class="row">
+          <div class="col-lg-6" v-for="ticket in paginatedTickets" :key="ticket.id">
+            <div class="card rounded-4 border-0 shadow-sm p-3 mb-3">
+              <p class="d-flex">
+                <span class="me-auto badge text-secondary-emphasis bg-secondary-subtle rounded-3"># {{ ticket.tiketId }}</span>
+                <span class="ms-auto badge text-primary-emphasis bg-primary-subtle rounded-3">{{ ticket.layanan }}</span>
+              </p>
+              <small class="fw-normal">
+                {{ formatTanggal(ticket.tanggalTiket) }}
+              </small>
+              <p class="fw-semibold">
+                {{ ticket.unitKerja }}
+              </p>
+              <div class="row">
+                <div class="col-8">
+                  <div class="nilai d-flex gap-1">
+                    <span><i class="fa-regular fa-face-frown"></i></span>
+                    <span><i class="fa-regular fa-face-meh"></i></span>
+                    <span><i class="fa-regular fa-face-smile"></i></span>
+                    <span><i class="fa-regular fa-face-grin"></i></span>
+                    <span><i class="fa-regular fa-face-grin-stars"></i></span>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <a :href="ticket.urlDetil" 
+                    class="btn btn-sm rounded-3 text-warning-emphasis bg-warning-subtle border-warning text-lowercase fw-semibold"
+                    style="white-space: nowrap;">{{ ticket.status }}<i class="fa-solid fa-exclamation-circle ms-2"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    
     </div>
-
-    <div v-if="filteredTickets.length === 0" class="text-center">
-      <p>Tidak ada tiket yang ditemukan.</p>
-    </div>
-
-    <!-- Pagination Navigation -->
-    <nav aria-label="Page navigation" v-if="totalPages > 1">
-      <ul class="pagination justify-content-center">
-        <li class="page-item" :class="{ disabled: currentPage === 1 }">
-          <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-
-        <li v-for="page in totalPages" :key="page" class="page-item" :class="{ active: currentPage === page }">
-          <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
-        </li>
-
-        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-          <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
   </div>
+  <!-- Data Hasil End -->
 
-  <!-- CDN Vue.js dan Axios -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <!-- File JavaScript Vue.js eksternal -->
+  <!-- Footer Start -->
+  <footer class="bg-transparent pt-5"
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-md-6 text-center mb-4">
+          <h5 class="text-start">Link terkait</h5>
+          <table class="">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
+                <td><a href="https://spbe.deliserdangkab.go.id/" target="_blank" class="">SPBE Deli Serdang</a></td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></td>
+                <td><a href="https://portal.deliserdangkab.go.id" target="_blank" class="">Situs Resmi Pemkab Deli Serdang</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6 text-center">
+          <h5 class="text-start">Kontak kami</h5>
+          <hr class="m-0 mb-1">
+          <table class="container">
+            <tbody>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
+                <td>Jl. Diponegoro No. 78, Lubuk Pakam Pekan<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20511</td>
+              </tr>
+              <tr class="text-start">
+                <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></td>
+                <td><a href="mailto:baghukum.deliserdangkab.go.id" class="text-decoration-none">dinaskominfo@deliserdangkab.go.id</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
+        </div>
+      </div>
+      <div class="card pb-4 border-0 bg-transparent d-md-none">
+        <div class="card pb-5 border-0 bg-transparent d-md-none"></div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="assets/js/filter.js"></script>
+  <script src="assets/js/dark.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
+
 </html>
