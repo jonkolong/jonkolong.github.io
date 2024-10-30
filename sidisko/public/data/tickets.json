@@ -7,7 +7,7 @@
         "userId": "12121212",
         "username": "bapenda",
         "menu": "Reservasi",
-        "layanan": "Pembuatan Ruang Virtual Meeting",
+        "layanan": "Ruang Virtual Meeting",
         "keterangan": "Izin pembuatan room zoom untuk acara sosialisasi",
         "urlFoto": [
             {
@@ -23,10 +23,10 @@
                 "urlDoc3": "public/doc/doc3.pdf"
             }
         ],
-        "status": "diterima",
+        "status": "selesai",
         "urlDetil": "/detil11.html",
         "urlChat": "",
-        "rating": ""
+        "rating": "5"
     },
     {
         "id": "10",
@@ -36,7 +36,7 @@
         "userId": "10101010",
         "username": "dlh",
         "menu": "Reservasi",
-        "layanan": "Pembuatan Ruang Virtual Meeting",
+        "layanan": "Ruang Virtual Meeting",
         "keterangan": "Izin pembuatan room zoom untuk acara sosialisasi",
         "urlFoto": [
             {
@@ -65,8 +65,8 @@
         "userId": "99999999",
         "username": "cikataru",
         "menu": "Aplikasi",
-        "layanan": "Pemakaian Nama Subdomain",
-        "keterangan": "Mohon izin pemakaian nama subdomain cktr.deliserdangkab.go.id",
+        "layanan": "Pendaftaran Subdomain",
+        "keterangan": "Mohon izin Pendaftaran Subdomain cktr.deliserdangkab.go.id",
         "urlFoto": [
             {
                 "urlFoto1": "/public/foto/foto1.jpg",
@@ -84,7 +84,7 @@
         "status": "selesai",
         "urlDetil": "/detil9.html",
         "urlChat": "",
-        "rating": ""
+        "rating": "4"
     },
     {
         "id": "8",
@@ -139,7 +139,7 @@
                 "urlDoc3": "public/doc/doc3.pdf"
             }
         ],
-        "status": "diproses",
+        "status": "ditolak",
         "urlDetil": "/detil7.html",
         "urlChat": "",
         "rating": ""
@@ -148,7 +148,7 @@
         "id": "6",
         "tiketId": "ap7H44",
         "tanggalTiket": "2024-10-10",
-        "unitKerja": "Bagian Organisasi",
+        "unitKerja": "Bagian Hukum",
         "userId": "66666666",
         "username": "baghukum",
         "menu": "Aplikasi",
@@ -226,7 +226,7 @@
                 "urlDoc3": "public/doc/doc3.pdf"
             }
         ],
-        "status": "diproses",
+        "status": "ditolak",
         "urlDetil": "/detil4.html",
         "urlChat": "",
         "rating": ""
@@ -236,10 +236,10 @@
         "tiketId": "pdu83a",
         "tanggalTiket": "2024-10-03",
         "unitKerja": "Dinas Kependudukan dan Pencatatan Sipil",
-        "userId": "33333333",
+        "userId": "22222222",
         "username": "disdukcapil",
         "menu": "Pusat Data",
-        "layanan": "Pemakaian Nama Subdomain",
+        "layanan": "Pendaftaran Subdomain",
         "keterangan": "salakdeli.deliserdangkab.go.id",
         "urlFoto": [
             {
@@ -313,7 +313,7 @@
                 "urlDoc3": "public/doc/doc3.pdf"
             }
         ],
-        "status": "disposisi",
+        "status": "diproses",
         "urlDetil": "/detil1.html",
         "urlChat": "",
         "rating": ""

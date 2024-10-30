@@ -284,6 +284,7 @@
               <label for="unitKerja" class="form-label mb-0">Unit Kerja</label>
               <select v-model="selectedUnitKerja" class="form-select" id="unitKerja">
                 <option value="">Semua</option>
+                <option value="Bagian Hukum">Bagian Hukum</option>
                 <option value="Bagian Organisasi">Bagian Organisasi</option>
                 <option value="Dinas Pertanian">Dinas Pertanian</option>
                 <option value="Dinas Kependudukan dan Pencatatan Sipil">Dinas Kependudukan dan Pencatatan Sipil</option>
@@ -363,17 +364,12 @@
                 {{ ticket.unitKerja }}
               </p>
               <div class="row">
-                <div class="col-8">
-                  <div class="nilai d-flex gap-1">
-                    <span v-for="(icon, index) in icons" :key="index" @click="setRating(index + 1)" style="cursor: pointer;">
-                      <i :class="getIconClass(index)"></i>
-                    </span>
-                    <span @click="confirmRating" style="cursor: pointer;">
-                      <i class="fa-regular fa-paper-plane ms-2 me-1 border-3 text-primary-emphasis"></i>
-                  </span>
+                <div class="col-4">
+                  <div class="rating card border-0 d-flex gap-1">
+                    <span><i class="fa-regular fa-face-grin-stars fs-4"></i></span>
                   </div>
                 </div>
-                <div class="col-4 text-end">
+                <div class="col-8 text-end">
                   <a :href="ticket.urlDetil" 
                     class="btn btn-sm rounded-3 text-warning-emphasis bg-warning-subtle border-warning text-lowercase fw-semibold"
                     style="white-space: nowrap;">{{ ticket.status }}<i class="fa-solid fa-exclamation-circle ms-2"></i></a>

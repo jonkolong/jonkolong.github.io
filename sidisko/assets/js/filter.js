@@ -11,53 +11,12 @@ createApp({
     const itemsPerPage = ref(6);
     const currentPage = ref(1);
     const sortOrder = ref("latest");
-    const rating = ref(0);
 
     const menuLayanan = {
-      Aplikasi: ["Pengembangan Aplikasi", "Pembangunan Aplikasi"],
-      Jaringan: ["Instalasi Jaringan", "Koneksi Internet"],
-      "Pusat Data": ["Pemakaian Nama Subdomain", "Perubahan Nama Subdomain"],
-      Reservasi: ["Pendampingan Virtual Meeting", "Pembuatan Ruang Virtual Meeting"],
-    };
-
-    const icons = ["fa-face-frown", "fa-face-meh", "fa-face-smile", "fa-face-grin", "fa-face-grin-stars"];
-
-    const setRating = (value) => {
-      rating.value = value;
-    };
-
-    const getIconClass = (index) => {
-      // Mengembalikan kelas berdasarkan kondisi rating yang dipilih
-      return {
-        'fa-regular': true,                         // Selalu menggunakan fa-solid
-        [icons[index]]: true,                      // Menambahkan ikon sesuai indeks
-    
-        // Warna berdasarkan rating yang dipilih
-        'text-danger-emphasis': rating.value === 1 && index === 0,                         // Merah untuk rating 1 saja
-        'text-danger': rating.value === 2 && index <= 1,                        // Oranye untuk rating 1 dan 2
-        'text-warning': rating.value === 3 && index <= 2,                        // Kuning untuk rating 1, 2, dan 3
-        'text-success': rating.value === 4 && index <= 3,                        // Hijau untuk rating 1, 2, 3, dan 4
-        'text-primary': rating.value === 5,                                      // Biru (primary) untuk semua rating jika 5 terpilih
-    
-        'text-secondary': 
-          (rating.value === 1 && index >= 1) ||                                  // Warna abu-abu untuk rating >= 2 saat rating 1 dipilih
-          (rating.value === 2 && index >= 2) ||                                  // Warna abu-abu untuk rating >= 3 saat rating 2 dipilih
-          (rating.value === 3 && index >= 3) ||                                  // Warna abu-abu untuk rating >= 4 saat rating 3 dipilih
-          (rating.value === 4 && index >= 4)                                     // Warna abu-abu untuk rating 5 saat rating 4 dipilih
-      };
-    };
-
-    const confirmRating = () => {
-      // Tampilkan konfirmasi pemberian rating
-      const confirmation = confirm(`Anda memberikan rating ${rating.value} pada tiket ini. Apakah Anda yakin?`);
-      
-      if (confirmation) {
-        // Logika untuk menyimpan rating, jika diperlukan
-        console.log(`Rating ${rating.value} telah diberikan.`);
-        // Di sini Anda bisa menambahkan logika untuk menyimpan rating ke server atau melakukan tindakan lainnya
-      } else {
-        console.log("Pemberian rating dibatalkan.");
-      }
+      "Aplikasi": ["Pengembangan Aplikasi", "Pembangunan Aplikasi"],
+      "Jaringan": ["Instalasi Jaringan", "Koneksi Internet"],
+      "Pusat Data": ["Pendaftaran Subdomain", "Perubahan Subdomain"],
+      "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Pendampingan Bimtek"],
     };
 
     const fetchData = async () => {
@@ -65,7 +24,7 @@ createApp({
         const response = await axios.get('https://jonkolong.github.io/sidisko/public/data/tickets.json');
         tickets.value = response.data;
       } catch (error) {
-        console.error("Error mengambil data:", error);
+        console.error("Gagal mengambil data:", error);
       }
     };
 
@@ -121,9 +80,6 @@ createApp({
       currentPage.value = page;
     };
 
-    console.log(filteredTickets.value);
-    console.log(tickets.value);
-
     return {
       tickets,
       searchQuery,
@@ -140,12 +96,7 @@ createApp({
       changePage,
       updateSelectedLayanan,
       formatTanggal,
-      rating,
-      icons,
-      setRating,
-      getIconClass,
-      confirmRating,
-      totalPages, // Mengembalikan total halaman untuk pagination
+      totalPages,
     };
   }
 }).mount('#filter');
