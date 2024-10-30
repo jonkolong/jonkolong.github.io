@@ -53,7 +53,7 @@
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-secondary dropdown-toggle rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="public/img/user.jpg" style="width: 30px;border-radius: 50%;" alt="">
-              <span>Angela</span>
+              <span class="ms-2">Angela</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><button class="dropdown-item" type="button">Profil</button></li>
@@ -250,7 +250,7 @@
   data-aos="fade-up"
   data-aos-delay="50"
   data-aos-once="true">
-    <div class="container card bg-info-subtle rounded-4 border-0 p-3">
+    <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
       <div class="card-title row mb-3">
         <h5 class="col-12 text-center ">
           <i class="fa-solid fa-clipboard-list me-2"></i>
@@ -259,16 +259,16 @@
 
         <!-- Form pencarian start -->
         <form @submit.prevent>
-          <div class="input-group mb-3">
+          <div class="d-flex mb-1 gap-2">
             <input type="text" class="form-control" placeholder="ketikkan kata kunci..." v-model="searchQuery">
-            <button class="btn btn-outline-secondary" 
+            <button class="btn btn-primary fw-semibold" style="white-space: nowrap;"
             type="button" @click="searchTickets"><i class="fa-solid fa-glasses me-2"></i>Cari</button>
           </div>
           
           <div class="row">
           <!-- Dropdown untuk Status -->
-            <div class="col-4 mb-3">
-              <label for="status" class="form-label">Status</label>
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="status" class="form-label mb-0">Status</label>
               <select v-model="selectedStatus" class="form-select" id="status">
                 <option value="">Semua</option>
                 <option value="diterima">Diterima</option>
@@ -280,8 +280,8 @@
             </div>
 
             <!-- Dropdown untuk Unit Kerja -->
-            <div class="col-4 mb-3">
-              <label for="unitKerja" class="form-label">Unit Kerja</label>
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="unitKerja" class="form-label mb-0">Unit Kerja</label>
               <select v-model="selectedUnitKerja" class="form-select" id="unitKerja">
                 <option value="">Semua</option>
                 <option value="Bagian Organisasi">Bagian Organisasi</option>
@@ -292,8 +292,8 @@
             </div>
 
             <!-- Dropdown untuk Menu -->
-            <div class="col-4 mb-3">
-              <label for="menu" class="form-label">Menu</label>
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="menu" class="form-label mb-0">Menu</label>
               <select v-model="selectedMenu" @change="updateSelectedLayanan" class="form-select" id="menu">
                 <option value="">Semua</option>
                 <option value="Aplikasi">Aplikasi</option>
@@ -304,8 +304,8 @@
             </div>
 
             <!-- Dropdown untuk Layanan -->
-            <div class="col-4 mb-3">
-              <label for="layanan" class="form-label">Layanan</label>
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="layanan" class="form-label mb-0">Layanan</label>
               <select v-model="selectedLayanan" class="form-select" id="layanan">
                 <option value="">Semua</option>
                 <option v-for="layanan in filteredLayanan" :key="layanan" :value="layanan">{{ layanan }}</option>
@@ -313,8 +313,8 @@
             </div>
 
             <!-- Filter Jumlah Hasil per Halaman -->
-            <div class="col-4 mb-3">
-                <label for="resultsPerPage" class="form-label">Jumlah</label>
+            <div class="col-sm-6 col-lg-4 mb-1">
+                <label for="resultsPerPage" class="form-label mb-0">Jumlah</label>
                 <select id="resultsPerPage" v-model="itemsPerPage" class="form-select">
                   <option value="6">6</option>
                   <option value="10">10</option>
@@ -323,8 +323,8 @@
             </div>
 
             <!-- Dropdown untuk Sortir berdasarkan Tanggal -->
-            <div class="col-4 mb-3">
-              <label for="sortBy" class="form-label">Urutkan</label>
+            <div class="col-sm-6 col-lg-4 mb-1">
+              <label for="sortBy" class="form-label mb-0">Urutkan</label>
               <select v-model="sortOrder" class="form-select" id="sortBy">
                 <option value="latest">Terbaru</option>
                 <option value="oldest">Terlama</option>
@@ -341,49 +341,51 @@
   <!-- Data Tiket End -->
 
   <!-- Data Hasil Start -->
-  <h5 class="col-12 text-center ">
+  <div class="container p-3">
+  <div class="container card bg-dark-subtle rounded-4 border-0 p-1">
+
+  <h5 class="col-12 text-center mt-2">
     <i class="fa-solid fa-clipboard-list me-2"></i>
     Data Tiket
   </h5>
-  <div class="container p-3"
-  v-for="ticket in paginatedTickets" :key="ticket.id">
-    <div class="card rounded-4 border-0 shadow-sm p-3">
-      <p class="d-flex">
-        <span class="me-auto badge text-secondary-emphasis bg-secondary-subtle rounded-3"># {{ ticket.tiketId }}</span>
-        <span class="ms-auto badge text-success-emphasis bg-success-subtle rounded-3">{{ ticket.layanan }}</span>
-      </p>
-      <small class="fw-normal">
-          {{ formatTanggal(ticket.tanggalTiket) }}</>
-        </span>
-      </small>
-      <p class="fw-semibold">
-        {{ ticket.unitKerja }}
-      </p>
-
-      <!-- <p class="card border-info-subtle border-1 p-2" disabled>
-        {{ ticket.keterangan }}
-      </p> -->
-
-      <div class="row">
-        <div class="col-8">
-          <div class="nilai d-flex gap-1">
-            <span><i class="fa-regular fa-face-frown"></i></span>
-            <span><i class="fa-regular fa-face-meh"></i></span>
-            <span><i class="fa-regular fa-face-smile"></i></span>
-            <span><i class="fa-regular fa-face-grin"></i></span>
-            <span><i class="fa-regular fa-face-grin-stars"></i></span>
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-lg-6" v-for="ticket in paginatedTickets" :key="ticket.id">
+        <div class="card rounded-4 border-0 shadow-sm p-3 mb-3">
+          <p class="d-flex">
+            <span class="me-auto badge text-secondary-emphasis bg-secondary-subtle rounded-3"># {{ ticket.tiketId }}</span>
+            <span class="ms-auto badge text-primary-emphasis bg-primary-subtle rounded-3">{{ ticket.layanan }}</span>
+          </p>
+          <small class="fw-normal">
+            {{ formatTanggal(ticket.tanggalTiket) }}
+          </small>
+          <p class="fw-semibold">
+            {{ ticket.unitKerja }}
+          </p>
+          <div class="row">
+            <div class="col-8">
+              <div class="nilai d-flex gap-1">
+                <span><i class="fa-regular fa-face-frown"></i></span>
+                <span><i class="fa-regular fa-face-meh"></i></span>
+                <span><i class="fa-regular fa-face-smile"></i></span>
+                <span><i class="fa-regular fa-face-grin"></i></span>
+                <span><i class="fa-regular fa-face-grin-stars"></i></span>
+              </div>
+            </div>
+            <div class="col-4 text-end">
+              <a :href="ticket.urlDetil" 
+                 class="btn btn-sm rounded-3 text-warning-emphasis bg-warning-subtle border-warning text-lowercase fw-semibold"
+                 style="white-space: nowrap;">{{ ticket.status }}<i class="fa-solid fa-exclamation-circle ms-2"></i></a>
+            </div>
           </div>
         </div>
-        <div class="col-4 text-end">
-          <a :href="ticket.urlDetil" 
-          class="btn btn-sm rounded-3 text-info-emphasis bg-info-subtle border-info-subtle text-lowercase fw-semibold"
-          style="white-space: nowrap;">{{ ticket.status }}<i class="fa-solid fa-arrow-right ms-2"></i></a>
-        </div>
       </div>
-
     </div>
-
   </div>
+  
+  </div>
+  </div>
+
   <!-- Data Hasil End -->
 
   <!-- Footer Start -->
