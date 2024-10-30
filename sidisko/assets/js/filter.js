@@ -82,9 +82,7 @@ createApp({
     };
 
     const toggleFilter = () => {
-      setTimeout(() => {
-        isFilterVisible.value = !isFilterVisible.value;
-      }, 200); // Delay 300ms sebelum menampilkan filter
+      isFilterVisible.value = !isFilterVisible.value;
     };
 
     return {

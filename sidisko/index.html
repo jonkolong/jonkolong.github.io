@@ -350,11 +350,10 @@
   <!-- Data Hasil Start -->
   <div class="container p-3">
     <div class="container card bg-dark-subtle rounded-4 border-0 p-1">
-
-    <h5 class="col-12 text-center mt-2">
-      <i class="fa-solid fa-clipboard-list me-2"></i>
-      Data Tiket
-    </h5>
+      <h5 class="col-12 text-center mt-2">
+        <i class="fa-solid fa-clipboard-list me-2"></i>
+        Data Tiket
+      </h5>
       <div class="container p-3">
         <div class="row">
           <div class="col-lg-6" v-for="ticket in paginatedTickets" :key="ticket.id">
@@ -370,20 +369,40 @@
                 {{ ticket.unitKerja }}
               </p>
               <div class="row">
-                <div class="col-4">
+                <div class="col-4 d-flex align-items-center">
                   <div class="rating card border-0 d-flex gap-1">
-                    <span><i class="fa-regular fa-face-grin-stars fs-4"></i></span>
+                    <span>
+                      <i :class="{
+                        'fa-regular fa-face-frown text-danger': ticket.rating === '1',
+                        'fa-regular fa-face-meh text-danger': ticket.rating === '2',
+                        'fa-regular fa-face-smile text-warning': ticket.rating === '3',
+                        'fa-regular fa-face-grin text-success': ticket.rating === '4',
+                        'fa-regular fa-face-grin-stars text-primary': ticket.rating === '5',
+                        'fa-regular fa-face-meh-blank': !ticket.rating
+                      }" class="fs-4"></i>
+                    </span>
                   </div>
                 </div>
                 <div class="col-8 text-end">
-                  <a :href="ticket.urlDetil" 
-                    class="btn btn-sm rounded-3 text-warning-emphasis bg-warning-subtle border-warning text-lowercase fw-semibold"
-                    style="white-space: nowrap;">{{ ticket.status }}<i class="fa-solid fa-exclamation-circle ms-2"></i></a>
+                  <button class="badge border-0 rounded-5 px-2"
+                     :class="{
+                       'bg-info-subtle text-info-emphasis': ticket.status === 'diterima',
+                       'bg-warning-subtle text-warning-emphasis': ticket.status === 'disposisi',
+                       'bg-primary-subtle text-primary-emphasis': ticket.status === 'diproses',
+                       'bg-success-subtle text-success-emphasis': ticket.status === 'selesai',
+                       'bg-danger-subtle text-danger-emphasis': ticket.status === 'ditolak',
+                       'bg-secondary-subtle text-secondary-emphasis': ticket.status !== '' && ticket.status !== '-'
+                     }"
+                     style="white-space: nowrap;">
+                    {{ ticket.status }}
+                  </button>
+                  <a class="btn" :href="ticket.urlDetil"><i class="fa-solid fa-circle-chevron-right text-primary-emphasis fs-4"></i></a>
                 </div>
+                
               </div>
             </div>
           </div>
-          
+
           <!-- Pagination Start -->
           <div class="pagination-container text-center mt-4">
             <button class="btn btn-sm btn-primary rounded-circle" @click="changePage(currentPage - 1)" :disabled="currentPage === 1" class="btn btn-primary">
