@@ -155,7 +155,7 @@
   <!-- lainnya Modal end -->
 
   <!-- Breadcrumb start -->
-  <nav class="container"
+  <nav class="container px-4"
   data-aos="fade-up"
   data-aos-delay="50"
   data-aos-once="true" 
@@ -227,68 +227,94 @@
   data-aos="fade-up"
   data-aos-delay="50"
   data-aos-once="true">
-    <div class="container card bg-success-subtle rounded-4 border-0 p-3">
-      <h5 class="card-title text-center">
-        <i class="fa-solid fa-clipboard-list me-1"></i>
-        Tiket terakhir</h5>
+    <div class="container card bg-info-subtle rounded-4 border-0 p-3">
+      <div class="card-title text-center row mb-3">
+        <h5 class="col-12">
+          <i class="fa-solid fa-clipboard-list me-2"></i>
+          Tiket terakhir
+        </h5>
+
+        <div class="row">
+          <div class="col-12">
+              <form class="row g-2 align-items-center" role="search">
+                  <div class="col-12 col-lg-6">
+                      <input class="form-control" type="search" placeholder="Ketik kata pencarian disini" aria-label="Search">
+                  </div>
+                  <div class="col-12 col-lg-2">
+                      <select class="form-select" aria-label="Status">
+                          <option value="terbaru" selected>Terbaru</option>
+                          <option value="selesai">Selesai</option>
+                          <option value="diproses">Diproses</option>
+                          <option value="disposisi">Disposisi</option>
+                          <option value="diterima">Diterima</option>
+                          <option value="ditolak">Ditolak</option>
+                      </select>
+                  </div>
+                  <div class="col-12 col-lg-2">
+                      <select class="form-select" aria-label="Unit Kerja">
+                          <option value="uni" selected>Semua Unit Kerja</option>
+                          <option value="dinsos">Dinas Sosial</option>
+                          <option value="disdukcapil">Dinas Kependudukan dan Pencatatan Sipil</option>
+                          <option value="baghukum">Bagian Hukum</option>
+                          <option value="bagorganisasi">Bagian Organisasi</option>
+                      </select>
+                  </div>
+                  <div class="col-12 col-lg-2">
+                      <button class="btn btn-primary w-100" type="submit">
+                          <i class="bi bi-search me-1"></i>Search
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+      
+
+      </div>
+        
       <div class="card rounded-4 border-0 shadow-sm p-3">
         <p class="d-flex">
-          <span class="me-auto badge text-success bg-success-subtle rounded-3"># 4o5f23</span>
-          <span class="ms-auto badge text-danger bg-danger-subtle rounded-3">Instalasi Jaringan</span>
+          <span class="me-auto badge text-secondary-emphasis bg-secondary-subtle rounded-3"># 4o5f23</span>
+          <span class="ms-auto badge text-success-emphasis bg-success-subtle rounded-3">Instalasi Jaringan</span>
         </p>
         <p class="fw-semibold">
           Dinas Sosial Kependudukan dan Pencatatan Sipil dan Pemadam Kebakaran
         </p>
 
-          <div class="d-flex justify-content-center gap-4">
-            <div class="step-card card bg-transparent border-0 text-center mx-2">
-              <i class="fa-solid fa-ticket fs-3 d-flex justify-content-center align-items-center text-success bg-success-subtle p-3 border-0"
-              style="width: 50px; height: 50px; border-radius: 50%;cursor: pointer;"></i>
-              <label class="text-success" for=""
-              style="font-size: clamp(12px, 1vw + 2px, 15px);">Diterima</label>
-            </div>
-            <div class="step-card card bg-transparent border-0 text-center mx-2">
-              <i class="fa-solid fa-briefcase fs-3 d-flex justify-content-center align-items-center text-danger bg-danger-subtle p-3 border-0"
-              style="width: 50px; height: 50px; border-radius: 50%;cursor: pointer;"></i>
-              <label class="text-danger" for=""
-              style="font-size: clamp(12px, 1vw + 2px, 15px);">Disposisi</label>
-            </div>
-            <div class="step-card card bg-transparent border-0 text-center mx-2">
-              <i class="fa-solid fa-user-clock fs-3 d-flex justify-content-center align-items-center text-warning bg-warning-subtle p-3 border-0"
-              style="width: 50px; height: 50px; border-radius: 50%;cursor: pointer;"></i>
-              <label class="text-warning" for=""
-              style="font-size: clamp(12px, 1vw + 2px, 15px);">Diproses</label>
-            </div>
-            <div class="step-card card bg-transparent border-0 text-center mx-2">
-              <i class="fa-solid fa-check-circle fs-3 d-flex justify-content-center align-items-center text-primary bg-primary-subtle p-3 border-0"
-              style="width: 50px; height: 50px; border-radius: 50%;cursor: pointer;"></i>
-              <label class="text-primary" for=""
-              style="font-size: clamp(12px, 1vw + 2px, 15px);">Selesai</label>
+        <div class="row">
+          <div class="col-8">
+            <div class="nilai">
+              <span><i class="fa-regular fa-face-frown"></i></span>
+              <span><i class="fa-regular fa-face-meh"></i></span>
+              <span><i class="fa-regular fa-face-smile"></i></span>
+              <span><i class="fa-regular fa-face-grin"></i></span>
+              <span><i class="fa-regular fa-face-grin-stars"></i></span>
             </div>
           </div>
-
-          <div id="tiket">
-            <div class="rating m-auto text-center text-secondary"
-            style="cursor: pointer;">
-              <i v-for="(star, index) in stars"
-                  :key="index"
-                  @click="setRating(index + 1)"
-                  @mouseover="hoverRatingFn(index + 1)"
-                  @mouseleave="hoverRatingFn(0)"
-                  :class="{
-                    'fa-solid': true, 
-                    'fa-star': true, 
-                    'text-warning': index < (hoverRating || currentRating),
-                    'fa-regular': index >= (hoverRating || currentRating)
-                  }"
-                  class="fa cursor-pointer"></i>
-            </div>
-            <div class="text-center text-secondary-emphasis">
-              <strong>Nilai tiket: {{ currentRating }} / 5</strong>
-            </div>
+          <div class="col-4 text-end">
+            <a href="detail.html" 
+            class="btn btn-sm rounded-3 text-info-emphasis bg-info-subtle border-info-subtle text-lowercase fw-semibold"
+            style="white-space: nowrap;">Selesai<i class="fa-solid fa-arrow-right ms-2"></i></a>
           </div>
+        </div>
 
       </div>
+
+      <nav aria-label="...">
+        <ul class="pagination justify-content-center mt-3">
+          <li class="page-item disabled">
+            <span class="page-link"><i class="fa-solid fa-arrow-left"></i></span>
+          </li>
+          <li class="page-item active" aria-current="page">
+            <span class="page-link text-bg-primary">1</span>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#"><i class="fa-solid fa-arrow-right"></i></a>
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </div>
   <!-- Tiket History End -->
