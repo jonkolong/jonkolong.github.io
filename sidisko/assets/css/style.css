@@ -163,7 +163,15 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   background-color: var(--bs-icon-1);
 }
 
-.icon-card .lainnya {
+.icon-card .buat-tiket {
+  color: var(--bs-primary-shadow);
+  background-color: var(--bs-icon-2);
+}
+.icon-card .progres {
+  color: var(--bs-primary-shadow);
+  background-color: var(--bs-icon-3);
+}
+.icon-card .login-logout {
   color: var(--bs-primary-shadow);
   background-color: var(--bs-icon-4);
 }
