@@ -85,7 +85,7 @@
             <a class="nav-link active" href="#"><i class="fa-solid fa-home me-1"></i>Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="buat-tiket.html"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat Tiket</a>
+            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#tiketModal"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat Tiket</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="progress.html" target="_blank"><i class="fa-solid fa-truck-fast me-1"></i>Progres</a>
@@ -112,7 +112,7 @@
         </a>
       </li>
       <li class="icon-card">
-        <a href="buat-tiket.html">
+        <a href="" data-bs-toggle="modal" data-bs-target="#tiketModal">
           <div class="icon-set buat-tiket card">
             <i class="icon-logo fa-solid fa-file-arrow-up"></i>
             <label class="" for="">Buat tiket</label>
@@ -176,6 +176,46 @@
     </div>
   </div>
   <!-- lainnya Modal end -->
+
+  <!-- buat Tiket Modal start -->
+  <div class="modal fade" id="tiketModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content pt-4">
+        <p class="text-center fw-semibold">Buat Tiket</p>
+
+        <!-- Pilih layanan start -->
+        <form @submit.prevent>
+          <div class="p-3">
+
+            <!-- Dropdown untuk Menu -->
+            <div class="col-12 mb-1">
+              <label for="menu" class="form-label mb-0">Menu</label>
+              <select class="form-select" id="menu" required>
+                <option value="">-- pilih menu --</option>
+                <option value="Aplikasi">Aplikasi</option>
+                <option value="Jaringan">Jaringan</option>
+                <option value="Pusat Data">Pusat Data</option>
+                <option value="Reservasi">Reservasi</option>
+              </select>
+            </div>
+          
+            <!-- Dropdown untuk Layanan -->
+            <div class="col-12 mb-1">
+              <label for="layanan" class="form-label mb-0">Layanan</label>
+              <select class="form-select" id="layanan" v-model="selectedLayanan">
+                <option value="">-- pilih layanan --</option>
+                <option value="">-- Instalasi Jaringan --</option>
+              </select>
+            </div>
+            <a :href="" type="submit" class="my-2 btn btn-danger w-100"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Konfirmasi</a>
+          </div>
+        </form>
+        <!-- Pilih layanan end -->
+
+      </div>
+    </div>
+  </div>
+  <!-- buat Tiket Modal end -->
 
   <!-- Breadcrumb start -->
   <nav class="container px-4 mt-4"
