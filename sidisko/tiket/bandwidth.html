@@ -236,15 +236,41 @@
   </nav>
   <!-- Breadcrumb end -->
 
-  <!-- Formulir Tiket Instalasi Jaringan Start -->
+  <!-- Formulir Tiket Koneksi Internet Start -->
   <div class="container p-3" data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
     <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
       <h5 class="col-12 text-center mt-2">
         <i class="fa-solid fa-clipboard-list me-2"></i>
-        Formulir Tiket Instalasi Jaringan
+        Formulir Tiket Bandwidth Internet
       </h5>
 
       <form action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
+        <div class="col-md-6">
+          <label for="">Indentifikasi masalah*</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="perbaikanJaringan" checked required>
+            <label class="form-check-label" for="perbaikanJaringan">
+              Penambahan bandwidth*
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="instalasiPerangkat">
+            <label class="form-check-label" for="instalasiPerangkat">
+              Manajemen bandwidth
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="bandwidthNow" class="form-label">Bandwidth saat ini: <span id="speed-now" class="fw-semibold text-danger">20</span> MBps*</label>
+          <input type="range" class="form-range" min="10" max="100" step="10" id="bandwidthNow" value="20" oninput="nowSpeed(this.value)">
+        </div>
+        <script>
+          function nowSpeed(value) {
+            document.getElementById('speed-now').textContent = value;
+          }
+        </script>
+        
         <div class="form mb-3 col-md-6">
           <label for="keterangan">Keterangan (min 50 karakter)*</label>
           <textarea class="form-control" placeholder="Jelaskan permasalahan dengan bahasa yang baik dan sopan" 
@@ -252,29 +278,23 @@
         </div>
 
         <div class="col-md-6">
-          <label for="">Identifikasi masalah*</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="perbaikanJaringan" checked required>
-            <label class="form-check-label" for="perbaikanJaringan">
-              Perbaikan jaringan*
-            </label>
-          </div>
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="instalasiPerangkat">
-            <label class="form-check-label" for="instalasiPerangkat">
-              Instalasi perangkat
-            </label>
-          </div>
+          <label for="customRange3" class="form-label">Permintaan bandwidth: <span id="speed-then" class="fw-semibold text-primary">50</span> MBps*</label>
+          <input type="range" class="form-range" min="10" max="400" step="10" id="customRange3" value="50" oninput="updateSpeed(this.value)">
+        </div>
+        <script>
+          function updateSpeed(value) {
+            document.getElementById('speed-then').textContent = value;
+          }
+        </script>
+
+        <div class="mb-3 col-md-6">
+          <label for="dokumenPendukung" class="form-label">Dokumen permohonan (pdf, zip - maks 2MB)*</label>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required>
         </div>
         
         <div class="mb-3 col-md-6">
-          <label for="dokumenPendukung" class="form-label">Dokumen (pdf, zip - maks 2MB)</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung">
-        </div>
-        
-        <div class="mb-3 col-md-6">
-          <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)</label>
-          <input class="form-control" type="file" id="fotoPendukung">
+          <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)*</label>
+          <input class="form-control" type="file" id="fotoPendukung" required>
         </div>
 
         <div class="form-check ms-3 mb-3 col-12">
@@ -289,14 +309,14 @@
             <i class="fa-regular fa-paper-plane me-2"></i>Buat tiket
           </button>
         </div>
-
+        
         <div class="text-end col-md-9">
           <p class="fst-italic">* wajib diisi</p>
         </div>
       </form>
     </div>
   </div>
-  <!-- Formulir Tiket Instalasi Jaringan End -->
+  <!-- Formulir Tiket Koneksi Internet End -->
 
   <!-- Footer Start -->
   <footer class="bg-transparent pt-5"

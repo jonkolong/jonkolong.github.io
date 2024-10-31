@@ -236,48 +236,48 @@
   </nav>
   <!-- Breadcrumb end -->
 
-  <!-- Formulir Tiket Instalasi Jaringan Start -->
+  <!-- Formulir Tiket Koneksi Internet Start -->
   <div class="container p-3" data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
     <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
       <h5 class="col-12 text-center mt-2">
         <i class="fa-solid fa-clipboard-list me-2"></i>
-        Formulir Tiket Instalasi Jaringan
+        Formulir Tiket Koneksi Internet
       </h5>
 
       <form action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
-        <div class="form mb-3 col-md-6">
-          <label for="keterangan">Keterangan (min 50 karakter)*</label>
-          <textarea class="form-control" placeholder="Jelaskan permasalahan dengan bahasa yang baik dan sopan" 
-            id="keterangan" minlength="50" maxlength="255" style="height: 100px" required></textarea>
-        </div>
-
         <div class="col-md-6">
-          <label for="">Identifikasi masalah*</label>
+          <label for="">Indentifikasi masalah*</label>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="perbaikanJaringan" checked required>
             <label class="form-check-label" for="perbaikanJaringan">
-              Perbaikan jaringan*
+              Koneksi internet tidak stabil*
             </label>
           </div>
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="instalasiPerangkat">
             <label class="form-check-label" for="instalasiPerangkat">
-              Instalasi perangkat
+              Tidak ada koneksi internet
             </label>
           </div>
         </div>
-        
+
+        <div class="form mb-3 col-md-6">
+          <label for="keterangan">Keterangan (min 30 karakter)*</label>
+          <textarea class="form-control" placeholder="Jelaskan permasalahan dengan bahasa yang baik dan sopan" 
+            id="keterangan" minlength="30" maxlength="255" style="height: 100px" required></textarea>
+        </div>
+
         <div class="mb-3 col-md-6">
           <label for="dokumenPendukung" class="form-label">Dokumen (pdf, zip - maks 2MB)</label>
           <input class="form-control input-group-text" type="file" id="dokumenPendukung">
         </div>
         
         <div class="mb-3 col-md-6">
-          <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)</label>
-          <input class="form-control" type="file" id="fotoPendukung">
+          <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)*</label>
+          <input class="form-control" type="file" id="fotoPendukung" required>
         </div>
 
-        <div class="form-check ms-3 mb-3 col-12">
+        <div class="form-check ms-3 mb-3 col-md-9">
           <input class="form-check-input" type="checkbox" id="snk" required>
           <label class="form-check-label" for="snk">
             Saya menyetujui <a href="#">syarat dan ketentuan</a> layanan*
@@ -296,7 +296,7 @@
       </form>
     </div>
   </div>
-  <!-- Formulir Tiket Instalasi Jaringan End -->
+  <!-- Formulir Tiket Koneksi Internet End -->
 
   <!-- Footer Start -->
   <footer class="bg-transparent pt-5"
