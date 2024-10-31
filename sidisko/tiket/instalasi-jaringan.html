@@ -15,20 +15,20 @@
   <!-- Animations -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <!-- Local CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
   <!-- Vue JS -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
-<body class="bg-body-secondary" id="formulir">
+<body class="bg-body-secondary" id="filter">
 
   <!-- Topbar Start -->
   <nav class="navbar navbar-expand bg-dark-subtle">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="#"><img
-        src="assets/img/router.svg" alt=""
+        src="../assets/img/router.svg" alt=""
         style="height: 30px" />
         <span class="ms-2 googlesans">SIDISKO</span>
       </a>
@@ -52,7 +52,7 @@
         <div class="login-logout">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-secondary dropdown-toggle rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="public/img/user.jpg" style="width: 30px;border-radius: 50%;" alt="">
+              <img src="../public/img/user.jpg" style="width: 30px;border-radius: 50%;" alt="">
               <span class="ms-2">Angela</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -82,13 +82,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" href="#"><i class="fa-solid fa-home me-1"></i>Beranda</a>
+            <a class="nav-link active" href="../index.html"><i class="fa-solid fa-home me-1"></i>Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="buat-tiket.html"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat Tiket</a>
+            <a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#tiketModal"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat Tiket</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="progress.html" target="_blank"><i class="fa-solid fa-truck-fast me-1"></i>Progres</a>
+            <a class="nav-link" href="../progress.html" target="_blank"><i class="fa-solid fa-truck-fast me-1"></i>Progres</a>
           </li>
         </ul>
       </div>
@@ -104,7 +104,7 @@
   data-aos-once="true">
     <ul class="mobile-bar">
       <li class="icon-card">
-        <a href="#">
+        <a href="../index.html">
           <div class="icon-set home card">
             <i class="icon-logo fa-solid fa-house"></i>
             <label class="" for="">Beranda</label>
@@ -112,7 +112,7 @@
         </a>
       </li>
       <li class="icon-card">
-        <a href="" data-bs-toggle="modal" data-bs-target="#buatTiket">
+        <a href="" data-bs-toggle="modal" data-bs-target="#tiketModal">
           <div class="icon-set buat-tiket card">
             <i class="icon-logo fa-solid fa-file-arrow-up"></i>
             <label class="" for="">Buat tiket</label>
@@ -120,7 +120,7 @@
         </a>
       </li>
       <li class="icon-card">
-        <a href="progress.html" target="_blank">
+        <a href="../progress.html" target="_blank">
           <div class="icon-set progres card">
             <i class="icon-logo fa-solid fa-truck-fast"></i>
             <label class="" for="">Progres</label>
@@ -144,10 +144,10 @@
   <div class="modal modal-sm fade" id="lainnyaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content pt-4">
-        <p class="text-center fw-semibold">Menu Lainnya</p>
+        <p class="text-center fw-semibold text-primary">Menu Lainnya</p>
         <ul class="d-flex justify-content-around align-items-center me-4">
           <li class="icon-card text-center">
-            <a href="profil.html">
+            <a href="../profil.html">
               <div class="icon-set profil card bg-danger-subtle text-danger-emphasis">
                 <i class="icon-logo fa-solid fa-id-badge"></i>
                 <label for="">Profil</label>
@@ -155,7 +155,7 @@
             </a>
           </li>
           <li class="icon-card text-center">
-            <a href="bantuanhukum.html">
+            <a href="../bantuanhukum.html">
               <div class="icon-set bantuan-hukum card bg-primary-subtle text-primary-emphasis">
                 <i class="icon-logo fa-solid fa-scale-balanced"></i>
                 <label for="">Bantuan Hukum</label>
@@ -163,7 +163,7 @@
             </a>
           </li>
           <li class="icon-card text-center">
-            <a href="faq.html">
+            <a href="../faq.html">
               <div class="icon-set faq card bg-warning-subtle text-warning-emphasis">
                 <i class="icon-logo fa-solid fa-circle-question"></i>
                 <label for="">FAQ</label>
@@ -171,23 +171,57 @@
             </a>
           </li>
         </ul>
-        <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+        <a href="../login.html" type="button" class="m-3 btn btn-primary"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
       </div>
     </div>
   </div>
   <!-- lainnya Modal end -->
 
-  <!-- buat Tiket Modal start -->
-  <div class="modal modal-sm fade" id="buatTiket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Buat Tiket Modal start -->
+  <div class="modal fade" id="tiketModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content pt-4">
-        <p class="text-center fw-semibold">Menu Lainnya</p>
+        <p class="text-center fw-semibold text-primary">Buat Tiket</p>
 
-        <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+        <!-- Pilih layanan start -->
+        <form @submit.prevent="konfirmasiLayanan">
+          <div class="p-3">
+
+            <!-- Dropdown untuk Menu -->
+            <div class="col-12 mb-1">
+              <label for="menu" class="form-label text-primary fw-semibold mb-0">Menu</label>
+              <select class="form-select" id="menu" v-model="selectedMenu" @change="updateSelectedLayanan" required>
+                <option value="">-- pilih menu --</option>
+                <option value="Aplikasi">Aplikasi</option>
+                <option value="Jaringan">Jaringan</option>
+                <option value="Pusat Data">Pusat Data</option>
+                <option value="Reservasi">Reservasi</option>
+              </select>
+            </div>
+
+            <!-- Dropdown untuk Layanan -->
+            <div class="col-12 mb-1">
+              <label for="layanan" class="form-label text-primary fw-semibold mb-0">Layanan</label>
+              <select class="form-select" id="layanan" v-model="selectedLayanan" :disabled="!selectedMenu" required>
+                <option value="">-- pilih layanan --</option>
+                <option v-for="layanan in filteredLayanan" :key="layanan" :value="layanan">
+                  {{ layanan }}
+                </option>
+              </select>
+            </div>
+
+            <!-- Tombol Konfirmasi -->
+            <button type="submit" class="my-2 btn btn-primary w-100">
+              <i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Konfirmasi
+            </button>
+          </div>
+        </form>
+        <!-- Pilih layanan end -->
+
       </div>
     </div>
   </div>
-  <!-- buat Tiket Modal end -->
+  <!-- Buat Tiket Modal end -->
 
   <!-- Breadcrumb start -->
   <nav class="container px-4 mt-3"
@@ -196,13 +230,13 @@
   data-aos-once="true" 
   style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+      <li class="breadcrumb-item"><a href="../index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
       <li class="breadcrumb-item active" aria-current="page"><i class="fa-solid fa-file-arrow-up me-1"></i>Buat tiket</li>
     </ol>
   </nav>
   <!-- Breadcrumb end -->
 
-  <div class="container p-3" id="formulir">
+  <!-- <div class="container p-3" id="formulir">
     <div class="container card border-0 rounded-4 p-3">
         <nav class="nav nav-pills flex-column flex-sm-row">
             <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Layanan</a>
@@ -211,22 +245,70 @@
             <a class="flex-sm-fill text-sm-center nav-link">Obrolan</a>
         </nav>
     </div>
-  </div>
+  </div> -->
 
-  <!-- Formulir Tiket Start -->
+  <!-- Formulir Tiket Instalasi Jaringan Start -->
   <div class="container p-3"
   data-aos="fade-up"
   data-aos-delay="50"
   data-aos-once="true">
-    <div class="container card bg-dark-subtle rounded-4 border-0 p-1">
+    <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
       <h5 class="col-12 text-center mt-2">
         <i class="fa-solid fa-clipboard-list me-2"></i>
-        Data Tiket
+        Formulir Tiket Instalasi Jaringan
       </h5>
+
+      <form action="" class="row p-3">
+        <div class="form mb-3 col-md-6">
+          <label for="keterangan">Keterangan</label>
+          <textarea class="form-control" placeholder="Jelaskan dengan bahasa yang baik dan sopan" 
+          id="keterangan" oninvalid="this.setCustomValidity('Mohon tambahkan keterangan permasalahan')" oninput="setCustomValidity('')" style="height: 100px" required></textarea>
+        </div>
+
+        <div class="col-md-6">
+          <label for="">Tindakan yang diperlukan</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="perbaikanJaringan" checked>
+            <label class="form-check-label" for="perbaikanJaringan">
+              Perbaikan jaringan
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="instalasiPerangkat">
+            <label class="form-check-label" for="instalasiPerangkat">
+              Instalasi perangkat
+            </label>
+          </div>
+        </div>
+        
+        <div class="mb-3 col-md-6">
+          <label for="dokumenPendukung" class="form-label">Dokumen pendukung (maks 2MB)</label>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" multiple>
+        </div>
+        
+        <div class="mb-3 col-md-6">
+          <label for="fotoPendukung" class="form-label">Bukti foto (maks 2MB)</label>
+          <input class="form-control" type="file" id="fotoPendukung" multiple>
+        </div>
+
+        <div class="form-check ms-3 mb-3 col-md-9">
+          <input class="form-check-input" type="checkbox" value="" id="snk"
+          oninvalid="this.setCustomValidity('Anda wajib membaca dan menyetujui syarat dan ketentuan layanan untuk melanjutkan')" oninput="setCustomValidity('')" required>
+          <label class="form-check-label" for="snk">
+            Saya menyetujui syarat dan ketentuan layanan
+          </label>
+        </div>
+
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-regular fa-paper-plane me-2"></i>Buat tiket
+          </button>
+        </div>
+      </form>
 
     </div>
   </div>
-  <!-- Formulir Tiket End -->
+  <!-- Formulir Tiket Instalasi Jaringan End -->
 
   <!-- Footer Start -->
   <footer class="bg-transparent pt-5"
@@ -283,9 +365,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="assets/js/filter.js"></script>
-  <script src="assets/js/formulir.js"></script>
-  <script src="assets/js/dark.js"></script>
+  <script src="../assets/js/filter.js"></script>
+  <script src="../assets/js/dark.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

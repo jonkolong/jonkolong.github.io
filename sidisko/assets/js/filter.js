@@ -14,10 +14,32 @@ createApp({
     const isFilterVisible = ref(false); // Untuk menyimpan status visibilitas filter
 
     const menuLayanan = {
-      "Aplikasi": ["Pengembangan Aplikasi", "Pembangunan Aplikasi"],
-      "Jaringan": ["Instalasi Jaringan", "Koneksi Internet"],
-      "Pusat Data": ["Pendaftaran Subdomain", "Perubahan Subdomain"],
-      "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Pendampingan Bimtek"],
+      "Aplikasi": ["Pendaftaran Aplikasi", "Pendaftaran Website", "Pengembangan Aplikasi", "Pembangunan Aplikasi", "Pengembangan Website", "Pembangunan Website"],
+      "Jaringan": ["Instalasi Jaringan", "Koneksi Internet", "Penyesuaian Bandwidth"],
+      "Pusat Data": ["Permintaan VPS", "Penyesuaian VPS", "Pendaftaran Subdomain", "Perubahan Subdomain"],
+      "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Bimbingan Teknis"],
+    };
+
+    // Daftar URL untuk layanan
+    const layananUrls = {
+      "Pendaftaran Aplikasi": "/tiket/pendaftaran-aplikasi.html",
+      "Pendaftaran Website": "/tiket/pendaftaran-website.html",
+      "Pengembangan Aplikasi": "tiket/pengembangan-aplikasi.html",
+      "Pembangunan Aplikasi": "tiket/pembangunan-aplikasi.html",
+      "Pengembangan Website": "tiket/pengembangan-website.html",
+      "Pembangunan Website": "tiket/pembangunan-website.html",
+      "Instalasi Jaringan": "tiket/instalasi-jaringan.html",
+      "Koneksi Internet": "tiket/koneksi-internet.html",
+      "Penyesuaian Bandwidth": "tiket/bandwidth.html",
+      "Permintaan VPS": "tiket/permintaan-vps.html",
+      "Penyesuaian VPS": "tiket/penyesuaian-vps.html",
+      "Pendaftaran Subdomain": "tiket/pendaftaran-subdomain.html",
+      "Perubahan Subdomain": "tiket/perubahan-subdomain.html",
+      "Pendampingan Virtual Meeting": "tiket/pendampingan-virtual-meeting",
+      "Ruang Virtual Meeting": "tiket/ruang-virtual-meeting",
+      "Narasumber": "tiket/narasumber.html",
+      "Kunjungan Kerja": "tiket/kunjungan-kerja.html",
+      "Bimbingan Teknis": "tiket/pendampingan-bimtek.html"
     };
 
     const fetchData = async () => {
@@ -33,13 +55,24 @@ createApp({
       fetchData();
     });
 
+    // Mengosongkan pilihan layanan saat menu berubah
     const updateSelectedLayanan = () => {
       selectedLayanan.value = "";
     };
 
+    // Filter layanan berdasarkan menu yang dipilih
     const filteredLayanan = computed(() => {
       return selectedMenu.value ? menuLayanan[selectedMenu.value] : [];
     });
+
+    // Fungsi konfirmasi layanan
+    const konfirmasiLayanan = () => {
+      if (selectedLayanan.value && layananUrls[selectedLayanan.value]) {
+        window.location.href = layananUrls[selectedLayanan.value];
+      } else {
+        alert("Pilih layanan yang valid.");
+      }
+    };
 
     const formatTanggal = (tanggal) => {
       const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -100,6 +133,7 @@ createApp({
       paginatedTickets,
       changePage,
       updateSelectedLayanan,
+      konfirmasiLayanan,
       formatTanggal,
       totalPages,
       isFilterVisible,
