@@ -236,6 +236,11 @@
   </nav>
   <!-- Breadcrumb end -->
 
+  <!-- coba-cooba -->
+
+  <!-- coba-cooba -->
+  
+
   <!-- Formulir Tiket Koneksi Internet Start -->
   <div class="container p-3" data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
     <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
@@ -258,65 +263,103 @@
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="jenis-aplikasi" class="form-label mb-0">Jenis Aplikasi*</label>
-          <select class="form-select" id="jenis-aplikasi" required
-          v-model="selectedJenisAplikasi" @change="updateSelectedOptions">
-            <option value="">-- pilih --</option>
+          <label for="menu" class="form-label mb-0">Jenis Aplikasi*</label>
+          <select class="form-select" id="menu" required>
+            <option value="" selected>-- pilih --</option>
             <option value="layanan publik">Layanan Publik</option>
             <option value="administrasi pemerintahan">Administrasi Pemerintahan</option>
           </select>
         </div>
 
-        <div class="col-md-6 mb-3" v-if="selectedJenisAplikasi === 'layanan publik'">
-          <label for="sektor-layanan-publik">Sektor Layanan Publik*</label>
-          <select class="form-select" id="sektor-layanan-publik" 
-          v-model="selectedSektorLayanan">
-            <option value="">-- pilih --</option>
-            <option value="sektor1">Pendidikan dan Pengajaran</option>
-            <option value="sektor2">Pekerjaan dan Usaha</option>
-            <option value="sektor3">Tempat Tinggal</option>
-            <option value="sektor4">Komunikasi dan Informasi</option>
-            <option value="sektor5">Lingkungan Hidup</option>
-            <option value="sektor6">Kesehatan</option>
-            <option value="sektor7">Jaminan Sosial</option>
-            <option value="sektor8">Energi</option>
-            <option value="sektor9">Perbankan</option>
-            <option value="sektor10">Perhubungan</option>
-            <option value="sektor11">Sumber Daya Alam</option>
-            <option value="sektor12">Pariwisata</option>
-            <option value="sektor13">Sektor Lainnya</option>
-          </select>
-        </div>
-
-        <div class="col-md-6 mb-3" v-if="selectedJenisAplikasi === 'administrasi pemerintahan'">
-          <label for="urusan">Urusan*</label>
-          <select class="form-select" id="urusan" v-model="selectedUrusan" @change="updateBidangUrusan">
-            <option value="">-- pilih --</option>
-            <option value="urusan1">Urusan Kewilayahan</option>
-            <option value="urusan2">Urusan Pemerintahan Umum</option>
-            <option value="urusan3">Urusan Pendukung Urusan Pemerintah</option>
-            <option value="urusan4">Urusan Pengawasan Urusan Pemerintah</option>
-            <option value="urusan5">Urusan Penunjang Urusan Pemerintah</option>
-            <option value="urusan6">Urusan Pemerintahan Wajib yang Berkaitan dengan Pelayanan Dasar</option>
-            <option value="urusan7">Urusan Pemerintahan Pilihan</option>
-            <option value="urusan8">Urusan Pemerintahan Wajib yang Tidak Berkaitan dengan Pelayanan Dasar</option>
-          </select>
-        </div>
-
-        <div class="col-md-6 mb-3" v-if="selectedJenisAplikasi === 'administrasi pemerintahan'">
-          <label for="bidang-urusan">Bidang Urusan*</label>
-          <select class="form-select" id="bidang-urusan" v-model="selectedBidangUrusan">
-            <option value="">-- pilih --</option>
-            <option v-for="bidang in filteredBidangUrusan" :value="bidang">{{ bidang }}</option>
+        <div class="col-md-6 mb-3">
+          <label for="menu" class="form-label mb-0">Sektor Layanan Publik*</label>
+          <select class="form-select" id="menu" required>
+            <option value="" selected>-- pilih --</option>
+            <option value="">Pendidikan dan Pengajaran</option>
+            <option value="">Pekerjaan dan Usaha</option>
+            <option value="">Tempat Tinggal</option>
+            <option value="">Komunikasi dan Informasi</option>
+            <option value="">Lingkungan Hidup</option>
+            <option value="">Kesehatan</option>
+            <option value="">Jaminan Sosial</option>
+            <option value="">Energi</option>
+            <option value="">Perbankan</option>
+            <option value="">Perhubungan</option>
+            <option value="">Sumber Daya Alam</option>
+            <option value="">Pariwisata</option>
+            <option value="">Sektor Lainnya</option>
           </select>
         </div>
 
         <div class="col-md-6 mb-3">
-          <label for="sasaran-pengguna">Sasaran Pengguna*</label>
-          <select class="form-select" id="sasaran-pengguna" v-model="selectedSasaranPengguna" disabled>
-            <option value="">-- pilih jenis aplikasi --</option>
+          <label for="menu" class="form-label mb-0">Urusan*</label>
+          <select class="form-select" id="menu" required>
+            <option value="" selected>-- pilih --</option>
+            <option value="">Urusan Kewilayahan</option>
+            <option value="">Urusan Pemerintahan Umum</option>
+            <option value="">Urusan Pendukung Urusan Pemerintah</option>
+            <option value="">Urusan Pengawasan Urusan Pemerintah</option>
+            <option value="">Urusan Penunjang Urusan Pemerintah</option>
+            <option value="">Urusan Pemerintahan Wajib yang Berkaitan dengan Pelayanan Dasar</option>
+            <option value="">Urusan Pemerintahan Pilihan</option>
+            <option value="">Urusan Pemerintahan Wajib yang Tidak Berkaitan dengan Pelayanan Dasar</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="menu" class="form-label mb-0">Bidang Urusan*</label>
+          <select class="form-select" id="menu" required>
+            <option value="" selected>-- pilih --</option>
+            <option value="">Kecamatan</option>
+            <option value="">Kesatuan Bangsa dan Politik</option>
+            <option value="">Sekretariat Daerah</option>
+            <option value="">Sekretariat DPRD</option>
+            <option value="">Inspektorat Daerah</option>
+            <option value="">Pengelolaan Perbatasan</option>
+            <option value="">Keuangan</option>
+            <option value="">Perencanaan</option>
+            <option value="">Kepegawaian</option>
+            <option value="">Penelitian dan Pengembangan</option>
+            <option value="">Pendidikan dan Pelatihan</option>
+            <option value="">Pekerjaan Umum dan Penataan Ruang</option>
+            <option value="">Perumahan dan Kawasan Permukiman</option>
+            <option value="">Kesehatan</option>
+            <option value="">Sosial</option>
+            <option value="">Ketentraman dan Ketertiban Umum serta Perlindungan Masyarakat</option>
+            <option value="">Kehutanan</option>
+            <option value="">Transmigrasi</option>
+            <option value="">Pariwisata</option>
+            <option value="">Perdagangan</option>
+            <option value="">Pertanian</option>
+            <option value="">Perindustrian</option>
+            <option value="">Kelautan dan Perikanan</option>
+            <option value="">Energi dan Sumber Daya Mineral</option>
+            <option value="">Pemberdayaan Perempuan dan Perlindungan Anak</option>
+            <option value="">Perpustakaan</option>
+            <option value="">Kearsipan</option>
+            <option value="">Pertanahan</option>
+            <option value="">Pangan</option>
+            <option value="">Kebudayaan</option>
+            <option value="">Perhubungan</option>
+            <option value="">Penanaman Modal</option>
+            <option value="">Tenaga Kerja</option>
+            <option value="">Koperasi, Usaha Kecil dan Menengah</option>
+            <option value="">Pengendalian Penduduk dan Keluarga Berencana</option>
+            <option value="">Lingkungan Hidup</option>
+            <option value="">Kepemudaan dan Olahraga</option>
+            <option value="">Administrasi Kependudukan dan Pencatatan Sipil</option>
+            <option value="">Komunikasi dan Informatika</option>
+            <option value="">Pemberdayaan Masyarakat dan Desa</option>
+            <option value="">Persandian</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="menu" class="form-label mb-0">Sasaran Pengguna*</label>
+          <select class="form-select" id="menu" disabled required>
+            <option value="" selected>-- pilih --</option>
             <option value="masyarakat">Masyarakat</option>
-            <option value="asn">ASN/Pemerintah</option>
+            <option value="asn pemerintah">ASN/Pemerintah</option>
           </select>
         </div>
 
@@ -355,20 +398,20 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="windows">
-              <label class="form-check-label" for="windows">
+              <input class="form-check-input" type="checkbox" id="desktop">
+              <label class="form-check-label" for="desktop">
                 Windows
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="macOs">
-              <label class="form-check-label" for="macOs">
+              <input class="form-check-input" type="checkbox" id="desktop">
+              <label class="form-check-label" for="desktop">
                 MacOS
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="linux">
-              <label class="form-check-label" for="linux">
+              <input class="form-check-input" type="checkbox" id="desktop">
+              <label class="form-check-label" for="desktop">
                 Linux
               </label>
             </div>
@@ -397,86 +440,86 @@
           <label for="">Bahasa Pemrograman/Framework*</label>
           <div class="d-flex flex-wrap gap-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="bahasaCe" checked required>
-              <label class="form-check-label" for="bahasaCe">
+              <input class="form-check-input" type="checkbox" id="web" checked required>
+              <label class="form-check-label" for="web">
                 C
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="java">
-              <label class="form-check-label" for="java">
+              <input class="form-check-input" type="checkbox" id="desktop">
+              <label class="form-check-label" for="desktop">
                 Java
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="golang">
-              <label class="form-check-label" for="golang">
+              <input class="form-check-input" type="checkbox" id="android">
+              <label class="form-check-label" for="android">
                 Golang
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="python">
-              <label class="form-check-label" for="python">
+              <input class="form-check-input" type="checkbox" id="ios">
+              <label class="form-check-label" for="ios">
                 Python
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="nodeJs">
-              <label class="form-check-label" for="nodeJs">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Node JS
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="javaScript">
-              <label class="form-check-label" for="javaScript">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Javascript
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="vueJs">
-              <label class="form-check-label" for="vueJs">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Vue JS
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="angular">
-              <label class="form-check-label" for="angular">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Angular
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="laravel">
-              <label class="form-check-label" for="laravel">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Laravel
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="codeIgniter">
-              <label class="form-check-label" for="codeIgniter">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 CodeIgniter
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="phpNative">
-              <label class="form-check-label" for="phpNative">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 PHP native
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="flutter">
-              <label class="form-check-label" for="flutter">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Flutter
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="kotlin">
-              <label class="form-check-label" for="kotlin">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Kotlin
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="swift">
-              <label class="form-check-label" for="swift">
+              <input class="form-check-input" type="checkbox" id="lainnya">
+              <label class="form-check-label" for="lainnya">
                 Swift
               </label>
             </div>
@@ -490,41 +533,66 @@
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="dokumenPendukung1" class="form-label">Surat permohonan (pdf, zip - maks 2MB)*</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+          <label for="dokumenPendukung" class="form-label">Surat permohonan (pdf, zip - maks 2MB)*</label>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
           <p id="errorDokumen" class="error-message"></p>
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="dokumenPendukung2" class="form-label">Rancang bangun (pdf, zip - maks 2MB)*</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung2" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+          <label for="dokumenPendukung" class="form-label">Rancang bangun (pdf, zip - maks 2MB)*</label>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
           <p id="errorDokumen" class="error-message"></p>
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="dokumenPendukung3" class="form-label">Buku manual (pdf, zip - maks 2MB)*</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung3" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+          <label for="dokumenPendukung" class="form-label">Buku manual (pdf, zip - maks 2MB)*</label>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
           <p id="errorDokumen" class="error-message"></p>
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="dokumenPendukung4" class="form-label">SKPL (pdf, zip - maks 10MB)*</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung4" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
+          <label for="dokumenPendukung" class="form-label">SKPL (pdf, zip - maks 10MB)*</label>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
           <p id="errorDokumen" class="error-message"></p>
         </div>
+
+        <!-- <div class="mb-3 col-md-6">
+          <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)*</label>
+          <input class="form-control" type="file" id="fotoPendukung" required accept=".jpg,.jpeg,.png,.zip" onchange="validateFileSize(this, 2)">
+          <p id="errorFoto" class="error-message"></p>
+        </div> -->
+
+        <!-- <div class="col-md-6">
+          <label for="bandwidthNow" class="form-label">Bandwidth saat ini: <span id="speed-now" class="fw-semibold text-danger">20</span> MBps*</label>
+          <input type="range" class="form-range" min="10" max="100" step="10" id="bandwidthNow" value="20" oninput="nowSpeed(this.value)">
+        </div>
+        <script>
+          function nowSpeed(value) {
+            document.getElementById('speed-now').textContent = value;
+          }
+        </script>
+        <div class="col-md-6">
+          <label for="customRange3" class="form-label">Permintaan bandwidth: <span id="speed-then" class="fw-semibold text-primary">50</span> MBps*</label>
+          <input type="range" class="form-range" min="10" max="400" step="10" id="customRange3" value="50" oninput="updateSpeed(this.value)">
+        </div>
+        <script>
+          function updateSpeed(value) {
+            document.getElementById('speed-then').textContent = value;
+          }
+        </script> -->
 
         <div class="col-md-12 d-flex py-2 mb-3">
           <label class="me-3" for="">Apakah aplikasi ini menyimpan data pribadi/rahasia*</label>
           <div class="d-flex flex-wrap gap-2">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="yaRahasia">
-              <label class="form-check-label" for="yaRahasia" style="white-space: nowrap;">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="limaPuluh" checked>
+              <label class="form-check-label" for="limaPuluh" style="white-space: nowrap;">
                 Ya
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="tidakRahasia" checked>
-              <label class="form-check-label" for="tidakRahasia" style="white-space: nowrap;">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="tujuhLima">
+              <label class="form-check-label" for="tujuhLima" style="white-space: nowrap;">
                 Tidak
             </label>
           </div>

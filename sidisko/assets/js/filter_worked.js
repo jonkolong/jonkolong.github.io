@@ -11,20 +11,46 @@ createApp({
     const itemsPerPage = ref(6);
     const currentPage = ref(1);
     const sortOrder = ref("latest");
+    const isFilterVisible = ref(false); // Untuk menyimpan status visibilitas filter
 
     const menuLayanan = {
-      Aplikasi: ["Pengembangan Aplikasi", "Pembangunan Aplikasi"],
-      Jaringan: ["Instalasi Jaringan", "Koneksi Internet"],
-      "Pusat Data": ["Pemakaian Nama Subdomain", "Perubahan Nama Subdomain"],
-      Reservasi: ["Pendampingan Virtual Meeting", "Pembuatan Ruang Virtual Meeting"],
+      "Aplikasi": ["Pendaftaran Aplikasi", "Pendaftaran Website", "Pengembangan Aplikasi", "Pembangunan Aplikasi", "Pengembangan Website", "Pembangunan Website"],
+      "Jaringan": ["Instalasi Jaringan", "Koneksi Internet", "Penyesuaian Bandwidth"],
+      "Pusat Data": ["Permintaan VPS", "Penyesuaian VPS", "Pendaftaran Subdomain", "Perubahan Subdomain"],
+      "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Bimbingan Teknis"],
+    };
+
+    // const baseUrl = "https://jonkolong.github.io/"; // Ganti dengan URL yang sesuai
+    const baseUrl = "http://localhost:5500/"; // Ganti dengan URL yang sesuai
+
+    // Daftar URL untuk layanan
+    const layananUrls = {
+      "Pendaftaran Aplikasi": baseUrl + "sidisko/tiket/pendaftaran-aplikasi.html",
+      "Pendaftaran Website": baseUrl + "sidisko/tiket/pendaftaran-website.html",
+      "Pengembangan Aplikasi": baseUrl + "sidisko/tiket/pengembangan-aplikasi.html",
+      "Pembangunan Aplikasi": baseUrl + "sidisko/tiket/pembangunan-aplikasi.html",
+      "Pengembangan Website": baseUrl + "sidisko/tiket/pengembangan-website.html",
+      "Pembangunan Website": baseUrl + "sidisko/tiket/pembangunan-website.html",
+      "Instalasi Jaringan": baseUrl + "sidisko/tiket/instalasi-jaringan.html",
+      "Koneksi Internet": baseUrl + "sidisko/tiket/koneksi-internet.html",
+      "Penyesuaian Bandwidth": baseUrl + "sidisko/tiket/bandwidth.html",
+      "Permintaan VPS": baseUrl + "sidisko/tiket/permintaan-vps.html",
+      "Penyesuaian VPS": baseUrl + "sidisko/tiket/penyesuaian-vps.html",
+      "Pendaftaran Subdomain": baseUrl + "sidisko/tiket/pendaftaran-subdomain.html",
+      "Perubahan Subdomain": baseUrl + "sidisko/tiket/perubahan-subdomain.html",
+      "Pendampingan Virtual Meeting": baseUrl + "sidisko/tiket/pendampingan-virtual-meeting",
+      "Ruang Virtual Meeting": baseUrl + "sidisko/tiket/ruang-virtual-meeting",
+      "Narasumber": baseUrl + "sidisko/tiket/narasumber.html",
+      "Kunjungan Kerja": baseUrl + "sidisko/tiket/kunjungan-kerja.html",
+      "Bimbingan Teknis": baseUrl + "sidisko/tiket/pendampingan-bimtek.html"
     };
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://jonkolong.github.io/sidisko/public/data/tickets.json');
+        const response = await axios.get( baseUrl + 'sidisko/public/data/tickets.json');
         tickets.value = response.data;
       } catch (error) {
-        console.error("Error mengambil data:", error);
+        console.error("Gagal mengambil data:", error);
       }
     };
 
@@ -32,13 +58,24 @@ createApp({
       fetchData();
     });
 
+    // Mengosongkan pilihan layanan saat menu berubah
     const updateSelectedLayanan = () => {
       selectedLayanan.value = "";
     };
 
+    // Filter layanan berdasarkan menu yang dipilih
     const filteredLayanan = computed(() => {
       return selectedMenu.value ? menuLayanan[selectedMenu.value] : [];
     });
+
+    // Fungsi konfirmasi layanan
+    const konfirmasiLayanan = () => {
+      if (selectedLayanan.value && layananUrls[selectedLayanan.value]) {
+        window.location.href = layananUrls[selectedLayanan.value];
+      } else {
+        alert("Pilih layanan yang valid.");
+      }
+    };
 
     const formatTanggal = (tanggal) => {
       const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -80,6 +117,10 @@ createApp({
       currentPage.value = page;
     };
 
+    const toggleFilter = () => {
+      isFilterVisible.value = !isFilterVisible.value;
+    };
+
     return {
       tickets,
       searchQuery,
@@ -95,8 +136,11 @@ createApp({
       paginatedTickets,
       changePage,
       updateSelectedLayanan,
+      konfirmasiLayanan,
       formatTanggal,
-      totalPages, // Mengembalikan total halaman untuk pagination
+      totalPages,
+      isFilterVisible,
+      toggleFilter,
     };
   }
 }).mount('#filter');
