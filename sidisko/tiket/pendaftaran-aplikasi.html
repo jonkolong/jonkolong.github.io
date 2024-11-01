@@ -236,7 +236,7 @@
   </nav>
   <!-- Breadcrumb end -->
 
-  <!-- Formulir Tiket Koneksi Internet Start -->
+  <!-- Formulir Pendaftaran Aplikasi Start -->
   <div class="container p-3" data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
     <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
       <h5 class="col-12 text-center mt-2">
@@ -349,7 +349,7 @@
           <div class="d-flex flex-wrap gap-2">
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="web" checked required>
+              <input class="form-check-input" type="checkbox" id="web">
               <label class="form-check-label" for="web">
                 Web
               </label>
@@ -385,7 +385,7 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="lainnya">
+              <input class="form-check-input" type="checkbox" id="lainnya" checked>
               <label class="form-check-label" for="lainnya">
                 Lainnya
               </label>
@@ -397,7 +397,7 @@
           <label for="">Bahasa Pemrograman/Framework*</label>
           <div class="d-flex flex-wrap gap-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="bahasaCe" checked required>
+              <input class="form-check-input" type="checkbox" id="bahasaCe">
               <label class="form-check-label" for="bahasaCe">
                 C
               </label>
@@ -481,7 +481,7 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="lainnya">
+              <input class="form-check-input" type="checkbox" id="lainnya" checked>
               <label class="form-check-label" for="lainnya">
                 Lainnya
               </label>
@@ -514,7 +514,7 @@
         </div>
 
         <div class="col-md-12 d-flex py-2 mb-3">
-          <label class="me-3" for="">Apakah aplikasi ini menyimpan data pribadi/rahasia*</label>
+          <label class="me-3" for="">Apakah aplikasi ini menyimpan data pribadi/rahasia?*</label>
           <div class="d-flex flex-wrap gap-2">
             <div class="form-check">
               <input class="form-check-input" type="radio" name="flexRadioDefault" id="yaRahasia">
@@ -553,19 +553,21 @@
 
     </div>
   </div>
-  <!-- Formulir Tiket Koneksi Internet End -->
+  <!-- Formulir Pendaftaran Aplikasi End -->
 
   <!-- Buat tiket modal start -->
   <div class="modal modal-sm fade" id="buatTiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content text-center p-2">
         <div class="modal-body text-center">
-          <h1 class="fw-semibold fs-5">Selamat!!</h1>
+          <h1 class="fw-semibold fs-5">Konfirmasi</h1>
           <i class="bi bi-clipboard-check fs-1"></i>
-          <p>Tiket berhasil dibuat</p>
+          <p>Apakah Anda yakin?</p>
         </div>
-          <a href="../index.html" type="button" class="btn btn-primary rounded-5"><i class="bi bi-hand-thumbs-up me-1"></i>Terima kasih</a :href="{{ baseUrl }}">
-        </>
+        <div class="d-flex justify-content-evenly gap-1">
+          <button type="button" class="btn btn-secondary rounded-5" data-bs-dismiss="modal">Tidak</button>
+          <a href="../index.html" type="button" class="btn btn-primary rounded-5"><i class="fa-solid fa-clipboard-question me-1"></i>Ya</a :href="{{ baseUrl }}">
+        </div>
       </div>
     </div>
   </div>

@@ -308,12 +308,14 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content text-center p-2">
         <div class="modal-body text-center">
-          <h1 class="fw-semibold fs-5">Selamat!!</h1>
+          <h1 class="fw-semibold fs-5">Konfirmasi</h1>
           <i class="bi bi-clipboard-check fs-1"></i>
-          <p>Tiket berhasil dibuat</p>
+          <p>Apakah Anda yakin?</p>
         </div>
-          <a href="../index.html" type="button" class="btn btn-primary rounded-5"><i class="bi bi-hand-thumbs-up me-1"></i>Terima kasih</a :href="{{ baseUrl }}">
-        </>
+        <div class="d-flex justify-content-evenly gap-1">
+          <button type="button" class="btn btn-secondary rounded-5" data-bs-dismiss="modal">Tidak</button>
+          <a href="../index.html" type="button" class="btn btn-primary rounded-5"><i class="fa-solid fa-clipboard-question me-1"></i>Ya</a :href="{{ baseUrl }}">
+        </div>
       </div>
     </div>
   </div>

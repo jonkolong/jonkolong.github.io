@@ -12,6 +12,11 @@ createApp({
     const currentPage = ref(1);
     const sortOrder = ref("latest");
     const isFilterVisible = ref(false); // Untuk menyimpan status visibilitas filter
+    const selectedJenisAplikasi = ref("");
+    const selectedSektorLayanan = ref("");
+    const selectedUrusan = ref("");
+    const selectedBidangUrusan = ref("");
+    const selectedSasaranPengguna = ref("");
 
     const menuLayanan = {
       "Aplikasi": ["Pendaftaran Aplikasi", "Pendaftaran Website", "Pengembangan Aplikasi", "Pembangunan Aplikasi", "Pengembangan Website", "Pembangunan Website"],
@@ -43,6 +48,79 @@ createApp({
       "Narasumber": baseUrl + "sidisko/tiket/narasumber.html",
       "Kunjungan Kerja": baseUrl + "sidisko/tiket/kunjungan-kerja.html",
       "Bimbingan Teknis": baseUrl + "sidisko/tiket/pendampingan-bimtek.html"
+    };
+
+    // Data bidang urusan sesuai dengan urusan yang dipilih
+    const bidangUrusanData = {
+      "urusan1": ["Kecamatan"],
+      "urusan2": ["Kesatuan Bangsa dan Politik"],
+      "urusan3": ["Sekretariat Daerah", "Sekretariat DPRD"],
+      "urusan4": ["Inspektorat Daerah"],
+      "urusan5": [
+        "Pengelolaan Perbatasan", 
+        "Keuangan", 
+        "Perencanaan", 
+        "Kepegawaian", 
+        "Penelitian dan Pengembangan",
+        "Pendidikan dan Pelatihan"
+      ],
+      "urusan6": [
+        "Pekerjaan Umum dan Penataan Ruang",
+        "Perumahan dan Kawasan Permukiman",
+        "Kesehatan",
+        "Sosial",
+        "Ketentraman dan Ketertiban Umum Serta Perlindungan Masyarakat"
+      ],
+      "urusan7": [
+        "Kehutanan",
+        "Transmigrasi",
+        "Periwisata",
+        "Perdagangan",
+        "Pertanian",
+        "Kelautan dan Perikanan",
+        "Perindustrian",
+        "Energi dan Sumber Daya Mineral"
+      ],
+      "urusan8": [
+        "Pemberdayaan Perempuan dan Perlindungan Anak",
+        "Perpustakaan",
+        "Kearsipan",
+        "Pertanahan",
+        "Pangan",
+        "Kebudayaan",
+        "Perhubungan",
+        "Penanaman Modal",
+        "Tenaga Kerja",
+        "Koperasi, Usaha Kecil dan Menengah",
+        "Pengendalian Penduduk dan Keluarga Berencana",
+        "Lingkungan Hidup",
+        "Kepemudaan dan Olahraga",
+        "Administrasi Kependudukan dan Pencatatan Sipil",
+        "Komunikasi dan Informatika",
+        "Pemberdayaan Masyarakat dan Desa",
+        "Persandian"
+      ]
+    };
+
+    // Filter bidang urusan berdasarkan urusan yang dipilih
+    const filteredBidangUrusan = computed(() => {
+      return selectedUrusan.value ? bidangUrusanData[selectedUrusan.value] || [] : [];
+    });
+
+    const updateSelectedOptions = () => {
+      if (selectedJenisAplikasi.value === 'layanan publik') {
+        selectedSektorLayanan.value = '';
+        selectedUrusan.value = '';
+        selectedBidangUrusan.value = '';
+        selectedSasaranPengguna.value = 'masyarakat'; // Auto-select sasaran pengguna
+      } else if (selectedJenisAplikasi.value === 'administrasi pemerintahan') {
+        selectedSektorLayanan.value = '';
+        selectedSasaranPengguna.value = 'asn'; // Auto-select sasaran pengguna
+      }
+    };
+
+    const updateBidangUrusan = () => {
+      selectedBidangUrusan.value = '';
     };
 
     const fetchData = async () => {
@@ -141,6 +219,14 @@ createApp({
       totalPages,
       isFilterVisible,
       toggleFilter,
+      selectedJenisAplikasi,
+      selectedSektorLayanan,
+      selectedUrusan,
+      selectedBidangUrusan,
+      selectedSasaranPengguna,
+      filteredBidangUrusan,
+      updateSelectedOptions,
+      updateBidangUrusan,
     };
   }
 }).mount('#filter');
