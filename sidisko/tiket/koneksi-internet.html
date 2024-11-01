@@ -244,7 +244,7 @@
         Formulir Tiket Koneksi Internet
       </h5>
 
-      <form action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
+      <form @submit.prevent action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
         <div class="col-md-6">
           <label for="">Indentifikasi masalah*</label>
           <div class="form-check">
@@ -267,14 +267,18 @@
             id="keterangan" minlength="30" maxlength="255" style="height: 100px" required></textarea>
         </div>
 
-        <div class="mb-3 col-md-6">
-          <label for="dokumenPendukung" class="form-label">Dokumen (pdf, zip - maks 2MB)</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung">
-        </div>
-        
-        <div class="mb-3 col-md-6">
-          <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)*</label>
-          <input class="form-control" type="file" id="fotoPendukung" required>
+        <div class="container mt-5">
+          <div class="mb-3 col-md-6">
+              <label for="dokumenPendukung" class="form-label">Dokumen (pdf, zip - maks 2MB)</label>
+              <input class="form-control" type="file" id="dokumenPendukung" accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <p id="errorDokumen" class="error-message"></p>
+          </div>
+      
+          <div class="mb-3 col-md-6">
+              <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)*</label>
+              <input class="form-control" type="file" id="fotoPendukung" required accept=".jpg,.jpeg,.png,.zip" onchange="validateFileSize(this, 2)">
+              <p id="errorFoto" class="error-message"></p>
+          </div>
         </div>
 
         <div class="form-check ms-3 mb-3 col-md-9">
@@ -284,19 +288,36 @@
           </label>
         </div>
 
-        <div class="col-md-3">
-          <button id="btnSubmit" type="submit" class="btn btn-secondary" disabled>
+        <div class="col-md-6">
+          <button id="btnSubmit" type="submit" class="btn btn-secondary"
+          data-bs-toggle="modal" data-bs-target="#buatTiketModal" disabled>
             <i class="fa-regular fa-paper-plane me-2"></i>Buat tiket
           </button>
         </div>
-
-        <div class="text-end col-md-9">
+        
+        <div class="text-end col-md-6">
           <p class="fst-italic">* wajib diisi</p>
         </div>
       </form>
     </div>
   </div>
   <!-- Formulir Tiket Koneksi Internet End -->
+
+  <!-- Buat tiket modal start -->
+  <div class="modal modal-sm fade" id="buatTiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-2">
+        <div class="modal-body text-center">
+          <h1 class="fw-semibold fs-5">Selamat!!</h1>
+          <i class="bi bi-clipboard-check fs-1"></i>
+          <p>Tiket berhasil dibuat</p>
+        </div>
+          <a href="../index.html" type="button" class="btn btn-primary rounded-5"><i class="bi bi-hand-thumbs-up me-1"></i>Terima kasih</a :href="{{ baseUrl }}">
+        </>
+      </div>
+    </div>
+  </div>
+  <!-- Buat tiket modal end -->
 
   <!-- Footer Start -->
   <footer class="bg-transparent pt-5"
@@ -359,6 +380,23 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+
+  <script>
+  function validateFileSize(input, maxSizeMB) {
+      const file = input.files[0];
+      const errorMessageId = input.id === "dokumenPendukung" ? "errorDokumen" : "errorFoto";
+      const errorMessageElement = document.getElementById(errorMessageId);
+      errorMessageElement.textContent = ''; // Reset error message
+  
+      if (file) {
+          const maxSizeBytes = maxSizeMB * 1024 * 1024; // Konversi MB ke Bytes
+          if (file.size > maxSizeBytes) {
+              errorMessageElement.textContent = `Ukuran file tidak boleh lebih dari ${maxSizeMB} MB.`;
+              input.value = ''; // Kosongkan input jika file terlalu besar
+          }
+      }
+  }
   </script>
 
 </body>

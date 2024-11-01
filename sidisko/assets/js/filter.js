@@ -20,31 +20,34 @@ createApp({
       "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Bimbingan Teknis"],
     };
 
+    // const baseUrl = "https://jonkolong.github.io/"; // Ganti dengan URL yang sesuai
+    const baseUrl = "http://localhost:5500/"; // Ganti dengan URL yang sesuai
+
     // Daftar URL untuk layanan
     const layananUrls = {
-      "Pendaftaran Aplikasi": "/tiket/pendaftaran-aplikasi.html",
-      "Pendaftaran Website": "/tiket/pendaftaran-website.html",
-      "Pengembangan Aplikasi": "tiket/pengembangan-aplikasi.html",
-      "Pembangunan Aplikasi": "tiket/pembangunan-aplikasi.html",
-      "Pengembangan Website": "tiket/pengembangan-website.html",
-      "Pembangunan Website": "tiket/pembangunan-website.html",
-      "Instalasi Jaringan": "tiket/instalasi-jaringan.html",
-      "Koneksi Internet": "tiket/koneksi-internet.html",
-      "Penyesuaian Bandwidth": "tiket/bandwidth.html",
-      "Permintaan VPS": "tiket/permintaan-vps.html",
-      "Penyesuaian VPS": "tiket/penyesuaian-vps.html",
-      "Pendaftaran Subdomain": "tiket/pendaftaran-subdomain.html",
-      "Perubahan Subdomain": "tiket/perubahan-subdomain.html",
-      "Pendampingan Virtual Meeting": "tiket/pendampingan-virtual-meeting",
-      "Ruang Virtual Meeting": "tiket/ruang-virtual-meeting",
-      "Narasumber": "tiket/narasumber.html",
-      "Kunjungan Kerja": "tiket/kunjungan-kerja.html",
-      "Bimbingan Teknis": "tiket/pendampingan-bimtek.html"
+      "Pendaftaran Aplikasi": baseUrl + "sidisko/tiket/pendaftaran-aplikasi.html",
+      "Pendaftaran Website": baseUrl + "sidisko/tiket/pendaftaran-website.html",
+      "Pengembangan Aplikasi": baseUrl + "sidisko/tiket/pengembangan-aplikasi.html",
+      "Pembangunan Aplikasi": baseUrl + "sidisko/tiket/pembangunan-aplikasi.html",
+      "Pengembangan Website": baseUrl + "sidisko/tiket/pengembangan-website.html",
+      "Pembangunan Website": baseUrl + "sidisko/tiket/pembangunan-website.html",
+      "Instalasi Jaringan": baseUrl + "sidisko/tiket/instalasi-jaringan.html",
+      "Koneksi Internet": baseUrl + "sidisko/tiket/koneksi-internet.html",
+      "Penyesuaian Bandwidth": baseUrl + "sidisko/tiket/bandwidth.html",
+      "Permintaan VPS": baseUrl + "sidisko/tiket/permintaan-vps.html",
+      "Penyesuaian VPS": baseUrl + "sidisko/tiket/penyesuaian-vps.html",
+      "Pendaftaran Subdomain": baseUrl + "sidisko/tiket/pendaftaran-subdomain.html",
+      "Perubahan Subdomain": baseUrl + "sidisko/tiket/perubahan-subdomain.html",
+      "Pendampingan Virtual Meeting": baseUrl + "sidisko/tiket/pendampingan-virtual-meeting",
+      "Ruang Virtual Meeting": baseUrl + "sidisko/tiket/ruang-virtual-meeting",
+      "Narasumber": baseUrl + "sidisko/tiket/narasumber.html",
+      "Kunjungan Kerja": baseUrl + "sidisko/tiket/kunjungan-kerja.html",
+      "Bimbingan Teknis": baseUrl + "sidisko/tiket/pendampingan-bimtek.html"
     };
 
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://jonkolong.github.io/sidisko/public/data/tickets.json');
+        const response = await axios.get( baseUrl + 'sidisko/public/data/tickets.json');
         tickets.value = response.data;
       } catch (error) {
         console.error("Gagal mengambil data:", error);

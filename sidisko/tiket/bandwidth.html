@@ -241,16 +241,16 @@
     <div class="container card bg-dark-subtle rounded-4 border-0 p-3">
       <h5 class="col-12 text-center mt-2">
         <i class="fa-solid fa-clipboard-list me-2"></i>
-        Formulir Tiket Bandwidth Internet
+        Formulir Tiket Penyesuaian Bandwidth Internet
       </h5>
 
-      <form action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
+      <form @submit.prevent action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
         <div class="col-md-6">
           <label for="">Indentifikasi masalah*</label>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="perbaikanJaringan" checked required>
             <label class="form-check-label" for="perbaikanJaringan">
-              Penambahan bandwidth*
+              Perubahan bandwidth*
             </label>
           </div>
           <div class="form-check mb-3">
@@ -259,6 +259,12 @@
               Manajemen bandwidth
             </label>
           </div>
+        </div>
+
+        <div class="form mb-3 col-md-6">
+          <label for="keterangan">Keterangan (min 50 karakter)*</label>
+          <textarea class="form-control" placeholder="Jelaskan permasalahan dengan bahasa yang baik dan sopan" 
+            id="keterangan" minlength="50" maxlength="255" style="height: 100px" required></textarea>
         </div>
 
         <div class="col-md-6">
@@ -270,12 +276,6 @@
             document.getElementById('speed-now').textContent = value;
           }
         </script>
-        
-        <div class="form mb-3 col-md-6">
-          <label for="keterangan">Keterangan (min 50 karakter)*</label>
-          <textarea class="form-control" placeholder="Jelaskan permasalahan dengan bahasa yang baik dan sopan" 
-            id="keterangan" minlength="50" maxlength="255" style="height: 100px" required></textarea>
-        </div>
 
         <div class="col-md-6">
           <label for="customRange3" class="form-label">Permintaan bandwidth: <span id="speed-then" class="fw-semibold text-primary">50</span> MBps*</label>
@@ -287,14 +287,58 @@
           }
         </script>
 
+        <div class="col-md-6 py-2 mb-3">
+          <label for="">Jumlah pengguna*</label>
+          <div class="d-flex flex-wrap gap-2">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="limaPuluh" checked>
+              <label class="form-check-label" for="limaPuluh" style="white-space: nowrap;">
+                &#8804 50
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="tujuhLima">
+              <label class="form-check-label" for="tujuhLima" style="white-space: nowrap;">
+                &#8804 75
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="seratus">
+            <label class="form-check-label" for="seratus" style="white-space: nowrap;">
+              &#8804 100
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="seratusLimpul">
+            <label class="form-check-label" for="seratusLimpul" style="white-space: nowrap;">
+              &#8804 150
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="duaRatus">
+            <label class="form-check-label" for="duaRatus" style="white-space: nowrap;">
+              &#8804 200
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="duaRatusLebih">
+            <label class="form-check-label" for="duaRatusLebih" style="white-space: nowrap;">
+              &#62 200
+            </label>
+          </div>
+        </div>
+        </div>
+
         <div class="mb-3 col-md-6">
           <label for="dokumenPendukung" class="form-label">Dokumen permohonan (pdf, zip - maks 2MB)*</label>
-          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required>
+          <input class="form-control input-group-text" type="file" id="dokumenPendukung" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+          <p id="errorDokumen" class="error-message"></p>>
         </div>
         
         <div class="mb-3 col-md-6">
           <label for="fotoPendukung" class="form-label">Bukti foto (jpg, jpeg, png, zip - maks 2MB)*</label>
-          <input class="form-control" type="file" id="fotoPendukung" required>
+          <input class="form-control" type="file" id="fotoPendukung" required accept=".jpg,.jpeg,.png,.zip" onchange="validateFileSize(this, 2)">
+          <p id="errorFoto" class="error-message"></p>
         </div>
 
         <div class="form-check ms-3 mb-3 col-12">
@@ -304,19 +348,36 @@
           </label>
         </div>
 
-        <div class="col-md-3">
-          <button id="btnSubmit" type="submit" class="btn btn-secondary" disabled>
+        <div class="col-md-6">
+          <button id="btnSubmit" type="submit" class="btn btn-secondary"
+          data-bs-toggle="modal" data-bs-target="#buatTiketModal" disabled>
             <i class="fa-regular fa-paper-plane me-2"></i>Buat tiket
           </button>
         </div>
         
-        <div class="text-end col-md-9">
+        <div class="text-end col-md-6">
           <p class="fst-italic">* wajib diisi</p>
         </div>
       </form>
     </div>
   </div>
   <!-- Formulir Tiket Koneksi Internet End -->
+
+  <!-- Buat tiket modal start -->
+  <div class="modal modal-sm fade" id="buatTiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-2">
+        <div class="modal-body text-center">
+          <h1 class="fw-semibold fs-5">Selamat!!</h1>
+          <i class="bi bi-clipboard-check fs-1"></i>
+          <p>Tiket berhasil dibuat</p>
+        </div>
+          <a href="../index.html" type="button" class="btn btn-primary rounded-5"><i class="bi bi-hand-thumbs-up me-1"></i>Terima kasih</a :href="{{ baseUrl }}">
+        </>
+      </div>
+    </div>
+  </div>
+  <!-- Buat tiket modal end -->
 
   <!-- Footer Start -->
   <footer class="bg-transparent pt-5"
@@ -380,6 +441,24 @@
   <script>
     AOS.init();
   </script>
+
+  <script>
+  function validateFileSize(input, maxSizeMB) {
+      const file = input.files[0];
+      const errorMessageId = input.id === "dokumenPendukung" ? "errorDokumen" : "errorFoto";
+      const errorMessageElement = document.getElementById(errorMessageId);
+      errorMessageElement.textContent = ''; // Reset error message
+  
+      if (file) {
+          const maxSizeBytes = maxSizeMB * 1024 * 1024; // Konversi MB ke Bytes
+          if (file.size > maxSizeBytes) {
+              errorMessageElement.textContent = `Ukuran file tidak boleh lebih dari ${maxSizeMB} MB.`;
+              input.value = ''; // Kosongkan input jika file terlalu besar
+          }
+      }
+  }
+  </script>
+
 
 </body>
 
