@@ -1,4 +1,4 @@
-const { createApp, ref, computed } = Vue;
+const { createApp, ref, computed, watch } = Vue;
 
 createApp({
     setup() {
@@ -6,43 +6,49 @@ createApp({
         const selectedTipe = ref('');
         const selectedJenis = ref('');
         const selectedTahun = ref('');
-        const keyword = ref(''); // Tambahan untuk kata kunci pencarian
-        const itemsPerPage = ref(6); // Default jumlah hasil per halaman
+        const keyword = ref('');
+        const itemsPerPage = ref(6);
         const currentPage = ref(1);
-        const isSearched = ref(false); // Flag untuk menandai pencarian telah dilakukan
+        const isSearched = ref(false);
+
+        const tipeOptions = ref([]);
+        const jenisOptions = ref([]);
+        const uniqueTahun = computed(() => {
+            const years = data.value.map(item => item.tahun_pengundangan);
+            return [...new Set(years)];
+        });
 
         const fetchData = async () => {
             try {
                 const response = await axios.get('https://website.kickymaulana.com/api/produk-hukum?tahun=semua&jenis_id=semua&cari=');
                 data.value = response.data.data;
+
+                // Extract unique types from JSON data
+                tipeOptions.value = [...new Set(data.value.map(item => item.tipe))];
             } catch (error) {
                 console.error('Gagal mengambil data:', error);
             }
         };
 
         const searchData = () => {
-            isSearched.value = true; // Set flag pencarian menjadi true
-            currentPage.value = 1; // Reset ke halaman pertama saat mencari
+            isSearched.value = true;
+            currentPage.value = 1;
         };
 
         const filteredData = computed(() => {
             let filtered = data.value;
 
-            // Filter berdasarkan kata kunci
             if (keyword.value) {
                 filtered = filtered.filter(item => 
                     item.judul.toLowerCase().includes(keyword.value.toLowerCase())
                 );
             }
-            // Filter berdasarkan tipe
             if (selectedTipe.value) {
                 filtered = filtered.filter(item => item.tipe === selectedTipe.value);
             }
-            // Filter berdasarkan jenis
             if (selectedJenis.value) {
                 filtered = filtered.filter(item => item.jenis === selectedJenis.value);
             }
-            // Filter berdasarkan tahun
             if (selectedTahun.value) {
                 filtered = filtered.filter(item => item.tahun_pengundangan === selectedTahun.value);
             }
@@ -68,9 +74,13 @@ createApp({
             currentPage.value = page;
         };
 
-        const uniqueTahun = computed(() => {
-            const years = data.value.map(item => item.tahun_pengundangan);
-            return [...new Set(years)]; // Mendapatkan tahun yang unik
+        watch(selectedTipe, (newTipe) => {
+            // Filter jenisOptions based on selectedTipe
+            jenisOptions.value = [...new Set(data.value
+                .filter(item => item.tipe === newTipe)
+                .map(item => item.jenis)
+            )];
+            selectedJenis.value = ''; // Reset jenis when tipe changes
         });
 
         fetchData();
@@ -89,7 +99,9 @@ createApp({
             searchData,
             changePage,
             isSearched,
-            itemsPerPage // Mengembalikan itemsPerPage untuk diakses di template
+            itemsPerPage,
+            tipeOptions,
+            jenisOptions
         };
     },
 }).mount('#app');

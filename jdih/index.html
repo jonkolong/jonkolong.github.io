@@ -44,10 +44,10 @@
           </div>
   
           <div class="dark-mode">
-            <button class="btn bg-warning border-0" 
+            <button class="btn bg-light border-0" 
             style="width: 30px;height: 30px;border-radius: 50%;"
             onclick="toggleTheme()">
-            <i class="bi bi-sun-fill text-dark d-flex justify-content-center align-items-center"></i>
+            <i class="bi bi-moon-fill text-dark d-flex justify-content-center align-items-center"></i>
             </button>
           </div>
   
@@ -219,19 +219,14 @@
                             <div class="col-6 col-lg-2">
                               <select v-model="selectedTipe" class="form-select" id="tipe">
                                 <option value="">Semua Tipe</option>
-                                <option value="Peraturan Perundang-undangan">Peraturan Perundang-undangan</option>
-                                <option value="Monografi">Monografi</option>
-                                <option value="Artikel">Artikel</option>
-                                <option value="Keputusan">Keputusan</option>
+                                <option v-for="tipe in tipeOptions" :key="tipe" :value="tipe">{{ tipe }}</option>
                               </select>
                             </div>
                             <div class="col-6 col-lg-2">
-                              <select v-model="selectedJenis" class="form-select" id="jenis">
+                              <select v-model="selectedJenis" class="form-select" id="jenis" :disabled="!selectedTipe">
                                 <option value="">Semua Jenis</option>
-                                <option value="Peraturan Bupati">Peraturan Bupati</option>
-                                <option value="Peraturan Daerah">Peraturan Daerah</option>
-                                <option value="Surat Keputusan">Surat Keputusan</option>
-                            </select>
+                                <option v-for="jenis in jenisOptions" :key="jenis" :value="jenis">{{ jenis }}</option>
+                              </select>
                             </div>
                             <div class="col-6 col-lg-2">
                               <select v-model="selectedTahun" class="form-select" id="tahun">

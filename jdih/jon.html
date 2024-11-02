@@ -23,7 +23,6 @@
                     <input type="text" v-model="keyword" class="form-control" id="keyword" placeholder="Masukkan kata pencarian">
                 </div>
                 <div class="mb-2 col-lg-3">
-                    <!-- <label for="tipe" class="form-label">Tipe</label> -->
                     <select v-model="selectedTipe" class="form-select" id="tipe">
                         <option value="">Semua Tipe</option>
                         <option value="Peraturan Perundang-undangan">Peraturan Perundang-undangan</option>
@@ -32,22 +31,21 @@
                         <option value="Keputusan">Keputusan</option>
                     </select>
                 </div>
+                
                 <div class="mb-2 col-lg-3">
-                    <!-- <label for="jenis" class="form-label">Jenis</label> -->
                     <select v-model="selectedJenis" class="form-select" id="jenis">
                         <option value="">Semua Jenis</option>
-                        <option value="Peraturan Bupati">Peraturan Bupati</option>
-                        <option value="Peraturan Daerah">Peraturan Daerah</option>
-                        <option value="Surat Keputusan">Surat Keputusan</option>
+                        <option v-for="jenis in filteredJenisOptions" :key="jenis" :value="jenis">{{ jenis }}</option>
                     </select>
                 </div>
+                
                 <div class="mb-2 col-lg-3">
-                    <!-- <label for="tahun" class="form-label">Tahun</label> -->
                     <select v-model="selectedTahun" class="form-select" id="tahun">
                         <option value="">Semua Tahun</option>
-                        <option v-for="tahun in uniqueTahun" :key="tahun" :value="tahun">{{ tahun }}</option>
+                        <option v-for="tahun in filteredTahunOptions" :key="tahun" :value="tahun">{{ tahun }}</option>
                     </select>
                 </div>
+                
                 <div class="mb-2 col-lg-3 align-items-baseline">
                     <button type="submit" class="btn btn-danger w-100" style="white-space: nowrap;"><i class="bi bi-search me-1"></i>Cari</button>
                 </div>
