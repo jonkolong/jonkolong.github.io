@@ -6,8 +6,9 @@ createApp({
         const selectedTipe = ref('');
         const selectedJenis = ref('');
         const selectedTahun = ref('');
+        const keyword = ref(''); // Tambahan untuk kata kunci pencarian
+        const itemsPerPage = ref(6); // Default jumlah hasil per halaman
         const currentPage = ref(1);
-        const itemsPerPage = 5;
         const isSearched = ref(false); // Flag untuk menandai pencarian telah dilakukan
 
         const fetchData = async () => {
@@ -27,23 +28,39 @@ createApp({
         const filteredData = computed(() => {
             let filtered = data.value;
 
+            // Filter berdasarkan kata kunci
+            if (keyword.value) {
+                filtered = filtered.filter(item => 
+                    item.judul.toLowerCase().includes(keyword.value.toLowerCase())
+                );
+            }
+            // Filter berdasarkan tipe
             if (selectedTipe.value) {
                 filtered = filtered.filter(item => item.tipe === selectedTipe.value);
             }
+            // Filter berdasarkan jenis
             if (selectedJenis.value) {
                 filtered = filtered.filter(item => item.jenis === selectedJenis.value);
             }
+            // Filter berdasarkan tahun
             if (selectedTahun.value) {
                 filtered = filtered.filter(item => item.tahun_pengundangan === selectedTahun.value);
             }
 
-            const start = (currentPage.value - 1) * itemsPerPage;
-            return filtered.slice(start, start + itemsPerPage);
+            const start = (currentPage.value - 1) * itemsPerPage.value;
+            return filtered.slice(start, start + itemsPerPage.value);
         });
 
         const totalPages = computed(() => {
-            const filtered = filteredData.value;
-            return Math.ceil(filtered.length / itemsPerPage);
+            const filtered = data.value.filter(item => {
+                return (
+                    (!keyword.value || item.judul.toLowerCase().includes(keyword.value.toLowerCase())) &&
+                    (!selectedTipe.value || item.tipe === selectedTipe.value) &&
+                    (!selectedJenis.value || item.jenis === selectedJenis.value) &&
+                    (!selectedTahun.value || item.tahun_pengundangan === selectedTahun.value)
+                );
+            });
+            return Math.ceil(filtered.length / itemsPerPage.value);
         });
 
         const changePage = (page) => {
@@ -62,6 +79,7 @@ createApp({
             selectedTipe,
             selectedJenis,
             selectedTahun,
+            keyword,
             data,
             filteredData,
             totalPages,
@@ -70,7 +88,8 @@ createApp({
             fetchData,
             searchData,
             changePage,
-            isSearched // Mengembalikan flag pencarian
+            isSearched,
+            itemsPerPage // Mengembalikan itemsPerPage untuk diakses di template
         };
     },
 }).mount('#app');
