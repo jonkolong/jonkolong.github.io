@@ -27,12 +27,12 @@ createApp({
             try {
                 const response = await axios.get('https://website.kickymaulana.com/api/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=10&cari=');
                 data.value = response.data.data;
-                
+
                 console.log("Data fetched:", data.value);
 
                 // Extract unique tipe options from data
                 tipeOptions.value = [...new Set(data.value.map(item => item.tipe).filter(tipe => tipe))];
-                
+
                 console.log("Extracted Tipe Options:", tipeOptions.value);
             } catch (error) {
                 console.error('Failed to fetch data:', error);
@@ -77,9 +77,6 @@ createApp({
                 return item;
             });
 
-            // Sort filtered results by tahun_pengundangan in descending order
-            filtered.sort((a, b) => b.tahun_pengundangan - a.tahun_pengundangan);
-
             // Pagination
             const start = (currentPage.value - 1) * itemsPerPage.value;
             return filtered.slice(start, start + itemsPerPage.value);
@@ -114,6 +111,23 @@ createApp({
             selectedJenis.value = ''; // Reset jenis when tipe changes
         });
 
+        // Computed properties to calculate totals for each document type
+        const totalPeraturan = computed(() => {
+            return data.value.filter(item => item.tipe === 'Peraturan Perundang-undangan').length;
+        });
+
+        const totalMonografi = computed(() => {
+            return data.value.filter(item => item.tipe === 'Monografi').length;
+        });
+
+        const totalArtikel = computed(() => {
+            return data.value.filter(item => item.tipe === 'Artikel').length;
+        });
+
+        const totalPutusan = computed(() => {
+            return data.value.filter(item => item.tipe === 'Putusan').length;
+        });
+
         // Call fetchData on component mount to load data
         fetchData();
 
@@ -134,7 +148,11 @@ createApp({
             isSearched,
             itemsPerPage,
             tipeOptions,
-            jenisOptions
+            jenisOptions,
+            totalPeraturan,
+            totalMonografi,
+            totalArtikel,
+            totalPutusan
         };
     },
 }).mount('#app');
