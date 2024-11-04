@@ -77,9 +77,6 @@ createApp({
                 return item;
             });
 
-            // Sort filtered results by tahun_pengundangan in descending order
-            filtered.sort((a, b) => b.tahun_pengundangan - a.tahun_pengundangan);
-
             // Pagination
             const start = (currentPage.value - 1) * itemsPerPage.value;
             return filtered.slice(start, start + itemsPerPage.value);

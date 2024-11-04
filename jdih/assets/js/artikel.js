@@ -4,7 +4,7 @@ createApp({
     setup() {
         // Define reactive references
         const data = ref([]);
-        const selectedTipe = ref('');
+        const selectedTipe = ref('Artikel'); // Default to 'Peraturan Perundang-undangan'
         const selectedJenis = ref('');
         const selectedTahun = ref('');
         const keyword = ref('');
@@ -43,14 +43,14 @@ createApp({
         // Function to trigger search and reset pagination
         const searchData = () => {
             isSearched.value = true;
-            currentPage.value = 1;
+            currentPage.value = 1; // Reset pagination to the first page
         };
 
         // Computed property to filter data based on search criteria
         const filteredData = computed(() => {
             let filtered = data.value;
 
-            // Filter berdasarkan keyword, tipe, jenis, dan tahun
+            // Filter based on keyword, type, kind, and year
             if (keyword.value) {
                 filtered = filtered.filter(item => 
                     item.judul.toLowerCase().includes(keyword.value.toLowerCase())
@@ -66,12 +66,12 @@ createApp({
                 filtered = filtered.filter(item => item.tahun_pengundangan === selectedTahun.value);
             }
 
-            // Hilangkan kata 'Kabupaten' pada teuBadan jika jenis adalah 'Peraturan Bupati'
+            // Remove 'Kabupaten' from teuBadan if the type is 'Peraturan Bupati'
             filtered = filtered.map(item => {
                 if (item.jenis === 'Peraturan Bupati') {
                     return {
                         ...item,
-                        teuBadan: item.teuBadan.replace(/Kabupaten\s*/i, '') // Menghilangkan 'Kabupaten' (case-insensitive)
+                        teuBadan: item.teuBadan.replace(/Kabupaten\s*/i, '') // Remove 'Kabupaten' (case-insensitive)
                     };
                 }
                 return item;
@@ -115,7 +115,9 @@ createApp({
         });
 
         // Call fetchData on component mount to load data
-        fetchData();
+        fetchData().then(() => {
+            searchData(); // Automatically trigger search after fetching data
+        });
 
         // Return reactive data and functions to the template
         return {
