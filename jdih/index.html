@@ -316,54 +316,54 @@
 
   <!-- Card Dokumen Hukum Start -->
   <div class="dokumen-hukum container mt-4"
-  data-aos="fade-up"
-  data-aos-delay="50"
-  data-aos-once="true">
-  <div class="row card my-3 mx-2 pt-3 px-2 rounded-4 border-0">
-      <div class="col">
-          <h4 class="text-center text-uppercase fw-semibold mb-4">Dokumen Hukum</h4>
-          <!-- Menu Card Icon Start -->
-          <div class="d-flex justify-content-around align-items-center">
-              <!-- Icon 1 Start -->
-              <a href="peraturan.html" class="card border-0" style="width: 150px; height: 150px;">
-                  <h1 class="text-center mb-0">
-                      <img src="assets/img/scale_balance.gif" class="rounded-4" style="width: 50%;" alt="">
-                  </h1>
-                  <h2 class="text-center mb-0">{{ totalPeraturan }}</h2>
-                  <p class="text-center">Peraturan</p>
-              </a>
-              <!-- Icon 1 End -->
-              <!-- Icon 2 Start -->
-              <a href="monografi.html" class="card border-0" style="width: 150px; height: 150px;">
-                  <h1 class="text-center mb-0">
-                      <img src="assets/img/law-book.gif" class="rounded-4" style="width: 50%;" alt="">
-                  </h1>
-                  <h2 class="text-center mb-0">{{ totalMonografi }}</h2>
-                  <p class="text-center">Monografi</p>
-              </a>
-              <!-- Icon 2 End -->
-              <!-- Icon 3 Start -->
-              <a href="artikel.html" class="card border-0" style="width: 150px; height: 150px;">
-                  <h1 class="text-center mb-0">
-                      <img src="assets/img/folder.gif" class="rounded-4" style="width: 50%;" alt="">
-                  </h1>
-                  <h2 class="text-center mb-0">{{ totalArtikel }}</h2>
-                  <p class="text-center">Artikel</p>
-              </a>
-              <!-- Icon 3 End -->
-              <!-- Icon 4 Start -->
-              <a href="putusan.html" class="card border-0" style="width: 150px; height: 150px;">
-                  <h1 class="text-center mb-0">
-                      <img src="assets/img/gavel.gif" class="rounded-4" style="width: 50%;" alt="">
-                  </h1>
-                  <h2 class="text-center mb-0">{{ totalPutusan }}</h2>
-                  <p class="text-center">Putusan</p>
-              </a>
-              <!-- Icon 4 End -->
+      data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-once="true">
+      <div class="row card my-3 mx-2 pt-3 px-2 rounded-4 border-0">
+          <div class="col">
+              <h4 class="text-center text-uppercase fw-semibold mb-4">Dokumen Hukum</h4>
+              <!-- Menu Card Icon Start -->
+              <div class="d-flex justify-content-around align-items-center">
+                  <!-- Icon 1 Start -->
+                  <a href="peraturan.html" class="card border-0" style="width: 150px; height: 150px;">
+                      <h1 class="text-center mb-0">
+                          <img :src="documentIcons['Peraturan']" class="rounded-4" style="width: 50%;" alt="Peraturan Icon">
+                      </h1>
+                      <h2 class="text-center mb-0">{{ totalPeraturan }}</h2>
+                      <p class="text-center">Peraturan</p>
+                  </a>
+                  <!-- Icon 1 End -->
+                  <!-- Icon 2 Start -->
+                  <a href="monografi.html" class="card border-0" style="width: 150px; height: 150px;">
+                      <h1 class="text-center mb-0">
+                          <img :src="documentIcons['Monografi']" class="rounded-4" style="width: 50%;" alt="Monografi Icon">
+                      </h1>
+                      <h2 class="text-center mb-0">{{ totalMonografi }}</h2>
+                      <p class="text-center">Monografi</p>
+                  </a>
+                  <!-- Icon 2 End -->
+                  <!-- Icon 3 Start -->
+                  <a href="artikel.html" class="card border-0" style="width: 150px; height: 150px;">
+                      <h1 class="text-center mb-0">
+                          <img :src="documentIcons['Artikel']" class="rounded-4" style="width: 50%;" alt="Artikel Icon">
+                      </h1>
+                      <h2 class="text-center mb-0">{{ totalArtikel }}</h2>
+                      <p class="text-center">Artikel</p>
+                  </a>
+                  <!-- Icon 3 End -->
+                  <!-- Icon 4 Start -->
+                  <a href="putusan.html" class="card border-0" style="width: 150px; height: 150px;">
+                      <h1 class="text-center mb-0">
+                          <img :src="documentIcons['Putusan']" class="rounded-4" style="width: 50%;" alt="Putusan Icon">
+                      </h1>
+                      <h2 class="text-center mb-0">{{ totalPutusan }}</h2>
+                      <p class="text-center">Putusan</p>
+                  </a>
+                  <!-- Icon 4 End -->
+              </div>
+              <!-- Menu Card Icon End -->
           </div>
-          <!-- Menu Card Icon End -->
       </div>
-  </div>
   </div>
   <!-- Card Dokumen Hukum End -->
 

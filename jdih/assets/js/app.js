@@ -11,6 +11,7 @@ createApp({
         const itemsPerPage = ref(6);
         const currentPage = ref(1);
         const isSearched = ref(false);
+        const documentIcons = ref({});
 
         // Define options for filtering
         const tipeOptions = ref([]);
@@ -25,15 +26,25 @@ createApp({
         // Function to fetch data from API
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://website.kickymaulana.com/api/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=10&cari=');
-                data.value = response.data.data;
+                // Fetch hukum data
+                const hukumResponse = await axios.get('https://website.kickymaulana.com/api/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=10&cari=');
+                data.value = hukumResponse.data.data;
+                
+                console.log("Hukum Data fetched:", data.value);
 
-                console.log("Data fetched:", data.value);
-
-                // Extract unique tipe options from data
+                // Extract unique tipe options from hukum data
                 tipeOptions.value = [...new Set(data.value.map(item => item.tipe).filter(tipe => tipe))];
-
+                
                 console.log("Extracted Tipe Options:", tipeOptions.value);
+
+                // Fetch document types and icons
+                const iconResponse = await axios.get('https://website.kickymaulana.com/api/produk-hukum-tipe');
+                iconResponse.data.data.forEach(item => {
+                    documentIcons.value[item.tipe] = item.icon; // Assuming `icon` is the field that contains the icon URL
+                });
+
+                console.log("Document Icons fetched:", documentIcons.value);
+
             } catch (error) {
                 console.error('Failed to fetch data:', error);
                 alert('Gagal mengambil data. Silakan coba lagi nanti.');
@@ -113,7 +124,7 @@ createApp({
 
         // Computed properties to calculate totals for each document type
         const totalPeraturan = computed(() => {
-            return data.value.filter(item => item.tipe === 'Peraturan Perundang-undangan').length;
+            return data.value.filter(item => item.tipe === 'Peraturan').length;
         });
 
         const totalMonografi = computed(() => {
@@ -152,7 +163,8 @@ createApp({
             totalPeraturan,
             totalMonografi,
             totalArtikel,
-            totalPutusan
+            totalPutusan,
+            documentIcons
         };
     },
 }).mount('#app');
