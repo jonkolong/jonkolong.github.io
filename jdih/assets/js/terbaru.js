@@ -4,17 +4,17 @@ createApp({
     setup() {
         // Define reactive references
         const data = ref([]);
-        const selectedTipe = ref('Peraturan Perundang-undangan'); // Locked to 'Peraturan Perundang-undangan'
-        const selectedJenis = ref('Peraturan Bupati'); // Locked to 'Peraturan Bupati'
+        const selectedTipe = ref('');
+        const selectedJenis = ref('');
         const selectedTahun = ref('');
         const keyword = ref('');
         const itemsPerPage = ref(6);
         const currentPage = ref(1);
         const isSearched = ref(false);
 
-        // Define options for filtering (for display purposes only)
-        const tipeOptions = ref(['Peraturan Perundang-undangan']); // Locked options
-        const jenisOptions = ref(['Peraturan Bupati']); // Locked options
+        // Define options for filtering
+        const tipeOptions = ref([]);
+        const jenisOptions = ref([]);
 
         // Compute unique years from data, sorted from newest to oldest
         const uniqueTahun = computed(() => {
@@ -29,6 +29,13 @@ createApp({
                 data.value = response.data.data;
                 
                 console.log("Data fetched:", data.value);
+
+                // Extract unique tipe and jenis options from data
+                tipeOptions.value = [...new Set(data.value.map(item => item.tipe).filter(tipe => tipe))];
+                jenisOptions.value = [...new Set(data.value.map(item => item.jenis).filter(jenis => jenis))];
+                
+                console.log("Extracted Tipe Options:", tipeOptions.value);
+                console.log("Extracted Jenis Options:", jenisOptions.value);
             } catch (error) {
                 console.error('Failed to fetch data:', error);
                 alert('Gagal mengambil data. Silakan coba lagi nanti.');
@@ -45,30 +52,23 @@ createApp({
         const filteredData = computed(() => {
             let filtered = data.value;
 
-            // Filter based on locked criteria and keyword
-            filtered = filtered.filter(item => 
-                item.tipe === selectedTipe.value &&
-                item.jenis === selectedJenis.value
-            );
-
+            // Filter based on keyword, tipe, jenis, and tahun
             if (keyword.value) {
                 filtered = filtered.filter(item => 
                     item.judul.toLowerCase().includes(keyword.value.toLowerCase())
                 );
             }
+            if (selectedTipe.value) {
+                filtered = filtered.filter(item => item.tipe === selectedTipe.value);
+            }
+            if (selectedJenis.value) {
+                filtered = filtered.filter(item => item.jenis === selectedJenis.value);
+            }
+            if (selectedTahun.value) {
+                filtered = filtered.filter(item => item.tahun_pengundangan === selectedTahun.value);
+            }
 
-            // Remove 'Kabupaten' from teuBadan if the type is 'Peraturan Bupati'
-            filtered = filtered.map(item => {
-                if (item.jenis === 'Peraturan Bupati') {
-                    return {
-                        ...item,
-                        teuBadan: item.teuBadan.replace(/Kabupaten\s*/i, '') // Remove 'Kabupaten' (case-insensitive)
-                    };
-                }
-                return item;
-            });
-
-            // Sort filtered results by tahun_pengundangan in descending order
+            // Sort by tahun_pengundangan in descending order
             filtered.sort((a, b) => b.tahun_pengundangan - a.tahun_pengundangan);
 
             // Pagination
@@ -87,6 +87,19 @@ createApp({
                 currentPage.value = page;
             }
         };
+
+        // Watcher to update jenisOptions based on selectedTipe
+        watch(selectedTipe, (newTipe) => {
+            if (newTipe) {
+                jenisOptions.value = [...new Set(data.value
+                    .filter(item => item.tipe === newTipe)
+                    .map(item => item.jenis)
+                )];
+            } else {
+                jenisOptions.value = [...new Set(data.value.map(item => item.jenis))];
+            }
+            selectedJenis.value = ''; // Reset jenis when tipe changes
+        });
 
         // Call fetchData on component mount to load data
         fetchData().then(() => {

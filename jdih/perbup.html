@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perda | Kab. Deli Serdang</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/JDIH.png" />
+  <title>Beranda | JDIH Kab. Deli Serdang</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/jdih-baru.svg" />
   <!-- CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Fonts and Icons -->
@@ -23,30 +23,60 @@
 
 <body class="bg-body-secondary">
 
-    <!-- Slider text start -->
-    <marquee class="bg-jdih" behavior="" direction=""
-    data-aos="fade-down"
-    data-aos-delay="50"
-    data-aos-once="true">
-        <div class="">
-        <div class="text-slider text-warning">
-            <i class="bi bi-star-fill"></i> STANDAR LAYANAN <i class="bi bi-star-fill"></i> Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi dan telah diklasifikasikan berdasarkan jenis, tema, tahun, maupun asal produk hukum.<i class="bi bi-dot mx-1"></i>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis dan tanpa syarat.<i class="bi bi-dot mx-1"></i>
-        </div>
-        </div>
-    </marquee>
-    <!-- Slider text end -->
+  <!-- Topbar Start -->
+  <nav class="navbar navbar-expand bg-dark-subtle"
+  data-aos="fade-down"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#"><img
+        src="assets/img/jdih-baru.svg" alt=""
+        style="height: 30px" />
+        <span class="ms-2 googlesans"></span>
+      </a>
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand d-none d-lg-block bg-transparent"
-    data-aos="fade-in"
-    data-aos-delay="50"
-    data-aos-once="true">
-        <div class="container">
-        <a class="navbar-brand fw-semibold" href="index.html"><img
-            src="assets/img/logo_jdih.png" alt=""
-            style="height: 30px" 
-            />JDIH
-        </a>
+      <div class="d-flex align-items-center gap-3">
+        <div class="notifikasi">
+          <div class="card bg-transparent border-0"
+          style="cursor: pointer;">
+            <i class="fa-regular fa-bell fs-4"></i>
+          </div>
+        </div>
+
+        <div class="dark-mode">
+          <button class="btn bg-light border-0" 
+          style="width: 30px;height: 30px;border-radius: 50%;"
+          onclick="toggleTheme()">
+          <i class="bi bi-moon-fill text-dark d-flex justify-content-center align-items-center"></i>
+          </button>
+        </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+  <!-- Topbar End -->
+
+  <!-- Slider text start -->
+  <marquee class="bg-jdih" behavior="" direction=""
+  data-aos="fade-in"
+  data-aos-delay="50"
+  data-aos-once="true">
+      <div class="">
+      <div class="text-slider text-warning">
+          <i class="bi bi-star-fill"></i> STANDAR LAYANAN <i class="bi bi-star-fill"></i> Produk Hukum yang di unggah dalam Database JDIH Pemkab Deli Serdang bersifat resmi dan telah diklasifikasikan berdasarkan jenis, tema, tahun, maupun asal produk hukum.<i class="bi bi-dot mx-1"></i>Layanan pada Database JDIH Pemkab Deli Serdang dapat diakses oleh masyarakat umum secara gratis dan tanpa syarat.<i class="bi bi-dot mx-1"></i>
+      </div>
+      </div>
+  </marquee>
+  <!-- Slider text end -->
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand d-none d-lg-block bg-transparent"
+  data-aos="fade-in"
+  data-aos-delay="50"
+  data-aos-once="true">
+      <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon text-light"></span>
@@ -67,282 +97,232 @@
             </li>
             </ul>
         </div>
-        <a href="login.html" class="btn btn-jdih"
-            data-aos="fade-left"
-            data-aos-delay="50"
-            data-aos-once="true">
-            <i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
-        </div>
-    </nav>
-    <!-- Navbar End -->
+      </div>
+  </nav>
+  <!-- Navbar End -->
 
-    <!-- Dark mode start -->
-    <div class="dark-mode container text-end">
-        <button class="btn bg-warning border-0 mt-2 me-4" 
-        style="width: 30px;height: 30px;border-radius: 50%;"
-        onclick="toggleTheme()">
-        <i class="bi bi-sun-fill text-dark d-flex justify-content-center align-items-center"></i>
-        </button>
-    </div>
-    <!-- Dark mode end -->
+  <!-- Mobile Navbar Bottom start -->
+  <nav class="mobile-navbar navbar-expand fixed-bottom container d-lg-none"
+  data-aos="fade-up"
+  data-aos-delay="50"
+  data-aos-once="true">
+      <ul class="mobile-bar">
+      <li class="icon-card">
+          <a href="index.html">
+          <div class="icon-set home card">
+              <i class="icon-logo fa-solid fa-house"></i>
+              <label for="">Beranda</label>
+          </div>
+          </a>
+      </li>
+      <li class="icon-card">
+          <a href="terbaru.html">
+          <div class="icon-set terbaru card">
+              <i class="icon-logo fa-solid fa-file-arrow-up"></i>
+              <label for="">Terbaru</label>
+          </div>
+          </a>
+      </li>
+      <li class="icon-card">
+          <a href="https://jdihn.go.id/" target="_blank">
+          <div class="icon-set jdihn card">
+              <i class="icon-logo fa-solid fa-globe"></i>
+              <label for="">JDIHN</label>
+          </div>
+          </a>
+      </li>
+      <li class="icon-card">
+          <a href="" data-bs-toggle="modal" data-bs-target="#lainnyaModal">
+          <div class="icon-set lainnya card">
+              <i class="icon-logo fa-solid fa-ellipsis"></i>
+              <label for="">Lainnya</label>
+          </div>
+          </a>
+      </li>
+      </ul>
+  </nav>
+  <!-- Mobile Navbar Bottom end -->
 
-    <!-- Mobile Navbar Bottom start -->
-    <nav class="mobile-navbar navbar-expand fixed-bottom container d-lg-none"
-    data-aos="fade-up"
-    data-aos-delay="50"
-    data-aos-once="true">
-        <ul class="mobile-bar">
-        <li class="icon-card">
-            <a href="index.html">
-            <div class="icon-set home card">
-                <i class="icon-logo fa-solid fa-house"></i>
-                <label for="">Beranda</label>
-            </div>
-            </a>
-        </li>
-        <li class="icon-card">
-            <a href="terbaru.html">
-            <div class="icon-set terbaru card">
-                <i class="icon-logo fa-solid fa-file-arrow-up"></i>
-                <label for="">Terbaru</label>
-            </div>
-            </a>
-        </li>
-        <li class="icon-card">
-            <a href="https://jdihn.go.id/" target="_blank">
-            <div class="icon-set jdihn card">
-                <i class="icon-logo fa-solid fa-globe"></i>
-                <label for="">JDIHN</label>
-            </div>
-            </a>
-        </li>
-        <li class="icon-card">
-            <a href="" data-bs-toggle="modal" data-bs-target="#lainnyaModal">
-            <div class="icon-set lainnya card">
-                <i class="icon-logo fa-solid fa-ellipsis"></i>
-                <label for="">Lainnya</label>
-            </div>
-            </a>
-        </li>
-        </ul>
-    </nav>
-    <!-- Mobile Navbar Bottom end -->
+  <!-- lainnya Modal start -->
+  <div class="modal modal-sm fade" id="lainnyaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content pt-4">
+          <p class="text-center fw-semibold">Menu Lainnya</p>
+          <ul class="d-flex justify-content-around align-items-center me-4">
+          <li class="icon-card text-center">
+              <a href="profil.html">
+              <div class="icon-set profil card bg-danger-subtle text-danger-emphasis">
+                  <i class="icon-logo fa-solid fa-id-badge"></i>
+                  <label for="">Profil</label>
+              </div>
+              </a>
+          </li>
+          <li class="icon-card text-center">
+              <a href="bantuanhukum.html">
+              <div class="icon-set bantuan-hukum card bg-primary-subtle text-primary-emphasis">
+                  <i class="icon-logo fa-solid fa-scale-balanced"></i>
+                  <label for="">Bantuan Hukum</label>
+              </div>
+              </a>
+          </li>
+          <li class="icon-card text-center">
+              <a href="faq.html">
+              <div class="icon-set faq card bg-warning-subtle text-warning-emphasis">
+                  <i class="icon-logo fa-solid fa-circle-question"></i>
+                  <label for="">FAQ</label>
+              </div>
+              </a>
+          </li>
+          </ul>
+          <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+      </div>
+      </div>
+  </div>
+  <!-- lainnya Modal end -->
 
-    <!-- lainnya Modal start -->
-    <div class="modal modal-sm fade" id="lainnyaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content pt-4">
-            <p class="text-center fw-semibold">Menu Lainnya</p>
-            <ul class="d-flex justify-content-around align-items-center me-4">
-            <li class="icon-card text-center">
-                <a href="profil.html">
-                <div class="icon-set profil card bg-danger-subtle text-danger-emphasis">
-                    <i class="icon-logo fa-solid fa-id-badge"></i>
-                    <label for="">Profil</label>
-                </div>
+  <!-- Keterangan Title Start -->
+  <div class="title-jdih mt-2 text-center"
+  data-aos="fade-in"
+  data-aos-delay="50"
+  data-aos-once="true">
+      <img src="assets/img/JDIH.png" style="width: 60px;" alt="">
+      <h6 class="mt-3">Jaringan Dokumentasi Informasi Hukum</h6>
+      <h5 class="mb-4">Pemerintah Kabupaten Deli Serdang</h5>
+  </div>
+  <!-- Keterangan Title End -->
+
+  <!-- Pencarian Start -->
+  <div class="" id="app"
+  data-aos="fade-in"
+  data-aos-delay="50"
+  data-aos-once="true">
+    <div class="container p-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="card bg-primary-subtle p-3 rounded-4 border-0">
+            <h5 class="text-center mb-3">Peraturan Bupati</h5>
+            <form @submit.prevent="searchData" class="row g-2 align-items-center" role="search">
+              <div class="col-12 col-lg-8">
+                <input type="text" v-model="keyword" class="form-control" id="keyword" placeholder="Masukkan kata pencarian" style="cursor:grab;">
+              </div>
+              <div class="col-6 col-lg-2 d-none">
+                <select v-model="selectedTipe" class="form-select" id="tipe" style="cursor: pointer;" disabled>
+                  <option value="">Semua Tipe</option>
+                  <option v-for="tipe in tipeOptions" :key="tipe" :value="tipe">{{ tipe }}</option>
+                </select>
+              </div>
+              <div class="col-6 col-lg-2 d-none">
+                <select v-model="selectedJenis" class="form-select" id="jenis" :disabled="!selectedTipe" style="cursor: pointer;">
+                  <option value="">Semua Jenis</option>
+                  <option v-for="jenis in jenisOptions" :key="jenis" :value="jenis">{{ jenis }}</option>
+                </select>
+              </div>
+              <div class="col-6 col-lg-2">
+                <select v-model="selectedTahun" class="form-select" id="tahun" style="cursor: pointer;">
+                  <option value="">Semua Tahun</option>
+                  <option v-for="tahun in uniqueTahun" :key="tahun" :value="tahun">{{ tahun }}</option>
+                </select>
+              </div>
+              <div class="col-6 col-lg-2">
+                  <button type="submit" class="btn btn-jdih w-100" style="white-space: nowrap;"><i class="bi bi-search me-1"></i>Cari</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Hasil pencarian -->
+          <div class="mt-3" v-if="isSearched">
+
+            <nav class="" aria-label="Page navigation" v-if="totalPages > 1">
+              <ul class="pagination justify-content-center">
+                <li class="page-item" :class="{ disabled: currentPage === 1 }" style="cursor: pointer;">
+                  <a class="page-link" @click="changePage(currentPage - 1)"><i class="bi bi-chevron-left"></i></a>
+                </li>
+                <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: page === currentPage }" style="cursor: pointer;">
+                  <a class="page-link" @click="changePage(page)">{{ page }}</a>
+                </li>
+                <li class="page-item" :class="{ disabled: currentPage === totalPages }" style="cursor: pointer;">
+                  <a class="page-link" @click="changePage(currentPage + 1)"><i class="bi bi-chevron-right"></i></a>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="row align-items-center">
+              <label for="itemsPerPage" class="form-label text-end col-9">Jumlah</label>
+              <div class="col-3">
+                <select id="itemsPerPage" class="form-select col-3" v-model="itemsPerPage" style="cursor: pointer;">
+                  <option value="6">6</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                </select>
+              </div>
+          </div>
+
+          <div class="row mt-3">
+
+            <div class="col-lg-6 mb-2" v-for="item in filteredData" :key="item.idData">
+              <div class="card border-0 rounded-4 shadow-sm mb-2">
+                <a :href="item.urlDetailPeraturan" 
+                class="card-header border-0 rounded-top-4 text-bg-primary fs-5 py-2 px-3">
+                {{ item.jenis }} {{ item.teuBadan }} Nomor {{ item.noPeraturan }} Tahun {{ item.tahun_pengundangan }}
                 </a>
-            </li>
-            <li class="icon-card text-center">
-                <a href="bantuanhukum.html">
-                <div class="icon-set bantuan-hukum card bg-primary-subtle text-primary-emphasis">
-                    <i class="icon-logo fa-solid fa-scale-balanced"></i>
-                    <label for="">Bantuan Hukum</label>
+                <div class="card-body">
+                  <p class="card-text fs-5">
+                    Tentang {{ item.judul }}
+                  </p>
+                <div class="d-flex">
+                  <small class="me-2">
+                    <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
+                  </small>
                 </div>
-                </a>
-            </li>
-            <li class="icon-card text-center">
-                <a href="faq.html">
-                <div class="icon-set faq card bg-warning-subtle text-warning-emphasis">
-                    <i class="icon-logo fa-solid fa-circle-question"></i>
-                    <label for="">FAQ</label>
+                <div class="d-flex mt-2">
+                  <small class="livvic fw-medium" style="font-size: clamp(8px, 1vw + 2px, 12px);">
+                    Status: 
+                    <span class="livvic fw-medium" style="font-size: clamp(8px, 1vw + 2px, 12px);" 
+                    :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
+                      {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
+                    </span>
+                  </small>
+                  <ul class="d-flex align-items-center ms-auto">
+                    <li class="d-flex align-items-center">
+                    <a :href="item.urlDownload" target="_blank">
+                      <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
+                    </a>
+                    <a :href="item.urlDetailPeraturan">
+                      <i class="card border-0 fs-3 text-warning fa-solid fa-circle-info"></i>
+                    </a>
+                    </li>
+                  </ul>
                 </div>
-                </a>
-            </li>
-            </ul>
-            <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
-        </div>
-        </div>
-    </div>
-    <!-- lainnya Modal end -->
-
-    <!-- Keterangan Title Start -->
-    <div class="title-jdih mt-2 text-center"
-    data-aos="fade-in"
-    data-aos-delay="50"
-    data-aos-once="true">
-        <img src="assets/img/JDIH.png" style="width: 60px;" alt="">
-        <h6 class="mt-3">Jaringan Dokumentasi Informasi Hukum</h6>
-        <h5 class="mb-4">Pemerintah Kabupaten Deli Serdang</h5>
-    </div>
-    <!-- Keterangan Title End -->
-
-    <!-- Peraturan Daerah Start -->
-    <div id="filter">
-        <div class="container p-3">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card bg-primary-subtle p-3 rounded-4 border-0">
-                        <form class="row g-2 align-items-center" role="search">
-                            <div class="col-12 col-lg-6">
-                                <input class="form-control" type="search" placeholder="Ketik kata pencarian disini" aria-label="Search">
-                            </div>
-                            <div class="col-12 col-lg-2">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Pilih jenis</option>
-                                    <option value="1">Peraturan</option>
-                                    <option value="2">Monografi</option>
-                                    <option value="3">Artikel</option>
-                                    <option value="4">Putusan</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-lg-2">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Semua tahun</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2022">2021</option>
-                                    <option value="2022">2020</option>
-                                </select>
-                            </div>
-                            <div class="col-12 col-lg-2">
-                                <button class="btn btn-jdih w-100" type="submit"><i class="bi bi-search me-1"></i>Search</button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
+              </div>
             </div>
-            
-            <div class="row" v-if="loading">
-                <div class="col-12">
-                    <!-- <p>Memuat data...</p> -->
-                    <div class="card mt-4 border-0 rounded-4 shadow-sm" aria-hidden="true">
-                        <div class="card-header text-bg-primary fs-1"></div>
-                        <div class="card-body">
-                        <h5 class="card-title placeholder-glow">
-                            <span class="placeholder col-12"></span>
-                        </h5>
-                        <p class="card-text placeholder-glow">
-                            <span class="placeholder col-7"></span>
-                            <span class="placeholder col-4"></span>
-                            <span class="placeholder col-6"></span>
-                        </p>
-                        <a class="btn btn-sm btn-primary disabled placeholder col-6" aria-disabled="true"></a>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="row" v-if="!loading && regulations.length">
-                <h5 class="text-center my-4"><i class="bi bi-journal-bookmark-fill me-2"></i>Peraturan Daerah</h5>
-                <div class="col-lg-6 mb-2" v-for="item in regulations" :key="item.idData">
-                    <div class="card border-0 rounded-4 shadow-sm mb-2">
-                        <a :href="item.urlDetailPeraturan" 
-                        class="card-header border-0 rounded-top-4 text-bg-primary fs-5 py-2 px-3">
-                        {{ item.jenis }} {{ item.teuBadan }} Nomor {{ item.noPeraturan }}
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text fs-5">
-                                Tentang {{ item.judul }}
-                            </p>
-                        <div class="d-flex">
-                            <small class="me-2">
-                                <span class="badge text-bg-success fw-normal">{{ item.subjek }}</span>
-                            </small>
-                        </div>
-                        <div class="d-flex mt-2">
-                            <small class="livvic fw-medium" style="font-size: clamp(8px, 1vw + 2px, 12px);">
-                                Status: 
-                                <span class="livvic fw-medium" style="font-size: clamp(8px, 1vw + 2px, 12px);" 
-                                :class="item.status === 'berlaku' ? 'text-success' : 'text-danger'">
-                                    {{ item.status === 'berlaku' ? 'Berlaku' : 'Tidak Berlaku' }}
-                                </span>
-                            </small>
-                            <ul class="d-flex align-items-center ms-auto">
-                                <li class="d-flex align-items-center">
-                                <a :href="item.urlDownload" target="_blank">
-                                    <i class="card border-0 fs-3 text-danger me-4 fa-solid fa-file-pdf"></i>
-                                </a>
-                                <a :href="item.urlDetailPeraturan">
-                                    <i class="card border-0 fs-3 text-warning fa-solid fa-circle-info"></i>
-                                </a>
-                                </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
 
-            </div>
-            <div v-if="!loading && regulations.length === 0">
-                <p>Tidak ada data tersedia.</p>
-            </div>
+          <div v-if="filteredData.length === 0" class="alert alert-warning">
+              Tidak ada data yang sesuai dengan pencarian Anda.
+          </div>
+
+          </div>
+
         </div>
+      </div>
+        
     </div>
-    <!-- Peraturan Daerah End -->
+  </div>
+  <!-- Pencarian End -->
 
-    <!-- Footer Start -->
-    <footer class="bg-jdih pt-5"
-    data-aos="fade-up"
-    data-aos-delay="50"
-    data-aos-once="true">
-    <div class="container pb-5">
-        <div class="row">
-        <div class="col-md-6 text-center mb-4">
-            <h5 class="text-start text-light">Link terkait</h5>
-            <table class="">
-            <tbody>
-                <tr class="text-start">
-                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
-                <td><a href="https://jdihn.go.id/" target="_blank" class="text-light text-decoration-none">JDIH Nasional</a></td>
-                </tr>
-                <tr class="text-start">
-                <td class="align-text-top text-start"><i class="bi bi-globe2 me-1"></i></td>
-                <td><a href="https://portal.deliserdangkab.go.id" target="_blank" class="text-light text-decoration-none">Situs Resmi Pemkab Deli Serdang</a></td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-        <div class="col-md-6 text-center">
-            <h5 class="text-start text-light">Kontak kami</h5>
-            <hr class="m-0 mb-1">
-            <table class="container">
-            <tbody>
-                <tr class="text-start">
-                <td class="align-text-top text-start"><i class="bi bi-house-door-fill me-1"></i></td>
-                <td>Jl. Negara No. 1, Kel. Petapahan,<br>Kec. Lubuk Pakam, Kab. Deli Serdang,<br>Kode Pos 20517</td>
-                </tr>
-                <tr class="text-start">
-                <td class="align-text-top text-start"><i class="bi bi-envelope-at-fill me-1"></i></td>
-                <td><a href="mailto:baghukum.deliserdangkab.go.id" class="text-light text-decoration-none">baghukum@deliserdangkab.go.id</a></td>
-                </tr>
-            </tbody>
-            </table>
-        </div>
-        </div>
-        <div class="row mt-4">
-        <div class="col">
-            <p class="text-center">Hak Cipta © 2024<br />Pemerintah Kabupaten Deli Serdang</p>
-        </div>
-        </div>
-        <div class="card pb-4 border-0 bg-transparent d-md-none">
-        <div class="card pb-5 border-0 bg-transparent d-md-none"></div>
-        </div>
-    </div>
-    </footer>
-    <!-- Footer End -->
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="assets/js/perbup.js"></script>
-    <script src="assets/js/dark.js"></script>
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/perbup.js"></script>
+  <script src="assets/js/dark.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+      AOS.init();
+  </script>
 
 </body>
 </html>
