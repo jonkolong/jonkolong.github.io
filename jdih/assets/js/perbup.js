@@ -4,7 +4,7 @@ createApp({
     setup() {
         // Define reactive references
         const data = ref([]);
-        const selectedTipe = ref('Peraturan Perundang-undangan'); // Locked to 'Peraturan Perundang-undangan'
+        const selectedTipe = ref('Peraturan'); // Locked to 'Peraturan Perundang-undangan'
         const selectedJenis = ref('Peraturan Bupati'); // Locked to 'Peraturan Bupati'
         const selectedTahun = ref('');
         const keyword = ref('');
@@ -13,7 +13,7 @@ createApp({
         const isSearched = ref(false);
 
         // Define options for filtering (for display purposes only)
-        const tipeOptions = ref(['Peraturan Perundang-undangan']); // Locked options
+        const tipeOptions = ref(['Peraturan']); // Locked options
         const jenisOptions = ref(['Peraturan Bupati']); // Locked options
 
         // Compute unique years from data, sorted from newest to oldest

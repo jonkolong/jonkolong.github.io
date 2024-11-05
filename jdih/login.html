@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JDIH | Kab. Deli Serdang</title>
-  <link rel="icon" type="image/x-icon" href="img/logo_jdih.png" />
+  <link rel="icon" type="image/x-icon" href="assets/img/jdih-baru.svg" />
   <!-- CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Fonts and Icons -->
@@ -16,62 +16,35 @@
   <!-- Local CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-  <body>
+  <body class="bg-body-secondary">
+
     <!-- Main Container Start -->
-    <div class="container d-flex justify-content-center align-items-center min-vh-100 kotakUtama">
-      <!-- Login Container -->
-      <div class="row border rounded-5 p-3 bg-white shadow boxArea">
-        <!-- Left Box -->
-        <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-          <div class="featured-image mb-3">
-            <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" class="img-fluid gambarLogin d-none d-md-block" alt="gambarLogin" />
-          </div>
-          <small
-            ><p class="text-center text-white fs-5 left-text">Jaringan Dokumentasi<br />Informasi Hukum</p></small
-          >
-          <small class="text-center text-white text-wrap mb-3">Kabupaten Deli Serdang</small>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 py-2 px-4">
+      <div class="card border-0 rounded-4 p-5 text-center">
+        <div class="dark-mode mb-3 ms-auto">
+          <button class="btn bg-light border-0" 
+          style="width: 30px;height: 30px;border-radius: 50%;"
+          onclick="toggleTheme()">
+          <i class="bi bi-moon-fill text-dark d-flex justify-content-center align-items-center"></i>
+          </button>
         </div>
 
-        <!-- Right Box -->
-        <div class="col-md-6 right-box">
-          <div class="row align-items-center">
-            <div class="header-text mb-4">
-              <p class="text-center mt-4">Selamat datang!</p>
-              <p class="text-center">Silahkan Login</p>
-            </div>
-            <form action="" method="post">
-              <div class="input-group mb-3">
-                <input type="text" name="" id="" class="form-control form-control-lg bg-light fs-6" placeholder="Ketikkan username" />
-              </div>
-              <div class="input-group mb-3">
-                <input type="password" name="password" id="password" class="form-control form-control-lg bg-light fs-6" placeholder="Kata Sandi" />
-              </div>
-              <div class="input-group mb-3 d-flex justify-content-between">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" name="rememberme" id="rememberme" role="switch" />
-                  <label class="form-check-label" for="checkbox"><small>Ingat saya</small></label>
-                </div>
-                <div class="forgot">
-                  <small><a href="" data-bs-toggle="modal" data-bs-target="#lupaModal">Lupa kata sandi?</a></small>
-                </div>
-              </div>
-              <div class="input-group mb-3">
-                <button class="btn btn-jdih w-100 fs-6" id="submit" name="submit"><i class="bi bi-box-arrow-in-right me-2"></i>Login</button>
-              </div>
-              <div class="input-group mb-3">
-                <button class="btn btn-secondary w-100 fs-6" id="googleid" name="googleid"><img src="img/GLogo.svg" class="me-2" alt="logoG" /><small>Masuk dengan Google</small></button>
-              </div>
-            </form>
-            <div class="row">
-              <small class="text-center">Tidak punya akun? <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#lupaModal">Daftar</a></small>
-              <small class="text-end"
-                ><a href="index.html"><i class="bi bi-house-fill text-jdih fs-4"></i></a
-              ></small>
-            </div>
-          </div>
+        <img src="assets/img/jdih-baru.svg" class="img-fluid" alt="">
+        <p class="mt-3 fs-3 mb-0">Selamat datang di</p class="mt-3">
+        <p class="mb-0" style="font-size: clamp(12px, 1vw + 2px, 20px);">
+          Jaringan Informasi dan Dokumentasi Hukum
+        </p>
+        <p class="fs-5 mb-4">Kabupaten Deli Serdang</p>
+        <div class="d-flex align-self-center">
+          <button class="btn btn-lg btn-outline-secondary rounded-4 d-inline-flex justify-content-center align-items-center gap-2">
+            <img src="assets/img/GLogo.svg" alt="" style="height: 25px;">
+            <span class="fs-6">Masuk dengan Google</span>
+          </button>
         </div>
+        <a href="index.html" class="btn btn-outline mt-4"><i class="fa-solid fa-chevron-left"></i></a>
       </div>
     </div>
+
     <!-- Main Container End -->
 
     <!-- lainnya Modal start -->
@@ -90,7 +63,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/dark.js"></script>
     <!-- AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

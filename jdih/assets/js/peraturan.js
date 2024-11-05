@@ -4,7 +4,7 @@ createApp({
     setup() {
         // Define reactive references
         const data = ref([]);
-        const selectedTipe = ref('Peraturan Perundang-undangan'); // Default to 'Peraturan Perundang-undangan'
+        const selectedTipe = ref('Peraturan'); // Default to 'Peraturan Perundang-undangan'
         const selectedJenis = ref('');
         const selectedTahun = ref('');
         const keyword = ref('');
