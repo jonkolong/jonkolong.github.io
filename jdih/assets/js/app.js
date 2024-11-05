@@ -29,13 +29,19 @@ createApp({
                 // Fetch hukum data
                 const hukumResponse = await axios.get('https://website.kickymaulana.com/api/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=10&cari=');
                 data.value = hukumResponse.data.data;
-                
+
+                // Log for debugging
                 console.log("Hukum Data fetched:", data.value);
+
+                // Check if 'status' exists for each item
+                data.value.forEach(item => {
+                    if (!item.status) {
+                        console.warn("Item tidak memiliki status:", item);
+                    }
+                });
 
                 // Extract unique tipe options from hukum data
                 tipeOptions.value = [...new Set(data.value.map(item => item.tipe).filter(tipe => tipe))];
-                
-                console.log("Extracted Tipe Options:", tipeOptions.value);
 
                 // Fetch document types and icons
                 const iconResponse = await axios.get('https://website.kickymaulana.com/api/produk-hukum-tipe');
