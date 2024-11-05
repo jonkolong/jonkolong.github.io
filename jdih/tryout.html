@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik Pengunjung</title>
+    
+    <!-- CDN Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.global.prod.js"></script>
+    
+    <!-- CDN Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Statistik Pengunjung</h1>
+        
+        <!-- Menampilkan Loading -->
+        <div v-if="loading">Loading...</div>
+        
+        <!-- Menampilkan Error -->
+        <div v-if="error" class="error">{{ error }}</div>
+        
+        <!-- Tabel Data -->
+        <table v-if="data" border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Jenis Data</th>
+                    <th>Jumlah Pengunjung</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pengunjung Hari Ini</td>
+                    <td>{{ data.todayVisitors || 'Data tidak tersedia' }}</td>
+                </tr>
+                <tr>
+                    <td>Pengunjung 7 Hari Terakhir</td>
+                    <td>{{ data.last7DaysVisitors || 'Data tidak tersedia' }}</td>
+                </tr>
+                <tr>
+                    <td>Pengunjung 30 Hari Terakhir</td>
+                    <td>{{ data.last30DaysVisitors || 'Data tidak tersedia' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                // State untuk menyimpan data, status loading, dan error
+                const data = ref(null);
+                const loading = ref(true);
+                const error = ref(null);
+
+                // Fungsi untuk mengambil data dari API
+                const fetchData = async () => {
+                    try {
+                        // Menggunakan Axios untuk mengambil data
+                        const response = await axios.get('https://website.kickymaulana.com/api/statistik-pengunjung');
+                        
+                        // Periksa struktur data yang diterima
+                        console.log(response.data);  // Menampilkan respons di konsol
+
+                        // Pastikan data yang diterima sesuai
+                        data.value = response.data.data;
+
+                    } catch (err) {
+                        error.value = "Terjadi kesalahan: " + err.message;
+                    } finally {
+                        loading.value = false;  // Menghentikan status loading
+                    }
+                };
+
+                // Menjalankan fetchData saat komponen pertama kali dipasang
+                onMounted(() => {
+                    fetchData();
+                });
+
+                return {
+                    data,
+                    loading,
+                    error
+                };
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+</html>

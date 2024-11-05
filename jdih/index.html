@@ -472,7 +472,7 @@
       <div class="card rounded-4 bg-transparent border-0 text-center" style="width: 150px;">
         <i class="fa-regular fa-calendar display-1 text-center"></i>
         <div class="card-body">
-          <h5 class="card-title">80</h5>
+          <h5 class="card-title">{{ visitorStats.todayVisitors }}</h5>
           <p class="card-text">hari ini</p>
         </div>
       </div>
@@ -481,7 +481,7 @@
       <div class="card rounded-4 bg-transparent border-0 text-center" style="width: 150px;">
         <i class="fa-solid fa-calendar-week display-1 text-center"></i>
         <div class="card-body">
-          <h5 class="card-title">362</h5>
+          <h5 class="card-title">{{ visitorStats.last7DaysVisitors }}</h5>
           <p class="card-text">7 hari terakhir</p>
         </div>
       </div>
@@ -490,7 +490,7 @@
       <div class="card rounded-4 bg-transparent border-0 text-center" style="width: 150px;">
         <i class="fa-regular fa-calendar-days display-1 text-center"></i>
         <div class="card-body">
-          <h5 class="card-title">1254</h5>
+          <h5 class="card-title">{{ visitorStats.last30DaysVisitors }}</h5>
           <p class="card-text">30 hari terakhir</p>
         </div>
       </div>
