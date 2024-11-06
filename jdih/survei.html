@@ -394,7 +394,7 @@
             <div class="card bg-info-subtle border-0 rounded-4 p-3 gap-2">
 
                 <h5>Pendapat Anda tentang pelayanan JDIH Kabupaten Deli Serdang</h5>
-                <!-- Jenis kelamin start -->
+                <!-- Kesesuaian start -->
                 <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kesesuaian }]">
     
                     <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya?</p>
@@ -436,7 +436,95 @@
                         {{ error }}
                     </div>
                 </div>
-                <!-- Jenis kelamin end -->   
+                <!-- Kesesuaian end -->   
+
+                <!-- Kemudahan start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kemudahan }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pemahaman Saudara tentang kemudahan prosedur pelayanan di unit ini?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="tidak"
+                            value="Tidak Mudah" v-model="formData.kemudahan">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Tidak Mudah
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="kurang"
+                            value="Kurang Mudah" v-model="formData.kemudahan">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Kurang Mudah
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="pas"
+                            value="Mudah" v-model="formData.kemudahan">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Mudah
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="sangat"
+                            value="Sangat Mudah" v-model="formData.kemudahan">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Sangat Mudah
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.kemudahan" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kemudahan" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kemudahan end --> 
+
+                <!-- Kecepatan start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kecepatan }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kecepatan waktu dalam memberikan layanan?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="tidak"
+                            value="Lambat" v-model="formData.kecepatan">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Lambat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="kurang"
+                            value="Kurang Cepat" v-model="formData.kecepatan">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Kurang Cepat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="pas"
+                            value="Cepat" v-model="formData.kecepatan">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Cepat
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="sangat"
+                            value="Sangat Cepat" v-model="formData.kecepatan">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Sangat Cepat
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.kecepatan" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kecepatan" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kecepatan end --> 
     
             </div>
             <!-- Kuesioner Card End -->
