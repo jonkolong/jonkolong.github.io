@@ -804,12 +804,13 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-success rounded-3 w-25" @click="submitForm">
-                <i class="fa-regular fa-paper-plane me-1"></i>Kirim</button>
+            <button type="button" class="btn btn-success rounded-3" @click="submitForm" style="white-space: nowrap;">
+                <i class="fa-regular fa-paper-plane me-1"></i>Kirim
+            </button>
         </div>
 
         <!-- Success alert -->
-        <div v-if="showSuccessAlert" class="alert alert-success alert-dismissible fade show my-3" role="alert">
+        <div v-if="showSuccessAlert" class="alert alert-success alert-dismissible rounded-4 fade show my-3" role="alert">
             Data berhasil dikirim!
             <button type="button" class="btn-close" aria-label="Close" @click="showSuccessAlert = false"></button>
         </div>
@@ -939,7 +940,7 @@ createApp({
                 // Wait for 3 seconds and then redirect to index.html
                 setTimeout(() => {
                     window.location.href = 'index.html';
-                }, 5000);
+                }, 4000);
 
             } catch (error) {
                 console.log(error);
