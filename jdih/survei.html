@@ -151,7 +151,7 @@
     <!-- Keterangan Title End -->
 
     <div id="app" class="container">
-        <div class="card border-0 rounded-4 p-4 gap-3">
+        <div class="card border-0 rounded-4 p-4 gap-3 mb-3">
 
             <!-- Profil Card Start -->
             <div class="card bg-primary-subtle border-0 rounded-4 p-3 gap-2">
@@ -160,7 +160,7 @@
             <!-- Jenis kelamin start -->
             <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.jenis_kelamin }]">
 
-                <label>Jenis Kelamin</label>
+                <label class="fw-semibold">Jenis Kelamin</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="Laki-laki"
                     v-model="formData.jenis_kelamin">
@@ -187,7 +187,7 @@
 
             <!-- Usia start -->
             <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.usia }]">
-                <label>Usia</label>
+                <label class="fw-semibold">Usia</label>
                 <div class="d-flex flex-wrap gap-4">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="usia" id="usia1" value="17-20"
@@ -266,7 +266,7 @@
             <!-- Pendidikan start -->
             <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.pendidikan }]">
 
-                <label>Pendidikan</label>
+                <label class="fw-semibold">Pendidikan</label>
                 <div class="opsi d-flex flex-wrap gap-4">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="pendidikan" id="sd"
@@ -331,7 +331,7 @@
             <!-- Pekerjaan start -->
             <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.pekerjaan }]">
 
-                <label>Pekerjaan</label>
+                <label class="fw-semibold">Pekerjaan</label>
                 
                 <div class="opsi d-flex flex-wrap gap-4">
                     <div class="form-check">
@@ -526,22 +526,295 @@
                 </div>
                 <!-- Kecepatan end --> 
     
+                <!-- Kewajaran start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kewajaran }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kewajaran biaya/tarif dalam pelayanan?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tarif" id="tidak"
+                            value="Sangat Mahal" v-model="formData.kewajaran">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Sangat Mahal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tarif" id="kurang"
+                            value="Cukup Mahal" v-model="formData.kewajaran">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Cukup Mahal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tarif" id="pas"
+                            value="Mahal" v-model="formData.kewajaran">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Mahal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tarif" id="sangat"
+                            value="Gratis" v-model="formData.kewajaran">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Gratis
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.kewajaran" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kewajaran" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kewajaran end --> 
+
+                <!-- Kesesuaian Produk start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kesesuaian_produk }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standar pelayanan dengan hasil yang diberikan?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="tidak"
+                            value="Tidak Sesuai" v-model="formData.kesesuaian_produk">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Tidak Sesuai
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="kurang"
+                            value="Kurang Sesuai" v-model="formData.kesesuaian_produk">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Kurang Sesuai
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="pas"
+                            value="Sesuai" v-model="formData.kesesuaian_produk">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Sesuai
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="sangat"
+                            value="Sangat Sesuai" v-model="formData.kesesuaian_produk">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Sangat Sesuai
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.kesesuaian_produk" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kesesuaian_produk" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kesesuaian Produk end --> 
+
+                <!-- Kompetensi start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kompetensi }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kompetensi kemampuan petugas dalam pelayanan?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="tidak"
+                            value="Tidak Kompeten" v-model="formData.kompetensi">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Tidak Kompeten
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="kurang"
+                            value="Kurang Kompeten" v-model="formData.kompetensi">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Kurang Kompeten
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="pas"
+                            value="Kompeten" v-model="formData.kompetensi">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Kompeten
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="sangat"
+                            value="Sangat Kompeten" v-model="formData.kompetensi">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Sangat Kompeten
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.kompetensi" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kompetensi" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kompetensi end --> 
+
+                <!-- Perilaku Petugas start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.perilaku_petugas }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara perilaku petugas dalam pelayanan terkait kesopanan dan keramahan?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="keramahan" id="tidak"
+                            value="Tidak Sopan dan Tidak Ramah" v-model="formData.perilaku_petugas">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Tidak Sopan dan Tidak Ramah
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="keramahan" id="kurang"
+                            value="Kurang Sopan dan Kurang Ramah" v-model="formData.perilaku_petugas">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Kurang Sopan dan Kurang Ramah
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="keramahan" id="pas"
+                            value="Sopan dan Ramah" v-model="formData.perilaku_petugas">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Sopan dan Ramah
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="keramahan" id="sangat"
+                            value="Sangat Sopan dan Sangat Ramah" v-model="formData.perilaku_petugas">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Sangat Sopan dan Sangat Ramah
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.perilaku_petugas" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.perilaku_petugas" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Perilaku Petugas end --> 
+
+                <!-- Kualitas start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kualitas }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kualitas sarana dan prasarana?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sarana" id="tidak"
+                            value="Buruk" v-model="formData.kualitas">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Buruk
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sarana" id="kurang"
+                            value="Cukup" v-model="formData.kualitas">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Cukup
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sarana" id="pas"
+                            value="Baik" v-model="formData.kualitas">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Baik
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sarana" id="sangat"
+                            value="Sangat Baik" v-model="formData.kualitas">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Sangat Baik
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.kualitas" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kualitas" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kualitas end --> 
+
+                <!-- Penanganan start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.penanganan }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang penanganan pengaduan pengguna layanan?</p>
+                    <div class="opsi d-flex flex-column column-gap-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="tidak"
+                            value="Tidak Ada" v-model="formData.penanganan">
+                            <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
+                            Tidak Ada
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="kurang"
+                            value="Ada tetapi tidak berfungsi" v-model="formData.penanganan">
+                            <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
+                            Ada, tetapi tidak berfungsi
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="pas"
+                            value="Berfungsi" v-model="formData.penanganan">
+                            <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
+                            Berfungsi
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="sangat"
+                            value="Dikelola dengan baik" v-model="formData.penanganan">
+                            <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
+                            Dikelola dengan baik
+                            </label>
+                        </div>
+                    </div>
+                
+                </div>
+                <!-- Error handling -->
+                <div v-if="errors.penanganan" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.penanganan" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Penanganan end --> 
+
             </div>
             <!-- Kuesioner Card End -->
 
-        </div>
-
-        <label for="kritik" class="form-label">Kritik</label>
-        <input type="text" class="form-control" :class="{ 'is-invalid': errors.kritik }" id="kritik" v-model="formData.kritik">
-        <div v-if="errors.kritik" class="invalid-feedback">
-            <div v-for="(error, index) in errors.kritik" :key="index">
-                {{ error }}
+            <div class="col card border-0 rounded-4 bg-warning-subtle p-4">
+                <label for="kritik" class="form-label fw-semibold">Kritik dan Saran</label>
+                <textarea type="text" class="form-control" rows="3" placeholder="Mohon pergunakan bahasa yang baik dan sopan"
+                :class="{ 'is-invalid': errors.kritik }" id="kritik" v-model="formData.kritik"></textarea>
+                <div v-if="errors.kritik" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kritik" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
             </div>
+
+            <button type="button" class="btn btn-success rounded-3 w-25" @click="submitForm">
+                <i class="fa-regular fa-paper-plane me-1"></i>Kirim</button>
         </div>
 
-        <button type="button" class="btn btn-success" @click="submitForm">Kirim</button>
+        <!-- Success alert -->
+        <div v-if="showSuccessAlert" class="alert alert-success alert-dismissible fade show my-3" role="alert">
+            Data berhasil dikirim!
+            <button type="button" class="btn-close" aria-label="Close" @click="showSuccessAlert = false"></button>
+        </div>
+        
     </div>
-      
 
     <!-- Footer Start -->
     <footer class="bg-jdih pt-5">
@@ -605,66 +878,91 @@
     <script>
     const { createApp, ref } = Vue;
 
-    createApp({
-        setup() {
-            const formData = ref({
-                jenis_kelamin: '',
-                usia: '',
-                pendidikan: '',
-                pekerjaan: '',
-                kecepatan: '',
-                kemudahan: '',
-                kesesuaian: '',
-                kesesuaian_produk: '',
-                kewajaran: '',
-                kompetensi: '',
-                kualitas: '',
-                penanganan: '',
-                perilaku_petugas: '',
-                kritik: ''
-            });
+createApp({
+    setup() {
+        const formData = ref({
+            jenis_kelamin: '',
+            usia: '',
+            pendidikan: '',
+            pekerjaan: '',
+            kecepatan: '',
+            kemudahan: '',
+            kesesuaian: '',
+            kesesuaian_produk: '',
+            kewajaran: '',
+            kompetensi: '',
+            kualitas: '',
+            penanganan: '',
+            perilaku_petugas: '',
+            kritik: ''
+        });
 
-            const errors = ref({});
+        const errors = ref({});
+        const showSuccessAlert = ref(false);  // Track alert visibility
 
-            const submitForm = async () => {
-                try {
-                    const response = await axios.post('https://website.kickymaulana.com/api/survei/input', formData.value);
-                    alert('Data berhasil dikirim');
-                    formData.value.jenis_kelamin = '';
-                    formData.value.usia = '';
-                    formData.value.pendidikan = '';
-                    formData.value.pekerjaan = '';
-                    formData.value.kecepatan = '';
-                    formData.value.kemudahan = '';
-                    formData.value.kesesuaian = '';
-                    formData.value.kesesuaian_produk = '';
-                    formData.value.kewajaran = '';
-                    formData.value.kompetensi = '';
-                    formData.value.kualitas = '';
-                    formData.value.penanganan = '';
-                    formData.value.perilaku_petugas = '';
-                    formData.value.kritik = '';
-                    errors.value = {}; // Reset errors after successful submission
-                } catch (error) {
-                    console.log(error);
+        // Validation function to check if all fields are filled
+        const isFormComplete = () => {
+            return Object.values(formData.value).every(value => value !== '');
+        };
 
-                    if (error.response && error.response.data.errors) {
-                        errors.value = error.response.data.errors;
-                    } else {
-                        console.error('Gagal mengirim data', error);
-                    }
+        const submitForm = async () => {
+            // Check if form is complete
+            if (!isFormComplete()) {
+                alert("Mohon lengkapi seluruh kolom pertanyaan.");
+                return;  // Stop the function here if form is incomplete
+            }
+
+            try {
+                // Submit the form
+                const response = await axios.post('https://website.kickymaulana.com/api/survei/input', formData.value);
+
+                // Show the success alert and reset form fields and errors
+                showSuccessAlert.value = true;
+                formData.value = {
+                    jenis_kelamin: '',
+                    usia: '',
+                    pendidikan: '',
+                    pekerjaan: '',
+                    kecepatan: '',
+                    kemudahan: '',
+                    kesesuaian: '',
+                    kesesuaian_produk: '',
+                    kewajaran: '',
+                    kompetensi: '',
+                    kualitas: '',
+                    penanganan: '',
+                    perilaku_petugas: '',
+                    kritik: ''
+                };
+                errors.value = {}; // Reset errors
+
+                // Wait for 3 seconds and then redirect to index.html
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 5000);
+
+            } catch (error) {
+                console.log(error);
+
+                if (error.response && error.response.data.errors) {
+                    errors.value = error.response.data.errors;
+                } else {
+                    console.error('Gagal mengirim data!', error);
                 }
-            };
+            }
+        };
 
-            return {
-                formData,
-                errors,
-                submitForm
-            };
-        }
-    }).mount('#app');
+        return {
+            formData,
+            errors,
+            showSuccessAlert,
+            submitForm
+        };
+    }
+}).mount('#app');
 
-    </script>
+
+</script>
   
 
 </body>

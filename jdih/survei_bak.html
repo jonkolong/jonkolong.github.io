@@ -150,475 +150,665 @@
     </div>
     <!-- Keterangan Title End -->
 
-    <!-- Survei Start -->
-    <div class="container mt-4 mb-5">
-        <div class="row card my-3 mx-2 py-3 px-3 rounded-4 border-0">
-            <div class="col card border-0 rounded-4 bg-primary-subtle p-4 my-2">
-                <h5>Profil</h5>
+    <div id="app" class="container">
+        <div class="card border-0 rounded-4 p-4 gap-3">
 
-                <div class="question-card mb-2">
-                    <p class="mb-1 fs-6 fw-semibold">Jenis kelamin</p>
-                    <div class="opsi d-flex gap-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki">
-                            <label class="form-check-label" for="lakiLaki">
-                            Laki-laki
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan">
-                            <label class="form-check-label" for="perempuan">
-                            Perempuan
-                            </label>
-                        </div>
+            <!-- Profil Card Start -->
+            <div class="card bg-primary-subtle border-0 rounded-4 p-3 gap-2">
+
+            <h5>Profil</h5>
+            <!-- Jenis kelamin start -->
+            <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.jenis_kelamin }]">
+
+                <label class="fw-semibold">Jenis Kelamin</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="Laki-laki"
+                    v-model="formData.jenis_kelamin">
+                    <label class="form-check-label" for="laki-laki">
+                        Laki-laki
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan"
+                    v-model="formData.jenis_kelamin">
+                    <label class="form-check-label" for="perempuan">
+                        Perempuan
+                    </label>
+                </div>
+            
+            </div>
+            <!-- Error handling -->
+            <div v-if="errors.jenis_kelamin" class="invalid-feedback">
+                <div v-for="(error, index) in errors.jenis_kelamin" :key="index">
+                    {{ error }}
+                </div>
+            </div>
+            <!-- Jenis kelamin end -->
+
+            <!-- Usia start -->
+            <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.usia }]">
+                <label class="fw-semibold">Usia</label>
+                <div class="d-flex flex-wrap gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia1" value="17-20"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia1">
+                        17-20
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia2" value="21-25"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia2">
+                        21-25
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia3" value="26-30"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia3">
+                        26-30
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia4" value="31-35"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia4">
+                            31-35
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia5" value="36-40"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia5">
+                            36-40
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia6" value="41-45"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia6">
+                        41-45
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia7" value="46-50"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia7">
+                        46-50
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia8" value="51-55"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia8">
+                        51-55
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="usia" id="usia9" value=">55"
+                        v-model="formData.usia">
+                        <label class="form-check-label" for="usia9">
+                        >55
+                        </label>
                     </div>
                 </div>
+            
+            </div>
+            <!-- Error handling -->
+            <div v-if="errors.usia" class="invalid-feedback">
+                <div v-for="(error, index) in errors.usia" :key="index">
+                    {{ error }}
+                </div>
+            </div>
+            <!-- Usia end -->
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">Usia</p>
-                    <div class="d-flex flex-column">
-                        <div class="d-flex flex-wrap gap-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia1">
-                                <label class="form-check-label" for="usia1">
-                                17-20
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia2">
-                                <label class="form-check-label" for="usia2">
-                                21-25
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia3">
-                                <label class="form-check-label" for="usia3">
-                                26-30
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia4">
-                                <label class="form-check-label" for="usia4">
-                                    31-35
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia5">
-                                <label class="form-check-label" for="usia5">
-                                    36-40
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia6">
-                                <label class="form-check-label" for="usia6">
-                                41-45
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia7">
-                                <label class="form-check-label" for="usia7">
-                                46-50
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia8">
-                                <label class="form-check-label" for="usia8">
-                                51-55
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="usia" id="usia9">
-                                <label class="form-check-label" for="usia9">
-                                >55
-                                </label>
-                            </div>
-                        </div>
+            <!-- Pendidikan start -->
+            <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.pendidikan }]">
+
+                <label class="fw-semibold">Pendidikan</label>
+                <div class="opsi d-flex flex-wrap gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="sd"
+                        value="SD" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="sd">
+                        SD
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="smp"
+                        value="SMP" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="smp">
+                        SMP
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="sma"
+                        value="SMA/Sederajat" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="sma">
+                        SMA/Sederajat
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="diploma"
+                        value="Diploma" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="diploma">
+                        Diploma
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="s1"
+                        value="S1" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="s1">
+                        S1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="s2"
+                        value="S2" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="s2">
+                        S2
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="s3"
+                        value="S3" v-model="formData.pendidikan">
+                        <label class="form-check-label" for="s3">
+                        S3
+                        </label>
                     </div>
                 </div>
+            
+            </div>
+            <!-- Error handling -->
+            <div v-if="errors.pendidikan" class="invalid-feedback">
+                <div v-for="(error, index) in errors.pendidikan" :key="index">
+                    {{ error }}
+                </div>
+            </div>
+            <!-- Pendidikan end -->
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">Pendidikan</p>
-                    <div class="opsi d-flex flex-wrap gap-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="sd">
-                            <label class="form-check-label" for="sd">
-                            SD
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="smp">
-                            <label class="form-check-label" for="smp">
-                            SMP
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="sma">
-                            <label class="form-check-label" for="sma">
-                            SMA/Sederajat
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="diploma">
-                            <label class="form-check-label" for="diploma">
-                            Diploma
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="s1">
-                            <label class="form-check-label" for="s1">
-                            S1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="s2">
-                            <label class="form-check-label" for="s2">
-                            S2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="s3">
-                            <label class="form-check-label" for="s3">
-                            S3
-                            </label>
-                        </div>
+            <!-- Pekerjaan start -->
+            <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.pekerjaan }]">
+
+                <label class="fw-semibold">Pekerjaan</label>
+                
+                <div class="opsi d-flex flex-wrap gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pekerjaan" id="pns"
+                        value="PNS" v-model="formData.pekerjaan">
+                        <label class="form-check-label" for="pns">
+                        PNS
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pekerjaan" id="tni"
+                        value="TNI" v-model="formData.pekerjaan">
+                        <label class="form-check-label" for="tni">
+                        TNI
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pekerjaan" id="polri"
+                        value="POLRI" v-model="formData.pekerjaan">
+                        <label class="form-check-label" for="polri">
+                        POLRI
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pekerjaan" id="swasta"
+                        value="Swasta" v-model="formData.pekerjaan">
+                        <label class="form-check-label" for="swasta">
+                        Swasta
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pekerjaan" id="wirausaha"
+                        value="Wirausaha" v-model="formData.pekerjaan">
+                        <label class="form-check-label" for="wirausaha">
+                        Wirausaha
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pekerjaan" id="lainLain"
+                        value="Lainnya" v-model="formData.pekerjaan">
+                        <label class="form-check-label" for="lainLain">
+                        Lainnya
+                        </label>
                     </div>
                 </div>
-
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">Pekerjaan</p>
-                    <div class="opsi d-flex flex-wrap gap-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pekerjaan" id="pns">
-                            <label class="form-check-label" for="pns">
-                            PNS
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pekerjaan" id="tni">
-                            <label class="form-check-label" for="tni">
-                            TNI
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pekerjaan" id="polri">
-                            <label class="form-check-label" for="polri">
-                            POLRI
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pekerjaan" id="swasta">
-                            <label class="form-check-label" for="swasta">
-                            Swasta
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pekerjaan" id="wirausaha">
-                            <label class="form-check-label" for="wirausaha">
-                            Wirausaha
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pekerjaan" id="lainLain">
-                            <label class="form-check-label" for="lainLain">
-                            Lainnya
-                            </label>
-                        </div>
-                    </div>
+            
+            </div>
+            <!-- Error handling -->
+            <div v-if="errors.pekerjaan" class="invalid-feedback">
+                <div v-for="(error, index) in errors.pekerjaan" :key="index">
+                    {{ error }}
                 </div>
+            </div>
+            <!-- Pekerjaan end -->
 
             </div>
+            <!-- Profil Card End -->
 
-            <div class="col card border-0 rounded-4 bg-info-subtle p-4 my-2">
+            <!-- Kuesioner Card Start -->
+            <div class="card bg-info-subtle border-0 rounded-4 p-3 gap-2">
+
                 <h5>Pendapat Anda tentang pelayanan JDIH Kabupaten Deli Serdang</h5>
-
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">1. Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya?</p>
+                <!-- Kesesuaian start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kesesuaian }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kesesuaian" id="tidak">
+                            <input class="form-check-input" type="radio" name="kesesuaian" id="tidak"
+                            value="Tidak Sesuai" v-model="formData.kesesuaian">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Tidak Sesuai
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kesesuaian" id="kurang">
+                            <input class="form-check-input" type="radio" name="kesesuaian" id="kurang"
+                            value="Kurang Sesuai" v-model="formData.kesesuaian">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Kurang Sesuai
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kesesuaian" id="pas">
+                            <input class="form-check-input" type="radio" name="kesesuaian" id="pas"
+                            value="Sesuai" v-model="formData.kesesuaian">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Sesuai
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kesesuaian" id="sangat">
+                            <input class="form-check-input" type="radio" name="kesesuaian" id="sangat"
+                            value="Sangat Sesuai" v-model="formData.kesesuaian">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Sesuai
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.kesesuaian" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kesesuaian" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kesesuaian end -->   
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">2. Bagaimana pemahaman Saudara tentang kemudahan prosedur pelayanan di unit ini?</p>
+                <!-- Kemudahan start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kemudahan }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pemahaman Saudara tentang kemudahan prosedur pelayanan di unit ini?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kemudahan" id="tidak">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="tidak"
+                            value="Tidak Mudah" v-model="formData.kemudahan">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Tidak Mudah
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kemudahan" id="kurang">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="kurang"
+                            value="Kurang Mudah" v-model="formData.kemudahan">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Kurang Mudah
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kemudahan" id="pas">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="pas"
+                            value="Mudah" v-model="formData.kemudahan">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Mudah
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kemudahan" id="sangat">
+                            <input class="form-check-input" type="radio" name="kemudahan" id="sangat"
+                            value="Sangat Mudah" v-model="formData.kemudahan">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Mudah
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.kemudahan" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kemudahan" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kemudahan end --> 
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">3. Bagaimana pendapat Saudara tentang kecepatan waktu dalam memberikan layanan?</p>
+                <!-- Kecepatan start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kecepatan }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kecepatan waktu dalam memberikan layanan?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kecepatan" id="tidak">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="tidak"
+                            value="Lambat" v-model="formData.kecepatan">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Lambat
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kecepatan" id="kurang">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="kurang"
+                            value="Kurang Cepat" v-model="formData.kecepatan">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Kurang Cepat
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kecepatan" id="pas">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="pas"
+                            value="Cepat" v-model="formData.kecepatan">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Cepat
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kecepatan" id="sangat">
+                            <input class="form-check-input" type="radio" name="kecepatan" id="sangat"
+                            value="Sangat Cepat" v-model="formData.kecepatan">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Cepat
                             </label>
                         </div>
                     </div>
+                
                 </div>
-
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">4. Bagaimana pendapat Saudara tentang kewajaran biaya/tarif dalam pelayanan?</p>
+                <!-- Error handling -->
+                <div v-if="errors.kecepatan" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kecepatan" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kecepatan end --> 
+    
+                <!-- Kewajaran start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kewajaran }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kewajaran biaya/tarif dalam pelayanan?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tarif" id="tidak">
+                            <input class="form-check-input" type="radio" name="tarif" id="tidak"
+                            value="Sangat Mahal" v-model="formData.kewajaran">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Sangat Mahal
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tarif" id="kurang">
+                            <input class="form-check-input" type="radio" name="tarif" id="kurang"
+                            value="Cukup Mahal" v-model="formData.kewajaran">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Cukup Mahal
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tarif" id="pas">
+                            <input class="form-check-input" type="radio" name="tarif" id="pas"
+                            value="Mahal" v-model="formData.kewajaran">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Mahal
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tarif" id="sangat">
+                            <input class="form-check-input" type="radio" name="tarif" id="sangat"
+                            value="Gratis" v-model="formData.kewajaran">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Gratis
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.kewajaran" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kewajaran" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kewajaran end --> 
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">5. Bagaimana pendapat Saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standar pelayanan dengan hasil yang diberikan?</p>
+                <!-- Kesesuaian Produk start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kesesuaian_produk }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standar pelayanan dengan hasil yang diberikan?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="tidak">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="tidak"
+                            value="Tidak Sesuai" v-model="formData.kesesuaian_produk">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Tidak Sesuai
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="kurang">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="kurang"
+                            value="Kurang Sesuai" v-model="formData.kesesuaian_produk">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Kurang Sesuai
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="pas">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="pas"
+                            value="Sesuai" v-model="formData.kesesuaian_produk">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Sesuai
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="sangat">
+                            <input class="form-check-input" type="radio" name="sesuaiHasil" id="sangat"
+                            value="Sangat Sesuai" v-model="formData.kesesuaian_produk">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Sesuai
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.kesesuaian_produk" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kesesuaian_produk" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kesesuaian Produk end --> 
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">6. Bagaimana pendapat Saudara tentang kompetensi kemampuan petugas dalam pelayanan?</p>
+                <!-- Kompetensi start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kompetensi }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kompetensi kemampuan petugas dalam pelayanan?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kompetensi" id="tidak">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="tidak"
+                            value="Tidak Kompeten" v-model="formData.kompetensi">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Tidak Kompeten
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kompetensi" id="kurang">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="kurang"
+                            value="Kurang Kompeten" v-model="formData.kompetensi">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Kurang Kompeten
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kompetensi" id="pas">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="pas"
+                            value="Kompeten" v-model="formData.kompetensi">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Kompeten
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="kompetensi" id="sangat">
+                            <input class="form-check-input" type="radio" name="kompetensi" id="sangat"
+                            value="Sangat Kompeten" v-model="formData.kompetensi">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Kompeten
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.kompetensi" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kompetensi" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kompetensi end --> 
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">7. Bagaimana pendapat Saudara perilaku petugas dalam pelayanan terkait kesopanan dan keramahan?</p>
+                <!-- Perilaku Petugas start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.perilaku_petugas }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara perilaku petugas dalam pelayanan terkait kesopanan dan keramahan?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="keramahan" id="tidak">
+                            <input class="form-check-input" type="radio" name="keramahan" id="tidak"
+                            value="Tidak Sopan dan Tidak Ramah" v-model="formData.perilaku_petugas">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Tidak Sopan dan Tidak Ramah
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="keramahan" id="kurang">
+                            <input class="form-check-input" type="radio" name="keramahan" id="kurang"
+                            value="Kurang Sopan dan Kurang Ramah" v-model="formData.perilaku_petugas">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
-                            Kurang Sopan dan Tidak Ramah
+                            Kurang Sopan dan Kurang Ramah
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="keramahan" id="pas">
+                            <input class="form-check-input" type="radio" name="keramahan" id="pas"
+                            value="Sopan dan Ramah" v-model="formData.perilaku_petugas">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Sopan dan Ramah
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="keramahan" id="sangat">
+                            <input class="form-check-input" type="radio" name="keramahan" id="sangat"
+                            value="Sangat Sopan dan Sangat Ramah" v-model="formData.perilaku_petugas">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Sopan dan Sangat Ramah
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.perilaku_petugas" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.perilaku_petugas" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Perilaku Petugas end --> 
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">8. Bagaimana pendapat Saudara tentang kualitas sarana dan prasarana?</p>
+                <!-- Kualitas start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.kualitas }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang kualitas sarana dan prasarana?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sarana" id="tidak">
+                            <input class="form-check-input" type="radio" name="sarana" id="tidak"
+                            value="Buruk" v-model="formData.kualitas">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Buruk
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sarana" id="kurang">
+                            <input class="form-check-input" type="radio" name="sarana" id="kurang"
+                            value="Cukup" v-model="formData.kualitas">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Cukup
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sarana" id="pas">
+                            <input class="form-check-input" type="radio" name="sarana" id="pas"
+                            value="Baik" v-model="formData.kualitas">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Baik
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sarana" id="sangat">
+                            <input class="form-check-input" type="radio" name="sarana" id="sangat"
+                            value="Sangat Baik" v-model="formData.kualitas">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Sangat Baik
                             </label>
                         </div>
                     </div>
+                
                 </div>
+                <!-- Error handling -->
+                <div v-if="errors.kualitas" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kualitas" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+                <!-- Kualitas end --> 
 
-                <div class="question-card mb-2 mt-4">
-                    <p class="mb-1 fs-6 fw-semibold">9. Bagaimana pendapat Saudara tentang penanganan pengaduan pengguna layanan?</p>
+                <!-- Penanganan start -->
+                <div :class="['form-control', 'bg-transparent', { 'is-invalid': errors.penanganan }]">
+    
+                    <p class="mb-1 fs-6 fw-semibold">Bagaimana pendapat Saudara tentang penanganan pengaduan pengguna layanan?</p>
                     <div class="opsi d-flex flex-column column-gap-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pengaduan" id="tidak">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="tidak"
+                            value="Tidak Ada" v-model="formData.penanganan">
                             <label class="form-check-label" for="tidak" style="text-wrap: nowrap;">
                             Tidak Ada
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pengaduan" id="kurang">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="kurang"
+                            value="Ada tetapi tidak berfungsi" v-model="formData.penanganan">
                             <label class="form-check-label" for="kurang" style="text-wrap: nowrap;">
                             Ada, tetapi tidak berfungsi
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pengaduan" id="pas">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="pas"
+                            value="Berfungsi" v-model="formData.penanganan">
                             <label class="form-check-label" for="pas" style="text-wrap: nowrap;">
                             Berfungsi
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pengaduan" id="sangat">
+                            <input class="form-check-input" type="radio" name="pengaduan" id="sangat"
+                            value="Dikelola dengan baik" v-model="formData.penanganan">
                             <label class="form-check-label" for="sangat" style="text-wrap: nowrap;">
                             Dikelola dengan baik
                             </label>
                         </div>
                     </div>
+                
                 </div>
-
-            </div>
-
-            <div class="col card border-0 rounded-4 bg-warning-subtle p-4 my-2">
-                <h5>Kritik dan Saran</h5>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Sampaikan kritik dan saran Anda pada kolom di bawah ini</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <!-- Error handling -->
+                <div v-if="errors.penanganan" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.penanganan" :key="index">
+                        {{ error }}
                     </div>
-            </div>
-
-            <button type="submit" class="btn bg-danger-subtle mt-2 rounded-5">
-                <i class="fa-regular fa-paper-plane me-1"></i>Kirim
-            </button>
+                </div>
+                <!-- Penanganan end --> 
 
             </div>
+            <!-- Kuesioner Card End -->
+
+            <div class="col card border-0 rounded-4 bg-warning-subtle p-4">
+                <label for="kritik" class="form-label fw-semibold">Kritik dan Saran</label>
+                <textarea type="text" class="form-control" rows="3" placeholder="Mohon pergunakan bahasa yang baik dan sopan"
+                :class="{ 'is-invalid': errors.kritik }" id="kritik" v-model="formData.kritik"></textarea>
+                <div v-if="errors.kritik" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.kritik" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success rounded-3 w-25" @click="submitForm">
+                <i class="fa-regular fa-paper-plane me-1"></i>Kirim</button>
+        </div>
 
     </div>
-    <!-- Survei End -->
 
     <!-- Footer Start -->
     <footer class="bg-jdih pt-5">
@@ -679,62 +869,69 @@
     AOS.init();
   </script>
 
-<script>
-const { createApp, ref } = Vue;
+    <script>
+    const { createApp, ref } = Vue;
 
-createApp({
-  setup() {
-    const formData = ref({
-      jenis_kelamin: '',
-      usia: '',
-      pendidikan: '',
-      pekerjaan: '',
-      kecepatan: '',
-      kemudahan: '',
-      kesesuaian: '',
-      kesesuaian_produk: '',
-      kewajaran: '',
-      kompetensi: '',
-      kualitas: '',
-      penanganan: '',
-      perilaku_petugas: '',
-      kritik: ''
-    });
+    createApp({
+        setup() {
+            const formData = ref({
+                jenis_kelamin: '',
+                usia: '',
+                pendidikan: '',
+                pekerjaan: '',
+                kecepatan: '',
+                kemudahan: '',
+                kesesuaian: '',
+                kesesuaian_produk: '',
+                kewajaran: '',
+                kompetensi: '',
+                kualitas: '',
+                penanganan: '',
+                perilaku_petugas: '',
+                kritik: ''
+            });
 
-    const validationErrors = ref({});
-    const currentQuestion = ref(1); // Track the current question
+            const errors = ref({});
 
-    // Validate form data
-    const validateForm = (field) => {
-      let errors = {};
-      if (!formData.value[field]) {
-        errors[field] = `Silakan pilih salah satu opsi untuk ${field.replace('_', ' ')}`;
-      }
-      validationErrors.value = errors;
-      return Object.keys(errors).length === 0;
-    };
+            const submitForm = async () => {
+                try {
+                    const response = await axios.post('https://website.kickymaulana.com/api/survei/input', formData.value);
+                    alert('Data berhasil dikirim');
+                    formData.value.jenis_kelamin = '';
+                    formData.value.usia = '';
+                    formData.value.pendidikan = '';
+                    formData.value.pekerjaan = '';
+                    formData.value.kecepatan = '';
+                    formData.value.kemudahan = '';
+                    formData.value.kesesuaian = '';
+                    formData.value.kesesuaian_produk = '';
+                    formData.value.kewajaran = '';
+                    formData.value.kompetensi = '';
+                    formData.value.kualitas = '';
+                    formData.value.penanganan = '';
+                    formData.value.perilaku_petugas = '';
+                    formData.value.kritik = '';
+                    errors.value = {}; // Reset errors after successful submission
+                } catch (error) {
+                    console.log(error);
 
-    // Handle navigation to the next question
-    const nextQuestion = (field) => {
-      if (validateForm(field)) {
-        currentQuestion.value += 1; // Move to the next question
-      } else {
-        // Show error message if validation fails
-        window.scrollTo(0, 0); // Scroll to the top
-      }
-    };
+                    if (error.response && error.response.data.errors) {
+                        errors.value = error.response.data.errors;
+                    } else {
+                        console.error('Gagal mengirim data', error);
+                    }
+                }
+            };
 
-    return {
-      formData,
-      validationErrors,
-      currentQuestion,
-      nextQuestion
-    };
-  }
-}).mount('#app');
+            return {
+                formData,
+                errors,
+                submitForm
+            };
+        }
+    }).mount('#app');
 
-
-  </script>
+    </script>
   
 
 </body>
