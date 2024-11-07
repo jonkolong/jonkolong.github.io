@@ -98,9 +98,15 @@
               <a class="nav-link" href="faq.html" target="_blank"><i class="fa-solid fa-circle-info me-1"></i>FAQ</a>
             </li>
             </ul>
-            
-            <a href="login.html" class="btn btn-warning rounded-5">Masuk<i class="fa-solid fa-arrow-right-to-bracket ms-1"></i></a>
 
+            <!-- Conditionally Render Username or Login Button -->
+            <div class="d-flex align-items-center">
+              <span v-if="isLoggedIn" class="btn btn-warning rounded-5"><span><img src="assets/img/101.jpg" class="me-1" alt="foto" style="height: 30px; border-radius: 50%;"></span>{{ username }}</span>
+              <a v-else href="login.html" class="btn btn-warning rounded-5">
+                  Masuk <i class="fa-solid fa-arrow-right-to-bracket ms-1"></i>
+              </a>
+            </div>
+            
         </div>
       </div>
   </nav>
@@ -179,7 +185,15 @@
               </a>
           </li>
           </ul>
-          <a href="login.html" type="button" class="m-3 btn btn-jdih"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i>Login</a>
+
+          <!-- Conditionally Render Username or Login Button -->
+          <div class="d-flex align-items-center">
+            <span v-if="isLoggedIn" class="m-3 btn btn-jdih w-100 rounded-5"><span><img src="assets/img/101.jpg" class="me-1" alt="foto" style="height: 30px; border-radius: 50%;"></span>{{ username }}</span>
+            <a v-else href="login.html" class="m-3 btn btn-jdih w-100 rounded-5">
+                Masuk <i class="fa-solid fa-arrow-right-to-bracket ms-1"></i>
+            </a>
+          </div>
+
       </div>
       </div>
   </div>
@@ -558,6 +572,7 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/login.js"></script>
   <script src="assets/js/dark.js"></script>
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

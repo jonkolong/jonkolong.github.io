@@ -1,4 +1,4 @@
-const { createApp, ref, computed, watch } = Vue;
+const { createApp, ref, computed, watch, onMounted } = Vue;
 
 createApp({
     setup() {
@@ -13,6 +13,10 @@ createApp({
         const isSearched = ref(false);
         const documentIcons = ref({});
         const visitorStats = ref({ todayVisitors: 0, last7DaysVisitors: 0, last30DaysVisitors: 0 }); // Structured visitor stats
+
+        // Login state variables
+        const username = ref('');
+        const isLoggedIn = ref(false);
 
         // Existing options for filtering
         const tipeOptions = ref([]);
@@ -49,6 +53,20 @@ createApp({
             } catch (error) {
                 console.error('Failed to fetch visitor statistics:', error);
                 alert('Gagal mengambil statistik pengunjung. Silakan coba lagi nanti.');
+            }
+        };
+
+        // New function to fetch login status
+        const fetchLoginStatus = async () => {
+            try {
+                const response = await axios.get('http://localhost:5500/jdih/public/data/login.json');
+                isLoggedIn.value = response.data.data.sudahlogin;
+                if (isLoggedIn.value) {
+                    username.value = response.data.data.nama;
+                }
+                console.log("Login status fetched:", isLoggedIn.value);
+            } catch (error) {
+                console.error('Failed to fetch login status:', error);
             }
         };
 
@@ -120,8 +138,11 @@ createApp({
         const totalPutusan = computed(() => data.value.filter(item => item.tipe === 'Putusan').length);
 
         // Fetch data on component mount
-        fetchData();
-        fetchVisitorStats(); // Fetch visitor statistics
+        onMounted(() => {
+            fetchData();
+            fetchVisitorStats(); // Fetch visitor statistics
+            fetchLoginStatus(); // Fetch login status
+        });
 
         return {
             selectedTipe,
@@ -145,7 +166,9 @@ createApp({
             totalArtikel,
             totalPutusan,
             documentIcons,
-            visitorStats // Make visitorStats available for template
+            visitorStats, // Make visitorStats available for template
+            username,
+            isLoggedIn
         };
     },
 }).mount('#app');
