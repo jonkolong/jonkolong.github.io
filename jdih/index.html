@@ -101,7 +101,7 @@
 
             <!-- Conditionally Render Username or Login Button -->
             <div class="d-flex align-items-center">
-              <span v-if="isLoggedIn" class="btn btn-warning rounded-5"><span><img src="assets/img/101.jpg" class="me-1" alt="foto" style="height: 30px; border-radius: 50%;"></span>{{ username }}</span>
+              <span v-if="isLoggedIn" class="btn btn-warning rounded-5"><span><img :src="profilPic" class="me-1" alt="foto" style="height: 30px; border-radius: 50%;"></span>{{ username }}</span>
               <a v-else href="login.html" class="btn btn-warning rounded-5">
                   Masuk <i class="fa-solid fa-arrow-right-to-bracket ms-1"></i>
               </a>
@@ -188,7 +188,7 @@
 
           <!-- Conditionally Render Username or Login Button -->
           <div class="d-flex align-items-center">
-            <span v-if="isLoggedIn" class="m-3 btn btn-jdih w-100 rounded-5"><span><img src="assets/img/101.jpg" class="me-1" alt="foto" style="height: 30px; border-radius: 50%;"></span>{{ username }}</span>
+            <span v-if="isLoggedIn" class="m-3 btn btn-jdih w-100 rounded-5"><span><img :src="profilPic" class="me-1" alt="foto" style="height: 30px; border-radius: 50%;"></span>{{ username }}</span>
             <a v-else href="login.html" class="m-3 btn btn-jdih w-100 rounded-5">
                 Masuk <i class="fa-solid fa-arrow-right-to-bracket ms-1"></i>
             </a>

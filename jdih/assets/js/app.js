@@ -16,6 +16,7 @@ createApp({
 
         // Login state variables
         const username = ref('');
+        const profilPic = ref('');
         const isLoggedIn = ref(false);
 
         // Existing options for filtering
@@ -63,6 +64,7 @@ createApp({
                 isLoggedIn.value = response.data.data.sudahlogin;
                 if (isLoggedIn.value) {
                     username.value = response.data.data.nama;
+                    profilPic.value = response.data.data.profil;
                 }
                 console.log("Login status fetched:", isLoggedIn.value);
             } catch (error) {
@@ -168,6 +170,7 @@ createApp({
             documentIcons,
             visitorStats, // Make visitorStats available for template
             username,
+            profilPic,
             isLoggedIn
         };
     },
