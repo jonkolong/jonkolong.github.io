@@ -11,8 +11,15 @@ createApp({
         const itemsPerPage = ref(6);
         const currentPage = ref(1);
         const isSearched = ref(false);
-        const documentIcons = ref({});
         const visitorStats = ref({ todayVisitors: 0, last7DaysVisitors: 0, last30DaysVisitors: 0 }); // Structured visitor stats
+
+        // Dokumen Hukum
+        // const data = ref([]);
+        const documentIcons = ref({});
+        const totalPeraturan = ref(0);
+        const totalMonografi = ref(0);
+        const totalArtikel = ref(0);
+        const totalPutusan = ref(0);
 
         // Login state variables
         const username = ref('');
@@ -44,6 +51,9 @@ createApp({
                 alert('Gagal mengambil data. Silakan coba lagi nanti.');
             }
         };
+
+        // Dokumen Hukum
+        
 
         // New function to fetch visitor statistics
         const fetchVisitorStats = async () => {
@@ -133,11 +143,6 @@ createApp({
             jenisOptions.value = [...new Set(data.value.filter(item => item.tipe === newTipe).map(item => item.jenis))];
             selectedJenis.value = '';
         });
-
-        const totalPeraturan = computed(() => data.value.filter(item => item.tipe === 'Peraturan').length);
-        const totalMonografi = computed(() => data.value.filter(item => item.tipe === 'Monografi').length);
-        const totalArtikel = computed(() => data.value.filter(item => item.tipe === 'Artikel').length);
-        const totalPutusan = computed(() => data.value.filter(item => item.tipe === 'Putusan').length);
 
         // Fetch data on component mount
         onMounted(() => {
