@@ -30,7 +30,7 @@ createApp({
     // Function to fetch product detail data
     const fetchData = async (dataId) => {
       try {
-        const response = await axios.get(`https://website.kickymaulana.com/api/produk-hukum-detail?data=${dataId}`);
+        const response = await axios.get(`https://website.kickymaulana.com/api/produk-hukum-detail/${dataId}`);
         productDetail.value = response.data.data;
       } catch (error) {
         console.error("Error fetching data:", error);

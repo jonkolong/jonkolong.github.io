@@ -136,107 +136,109 @@
   </nav>
   <!-- Offcanvas Navbar End -->
 
-  <!-- Postingan Start -->
+  <!-- Edit Postingan Start -->
   <div class="container-fluid">
     <div class="card border-0 rounded-4 mt-4 p-4">
 
-    <h1 class="text-center">Postingan</h1>
+    <h1 class="text-center">Buat Postingan</h1>
 
-      <div class="d-flex mb-4">
-          <button class="btn btn-jdih me-auto" style="white-space: nowrap;"
-          data-bs-toggle="modal" data-bs-target="#tambahModal"><i class="bi bi-plus me-1"></i>Tambah</button>
-          <div class="ms-auto d-flex">
-            <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Search">
-            <button class="btn btn-jdih" type="submit" style="white-space: nowrap;"><i class="bi bi-search me-1"></i>Cari</button>
-          </div>
-      </div>
+      
 
-      <div class="d-flex flex-wrap flex-lg-nowrap gap-2">
+      <div class="d-flex flex-lg-nowrap flex-wrap gap-2">
+        <div class="card rounded-4 col-lg-8 col-12 p-3 mb-3">
 
-        <div class="card p-3 col-12 col-lg-6 rounded-4">
-          <div class="d-flex">
-            <span class="fw-semibold me-auto">Sumpah Pemuda Momentum Tingkatkan Kiprah Indonesia Lebih Kuat di Kancah Global</span>
-            <span class="ms-auto fs-4">
-              <a href="postingan-edit.html" class="text-secondary-emphasis">
-                <i class="card border-0 bi bi-pencil-square me-1" style="white-space: nowrap;"></i>
-              </a>
-            </span>
+          <div class="d-flex mb-3">
+            <p class="text-secondary">Edit postingan</p>
+            <button class="btn btn-outline-danger ms-auto" style="white-space: nowrap;"><i class="bi bi-x-octagon me-1"></i>Hapus</button>
           </div>
-          <div class="w-100">
-            <p class="my-1">2024-11-04 16:46:27</p>
+
+          <div class="d-flex flex-lg-nowrap flex-wrap gap-2">
+            
+            <div class="mb-3 col-lg-8 col-12 mb-2">
+              <label for="judul" class="form-label">Judul</label>
+              <input type="text" class="form-control" id="judul" value="Survei">
+            </div>
+            <div class="mb-3 col-lg-4 col-12 mb-2">
+              <label for="tanggal" class="form-label">Tanggal</label>
+              <input type="datetime" class="form-control" id="tanggal" value="2024-11-04 21:35:16">
+            </div>
           </div>
-          <div class="d-flex">
-            <input type="text" class="form-control" id="copyText" value="https://localhost:5500/survei.html" disabled>
-            <button class="btn border-1 border-secondary rounded-3 ms-2 px-2 bg-transparent" onclick="copyText()">Salin</button>
+
+          <div class="d-flex flex-lg-nowrap flex-wrap gap-2">
+            <div class="mb-3 col-12 mb-2">
+              <label class="form-label">Postingan</label>
+              <textarea class="form-control" rows="10" aria-label="textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="d-flex flex-lg-nowrap flex-wrap gap-2">
+            <div class="mb-3 col-lg-8 col-12 mb-2">
+              <label class="form-label">Status</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Draf</option>
+                <option value="1">Terbit</option>
+              </select>
+            </div>
+            <div class="mb-3 col-lg-4 col-12 mb-2">
+              <label class="form-label">Jenis</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Halaman</option>
+                <option value="1">Berita</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-jdih"><i class="bi bi-save me-1"></i>Simpan</button>
           </div>
         </div>
 
-        <div class="card p-3 col-12 col-lg-6 rounded-4">
-          <div class="d-flex">
-            <span class="fw-semibold me-auto">Peringatan Hari Habitat Sedunia Kolaborasi Jaga Lingkungan & Alam</span>
-            <span class="ms-auto fs-4">
-              <a href="postingan-edit.html" class="text-secondary-emphasis">
-                <i class="card border-0 bi bi-pencil-square me-1" style="white-space: nowrap;"></i>
-              </a>
-            </span>
+        <div class="card rounded-4 col-lg-4 col-12 p-3 mb-3">
+          <p class="text-secondary">Berkas</p>
+
+          <div class="d-flex flex-lg-nowrap flex-wrap gap-2">
+            
+            <div class="mb-3 col-lg-8 col-12 mb-2">
+              <input type="text" class="form-control" id="judul" placeholder="beri nama berkas disini">
+            </div>
+            <div class="mb-3 col-lg-4 col-12 mb-2">
+              <input type="file" class="form-control" id="inputFile">
+            </div>
           </div>
-          <div class="w-100">
-            <p class="my-1">2024-11-04 16:46:27</p>
+
+          <div class="d-flex mb-3">
+            <input class="form-control me-2" type="search" placeholder="cari berkas">
           </div>
-          <div class="d-flex">
-            <input type="text" class="form-control" id="copyText" value="https://localhost:5500/survei.html" disabled>
-            <button class="btn border-1 border-secondary rounded-3 ms-2 px-2 bg-transparent" onclick="copyText()">Salin</button>
+
+          <!-- List berkas -->
+          <div class="d-flex w-100">
+            <img src="https://website.kickymaulana.com/wp-content/berkas/gs4CFXbiUTDfTf4KPCDZny3ZbAHEdDOE1wyQF179.png" class="img-fluid col-2" alt="">
+            <div class="col-10 ms-1">
+              <small class="ms-2">Struktur Organisasi</small class="ms-2">
+              <input type="text" class="form-control" id="slug" value="http://localhost:5500/survei.html">
+            </div>
           </div>
+
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end mt-2">
+              <li class="page-item disabled">
+                <a class="page-link"><i class="bi bi-chevron-left"></i></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+              </li>
+            </ul>
+          </nav>
+
         </div>
 
       </div>
-
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center mt-3">
-          <li class="page-item disabled">
-            <a class="page-link"><i class="bi bi-chevron-left"></i></a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
-          </li>
-        </ul>
-      </nav>
 
     </div>
   </div>
-  <!-- Postingan End -->
-
-  <!-- Modal Tambah Postingan -->
-  <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <h4 class="text-center mb-5">Pilih mode</h4>
-          <div class="d-flex justify-content-center gap-3">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadio" id="normalMode" checked>
-              <label class="form-check-label" for="normalMode">
-                Normal
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadio" id="developerMode">
-              <label class="form-check-label" for="developerMode">
-                Developer
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mb-3">
-          <a href="buat-postingan-normal.html" type="button" class="btn btn-primary">Oke</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Edit Postingan End -->
 
   <!-- Footer Start -->
   <footer class="mt-5 pt-3 pb-1 container-fluid" style="bottom: 0;">
@@ -257,23 +259,6 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
       AOS.init();
-  </script>
-
-  <script>
-    function copyText() {
-  // Get the text field
-  var copyText = document.getElementById("copyText");
-
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-
-  // Alert the copied text
-  alert("Menyalin teks: " + copyText.value);
-  }
   </script>
 
 </body>

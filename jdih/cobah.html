@@ -1,106 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar with Vue 3 & Axios</title>
-    <!-- Vue 3 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.47"></script>
-    <!-- Axios CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.3.4/dist/axios.min.js"></script>
-    <!-- Bootstrap 5 CDN for Navbar -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Peraturan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .peraturan-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .peraturan-item {
+      margin: 15px 0;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .peraturan-item h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .peraturan-item p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .pagination {
+      margin: 20px 0;
+    }
+    .pagination a {
+      margin: 0 5px;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+    }
+    .pagination a.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div id="login">
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand d-none d-lg-block bg-transparent"
-    data-aos="fade-in"
-    data-aos-delay="50"
-    data-aos-once="true">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon text-light"></span>
-            </button>      
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fa-solid fa-home me-1"></i>Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profil.html"><i class="fa-solid fa-id-badge me-1"></i>Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="bantuan-hukum.html"><i class="fa-solid fa-scale-balanced me-1"></i>Bantuan Hukum</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://jdihn.go.id/" target="_blank"><i class="fa-solid fa-globe me-1"></i>JDIHN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq.html" target="_blank"><i class="fa-solid fa-circle-info me-1"></i>FAQ</a>
-                    </li>
-                </ul>
+  <h1>Daftar Peraturan dan Artikel Hukum</h1>
+  
+  <ul class="peraturan-list" id="peraturanList">
+    <!-- Data peraturan akan diisi di sini menggunakan JavaScript -->
+  </ul>
 
-                <!-- Conditionally Render Username or Login Button -->
-                <div class="d-flex align-items-center">
-                    <span v-if="isLoggedIn" class="btn btn-warning rounded-5">{{ username }}</span>
-                    <a v-else href="login.html" class="btn btn-warning rounded-5">
-                        Masuk <i class="fa-solid fa-arrow-right-to-bracket ms-1"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
+  <div class="pagination" id="pagination">
+    <!-- Pagination akan diisi di sini menggunakan JavaScript -->
   </div>
 
   <script>
-    // Vue 3 Composition API with Axios
-    const { createApp, ref, onMounted } = Vue;
+    const apiUrl = 'https://website.kickymaulana.com/api/produk-hukum?limit=10&tahun=semua&jenis_id=semua&tipe_id=semua&page=1'; // Ganti dengan URL API yang sesuai
+    let currentPage = 1;
+    let totalPages = 8; // Total halaman dari API (dapat diambil dari respons API)
 
-    const app = createApp({
-        setup() {
-            // State to store data
-            const username = ref('');
-            const isLoggedIn = ref(false);
-            const loading = ref(true);
+    function fetchData(page) {
+      fetch(`https://website.kickymaulana.com/api/produk-hukum?limit=10&tahun=semua&jenis_id=semua&tipe_id=semua&page=${page}`)
+        .then(response => response.json())
+        .then(data => {
+          const peraturanData = data.data;
+          const listContainer = document.querySelector('#peraturanList');
+          listContainer.innerHTML = ''; // Kosongkan list sebelum menambahkan data baru
+          
+          peraturanData.forEach(peraturan => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('peraturan-item');
+            listItem.innerHTML = `
+              <h3><a href="${peraturan.urlDetailPeraturan}" target="_blank">${peraturan.judul}</a></h3>
+              <p><strong>Tahun Pengundangan:</strong> ${peraturan.tahun_pengundangan}</p>
+              <p><strong>Jenis Peraturan:</strong> ${peraturan.jenis}</p>
+              <p><a href="${peraturan.urlDownload}" target="_blank">Download</a></p>
+            `;
+            listContainer.appendChild(listItem);
+          });
 
-            // Fetch data using Axios and renamed function
-            const getLoginData = async () => {
-                try {
-                    const response = await axios.get('http://localhost:5500/jdih/public/data/login.json');
-                    // Accessing the correct fields based on your provided JSON structure
-                    isLoggedIn.value = response.data.data.sudahlogin;
-                    if (isLoggedIn.value) {
-                        username.value = response.data.data.nama;
-                    }
-                } catch (error) {
-                    console.error("Error fetching data: ", error);
-                } finally {
-                    loading.value = false;
-                }
-            };
+          generatePagination(data.meta);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
 
-            // Fetch data when component is mounted
-            onMounted(() => {
-                getLoginData();
-            });
+    function generatePagination(meta) {
+      totalPages = meta.last_page;
+      const paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = ''; // Kosongkan pagination sebelumnya
 
-            return {
-                username,
-                isLoggedIn,
-                loading
-            };
-        }
-    });
+      for (let i = 1; i <= totalPages; i++) {
+        const pageLink = document.createElement('a');
+        pageLink.href = '#';
+        pageLink.textContent = i;
+        pageLink.classList.add(i === currentPage ? 'active' : '');
+        pageLink.addEventListener('click', (event) => {
+          event.preventDefault();
+          currentPage = i;
+          fetchData(currentPage);
+        });
+        paginationContainer.appendChild(pageLink);
+      }
+    }
 
-    app.mount('#login');
+    // Initial fetch
+    fetchData(currentPage);
   </script>
-
-  <!-- Bootstrap JS (Optional for collapse navbar) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
