@@ -140,11 +140,10 @@
   <div class="container-fluid">
     <div class="card border-0 rounded-4 mt-4 p-4">
 
-    <h1 class="text-center">Postingan</h1>
+    <h1 class="text-center">Tema</h1>
 
       <div class="d-flex mb-4">
-          <button class="btn btn-jdih me-auto" style="white-space: nowrap;"
-          data-bs-toggle="modal" data-bs-target="#tambahModal"><i class="bi bi-plus me-1"></i>Tambah</button>
+          <a href="tambah_tema.html" class="btn btn-jdih me-auto" style="white-space: nowrap;"><i class="bi bi-plus me-1"></i>Tambah</a>
           <div class="ms-auto d-flex">
             <input class="form-control me-2" type="search" placeholder="Cari" aria-label="Search">
             <button class="btn btn-jdih" type="submit" style="white-space: nowrap;"><i class="bi bi-search me-1"></i>Cari</button>
@@ -154,38 +153,28 @@
       <div class="d-flex flex-wrap flex-lg-nowrap gap-2">
 
         <div class="card p-3 col-12 col-lg-6 rounded-4">
-          <div class="d-flex">
-            <span class="fw-semibold me-auto">Sumpah Pemuda Momentum Tingkatkan Kiprah Indonesia Lebih Kuat di Kancah Global</span>
-            <span class="ms-auto fs-4">
-              <a href="postingan-edit.html" class="text-secondary-emphasis">
-                <i class="card border-0 bi bi-pencil-square me-1" style="white-space: nowrap;"></i>
-              </a>
-            </span>
-          </div>
-          <div class="w-100">
-            <p class="my-1">2024-11-04 16:46:27</p>
-          </div>
-          <div class="d-flex">
-            <input type="text" class="form-control" id="copyText" value="https://localhost:5500/survei.html" disabled>
-            <button class="btn border-1 border-secondary rounded-3 ms-2 px-2 bg-transparent" onclick="copyText()">Salin</button>
+          <div class="w-100 d-flex row">
+            <p class="fw-semibold me-auto col-12 col-md-8">Default
+              <span class="my-1 badge text-bg-success me-auto ms-2 livvic fst-italic">Aktif!</span>
+            </p>
+            <div class="d-flex gap-2 ms-auto col-12 col-md-4">
+              <a href="edit_tema.html" class="btn btn-outline-secondary rounded-3">Edit</a>
+              <a href="hiasan.html" class="btn btn-outline-secondary rounded-3">Hiasan</a>
+              <a href="" class="btn btn-outline-secondary rounded-3 ms-auto">Pratinjau</a>
+            </div>
           </div>
         </div>
 
         <div class="card p-3 col-12 col-lg-6 rounded-4">
-          <div class="d-flex">
-            <span class="fw-semibold me-auto">Peringatan Hari Habitat Sedunia Kolaborasi Jaga Lingkungan & Alam</span>
-            <span class="ms-auto fs-4">
-              <a href="postingan-edit.html" class="text-secondary-emphasis">
-                <i class="card border-0 bi bi-pencil-square me-1" style="white-space: nowrap;"></i>
-              </a>
-            </span>
-          </div>
-          <div class="w-100">
-            <p class="my-1">2024-11-04 16:46:27</p>
-          </div>
-          <div class="d-flex">
-            <input type="text" class="form-control" id="copyText" value="https://localhost:5500/survei.html" disabled>
-            <button class="btn border-1 border-secondary rounded-3 ms-2 px-2 bg-transparent" onclick="copyText()">Salin</button>
+          <div class="w-100 d-flex row">
+            <p class="fw-semibold me-auto col-12 col-md-8">JDIH v2
+              <!-- <span class="my-1 badge text-bg-success me-auto ms-2 livvic fst-italic">Aktif!</span> -->
+            </p>
+            <div class="d-flex gap-2 ms-auto col-12 col-md-4">
+              <a href="edit_tema.html" class="btn btn-outline-secondary rounded-3">Edit</a>
+              <a href="hiasan.html" class="btn btn-outline-secondary rounded-3">Hiasan</a>
+              <a href="" class="btn btn-outline-secondary rounded-3 ms-auto">Pratinjau</a>
+            </div>
           </div>
         </div>
 
@@ -208,35 +197,6 @@
     </div>
   </div>
   <!-- Postingan End -->
-
-  <!-- Modal Tambah Postingan -->
-  <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <h4 class="text-center mb-5">Pilih mode</h4>
-          <div class="d-flex justify-content-center gap-3">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadio" id="normalMode" checked>
-              <label class="form-check-label" for="normalMode">
-                Normal
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadio" id="developerMode">
-              <label class="form-check-label" for="developerMode">
-                Developer
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mb-3">
-          <a href="buat-postingan-normal.html" type="button" class="btn btn-primary">Oke</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer Start -->
   <footer class="mt-5 pt-3 pb-1 container-fluid" style="bottom: 0;">
