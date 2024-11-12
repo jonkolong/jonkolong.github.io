@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>User | JDIH Kab. Deli Serdang</title>
+  <title>Tipe | JDIH Kab. Deli Serdang</title>
   <link rel="icon" type="image/x-icon" href="assets/img/jdih-baru.svg" />
   <!-- CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -136,57 +136,47 @@
   </nav>
   <!-- Offcanvas Navbar End -->
 
-  <!-- User Start -->
+  <!-- Postingan Start -->
   <div class="container-fluid">
     <div class="card border-0 rounded-4 mt-4 p-4">
 
-    <h1 class="text-center mb-4">Tambah User</h1>
-    
-      <!-- Tambah User Start -->
+    <h1 class="text-start">Tambah Tipe</h1>
+
+      <!-- List Postingan Start -->
       <div class="row">
 
-        <div class="col-lg-6">
-          <div class="card rounded-4 border-0 p-3">
-            <label for="">Nama User</label>
-            <input type="text" class="form-control mb-2" placeholder="Nama Jelas">
-            <label for="">Email</label>
-            <input type="email" class="form-control mb-2" placeholder="namauser@gmail.com">
-            <label for="">Password</label>
-            <input type="password" class="form-control">
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card rounded-4 border-0 p-3">
-            <label for="">Level</label>
-            <select class="form-select mb-2">
-              <option value="" selected>Tamu</option>
-              <option value="">User</option>
-              <option value="">Admin</option>
-            </select>
-            <label for="">Unit Kerja</label>
-            <select class="form-select mb-2">
-              <option value="" selected>Unit Kerja Tamu</option>
-              <option value="">Dinas Komunikasi, Informatika, Statistik dan Persandian</option>
-              <option value="">Dinas Sosial</option>
-            </select>
-            <label for="">Gambar profil</label>
-            <input type="file" class="form-control">
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card rounded-4 border-0 p-3 pt-0 w-50">
-            <a href="user.html" class="btn btn-jdih">Simpan</a>
+        <div class="col-lg-10">
+          <div class="card rounded-4 shadow-sm p-3 mb-3">
+            <div class="col-6 d-flex gap-2 mb-2 w-100">
+              <input type="text" class="form-control" placeholder="Ketikkan nama tipe disini">
+              <a href="tipe.html" type="submit" class="btn btn-success">Simpan</a>
+            </div>
           </div>
         </div>
 
       </div>
-      <!-- Tambah User End -->
+      <!-- List Postingan End -->
 
     </div>
   </div>
-  <!-- User End -->
+  <!-- Postingan End -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="yakinHapusModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <h4 class="text-center">Konfirmasi</h4>
+          <p class="text-center">Apakah Anda Yakin menghapus Unit Kerja ini?</p>
+        </div>
+        <div class="d-flex justify-content-center gap-2 pb-3">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <a href="tema.html" type="button" class="btn btn-danger">Yakin</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer Start -->
   <footer class="mt-5 pt-3 pb-1 container-fluid" style="bottom: 0;">
