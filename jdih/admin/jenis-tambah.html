@@ -140,23 +140,31 @@
   <div class="container-fluid">
     <div class="card border-0 rounded-4 mt-4 p-4">
 
-    <h1 class="text-start">Edit Jenis</h1>
+    <h1 class="text-start">Tambah Jenis</h1>
 
       <!-- List Postingan Start -->
       <div class="row">
 
         <div class="col-lg-10">
           <div class="card rounded-4 shadow-sm p-3 mb-3">
-            <div class="col-6 d-flex gap-2 mb-2 w-100">
-              <input type="text" class="form-control" placeholder="Ketikkan nama tipe disini">
-              <select class="form-select" aria-label="Default select example">
-                <option value="" selected>Peraturan</option>
-                <option value="">Monografi</option>
-                <option value="">Artikel</option>
-                <option value="">Putusan</option>
-              </select>
-              <a href="jenis.html" type="submit" class="btn btn-success">Simpan</a>
-              <a href="jenis.html" type="submit" class="btn btn-secondary">Hapus</a>
+            <div class="row mb-2 p-3">
+              <div class="col-md-6 mb-2">
+                <label for="">Nama jenis</label>
+                <input type="text" class="form-control" placeholder="Ketikkan nama jenis disini">
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for="">Pilih tipe</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option value="" selected>Peraturan</option>
+                  <option value="">Monografi</option>
+                  <option value="">Artikel</option>
+                  <option value="">Putusan</option>
+                </select>
+              </div>
+              <div class="col-md-2 d-flex mb-2">
+                <a href="jenis.html" type="submit" class="btn btn-success">Simpan</a>
+              </div>
+              
             </div>
           </div>
         </div>
