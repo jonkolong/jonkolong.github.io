@@ -140,9 +140,9 @@
   <div class="container-fluid">
     <div class="card border-0 rounded-4 mt-4 p-4">
 
-    <h1 class="text-center">Bantuan Hukum Permohonan Ditolak</h1>
+    <h1 class="text-center">Bantuan Hukum Detail</h1>
 
-      <div class="d-flex mb-4">
+      <div class="container d-flex mb-4">
           <!-- <button class="btn btn-jdih me-auto" style="white-space: nowrap;"
           data-bs-toggle="modal" data-bs-target="#tambahModal"><i class="bi bi-plus me-1"></i>Tambah</button> -->
           <div class="ms-auto d-flex">
@@ -151,93 +151,63 @@
           </div>
       </div>
 
-      <!-- List Postingan Start -->
-      <div class="row">
+      <!-- User Start -->
+      <div class="container-fluid">
+        <div class="card border-0 rounded-4">
 
-        <div class="col-lg-6">
-          <div class="card rounded-4 shadow-sm p-3 mb-3">
-            <p class="d-flex">
-              <span class="me-auto fw-semibold rounded-3">Lionel Messi</span>
-              <span class="ms-auto fs-4">
-                <a href="dasbor-bantuan-hukum-detail.html" class="text-secondary-emphasis">
-                  <i class="card border-0 bi bi-info-circle-fill me-1" style="white-space: nowrap;"></i>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <label for="">Nama Lengkap</label>
+                <input type="text" class="form-control" value="Lionle Messi" disabled>
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for="">NIK</label>
+                <input type="number" class="form-control" value="1207120712071207" disabled>
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for="">Foto KTP</label>
+                <img src="assets/img/KTP.jpg" class="img-fluid card border-0 border-4" alt="">
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for="">Foto diri</label>
+                <img src="assets/img/foto-ktp.jpg" class="img-fluid card border-0 border-4" alt="">
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for=""><i class="bi bi-phone-vibrate me-1"></i>Nomor ponsel</label>
+                <input type="number" class="form-control" value="081111111111" disabled>
+              </div>
+              <div class="col-md-6 mb-2">
+                <label for=""><i class="bi bi-whatsapp me-1"></i>Nomor WhatsApp</label>
+                <input type="number" class="form-control" value="081111111111" disabled>
+              </div>
+              <div class="col-12">
+                <label for="">Deskripsi permasalahan</label>
+                <textarea class="form-control" placeholder="Begini ceritanya Begini ceritanya Begini ceritanya Begini ceritanya Begini ceritanya Begini ceritanya " id="keteranganMasalah" disabled></textarea>
+                <label for="keteranganMasalah" class="fst-italic text-secondary">*mohon menjaga kerahasiaan informasi ini</label>
+              </div>
+              <div class="col-md-4 mt-3">
+                <label for="">Status permohonan</label>
+                <select class="form-select">
+                  <option value="">-- pilih status --</option>
+                  <option value="1">Diproses</option>
+                  <option value="2">Selesai</option>
+                  <option value="3">Ditolak</option>
+                </select>
+              </div>
+              <div class="col-md-4 mt-3 d-flex align-items-end">
+                <a href="dasbor-bantuan-hukum.html" type="submit" 
+                  class="btn btn-jdih">
+                  <i class="bi bi-save me-1"></i>Konfirmasi
                 </a>
-              </span>
-            </p>
-            <small class="fw-normal d-flex w-100">
-              <span>
-                <p class="my-1">04 November 2024</p>
-              </span>
-              <span class=" ms-auto">
-                <a href="https://wa.me/081111111111" class="my-1 text-success"><i class="bi bi-whatsapp me-1"></i>0811-1111-1111</a>
-              </span>
-            </small>
-            
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card rounded-4 shadow-sm p-3 mb-3">
-            <p class="d-flex">
-              <span class="me-auto fw-semibold rounded-3">Christiano Ronaldo</span>
-              <span class="ms-auto fs-4">
-                <a href="dasbor-bantuan-hukum-detail.html" class="text-secondary-emphasis">
-                  <i class="card border-0 bi bi-info-circle-fill me-1" style="white-space: nowrap;"></i>
-                </a>
-              </span>
-            </p>
-            <small class="fw-normal d-flex w-100">
-              <span>
-                <p class="my-1">01 November 2024</p>
-              </span>
-              <span class=" ms-auto">
-                <a href="https://wa.me/082222222222" class="my-1 text-success"><i class="bi bi-whatsapp me-1"></i>0822-2222-2222</a>
-              </span>
-            </small>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card rounded-4 shadow-sm p-3 mb-3">
-            <p class="d-flex">
-              <span class="me-auto fw-semibold rounded-3">David Beckham</span>
-              <span class="ms-auto fs-4">
-                <a href="dasbor-bantuan-hukum-detail.html" class="text-secondary-emphasis">
-                  <i class="card border-0 bi bi-info-circle-fill me-1" style="white-space: nowrap;"></i>
-                </a>
-              </span>
-            </p>
-            <small class="fw-normal d-flex w-100">
-              <span>
-                <p class="my-1">15 September 2024</p>
-              </span>
-              <span class=" ms-auto">
-                <a href="https://wa.me/081111111111" class="my-1 text-success"><i class="bi bi-whatsapp me-1"></i>0813-0813-0813</a>
-              </span>
-            </small>
-            
-          </div>
-        </div>
-
-
-
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center mt-3">
-            <li class="page-item disabled">
-              <a class="page-link"><i class="bi bi-chevron-left"></i></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
-            </li>
-          </ul>
-        </nav>
         
+
+        </div>
       </div>
-      <!-- List Postingan Start -->
+      <!-- User End -->
 
     </div>
   </div>
