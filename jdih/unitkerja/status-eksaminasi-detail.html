@@ -117,7 +117,7 @@
   <div class="container-fluid">
     <div class="card border-0 rounded-4 mt-4 p-4">
 
-    <h1 class="text-center">Permohonan Eksaminasi</h1>
+    <h1 class="text-center">Detil Eksaminasi</h1>
 
       <div class="d-flex flex-lg-nowrap flex-wrap gap-2">
           <div class="row">
@@ -134,20 +134,41 @@
               <label class="form-label">Keterangan</label>
               <textarea class="form-control" rows="2" aria-label="textarea" value="-" disabled></textarea>
             </div>
-            <div class="col-lg-4 col-12 mb-2">
-              <label for="" class="form-label">Nama narahubung</label>
-              <input type="text" class="form-control" value="Ibrahimovic" disabled>
-            </div>
+            
             <div class="col-lg-3 col-12 mb-2">
-              <label for="" class="form-label"><i class="bi bi-whatsapp text-success me-1"></i>WhatsApp</label>
-              <input type="number" class="form-control" value="081108110811" disabled>
+              <label for="" class="form-label">Unggah dokumen terbaru <span class="fst-italic text-danger" style="font-size: 12px;">doc, docx (maks 4 MB)</span></label>
+              <div class="d-flex gap-2">
+                <input type="file" class="form-control" required>
+                <button class="btn btn-jdih" style="white-space: nowrap;"><i class="bi bi-upload me-1"></i>Unggah</button>
+              </div>
             </div>
-            <div class="col-lg-3 col-12 mb-2">
-              <label for="" class="form-label">Unggah dokumen <span class="fst-italic text-danger" style="font-size: 12px;">doc, docx (maks 4 MB)</span></label>
-              <input type="file" class="form-control" required>
-            </div>
-            <div class="col-12 col-lg-2 my-2 d-flex align-items-end">
+            <!-- <div class="col-12 col-lg-2 my-2 d-flex align-items-end">
               <button type="submit" class="btn btn-jdih" style="white-space: nowrap;">Buat permohonan<i class="bi bi-chevron-right ms-1"></i></button>
+            </div> -->
+            <div class="card border-0">
+              <div class="col-12 mt-2">
+                <div class="card rounded-4 shadow-sm p-3">
+                  <h5 class="text-center">Komentar</h5>
+                  <div class="form-floating">
+                    <textarea class="form-control rounded-4 mb-2" value="Bagaimana solusi tentang dasar hukumnya pak?" id="floatingTextarea" disabled></textarea>
+                    <label for="floatingTextarea">
+                      <img src="assets/img/101.jpg" class="img-fluid rounded-circle" width="30px" alt="">
+                      Lionel Messi</label>
+                  </div>
+                  <div class="form-floating">
+                    <textarea class="form-control rounded-4 mb-2" value="Ada, tenang aja." id="floatingTextarea" disabled></textarea>
+                    <label for="floatingTextarea">
+                      <img src="assets/img/101.jpg" class="img-fluid rounded-circle" width="30px" alt="">
+                      Christiano Ronaldo</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-floating mt-3 d-flex align-items-start gap-2">
+                <textarea class="form-control rounded-4 mb-2" placeholder="Ketik komentar disini" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">
+                  Komentar</label>
+                <button class="btn btn-jdih" style="white-space: nowrap;"><i class="bi bi-send me-1"></i>Kirim</button>
+              </div>
             </div>
           </div>
       </div>
