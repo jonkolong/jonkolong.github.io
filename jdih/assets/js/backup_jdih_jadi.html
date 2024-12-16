@@ -1,0 +1,262 @@
+<!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+      AOS.init();
+  </script>
+  
+<script>
+ <!-- Dark Mode Start -->
+ function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+function toggleTheme() {
+  const htmlElement = document.documentElement;
+  const themeButton = document.querySelector('.dark-mode button');
+  const themeIcon = themeButton.querySelector('i');
+
+  // Menambahkan kelas transisi
+  document.body.classList.add('transition');
+
+  if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
+    setTimeout(() => {
+      htmlElement.setAttribute('data-bs-theme', 'light');
+      themeButton.classList.remove('bg-warning');
+      themeButton.classList.add('bg-light');
+      themeIcon.classList.remove('bi-sun-fill');
+      themeIcon.classList.add('bi-moon-fill');
+      setCookie('theme', 'light', 7);
+    }, 300); // Tambahkan delay 300ms atau sesuai keinginan
+  } else {
+    setTimeout(() => {
+      htmlElement.setAttribute('data-bs-theme', 'dark');
+      themeButton.classList.remove('bg-light');
+      themeButton.classList.add('bg-warning');
+      themeIcon.classList.remove('bi-moon-fill');
+      themeIcon.classList.add('bi-sun-fill');
+      setCookie('theme', 'dark', 7);
+    }, 300); // Tambahkan delay 300ms atau sesuai keinginan
+  }
+}
+
+function loadThemeFromCookie() {
+  const savedTheme = getCookie('theme');
+  const htmlElement = document.documentElement;
+  const themeButton = document.querySelector('.dark-mode button');
+  const themeIcon = themeButton.querySelector('i');
+
+  if (savedTheme === 'light') {
+    htmlElement.setAttribute('data-bs-theme', 'light');
+    themeButton.classList.remove('bg-warning');
+    themeButton.classList.add('bg-light');
+    themeIcon.classList.remove('bi-sun-fill');
+    themeIcon.classList.add('bi-moon-fill');
+  } else {
+    htmlElement.setAttribute('data-bs-theme', 'dark');
+    themeButton.classList.remove('bg-light');
+    themeButton.classList.add('bg-warning');
+    themeIcon.classList.remove('bi-moon-fill');
+    themeIcon.classList.add('bi-sun-fill');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadThemeFromCookie);
+ <!-- Dark Mode End -->
+</script>
+
+<script>
+ <!-- Vue JS -->
+const { createApp, ref, computed, watch, onMounted } = Vue;
+
+createApp({
+    setup() {
+        // Existing reactive references
+        const data = ref([]);
+        const selectedTipe = ref('');
+        const selectedJenis = ref('');
+        const selectedTahun = ref('');
+        const keyword = ref('');
+        const itemsPerPage = ref(6);
+        const currentPage = ref(1);
+        const isSearched = ref(false);
+        const documentIcons = ref({});
+        const visitorStats = ref({ todayVisitors: 0, last7DaysVisitors: 0, last30DaysVisitors: 0 }); // Structured visitor stats
+
+        // Login state variables
+        const username = ref('');
+        const profilPic = ref('');
+        const isLoggedIn = ref(false);
+
+        // Existing options for filtering
+        const tipeOptions = ref([]);
+        const jenisOptions = ref([]);
+
+        // Function to fetch data from produk-hukum API
+        const fetchData = async () => {
+            try {
+                const hukumResponse = await axios.get('https://api-splp.layanan.go.id:443/jdih_deli_serdang/1.0/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=10&cari=');
+                data.value = hukumResponse.data.data;
+
+                console.log("Hukum Data fetched:", data.value);
+
+                tipeOptions.value = [...new Set(data.value.map(item => item.tipe).filter(tipe => tipe))];
+
+                const iconResponse = await axios.get('https://api-splp.layanan.go.id:443/jdih_deli_serdang/1.0/produk-hukum-tipe');
+                iconResponse.data.data.forEach(item => {
+                    documentIcons.value[item.tipe] = item.icon;
+                });
+
+                console.log("Document Icons fetched:", documentIcons.value);
+            } catch (error) {
+                console.error('Failed to fetch data:', error);
+                alert('Gagal mengambil data. Silakan coba lagi nanti.');
+            }
+        };
+
+        // New function to fetch visitor statistics
+        const fetchVisitorStats = async () => {
+            try {
+                const response = await axios.get('https://api-splp.layanan.go.id:443/jdih_deli_serdang/1.0/statistik-pengunjung');
+                visitorStats.value = response.data.data;
+                console.log("Visitor Statistics fetched:", visitorStats.value);
+            } catch (error) {
+                console.error('Failed to fetch visitor statistics:', error);
+                alert('Gagal mengambil statistik pengunjung. Silakan coba lagi nanti.');
+            }
+        };
+
+        // New function to fetch login status
+        const fetchLoginStatus = async () => {
+            try {
+                const response = await axios.get('https://jdih.deliserdangkab.go.id/checkloginstatus');
+                isLoggedIn.value = response.data.data.sudahlogin;
+                if (isLoggedIn.value) {
+                    username.value = response.data.data.nama;
+                    profilPic.value = response.data.data.profil;
+                }
+                console.log("Login status fetched:", isLoggedIn.value);
+            } catch (error) {
+                console.error('Failed to fetch login status:', error);
+            }
+        };
+
+        // Function to trigger search
+        const searchData = () => {
+            isSearched.value = true;
+            currentPage.value = 1;
+        };
+
+        // Existing computed and methods for filtering and pagination
+        const uniqueTahun = computed(() => {
+            const years = data.value.map(item => item.tahun_pengundangan);
+            return [...new Set(years)].sort((a, b) => b - a);
+        });
+
+        const filteredData = computed(() => {
+            let filtered = data.value;
+
+            if (keyword.value) {
+                filtered = filtered.filter(item => item.judul.toLowerCase().includes(keyword.value.toLowerCase()));
+            }
+            if (selectedTipe.value) {
+                filtered = filtered.filter(item => item.tipe === selectedTipe.value);
+            }
+            if (selectedJenis.value) {
+                filtered = filtered.filter(item => item.jenis === selectedJenis.value);
+            }
+            if (selectedTahun.value) {
+                filtered = filtered.filter(item => item.tahun_pengundangan === selectedTahun.value);
+            }
+
+            filtered = filtered.map(item => {
+                if (item.jenis === 'Peraturan Bupati') {
+                    return { ...item, teuBadan: item.teuBadan.replace(/Kabupaten\s*/i, '') };
+                }
+                return item;
+            });
+
+            const start = (currentPage.value - 1) * itemsPerPage.value;
+            return filtered.slice(start, start + itemsPerPage.value);
+        });
+
+        const totalPages = computed(() => {
+            const filtered = data.value.filter(item => {
+                return (
+                    (!keyword.value || item.judul.toLowerCase().includes(keyword.value.toLowerCase())) &&
+                    (!selectedTipe.value || item.tipe === selectedTipe.value) &&
+                    (!selectedJenis.value || item.jenis === selectedJenis.value) &&
+                    (!selectedTahun.value || item.tahun_pengundangan === selectedTahun.value)
+                );
+            });
+            return Math.ceil(filtered.length / itemsPerPage.value);
+        });
+
+        const changePage = (page) => {
+            if (page >= 1 && page <= totalPages.value) {
+                currentPage.value = page;
+            }
+        };
+
+        watch(selectedTipe, (newTipe) => {
+            jenisOptions.value = [...new Set(data.value.filter(item => item.tipe === newTipe).map(item => item.jenis))];
+            selectedJenis.value = '';
+        });
+
+        const totalPeraturan = computed(() => data.value.filter(item => item.tipe === 'Peraturan').length);
+        const totalMonografi = computed(() => data.value.filter(item => item.tipe === 'Monografi').length);
+        const totalArtikel = computed(() => data.value.filter(item => item.tipe === 'Artikel').length);
+        const totalPutusan = computed(() => data.value.filter(item => item.tipe === 'Putusan').length);
+
+        // Fetch data on component mount
+        onMounted(() => {
+            fetchData();
+            fetchVisitorStats(); // Fetch visitor statistics
+            fetchLoginStatus(); // Fetch login status
+        });
+
+        return {
+            selectedTipe,
+            selectedJenis,
+            selectedTahun,
+            keyword,
+            data,
+            filteredData,
+            totalPages,
+            currentPage,
+            uniqueTahun,
+            fetchData,
+            searchData,
+            changePage,
+            isSearched,
+            itemsPerPage,
+            tipeOptions,
+            jenisOptions,
+            totalPeraturan,
+            totalMonografi,
+            totalArtikel,
+            totalPutusan,
+            documentIcons,
+            visitorStats, // Make visitorStats available for template
+            username,
+            profilPic,
+            isLoggedIn
+        };
+    },
+}).mount('#app');
+
+
+</script>
+                            

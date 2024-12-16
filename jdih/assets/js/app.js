@@ -1,182 +1,90 @@
-const { createApp, ref, computed, watch, onMounted } = Vue;
+const app = Vue.createApp({
+  setup() {
+    const hukumData = Vue.ref([]);
+    const selectedTipe = Vue.ref('semua');
+    const selectedJenis = Vue.ref('semua');
+    const selectedTahun = Vue.ref('semua');
+    const selectedLimit = Vue.ref(10);
+    const tipeList = Vue.ref([]);
+    const jenisList = Vue.ref([]);
+    const tahunList = Vue.ref([]);
+    const jenisByTipe = Vue.ref({});
+    const limitOptions = Vue.ref([5, 10, 20, 50, 100]);
 
-createApp({
-    setup() {
-        // Existing reactive references
-        const data = ref([]);
-        const selectedTipe = ref('');
-        const selectedJenis = ref('');
-        const selectedTahun = ref('');
-        const keyword = ref('');
-        const itemsPerPage = ref(6);
-        const currentPage = ref(1);
-        const isSearched = ref(false);
-        const visitorStats = ref({ todayVisitors: 0, last7DaysVisitors: 0, last30DaysVisitors: 0 }); // Structured visitor stats
+    // Fungsi untuk mengambil data dari API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://jdih.deliserdangkab.go.id/api/produk-hukum?limit=500&tahun=semua&jenis_id=semua&tipe_id=semua&page=1');
+        hukumData.value = response.data.data;
 
-        // Dokumen Hukum
-        // const data = ref([]);
-        const documentIcons = ref({});
-        const totalPeraturan = ref(0);
-        const totalMonografi = ref(0);
-        const totalArtikel = ref(0);
-        const totalPutusan = ref(0);
+        // Menyusun daftar tipe, jenis, dan tahun
+        tipeList.value = [...new Set(response.data.data.map(item => item.tipe))];
+        tahunList.value = [...new Set(response.data.data.map(item => item.tahun_pengundangan))].sort((a, b) => b - a);
 
-        // Login state variables
-        const username = ref('');
-        const profilPic = ref('');
-        const isLoggedIn = ref(false);
-
-        // Existing options for filtering
-        const tipeOptions = ref([]);
-        const jenisOptions = ref([]);
-
-        // Function to fetch data from produk-hukum API
-        const fetchData = async () => {
-            try {
-                const hukumResponse = await axios.get('https://website.kickymaulana.com/api/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=10&cari=');
-                data.value = hukumResponse.data.data;
-
-                console.log("Hukum Data fetched:", data.value);
-
-                tipeOptions.value = [...new Set(data.value.map(item => item.tipe).filter(tipe => tipe))];
-
-                const iconResponse = await axios.get('https://website.kickymaulana.com/api/produk-hukum-tipe');
-                iconResponse.data.data.forEach(item => {
-                    documentIcons.value[item.tipe] = item.icon;
-                });
-
-                console.log("Document Icons fetched:", documentIcons.value);
-            } catch (error) {
-                console.error('Failed to fetch data:', error);
-                alert('Gagal mengambil data. Silakan coba lagi nanti.');
-            }
-        };
-
-        // Dokumen Hukum
-        
-
-        // New function to fetch visitor statistics
-        const fetchVisitorStats = async () => {
-            try {
-                const response = await axios.get('https://website.kickymaulana.com/api/statistik-pengunjung');
-                visitorStats.value = response.data.data;
-                console.log("Visitor Statistics fetched:", visitorStats.value);
-            } catch (error) {
-                console.error('Failed to fetch visitor statistics:', error);
-                alert('Gagal mengambil statistik pengunjung. Silakan coba lagi nanti.');
-            }
-        };
-
-        // New function to fetch login status
-        const fetchLoginStatus = async () => {
-            try {
-                const response = await axios.get('http://localhost:5500/jdih/public/data/login.json');
-                isLoggedIn.value = response.data.data.sudahlogin;
-                if (isLoggedIn.value) {
-                    username.value = response.data.data.nama;
-                    profilPic.value = response.data.data.profil;
-                }
-                console.log("Login status fetched:", isLoggedIn.value);
-            } catch (error) {
-                console.error('Failed to fetch login status:', error);
-            }
-        };
-
-        // Function to trigger search
-        const searchData = () => {
-            isSearched.value = true;
-            currentPage.value = 1;
-        };
-
-        // Existing computed and methods for filtering and pagination
-        const uniqueTahun = computed(() => {
-            const years = data.value.map(item => item.tahun_pengundangan);
-            return [...new Set(years)].sort((a, b) => b - a);
+        // Membuat mapping jenis berdasarkan tipe
+        response.data.data.forEach(item => {
+          if (!jenisByTipe.value[item.tipe]) {
+            jenisByTipe.value[item.tipe] = new Set();
+          }
+          jenisByTipe.value[item.tipe].add(item.jenis);
         });
 
-        const filteredData = computed(() => {
-            let filtered = data.value;
+        // Menyusun daftar jenis untuk semua tipe
+        jenisList.value = [...new Set(response.data.data.map(item => item.jenis))];
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-            if (keyword.value) {
-                filtered = filtered.filter(item => item.judul.toLowerCase().includes(keyword.value.toLowerCase()));
-            }
-            if (selectedTipe.value) {
-                filtered = filtered.filter(item => item.tipe === selectedTipe.value);
-            }
-            if (selectedJenis.value) {
-                filtered = filtered.filter(item => item.jenis === selectedJenis.value);
-            }
-            if (selectedTahun.value) {
-                filtered = filtered.filter(item => item.tahun_pengundangan === selectedTahun.value);
-            }
+    // Menyaring jenis berdasarkan tipe yang dipilih
+    const filteredJenis = Vue.computed(() => {
+      if (selectedTipe.value === 'semua') {
+        return jenisList.value;
+      }
+      return Array.from(jenisByTipe.value[selectedTipe.value] || []);
+    });
 
-            filtered = filtered.map(item => {
-                if (item.jenis === 'Peraturan Bupati') {
-                    return { ...item, teuBadan: item.teuBadan.replace(/Kabupaten\s*/i, '') };
-                }
-                return item;
-            });
+    // Menyaring data berdasarkan tipe, jenis, dan tahun yang dipilih
+    const filteredData = Vue.computed(() => {
+      return hukumData.value.filter(item => {
+        const matchesTipe = selectedTipe.value === 'semua' || item.tipe === selectedTipe.value;
+        const matchesJenis = selectedJenis.value === 'semua' || item.jenis === selectedJenis.value;
+        const matchesTahun = selectedTahun.value === 'semua' || item.tahun_pengundangan === parseInt(selectedTahun.value);
+        return matchesTipe && matchesJenis && matchesTahun;
+      });
+    });
 
-            const start = (currentPage.value - 1) * itemsPerPage.value;
-            return filtered.slice(start, start + itemsPerPage.value);
-        });
+    // Membatasi jumlah data yang ditampilkan
+    const paginatedData = Vue.computed(() => {
+      return filteredData.value.slice(0, selectedLimit.value);
+    });
 
-        const totalPages = computed(() => {
-            const filtered = data.value.filter(item => {
-                return (
-                    (!keyword.value || item.judul.toLowerCase().includes(keyword.value.toLowerCase())) &&
-                    (!selectedTipe.value || item.tipe === selectedTipe.value) &&
-                    (!selectedJenis.value || item.jenis === selectedJenis.value) &&
-                    (!selectedTahun.value || item.tahun_pengundangan === selectedTahun.value)
-                );
-            });
-            return Math.ceil(filtered.length / itemsPerPage.value);
-        });
+    // Fungsi yang dipanggil saat tipe berubah
+    const onTipeChange = () => {
+      selectedJenis.value = 'semua';
+    };
 
-        const changePage = (page) => {
-            if (page >= 1 && page <= totalPages.value) {
-                currentPage.value = page;
-            }
-        };
+    // Panggil fungsi fetchData ketika komponen pertama kali dibuat
+    Vue.onMounted(() => {
+      fetchData();
+    });
 
-        watch(selectedTipe, (newTipe) => {
-            jenisOptions.value = [...new Set(data.value.filter(item => item.tipe === newTipe).map(item => item.jenis))];
-            selectedJenis.value = '';
-        });
+    return {
+      hukumData,
+      selectedTipe,
+      selectedJenis,
+      selectedTahun,
+      selectedLimit,
+      tipeList,
+      jenisList,
+      tahunList,
+      limitOptions,
+      filteredJenis,
+      filteredData,
+      paginatedData,
+      onTipeChange
+    };
+  },
+});
 
-        // Fetch data on component mount
-        onMounted(() => {
-            fetchData();
-            fetchVisitorStats(); // Fetch visitor statistics
-            fetchLoginStatus(); // Fetch login status
-        });
-
-        return {
-            selectedTipe,
-            selectedJenis,
-            selectedTahun,
-            keyword,
-            data,
-            filteredData,
-            totalPages,
-            currentPage,
-            uniqueTahun,
-            fetchData,
-            searchData,
-            changePage,
-            isSearched,
-            itemsPerPage,
-            tipeOptions,
-            jenisOptions,
-            totalPeraturan,
-            totalMonografi,
-            totalArtikel,
-            totalPutusan,
-            documentIcons,
-            visitorStats, // Make visitorStats available for template
-            username,
-            profilPic,
-            isLoggedIn
-        };
-    },
-}).mount('#app');
+app.mount('#app');
