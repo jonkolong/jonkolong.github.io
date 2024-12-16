@@ -68,6 +68,8 @@
                         <th>Tahun</th>
                         <th>Jenis</th>
                         <th>Tipe</th>
+                        <th>Detail</th> <!-- New column for the detail link -->
+                        <th>Download</th> <!-- New column for the detail link -->
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +79,13 @@
                         <td>{{ item.tahun_pengundangan }}</td>
                         <td>{{ item.jenis }}</td>
                         <td>{{ item.tipe }}</td>
+                        <!-- Adding a detail column with a link to the detail page -->
+                        <td>
+                            <a :href="item.urlDetailPeraturan" class="btn btn-info btn-sm" target="_blank">Lihat Detail</a>
+                        </td>
+                        <td>
+                          <a :href="item.urlDownload" class="btn btn-warning btn-sm" target="_blank">Unduh</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -122,7 +131,8 @@
                     loading.value = true; // Show loading indicator
                     error.value = false;  // Reset error flag
                     try {
-                        const response = await axios.get("https://jdih.deliserdangkab.go.id/api/produk-hukum?limit=1000&tahun=semua&jenis_id=semua&tipe_id=semua&page=1");
+                        // const response = await axios.get("https://jdih.deliserdangkab.go.id/api/produk-hukum?limit=1000&tahun=semua&jenis_id=semua&tipe_id=semua&page=1");
+                        const response = await axios.get("https://api-splp.layanan.go.id:443/jdih_deli_serdang/1.0/produk-hukum?tahun=semua&jenis_id=semua&tipe_id=semua&limit=1000&cari=");
                         console.log('API Response:', response); // Debugging: Log the API response
                         data.value = response.data.data;
 
