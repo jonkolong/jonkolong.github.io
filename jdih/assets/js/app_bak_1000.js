@@ -59,10 +59,8 @@ createApp({
                 const matchesTipe = selectedTipe.value ? item.tipe === selectedTipe.value : true;
                 const matchesJenis = selectedJenis.value ? item.jenis === selectedJenis.value : true;
                 const matchesTahun = selectedTahun.value ? item.tahun_pengundangan == selectedTahun.value : true;
-
                 return matchesSearchQuery && matchesTipe && matchesJenis && matchesTahun;
             });
-            
             currentPage.value = 1;
         };
 

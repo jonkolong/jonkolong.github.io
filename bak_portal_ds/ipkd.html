@@ -1,0 +1,1552 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718002763.png" rel="icon">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900');
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-dark: #212529;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-orange: #fd7e14;
+  --bs-teal: #20c997;
+  --bs-indigo: #6610f2;
+  --bs-black: #000;
+  --bs-kominfo: #094A8A;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.poppins {
+	font-family: "Poppins", sans-serif;
+}
+
+.livvic {
+	font-family: "Livvic", sans-serif;
+}
+
+.new-amsterdam {
+	font-family: "New Amsterdam", sans-serif;
+}
+
+.lato {
+	font-family: "Lato", sans-serif;
+}
+
+.dm-sans {
+font-family: "DM Sans", sans-serif;
+}
+
+.cbyg {
+	font-family: "Covered By Your Grace", cursive;
+}
+
+.outfit {
+font-family: "Outfit", sans-serif;
+}
+
+.text-primary {
+	color: var(--bs-kominfo) !important;
+}
+
+.btn-primary {
+	background-color: var(--bs-kominfo) !important;
+	border-color: var(--bs-kominfo) !important;
+}
+
+.btn-primary:hover {
+	background-color: var(--bs-orange) !important;
+	border-color: var(--bs-orange) !important;
+}
+
+.btn-warning {
+	background-color: var(--bs-orange) !important;
+	border-color: var(--bs-orange) !important;
+}
+
+.btn-warning:hover {
+	background-color: var(--bs-teal) !important;
+	border-color: var(--bs-teal) !important;
+}
+
+body, .modal-display {
+  background-image: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-display ul li {
+  transition: all 500ms;
+}
+
+.modal-display ul li:hover {
+  transform: scale(1.25);
+  transform: translateX(100 0);
+}
+
+header {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.card-layanan { 
+  height: 16rem;
+  width: 15rem;
+  transition: all 500ms;
+}
+
+.card-layanan:hover {
+  transform: scale(1.05);
+  transform: translateX(100 0);
+}
+
+.card-layanan img {
+  min-height: 100px;
+  max-height: 100px;
+  width: 100%;
+  max-width: fit-content;
+  max-width: -moz-fit-content;
+  object-fit: contain;
+}
+
+.card-opd {
+  height: 500px;
+  transition: all 500ms;
+}
+
+.card-opd:hover {
+  transform: scale(1.05);
+  transform: translateX(100 0);
+}
+
+.card-opd .card-body-opd img {
+  transition: all 500ms;
+}
+
+.card-opd .card-body-opd img:hover {
+  transform: scale(1.25);
+  transform: translateX(100 0);
+}
+
+.card-opd img {
+  max-height: 100px;
+  max-width: fit-content;
+  object-fit: fill;
+}
+
+.card-body-opd {
+  height: 200px;
+  object-fit: cover;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.menu-icon {
+    overflow: hidden;
+    transition: all 500ms;
+}
+
+.menu-icon:hover {
+    transform: scale(1.15);
+    transform: translateX(100 0);
+}
+
+.menu-icon .cpns {
+    overflow: hidden;
+    animation: left-right 2s ease-in-out infinite alternate-reverse both;
+}
+
+.menu-icon .pon-xxi {
+    overflow: hidden;
+    animation: up-down 4s ease-in-out infinite alternate-reverse both;
+}
+
+.menu-icon .pilkada-2024 {
+    overflow: hidden;
+    animation: up-down 3s ease-in-out infinite alternate-reverse both;
+}
+
+/* medsos icon */
+.bi-facebook {
+  color: rgb(31, 86, 224);
+}
+
+.bi-instagram {
+  color: rgb(255, 111, 79);
+}
+
+.bi-youtube {
+  color: rgb(255, 0, 0);
+}
+
+.bi-twitter {
+  color: rgb(0, 157, 255);
+}
+
+.bi-tiktok {
+  color: rgb(31, 31, 31);
+}
+
+.card-footer .btn {
+  transition: all 300ms;
+}
+
+.card-footer .btn:hover {
+  transform: scale(1.3);
+}
+
+/* small font */
+.bkpsdm small {
+  font-size: 16px;
+}
+
+.dinas-kb small {
+  font-size: 12px;
+}
+
+.rsud small {
+  font-size: 12px;
+}
+
+.wrapper .button {
+  /* background-color: var(--bs-light);
+  color: var(--bs-kominfo); */
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  float: left;
+  margin: 0 5px;
+  overflow: hidden;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: all 300ms  ease-out;
+}
+
+.wrapper a .b1 {
+  background-color: var(--bs-light);
+  color: var(--bs-pink);
+}
+
+.wrapper a .b2 {
+  background-color: var(--bs-light);
+  color: var(--bs-danger);
+}
+
+.wrapper a .b3 {
+  background-color: var(--bs-light);
+  color: var(--bs-info);
+}
+
+.wrapper a .b4 {
+  background-color: var(--bs-light);
+  color: var(--bs-kominfo);
+}
+
+.wrapper a .b5 {
+  background-color: var(--bs-light);
+  color: var(--bs-dark);
+}
+
+.wrapper .button:hover {
+  width: 200px;
+}
+
+.wrapper .button .socicon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+}
+
+.wrapper .button .socicon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 300ms ease-out;
+}
+
+.wrapper .button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 300ms ease-out;
+}
+
+/* Countdown Section */
+.countdown {
+    width: 650px;
+    height: 480px;
+}
+
+#timer {
+  color: var(--bs-light);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Livvic', sans-serif;
+  font-size: .7em;
+  letter-spacing: 2px;
+}
+
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 10px;
+  width: 85px;
+  border-radius: 10px;
+}
+
+.days {
+  background: var(--bs-danger);
+}
+
+.hours {
+  background: var(--bs-light);
+  color: var(--bs-dark);
+}
+
+.minutes {
+  background: var(--bs-kominfo);
+}
+
+.seconds {
+  background: var(--bs-warning);
+}
+
+.numbers {
+/* font-family: 'Covered By Your Grace', cursive; */
+    font-family: "New Amsterdam", sans-serif;
+    text-align: center;
+  font-size: 4em;
+}
+
+/*--------------------------------------------------------------
+# Animation Section
+--------------------------------------------------------------*/
+@keyframes up-down {
+  0% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes left-right {
+  0% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(-4px);
+  }
+}
+
+
+
+</style>
+    <title>IPKD Kab Deli Serdang</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow" 
+style="background: rgb(0,107,213);background: radial-gradient(circle, rgba(0,107,213,1) 0%, rgba(0,0,153,1) 83%, rgba(0,25,76,1) 100%);">
+  <div class="container">
+    <a class="navbar-brand mt-2" href="http://portal.deliserdangkab.go.id" style="color:#fff;height:60px;">
+    	<img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1718002763.png" alt="" style="height:60px;">
+    	<img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1724662688.svg" alt="" style="height:40px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!--<li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://portal.deliserdangkab.go.id"><i class="bi bi-house"></i> Beranda</a>
+        </li>-->
+       
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarProfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-globe-central-south-asia"></i> Profil
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarProfil">
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/peta-deli-serdang.html">Peta Deli Serdang</a></li>
+            <!--<li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/iklim-dan-wilayah.html">Iklim Wilyah</a></li>-->
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/sejarah.html">Sejarah Kab. Deli Serdang</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/visi-misi.html">Visi dan Misi</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/prestasi.html">Prestasi</a></li>
+            <!--<li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/daftar-sertifikat.html">Daftar Sertifikat</a></li>-->
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/lambang-dan-moto-daerah.html">Lambang Daerah</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/profil-pimpinan-daerah.html">Profil Pimpinan</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/wp-content/berkas/1715761065.pdf">Tugas Fungsi</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarPemerintah" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-people-fill"></i> Pemerintah
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarPemerintah">
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/pejabat-pemerintahan.html">Pejabat Pemerintah</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/pejabat-sekretariat.html">Pejabat Sekretariat</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/pejabat-kecamatan.html">Pejabat Kecamatan</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/pejabat-kelurahan.html">Pejabat Kelurahan</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/kepala-opd.html">Kepala OPD</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/subdomain-organisasi-perangkat-daerah-opd.html">Daftar OPD</a></li>
+            <!--<li><a class="dropdown-item" href="https://kecamatan.deliserdangkab.go.id">Daftar Kecamatan</a></li>-->
+          </ul>
+        </li>
+                
+        <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-newspaper"></i> Berita
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/menu/berita.html">Berita Deli Serdang</a></li>
+            <li><a class="dropdown-item" href="#">Agenda Kegiatan</a></li>
+          </ul>
+        </li>-->
+        
+        <!--<li class="nav-item">
+          <a class="nav-link" style="white-space: nowrap" href="https://portal.deliserdangkab.go.id/menu/berita.html"><i class="bi bi-newspaper"></i> Berita</a>
+        </li>-->
+        
+        <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Media
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/menu/galery.html">Galeri Foto</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/menu/video-youtube.html">Galeri Video</a></li>
+          </ul>
+        </li>-->
+        
+        <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-info-circle-fill"></i> Informasi
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/publikasi.html">Publikasi</a></li>
+          <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/foto-pimpinan.html">Foto Pimpinan</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/menu/download.html">Daftar Pengumuman</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/pengumuman-pendaftaran-calon-pimpinan-baznas-kabupaten-deli-serdang-masa-jabatan-2022-2025.html">Baznas</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/materi-hari-jadi-deli-serdang-ke-77-tahun-2023.html">Materi Hari Jadi 2023</a></li>
+           <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/bahan-materi-hut-ri-77-pulih-lebih-cepat-bangkit-lebih-kuat.html">Materi HUT RI 77</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/lagu-mars-deli-serdang-agustus-2022-update.html">Lagu Mars Deli Serdang</a></li>
+
+          </ul>
+        </li>-->
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-briefcase-fill"></i> CPNS 2024
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://sscasn.bkn.go.id" target="_blank">Situs Resmi</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/wp-content/berkas/1726723199.pdf" target="_blank">Pengumuman Hasil<br>Seleksi Administrasi</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" style="white-space: nowrap" href="http://jdih.deliserdangkab.go.id/"><i class="bi bi-file-earmark-text-fill"></i> JDIH</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" style="white-space: nowrap" href="http://ppid.deliserdangkab.go.id/"><i class="bi bi-info-square-fill"></i> PPID</a>
+        </li>
+        
+        <!--<li class="nav-item">
+          <a class="nav-link" style="white-space: nowrap" href="http://data.deliserdangkab.go.id/"><i class="bi bi-database-fill-exclamation"></i> Data</a>
+        </li>-->
+        
+        <!--<li class="nav-item">
+          <a class="nav-link" style="white-space: nowrap" href="https://portal.deliserdangkab.go.id/publikasi.html"><i class="bi bi-file-pdf-fill"></i> Publikasi</a>
+        </li>-->
+        
+       	<li class="nav-item">
+          <a class="nav-link" style="white-space: nowrap" href="https://webmail.deliserdangkab.go.id/" target="_blank"><i class="bi bi-envelope-at-fill"></i> Webmail</a>
+        </li>
+        
+        <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="white-space: nowrap" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-link-45deg"></i> Link Terkait
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/subdomain-organisasi-perangkat-daerah-opd.html">OPD</a></li>
+            <li><a class="dropdown-item" href="https://kecamatan.deliserdangkab.go.id">Kecamatan</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/kebijakan-privasi.html">Kebijakan Privasi</a></li>
+            <li><a class="dropdown-item" href="https://portal.deliserdangkab.go.id/link-terkait.html">Lainnya</a></li>
+          </ul>
+        </li>-->
+      </ul>
+
+    </div>
+ 
+  </div>
+</nav>
+
+    <div class="container">
+      <div class="row mt-2">
+        <div class="col-md-12">
+
+            <!---->
+
+          <br/>
+          <br/>
+          <h3 class="text-center fw-semibold">Indeks Pengelolaan Keuangan Daerah</h3>
+<h3 class="text-center fw-semibold">Kabupaten Deli Serdang</h3>
+
+<div class="accordion my-3" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4"
+                        aria-expanded="true" aria-controls="collapse4">
+                        IPKD 2024
+                </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table border="0" class="table table-striped" id="ipkd24">
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center"><strong>No</strong></td>
+                                <td style="text-align:center"><strong>Jenis Dokumen</strong></td>
+                                <td style="text-align:center"><strong>Tanggal<br>Dokumen</strong></td>
+                                <td style="text-align:center"><strong>Tanggal<br>Upload</strong></td>
+                                <td style="text-align:center"><strong>Tautan</strong></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">1</td>
+                                <td>Informasi Ringkasan Dokumen RKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">2</td>
+                                <td>Informasi Kebijakan Umum Anggaran</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">3</td>
+                                <td>Informasi Ringkasan Dokumen Prioritas dan Plafon Anggaran</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">4</td>
+                                <td>Informasi Ringkasan Dokumen RKA SKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">5</td>
+                                <td>Informasi Ringkasan Dokumen RKA PPKD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">6</td>
+                                <td>Informasi Ringkasan Dokumen Rancangan Peraturan Daerah tentang APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">7</td>
+                                <td>Informasi Peraturan Daerah tentang APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">8</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Penjabaran APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">9</td>
+                                <td>Informasi Ringkasan DPA SKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">10</td>
+                                <td>Informasi DPA PPKD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">11</td>
+                                <td>Informasi Realisasi Pendapatan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">12</td>
+                                <td>Informasi Realisasi Belanja Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">13</td>
+                                <td>Informasi Realisasi Pembiayaan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">14</td>
+                                <td>Informasi Ringkasan Dokumen Rancangan Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">15</td>
+                                <td>Informasi Peraturan Daerah tentang Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">16</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Penjabaran Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">17</td>
+                                <td>Informasi Ringkasan RKA Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">18</td>
+                                <td>Informasi Rencana Umum Pengadaan</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#" target="_blank">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">19</td>
+                                <td>Informasi SK Kepala Daerah tentang Pejabat Pengelola Keuangan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">20</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Kebijakan Akuntansi</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">21</td>
+                                <td>Informasi Laporan Arus Kas</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">22</td>
+                                <td>Informasi Laporan Realisasi Anggaran Seluruh SKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">23</td>
+                                <td>Informasi Laporan Realisasi Anggaran PPKD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">24</td>
+                                <td>Informasi Neraca</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">25</td>
+                                <td>Informasi CaLK Pemerintah Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">26</td>
+                                <td>Informasi Laporan Keuangan BUMD/Perusahaan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">27</td>
+                                <td>Informasi Laporan Akuntabilitas dan Kinerja Tahunan Pemerintah Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">28</td>
+                                <td>Informasi Penetapan Perda Pertanggungjawaban Pelaksanaan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">29</td>
+                                <td>Informasi Opini BPK RI</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">01-10-2024</td>
+                                <td style="text-align:center"><a href="#">segera</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <div class="accordion my-3" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3"
+                        aria-expanded="true" aria-controls="collapse3">
+                        IPKD 2023
+                </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table border="0" class="table table-striped" id="ipkd24">
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center"><strong>No</strong></td>
+                                <td style="text-align:center"><strong>Jenis Dokumen</strong></td>
+                                <td style="text-align:center"><strong>Tanggal<br>Dokumen</strong></td>
+                                <td style="text-align:center"><strong>Tanggal<br>Upload</strong></td>
+                                <td style="text-align:center"><strong>Tautan</strong></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">1</td>
+                                <td>Informasi Ringkasan Dokumen RKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">30-06-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716865229.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">2</td>
+                                <td>Informasi Kebijakan Umum Anggaran</td>
+                                <td style="text-align:center; white-space: nowrap;">09-11-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716866729.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">3</td>
+                                <td>Informasi Ringkasan Dokumen Prioritas dan Plafon Anggaran</td>
+                                <td style="text-align:center; white-space: nowrap;">09-11-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716867090.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">4</td>
+                                <td>Informasi Ringkasan Dokumen RKA SKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">10-11-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1717484484.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">5</td>
+                                <td>Informasi Ringkasan Dokumen RKA PPKD</td>
+                                <td style="text-align:center; white-space: nowrap;">10-11-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719111761.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">6</td>
+                                <td>Informasi Ringkasan Dokumen Rancangan Peraturan Daerah tentang APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1717483308.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">7</td>
+                                <td>Informasi Peraturan Daerah tentang APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">23-12-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/jMSdugKokn2fmHOrqAo10XZWMJ4AlXkHCYnUyivY.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">8</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Penjabaran APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">23-12-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1723087018.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">9</td>
+                                <td>Informasi Ringkasan DPA SKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/KVfgIln8fDXLxxCwD7QyFufkKzftvoMckkUYzFQ9.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">10</td>
+                                <td>Informasi DPA PPKD</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1723083613.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">11</td>
+                                <td>Informasi Realisasi Pendapatan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719107452.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">12</td>
+                                <td>Informasi Realisasi Belanja Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-05-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693995856.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">13</td>
+                                <td>Informasi Realisasi Pembiayaan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-05-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996024.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">14</td>
+                                <td>Informasi Ringkasan Dokumen Rancangan Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719109651.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">15</td>
+                                <td>Informasi Peraturan Daerah tentang Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">16-09-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718857299.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">16</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Penjabaran Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">23-12-2022</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1717483961.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">17</td>
+                                <td>Informasi Ringkasan RKA Perubahan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">18-09-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1723212535.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">18</td>
+                                <td>Informasi Rencana Umum Pengadaan</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716874277.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">19</td>
+                                <td>Informasi SK Kepala Daerah tentang Pejabat Pengelola Keuangan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">02-01-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996760.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">20</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Kebijakan Akuntansi</td>
+                                <td style="text-align:center; white-space: nowrap;">15-12-2021</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1694052378.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">21</td>
+                                <td>Informasi Laporan Arus Kas</td>
+                                <td style="text-align:center; white-space: nowrap;">22-05-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719103147.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">22</td>
+                                <td>Informasi Laporan Realisasi Anggaran Seluruh SKPD</td>
+                                <td style="text-align:center; white-space: nowrap;">22-05-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719103900.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">23</td>
+                                <td>Informasi Laporan Realisasi Anggaran PPKD</td>
+                                <td style="text-align:center; white-space: nowrap;">31-12-2023</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719104091.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">24</td>
+                                <td>Informasi Neraca</td>
+                                <td style="text-align:center; white-space: nowrap;">22-05-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719104213.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">25</td>
+                                <td>Informasi CaLK Pemerintah Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">22-05-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718857793.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">26</td>
+                                <td>Informasi Laporan Keuangan BUMD/Perusahaan Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">13-02-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719102647.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">27</td>
+                                <td>Informasi Laporan Akuntabilitas dan Kinerja Tahunan Pemerintah Daerah</td>
+                                <td style="text-align:center; white-space: nowrap;">01-02-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716970873.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">28</td>
+                                <td>Informasi Penetapan Perda Pertanggungjawaban Pelaksanaan APBD</td>
+                                <td style="text-align:center; white-space: nowrap;">26-08-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">23-09-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1727086855.pdf">Unduh</a></td>
+                            </tr>
+                            <tr v-for="(result, index) in results">
+                                <td style="text-align:center">29</td>
+                                <td>Informasi Opini BPK RI</td>
+                                <td style="text-align:center; white-space: nowrap;">05-05-2024</td>
+                                <td style="text-align:center; white-space: nowrap;">06-08-2024</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693997765.pdf">Unduh</a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+<!-- <div class="accordion my-3" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    IPKD 2023
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table border="0" class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center"><strong>No</strong></td>
+                                <td style="text-align:center"><strong>Jenis Dokumen</strong></td>
+                                <td style="text-align:center"><strong>Tautan</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">1</td>
+                                <td>Informasi Ringkasan Dokumen RKPD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716865229.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">2</td>
+                                <td>Informasi Kebijakan Umum Anggaran</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716866729.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">3</td>
+                                <td>Informasi Ringkasan Dokumen Prioritas dan Plafon Anggaran</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716867090.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">4</td>
+                                <td>Informasi Ringkasan Dokumen RKA SKPD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1717484484.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">5</td>
+                                <td>Informasi Ringkasan Dokumen RKA PPKD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719111761.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">6</td>
+                                <td>Informasi Ringkasan Dokumen Rancangan Peraturan Daerah tentang APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1717483308.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">7</td>
+                                <td>Informasi Peraturan Daerah tentang APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/jMSdugKokn2fmHOrqAo10XZWMJ4AlXkHCYnUyivY.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">8</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Penjabaran APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1723087018.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">9</td>
+                                <td>Informasi Ringkasan DPA SKPD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/KVfgIln8fDXLxxCwD7QyFufkKzftvoMckkUYzFQ9.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">10</td>
+                                <td>Informasi DPA PPKD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1723083613.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">11</td>
+                                <td>Informasi Realisasi Pendapatan Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719107452.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">12</td>
+                                <td>Informasi Realisasi Belanja Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693995856.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">13</td>
+                                <td>Informasi Realisasi Pembiayaan Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996024.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">14</td>
+                                <td>Informasi Ringkasan Dokumen Rancangan Perubahan APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719109651.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">15</td>
+                                <td>Informasi Peraturan Daerah tentang Perubahan APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718857299.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">16</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Penjabaran Perubahan APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1717483961.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">17</td>
+                                <td>Informasi Ringkasan RKA Perubahan APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1723212535.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">18</td>
+                                <td>Informasi Rencana Umum Pengadaan</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716874277.pdf" target="_blank">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">19</td>
+                                <td>Informasi SK Kepala Daerah tentang Pejabat Pengelola Keuangan Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996760.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">20</td>
+                                <td>Informasi Peraturan Kepala Daerah tentang Kebijakan Akuntansi</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1694052378.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">21</td>
+                                <td>Informasi Laporan Arus Kas</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719103147.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">22</td>
+                                <td>Informasi Laporan Realisasi Anggaran Seluruh SKPD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719103900.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">23</td>
+                                <td>Informasi Laporan Realisasi Anggaran PPKD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719104091.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">24</td>
+                                <td>Informasi Neraca</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719104213.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">25</td>
+                                <td>Informasi CaLK Pemerintah Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718857793.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">26</td>
+                                <td>Informasi Laporan Keuangan BUMD/Perusahaan Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1719102647.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">27</td>
+                                <td>Informasi Laporan Akuntabilitas dan Kinerja Tahunan Pemerintah Daerah</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1716970873.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">28</td>
+                                <td>Informasi Penetapan Perda Pertanggungjawaban Pelaksanaan APBD</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1727086855.pdf">unduh</a></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">29</td>
+                                <td>Informasi Opini BPK RI</td>
+                                <td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693997765.pdf">unduh</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+    
+    <div class="accordion my-3" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    IPKD 2022
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table border="0" class="table table-striped">
+	<tbody>
+		<tr>
+			<td style="text-align:center"><strong>No</strong></td>
+			<td style="text-align:center"><strong>Jenis Dokumen</strong></td>
+			<td style="text-align:center"><strong>Tautan</strong></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">1</td>
+			<td>Informasi Ringkasan Dokumen RKPD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1695808997.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">2</td>
+			<td>Informasi Kebijakan Umum Anggaran</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693994143.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">3</td>
+			<td>Informasi Ringkasan Dokumen Prioritas dan Plafon Anggaran</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1694051560.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">4</td>
+			<td>Informasi Ringkasan Dokumen RKA SKPD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1695802394.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">5</td>
+			<td>Informasi Ringkasan Dokumen RKA PPKD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693994525.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">6</td>
+			<td>Informasi Ringkasan Dokumen Rancangan Peraturan Daerah tentang APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693994844.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">7</td>
+			<td>Informasi Peraturan Daerah tentang APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/jMSdugKokn2fmHOrqAo10XZWMJ4AlXkHCYnUyivY.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">8</td>
+			<td>Informasi Peraturan Daerah tentang Penjabaran APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/83gefWQUayVL1ax18fxS7pxQCWYlTBXMvNkRaiI8.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">9</td>
+			<td>Informasi Ringkasan DPA SKPD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/KVfgIln8fDXLxxCwD7QyFufkKzftvoMckkUYzFQ9.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">10</td>
+			<td>Informasi DPA PPKD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693995167.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">11</td>
+			<td>Informasi Realisasi Pendapatan Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693995356.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">12</td>
+			<td>Informasi Realisasi Belanja Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693995856.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">13</td>
+			<td>Informasi Realisasi Pembiayaan Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996024.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">14</td>
+			<td>Informasi Ringkasan Dokumen Rancangan Perubahan APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996157.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">15</td>
+			<td>Informasi Peraturan Daerah tentang Perubahan APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1694051814.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">16</td>
+			<td>Informasi Peraturan Kepala Daerah tentang Penjabaran Perubahan APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996405.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">17</td>
+			<td>Informasi Ringkasan RKA Perubahan APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1695802648.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">18</td>
+			<td>Informasi Renacana Umum Pengadaan</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996576.pdf" target="_blank">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">19</td>
+			<td>Informasi SK Kepala Daerah tentang Pejabat Pengelola Keuangan Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693996760.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">20</td>
+			<td>Informasi Peraturan Kepala Daerah tentang Kebijakan Akuntansi</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1694052378.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">21</td>
+			<td>Informasi Laporan Arus Kas</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693997073.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">22</td>
+			<td>Informasi Laporan Realisasi Anggaran Seluruh SKPD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1695887158.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">23</td>
+			<td>Informasi Laporan Realisasi Anggaran PPKD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693997270.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">24</td>
+			<td>Informasi Neraca</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693997441.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">25</td>
+			<td>Informasi CaLK Pemerintah Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/bEI2xlT3VcyHzAygFQKm1nSpDClQaY7eih3qsxpF.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">26</td>
+			<td>Informasi Laporan Keuangan BUMD/Perusahaan Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/rzIYv1iKQ1rghDHYX22mpkRtRMhaTuYGoMKKLHJJ.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">27</td>
+			<td>Informasi Laporan Akuntabilitas dan Kinerja Tahunan Pemerintah Daerah</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1695802823.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">28</td>
+			<td>Informasi Penetapan Perda Pertanggungjawaban Pelaksanaan APBD</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1694052635.pdf">unduh</a></td>
+		</tr>
+		<tr>
+			<td style="text-align:center">29</td>
+			<td>Informasi Opini BPK RI</td>
+			<td style="text-align:center"><a href="https://portal.deliserdangkab.go.id/wp-content/berkas/1693997765.pdf">unduh</a></td>
+		</tr>
+	</tbody>
+</table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+          <br/>
+          <br/>
+
+
+          <!---->
+
+          
+          <!---->
+
+
+        </div>
+        <!--<div class="col-md-4">
+          <div></div>
+        </div>-->
+      </div>
+      
+    </div>
+
+    <footer class="nav border-danger text-light" 
+style="background: rgb(0,107,213);background: radial-gradient(circle, rgba(0,107,213,1) 0%, rgba(0,0,153,1) 83%, rgba(0,25,76,1) 100%);">
+        <div class="container mt-4 text-center">
+          <p>© Pemerintah Kabupaten Deli Serdang</p>
+        </div>
+        <div class="container wrapper justify-content-center d-flex mt-2">
+            <a href="https://www.instagram.com/pemkab.deliserdang/" target="_blank">
+            <div class="button b1">
+                <div class="socicon"><i class="bi bi-instagram"></i></div>
+                <span>Instagram</span>
+            </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCbdyQVBZnpJPPZSKS8ZocUw" target="_blank">
+            <div class="button b2">
+                <div class="socicon"><i class="bi bi-youtube"></i></div>
+                <span>Youtube</span>
+            </div>
+            </a>
+            <a href="https://www.twitter.com/DeliSerdang_Kab" target="_blank">
+            <div class="button b3">
+                <div class="socicon"><i class="bi bi-twitter-x"></i></div>
+                <span>Twitter</span>
+            </div>
+            </a>
+            <a href="https://www.facebook.com/deliserdangkab/" target="_blank">
+            <div class="button b4">
+                <div class="socicon"><i class="bi bi-facebook"></i></div>
+                <span>Facebook</span>
+            </div>
+            </a>
+            <a href="https://www.tiktok.com/@pemkab.deliserdang" target="_blank">
+            <div class="button b5">
+                <div class="socicon"><i class="bi bi-tiktok"></i></div>
+                <span>Tiktok</span>
+            </div>
+            </a>
+        </div>
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-md-12 text-center">
+                    <strong class="fw-uppercase">deliserdangkab.go.id<br /></strong>
+                    <small>
+                    Jl. Negara No. 1 Petapahan, Kecamatan Lubuk Pakam<br />
+                    Kabupaten Deli Serdang, Kode Pos 20517<br />
+                    <p><a href="mailto:kominfo.deliserdangkab.go.id" class="text-warning text-decoration-none"><i class="bi bi-envelope-at-fill"></i> kominfo@deliserdangkab.go.id</a></p>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--<script src="https://portal.deliserdangkab.go.id/wp-content/bootstrap-5.0.0-dist/js/bootstrap.bundle.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+    
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPES1ZFLYF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+            gtag('config', 'G-PPES1ZFLYF');
+            </script>
+
+
+
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                results : [],
+                url : 'https://portal.deliserdangkab.go.id/api/kategori?kategori_slug=berita',
+            },
+            mounted() {
+                axios.get(this.url).then(response => {
+                    this.results = response.data.data
+                })
+            }
+        });
+
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {
+                results : [],
+                url : 'https://portal.deliserdangkab.go.id/api/kategori_youtube?kategori_slug=video-youtube',
+            },
+            mounted() {
+                axios.get(this.url).then(response => {
+                    this.results = response.data.data
+                })
+            }
+        });
+        
+       const ipkkd = new Vue({
+            el: '#ipkkd',
+            data: {
+                results : [],
+                url : 'https://portal.deliserdangkab.go.id/api/berkas/pelengkap',
+            },
+            mounted() {
+                axios.get(this.url).then(response => {
+                    this.results = response.data.data
+                    console.log(response.data)
+                })
+            }
+        });
+
+    </script>
+
+    <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
+
+    <!--Start of Tawk.to Script-->
+    <!--<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5a5d4c6bd7591465c706c66b/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>-->
+    <!--End of Tawk.to Script-->
+
+
+<!-- Countdown timer -->
+<script>
+const countDownDate = new Date("27 November 2024 08:00:00").getTime();
+
+// countdown
+let timer = setInterval(function() {
+
+  // get today's date
+  const today = new Date().getTime();
+
+  // get the difference
+  let diff = countDownDate - today;
+
+  // If the countdown is finished, stop the timer
+  if (diff < 0) {
+    clearInterval(timer);
+    document.getElementById("timer").innerHTML = 
+    "<div class=\"days\"> \
+    <div class=\"numbers\">0</div>hari</div> \
+    <div class=\"hours\"> \
+    <div class=\"numbers\">0</div>jam</div> \
+    <div class=\"minutes\"> \
+    <div class=\"numbers\">0</div>menit</div> \
+    <div class=\"seconds\"> \
+    <div class=\"numbers\">0</div>detik</div> \
+    </div>";
+    return;
+  }
+
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // display
+  document.getElementById("timer").innerHTML =
+    "<div class=\"days\"> \
+  <div class=\"numbers\">" + days + "</div>hari</div> \
+<div class=\"hours\"> \
+  <div class=\"numbers\">" + hours + "</div>jam</div> \
+<div class=\"minutes\"> \
+  <div class=\"numbers\">" + minutes + "</div>menit</div> \
+<div class=\"seconds\"> \
+  <div class=\"numbers\">" + seconds + "</div>detik</div> \
+</div>";
+
+}, 1000);
+</script>
+
+<!-- Countdown timer -->
+  </body>
+</html>
