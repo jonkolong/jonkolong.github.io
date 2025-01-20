@@ -22,11 +22,12 @@ createApp({
       "Aplikasi": ["Pendaftaran Aplikasi", "Pendaftaran Website", "Pengembangan Aplikasi", "Pembangunan Aplikasi", "Pengembangan Website", "Pembangunan Website"],
       "Jaringan": ["Instalasi Jaringan", "Koneksi Internet", "Penyesuaian Bandwidth"],
       "Pusat Data": ["Permintaan VPS", "Penyesuaian VPS", "Pendaftaran Subdomain", "Perubahan Subdomain"],
+      "Media": ["Kerjasama Media"],
       "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Bimbingan Teknis"],
     };
 
-    const baseUrl = "https://jonkolong.github.io/"; // Ganti dengan URL yang sesuai
-    // const baseUrl = "http://localhost:5500/"; // Ganti dengan URL yang sesuai
+    // const baseUrl = "https://jonkolong.github.io/"; // Ganti dengan URL yang sesuai
+    const baseUrl = "http://localhost:5500/"; // Ganti dengan URL yang sesuai
 
     // Daftar URL untuk layanan
     const layananUrls = {
@@ -43,6 +44,7 @@ createApp({
       "Penyesuaian VPS": baseUrl + "sidisko/tiket/penyesuaian-vps.html",
       "Pendaftaran Subdomain": baseUrl + "sidisko/tiket/pendaftaran-subdomain.html",
       "Perubahan Subdomain": baseUrl + "sidisko/tiket/perubahan-subdomain.html",
+      "Kerjasama Media": baseUrl + "sidisko/tiket/kerjasama-media.html",
       "Pendampingan Virtual Meeting": baseUrl + "sidisko/tiket/pendampingan-virtual-meeting",
       "Ruang Virtual Meeting": baseUrl + "sidisko/tiket/ruang-virtual-meeting",
       "Narasumber": baseUrl + "sidisko/tiket/narasumber.html",
