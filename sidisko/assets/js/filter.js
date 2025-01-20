@@ -26,8 +26,8 @@ createApp({
       "Reservasi": ["Pendampingan Virtual Meeting", "Ruang Virtual Meeting", "Narasumber", "Kunjungan Kerja", "Bimbingan Teknis"],
     };
 
-    // const baseUrl = "https://jonkolong.github.io/"; // Ganti dengan URL yang sesuai
-    const baseUrl = "http://localhost:5500/"; // Ganti dengan URL yang sesuai
+    const baseUrl = "https://jonkolong.github.io/"; // Ganti dengan URL yang sesuai
+    // const baseUrl = "http://localhost:5500/"; // Ganti dengan URL yang sesuai
 
     // Daftar URL untuk layanan
     const layananUrls = {

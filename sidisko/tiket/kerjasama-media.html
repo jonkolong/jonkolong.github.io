@@ -249,25 +249,76 @@
 
         <div class="card border-primary-subtle rounded-3 p-2 mb-3">
           <p class="text-center fw-semibold">Permohonan</p>
-          <div class="col-12">
-            <label for="dokumenPendukung1" class="form-label">Surat permohonan kerjasama*</label>
-            <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-            <div class="form-text fst-italic">pdf - maks 2MB</div>
-            <p id="errorDokumen" class="error-message"></p>
+          <div class="row">
+            <div class="col-md-6 mb-2">
+              <label for="jenis-media" class="form-label">Jenis media*</label>
+              <select class="form-select" id="jenis-media" onchange="handleMediaChange()">
+                <option value="">-- pilih jenis media --</option>
+                <option value="media-cetak">Cetak</option>
+                <option value="media-elektronik">Elektronik</option>
+                <option value="media-online">Online</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="penjelasan-media" class="form-label">Penjelasan jenis media</label>
+              <input 
+                id="penjelasan-media" 
+                class="form-control" 
+                type="text" 
+                value="Silakan pilih jenis media." 
+                aria-label="default input example" 
+                disabled
+              >
+            </div>
+
+            <div class="col-md-6">
+              <label for="dokumenPendukung1" class="form-label">Surat permohonan kerjasama*</label>
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+    
+            <div class="col-md-6" id="dokumen-elektronik-1" style="display: none;">
+              <label for="dokumenPendukung3" class="form-label">Izin siaran (media elektronik)*</label>
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung3" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+    
+            <div class="col-md-6" id="dokumen-elektronik-2" style="display: none;">
+              <label for="dokumenPendukung4" class="form-label">Izin penyelenggaraan penyiaran (media elektronik)*</label>
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung4" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
+              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+    
+            <div class="col-md-6" id="dokumen-online-1" style="display: none;">
+              <label for="dokumenPendukung5" class="form-label">Screenshot jumlah pengunjung situs web 3 (tiga) bulan terakhir (media online)*</label>
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung5" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
+              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-12" id="dokumen-online-2" style="display: none;">
+              <label for="dokumenPendukung6" class="form-label">Alamat url*</label>
+              <input class="form-control" type="text" placeholder="Ketik alamat website disini" aria-label="default input example" required>
+            </div>
           </div>
+
         </div>
 
-        <div class="card border-info-subtle rounded-3 p-2 mb-3">
+        <div class="card border-danger-subtle rounded-3 p-2 mb-3">
           <p class="text-center fw-semibold">Informasi Perusahaan</p>
           <div class="col-12">
             <label for="exampleInputEmail1" class="form-label">Nama Perusahaan*</label>
-            <input class="form-control" type="text" placeholder="Ketik nama perusahaan Anda disini" aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Ketik nama perusahaan Anda disini" aria-label="default input example" required>
             <div class="form-text fst-italic">Sesuaikan dengan akta pendirian dan bukti pengesahaan Kemenkumham</div>
           </div>
 
           <div class="mb-2 col-12">
             <label for="exampleInputEmail1" class="form-label">Alamat Perusahaan*</label>
-            <input class="form-control" type="text" placeholder="Ketik alamat perusahaan Anda disini" aria-label="default input example">
+            <input class="form-control" type="text" placeholder="Ketik alamat perusahaan Anda disini" aria-label="default input example" required>
           </div>
 
           <div class="row">
@@ -329,112 +380,63 @@
           </div>
         </div>
 
-        <div class="card border-info-subtle rounded-3 p-2 mb-3">
+        <div class="card border-success-subtle rounded-3 p-2 mb-3">
           <p class="text-center fw-semibold">Informasi Lainnya</p>
           <div class="row mb-3">
             <div class="col-md-6">
               <label for="exampleInputEmail1" class="form-label">Nama Pimpinan Perusahaan*</label>
-              <input class="form-control" type="text" placeholder="Ketik nama pimpinan perusahaan Anda disini" aria-label="default input example">
+              <input class="form-control" type="text" placeholder="Ketik nama pimpinan perusahaan Anda disini" aria-label="default input example" required>
             </div>
 
             <div class="col-md-6">
               <label for="exampleInputEmail1" class="form-label">Nama Wartawan*</label>
-              <input class="form-control" type="text" placeholder="Ketik nama wartawan" aria-label="default input example">
+              <input class="form-control" type="text" placeholder="Ketik nama wartawan" aria-label="default input example" required>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
               <label for="dokumenPendukung1" class="form-label">KTP Pimpinan Perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
               <label for="dokumenPendukung1" class="form-label">KTP Wartawan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
               <label for="dokumenPendukung1" class="form-label">ID Card/ Kartu anggota wartawan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
               <label for="dokumenPendukung1" class="form-label">Surat Tugas Wartawan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
               <label for="dokumenPendukung1" class="form-label">Box Redaksi Media*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
               <label for="dokumenPendukung1" class="form-label">Surat keterangan domisili perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
+              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Foto kantor media*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Foto plang kantor media*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card border-warning-subtle rounded-3 p-2 mb-3">
-          <p class="text-center fw-semibold">Jenis Media</p>
-          <div class="row">
-            <div class="col-md-6">
-              <label for="sasaran-pengguna" class="form-label">Jenis media*</label>
-              <select class="form-select" id="" v-model="">
-                <option value="">-- pilih jenis media --</option>
-                <option value="media-cetak">Cetak</option>
-                <option value="media-elektronik">Elektronik</option>
-                <option value="media-online">Online</option>
-              </select>
-            </div>
-    
-            <div class="col-md-6">
-              <label for="dokumenPendukung3" class="form-label">Izin siaran (media elektronik)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung3" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-    
-            <div class="col-md-6">
-              <label for="dokumenPendukung4" class="form-label">Izin penyelenggaraan penyiaran (media elektronik)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung4" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
-              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-    
-            <div class="col-md-6">
-              <label for="dokumenPendukung4" class="form-label">Screenshot jumlah pengunjung situs web 3 bulan terakhir (media online)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung4" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
-              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
           </div>
         </div>
 
@@ -559,6 +561,44 @@
   }
   </script>
 
+  <script>
+    // Objek untuk penjelasan jenis media
+    const mediaDescriptions = {
+      'media-cetak': 'Koran atau majalah.',
+      'media-elektronik': 'Radio atau Televisi.',
+      'media-online': 'Situs Web atau Blog.',
+    };
+
+    // Ambil elemen dari DOM
+    const mediaSelect = document.getElementById('jenis-media');
+    const mediaInput = document.getElementById('penjelasan-media');
+
+    // Event listener untuk dropdown
+    mediaSelect.addEventListener('change', () => {
+      const selectedValue = mediaSelect.value; // Ambil nilai yang dipilih
+      mediaInput.value = mediaDescriptions[selectedValue] || 'Silakan pilih jenis media.';
+    });
+  </script>
+
+  <script>
+    function handleMediaChange() {
+      const selectedMedia = document.getElementById('jenis-media').value;
+
+      // Hide all conditional inputs by default
+      document.getElementById('dokumen-elektronik-1').style.display = 'none';
+      document.getElementById('dokumen-elektronik-2').style.display = 'none';
+      document.getElementById('dokumen-online-1').style.display = 'none';
+      document.getElementById('dokumen-online-2').style.display = 'none';
+
+      if (selectedMedia === 'media-elektronik') {
+        document.getElementById('dokumen-elektronik-1').style.display = 'block';
+        document.getElementById('dokumen-elektronik-2').style.display = 'block';
+      } else if (selectedMedia === 'media-online') {
+        document.getElementById('dokumen-online-1').style.display = 'block';
+        document.getElementById('dokumen-online-2').style.display = 'block';
+      }
+    }
+  </script>
 
 </body>
 
