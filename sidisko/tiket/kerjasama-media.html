@@ -245,6 +245,14 @@
         Formulir Tiket Kerjasama Media
       </h5>
 
+      <div class="mx-2 card rounded-0 bg-danger-subtle border-1 border-start-0 border-end-0 border-danger">
+        <div class="d-flex justify-content-center align-items-center">
+          <marquee class="">
+            Periode pendaftaran kerjasama media Tahun 2025 dimulai tanggal <span class="fw-semibold">24 Februari 2025, 00.00 WIB</span> hingga <span class="fw-semibold">11 Maret 2025, 23.59 WIB</span>.
+          </marquee>
+        </div>
+      </div>
+
       <form @submit.prevent action="" class="row p-3" oninput="btnSubmit.disabled = !this.checkValidity(); btnSubmit.classList.toggle('btn-secondary', !this.checkValidity()); btnSubmit.classList.toggle('btn-primary', this.checkValidity());">
 
         <div class="card border-primary-subtle rounded-3 p-2 mb-3">
@@ -273,41 +281,48 @@
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Surat permohonan kerjasama*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <label for="kerja-sama" class="form-label">Surat permohonan kerjasama*</label>
+              <input class="form-control input-group-text" type="file" id="kerja-sama" required accept=".pdf" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6 mb-2">
-              <label for="dokumenPendukung0" class="form-label">Alamat email*</label>
-              <input class="form-control" type="email" placeholder="Ketik alamat email disini" aria-label="default input example" required>
+              <label for="email" class="form-label">Alamat email perusahaan*</label>
+              <input class="form-control" type="email" placeholder="alamat email perusahaan" aria-label="default input example" required>
             </div>
     
             <div class="col-md-6" id="dokumen-elektronik-1" style="display: none;">
-              <label for="dokumenPendukung3" class="form-label">Izin siaran (media elektronik)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung3" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <label for="izin-siaran" class="form-label">Izin stasiun radio/siaran televisi*</label>
+              <input class="form-control input-group-text" type="file" id="izin-siaran" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
     
             <div class="col-md-6" id="dokumen-elektronik-2" style="display: none;">
-              <label for="dokumenPendukung4" class="form-label">Izin penyelenggaraan penyiaran (media elektronik)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung4" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
-              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <label for="izin-penyelenggaraan" class="form-label">Izin penyelenggaraan penyiaran*</label>
+              <input class="form-control input-group-text" type="file" id="izin-penyelenggaraan" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
     
             <div class="col-md-12 col-lg-6" id="dokumen-online-1" style="display: none;">
-              <label for="dokumenPendukung5" class="form-label">Screenshot jumlah pengunjung situs web 3 (tiga) bulan terakhir (media online)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung5" required accept=".pdf,.zip" onchange="validateFileSize(this, 10)">
+              <label for="screen-shot" class="form-label">Screenshot jumlah pengunjung situs web 3 (tiga) bulan terakhir*</label>
+              <input class="form-control input-group-text" type="file" id="screen-shot" required accept=".pdf,.jpg,.png" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-12 col-lg-6" id="dokumen-online-3" style="display: none;">
+              <label for="screen-shot-homepage" class="form-label">Screenshot halaman depan website*</label>
+              <input class="form-control input-group-text" type="file" id="screen-shot-homepage" required accept=".pdf,.jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-12 col-lg-6" id="dokumen-online-2" style="display: none;">
-              <label for="dokumenPendukung6" class="form-label">Alamat url*</label>
-              <input class="form-control" type="text" placeholder="Ketik alamat website disini" aria-label="default input example" required>
+              <label for="alamat-website" class="form-label">Alamat url*</label>
+              <input class="form-control" type="text" placeholder="https://alamatwebsite.com" aria-label="default input example" required>
             </div>
           </div>
 
@@ -316,69 +331,104 @@
         <div class="card border-danger-subtle rounded-3 p-2 mb-3">
           <p class="text-center fw-semibold">Informasi Perusahaan</p>
           <div class="col-12">
-            <label for="exampleInputEmail1" class="form-label">Nama Perusahaan*</label>
-            <input class="form-control" type="text" placeholder="Ketik nama perusahaan Anda disini" aria-label="default input example" required>
+            <label for="nama-perusahaan" class="form-label">Nama Perusahaan*</label>
+            <input class="form-control" type="text" placeholder="Nama Perusahaan" aria-label="default input example" required>
             <div class="form-text fst-italic">Sesuaikan dengan akta pendirian dan bukti pengesahaan Kemenkumham</div>
           </div>
 
           <div class="mb-2 col-12">
             <label for="exampleInputEmail1" class="form-label">Alamat Perusahaan*</label>
-            <input class="form-control" type="text" placeholder="Ketik alamat perusahaan Anda disini" aria-label="default input example" required>
+            <input class="form-control" type="text" placeholder="alamat perusahaan" aria-label="default input example" required>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Akta pendirian perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <label for="logo-perusahaan" class="form-label">Logo perusahaan*</label>
+              <input class="form-control input-group-text" type="file" id="logo-perusahaan" required accept=".jpg,.png,.svg" onchange="validateFileSize(this, 1)">
+              <div class="form-text fst-italic">ukuran minimal 200x200px dengan rasio 1:1</div>
+              <div class="form-text fst-italic">jpg, png, svg - maks 1MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="akta-pendirian" class="form-label">Akta pendirian perusahaan*</label>
+              <input class="form-control input-group-text" type="file" id="akta-pendirian" required accept=".pdf" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Bukti pengesahan Kemenkumhan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <label for="akta-perubahan" class="form-label">Akta perubahan terakhir (jika ada)</label>
+              <input class="form-control input-group-text" type="file" id="akta-perubahan" accept=".pdf" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">NIB (Nomor Induk Berusaha)*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <label for="kemenkumham" class="form-label">Bukti pengesahan Kemenkumhan*</label>
+              <input class="form-control input-group-text" type="file" id="kemenkumham" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="nib" class="form-label">Nomor Induk Berusaha*</label>
+              <input class="form-control" type="text" placeholder="Ketik Nomor Induk Berusaha perusahaan Anda disini" aria-label="default input example" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="surat-nib" class="form-label">Surat Nomor Induk Berusaha*</label>
+              <input class="form-control input-group-text" type="file" id="surat-nib" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="npwp" class="form-label">NPWP perusahaan*</label>
+              <input class="form-control" type="text" placeholder="NPWP Perusahaan" aria-label="default input example" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="kartu-npwp" class="form-label">Kartu NPWP perusahaan*</label>
+              <input class="form-control input-group-text" type="file" id="kartu-npwp" required accept=".pdf,.jpg,.png" onchange="validateFileSize(this, 1)">
+              <div class="form-text fst-italic">pdf, jpg, png - maks 1MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="norek" class="form-label">Nomor rekening perusahaan*</label>
+              <input class="form-control" type="text" placeholder="Nomor rekening perusahaan" aria-label="default input example" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="nama-rekening" class="form-label">Nama Pemilik rekening perusahaan*</label>
+              <input class="form-control" type="text" placeholder="Nama pemilik rekening perusahaan" aria-label="default input example" required>
+            </div>
+
+            <div class="col-md-6">
+              <label for="nomor-rekening" class="form-label">Referensi bank dan nomor rekening*</label>
+              <input class="form-control input-group-text" type="file" id="nomor-rekening" required accept=".pdf,.jpg,. png" onchange="validateFileSize(this, 1)">
+              <div class="form-text fst-italic">pdf, jpg, png - maks 1MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="surat-domisili" class="form-label">Surat keterangan domisili perusahaan*</label>
+              <input class="form-control input-group-text" type="file" id="surat-domisili" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="foto-kantor" class="form-label">Foto kantor media*</label>
+              <input class="form-control input-group-text" type="file" id="foto-kantor" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">NPWP perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Referensi bank dan nomor rekening*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Surat keterangan domisili perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Foto kantor media*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Foto plang kantor media*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.zip" onchange="validateFileSize(this, 2)">
+              <label for="dfoto-plang" class="form-label">Foto plang kantor media*</label>
+              <input class="form-control input-group-text" type="file" id="dfoto-plang" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
@@ -389,56 +439,56 @@
           <p class="text-center fw-semibold">Informasi Lainnya</p>
           <div class="row mb-3">
             <div class="col-md-6">
-              <label for="exampleInputEmail1" class="form-label">Nama Pimpinan Perusahaan*</label>
-              <input class="form-control" type="text" placeholder="Ketik nama pimpinan perusahaan Anda disini" aria-label="default input example" required>
+              <label for="nama-pimpinan" class="form-label">Nama Pimpinan Perusahaan*</label>
+              <input class="form-control" type="text" placeholder="Nama pimpinan perusahaan" aria-label="default input example" required>
             </div>
 
             <div class="col-md-6">
-              <label for="exampleInputEmail1" class="form-label">Nama Wartawan*</label>
-              <input class="form-control" type="text" placeholder="Ketik nama wartawan" aria-label="default input example" required>
+              <label for="nama-jurnalis" class="form-label">Nama Jurnalis*</label>
+              <input class="form-control" type="text" placeholder="Nama jurnalis" aria-label="default input example" required>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">KTP Pimpinan Perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
+              <label for="ktp-pimpinan" class="form-label">KTP Pimpinan Perusahaan*</label>
+              <input class="form-control input-group-text" type="file" id="ktp-pimpinan" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">KTP Wartawan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
+              <label for="ktp-jurnalis" class="form-label">KTP Jurnalis*</label>
+              <input class="form-control input-group-text" type="file" id="ktp-jurnalis" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">ID Card/ Kartu anggota wartawan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
+              <label for="katu-jurnalis" class="form-label">Kartu anggota jurnalis*</label>
+              <input class="form-control input-group-text" type="file" id="katu-jurnalis" required accept=".jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">jpg, png - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Surat Tugas Wartawan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <label for="surat-tugas-jurnalis" class="form-label">Surat Tugas Jurnalis*</label>
+              <input class="form-control input-group-text" type="file" id="surat-tugas-jurnalis" required accept=".pdf" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
             <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Box Redaksi Media*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf,.jpg,.png" onchange="validateFileSize(this, 2)">
+              <label for="uji-kompetensi" class="form-label">Uji Kompetensi Jurnalis*</label>
+              <input class="form-control input-group-text" type="file" id="uji-kompetensi" required accept=".pdf" onchange="validateFileSize(this, 2)">
+              <div class="form-text fst-italic">pdf - maks 2MB</div>
+              <p id="errorDokumen" class="error-message"></p>
+            </div>
+
+            <div class="col-md-6">
+              <label for="box-redaksi" class="form-label">Box Redaksi Media*</label>
+              <input class="form-control input-group-text" type="file" id="box-redaksi" required accept=".pdf,.jpg,.png" onchange="validateFileSize(this, 2)">
               <div class="form-text fst-italic">pdf, jpg, png - maks 2MB</div>
-              <p id="errorDokumen" class="error-message"></p>
-            </div>
-
-            <div class="col-md-6">
-              <label for="dokumenPendukung1" class="form-label">Surat keterangan domisili perusahaan*</label>
-              <input class="form-control input-group-text" type="file" id="dokumenPendukung1" required accept=".pdf" onchange="validateFileSize(this, 2)">
-              <div class="form-text fst-italic">pdf - maks 2MB</div>
               <p id="errorDokumen" class="error-message"></p>
             </div>
 
@@ -594,6 +644,7 @@
       document.getElementById('dokumen-elektronik-2').style.display = 'none';
       document.getElementById('dokumen-online-1').style.display = 'none';
       document.getElementById('dokumen-online-2').style.display = 'none';
+      document.getElementById('dokumen-online-3').style.display = 'none';
 
       if (selectedMedia === 'media-elektronik') {
         document.getElementById('dokumen-elektronik-1').style.display = 'block';
@@ -601,6 +652,7 @@
       } else if (selectedMedia === 'media-online') {
         document.getElementById('dokumen-online-1').style.display = 'block';
         document.getElementById('dokumen-online-2').style.display = 'block';
+        document.getElementById('dokumen-online-3').style.display = 'block';
       }
     }
   </script>
