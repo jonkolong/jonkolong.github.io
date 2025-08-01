@@ -84,6 +84,15 @@
   letter-spacing: 2px;
 }
 
+.bg-body-all {
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+.bg-kominfo {
+background: #3492f7;
+background: radial-gradient(circle, rgba(52, 146, 247, 1) 0%, rgba(12, 74, 207, 1) 100%);
+}
+
 a {
   text-decoration: none;
 }
