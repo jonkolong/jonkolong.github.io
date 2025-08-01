@@ -32,11 +32,21 @@
       </a>
 
       <div class="d-flex align-items-center gap-3">
-        <div class="notifikasi">
-          <div class="card bg-transparent border-0"
-          style="cursor: pointer;">
+        <div class="notifikasi dropdown">
+          <div id="notification-bell" 
+              class="card bg-transparent border-0"
+              style="cursor: pointer;"
+              data-bs-toggle="dropdown" 
+              aria-expanded="false">
+            
             <i class="fa-regular fa-bell fs-4 text-light"></i>
+            
+            <span class="notification-dot"></span>
           </div>
+
+          <ul id="notification-list" class="dropdown-menu dropdown-menu-end p-2 shadow-lg" aria-labelledby="notification-bell">
+            <li><p class="text-center text-muted mb-0">Tiket Anda diverifikasi.</p></li>
+          </ul>
         </div>
 
         <div class="dark-mode">
@@ -533,6 +543,71 @@
   <script>
     AOS.init();
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 1. Ambil elemen-elemen yang diperlukan
+    const notificationBell = document.getElementById('notification-bell');
+    const bellIcon = notificationBell.querySelector('i');
+    const notificationList = document.getElementById('notification-list');
+
+    // 2. Data notifikasi awal
+    let notifications = {
+      'notif-1': { id: 'notif-1', message: 'Tiket #12345 telah diselesaikan.', read: false },
+      'notif-2': { id: 'notif-2', message: 'Disposisi baru untuk layanan Jaringan.', read: false },
+      'notif-3': { id: 'notif-3', message: 'Ada pembaruan pada tiket #54321.', read: false },
+      'notif-4': { id: 'notif-4', message: 'Reservasi ruang rapat telah disetujui.', read: false },
+      'notif-5': { id: 'notif-5', message: 'Layanan Aplikasi butuh feedback Anda.', read: false },
+      'notif-6': { id: 'notif-6', message: 'Pesan penting dari admin sistem.', read: false }
+    };
+
+    // 3. Fungsi untuk memperbarui tampilan notifikasi
+    function updateNotificationUI() {
+      notificationList.innerHTML = '';
+      const unreadNotifications = Object.values(notifications)
+        .filter(n => !n.read)
+        .slice(0, 5);
+
+      if (unreadNotifications.length > 0) {
+        // Jika ADA notifikasi yang belum dibaca:
+        notificationBell.classList.add('has-notification');
+        bellIcon.classList.remove('fa-regular');
+        bellIcon.classList.add('fa-solid');
+        notificationBell.classList.add('vibrating-bell'); // UBAH INI: Terapkan ke div pembungkus
+
+        unreadNotifications.forEach(notif => {
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `<a class="dropdown-item" href="#" data-id="${notif.id}">${notif.message}</a>`;
+          notificationList.appendChild(listItem);
+        });
+
+      } else {
+        // Jika TIDAK ADA notifikasi yang belum dibaca:
+        notificationBell.classList.remove('has-notification');
+        bellIcon.classList.remove('fa-solid');
+        bellIcon.classList.add('fa-regular');
+        notificationBell.classList.remove('vibrating-bell'); // UBAH INI: Hapus dari div pembungkus
+        
+        notificationList.innerHTML = '<li><p class="text-center text-muted mb-0">Tidak ada notifikasi baru.</p></li>';
+      }
+    }
+
+    // 4. Event listener untuk klik pada notifikasi
+    notificationList.addEventListener('click', function(event) {
+      if (event.target.matches('a.dropdown-item')) {
+        event.preventDefault();
+        const notificationId = event.target.getAttribute('data-id');
+        if (notificationId && notifications[notificationId]) {
+          notifications[notificationId].read = true;
+          updateNotificationUI();
+        }
+      }
+    });
+
+    // 5. Panggil fungsi saat halaman dimuat
+    updateNotificationUI();
+  });
+</script>
 
 </body>
 

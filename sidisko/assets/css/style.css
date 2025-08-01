@@ -216,4 +216,57 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 }
 
 /* Animasi dan Transisi */
+/* 1. Animasi getar dengan jeda (tetap sama) */
+@keyframes vibrate-and-pause {
+  0%, 33.3% { transform: rotate(0deg); }
+  8.3%  { transform: rotate(10deg); }
+  16.7% { transform: rotate(-8deg); }
+  25%   { transform: rotate(5deg); }
+  100%  { transform: rotate(0deg); }
+}
 
+/* 2. Animasi KEDIP LATAR BELAKANG (baru) */
+@keyframes blink-background {
+  /* Di tengah animasi, beri warna latar belakang merah */
+  50% {
+    background-color: var(--bs-danger); /* Menggunakan variabel warna danger dari Bootstrap */
+  }
+  /* Di awal dan akhir, latar belakang akan kembali transparan sesuai style aslinya */
+}
+
+/* 3. Kelas untuk menerapkan semua efek (diperbarui) */
+.vibrating-bell {
+  border-radius: 50%; /* Membuat latar belakang menjadi lingkaran */
+  
+  /* Terapkan kedua animasi ke div pembungkus */
+  animation: 
+    vibrate-and-pause 3s linear infinite,
+    blink-background 1.5s step-end infinite;
+}
+
+/* CSS untuk Fitur Notifikasi */
+#notification-bell {
+  position: relative; /* Diperlukan agar titik bisa diposisikan dengan benar */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 4px;   /* Sesuaikan posisi vertikal */
+  right: 2px; /* Sesuaikan posisi horizontal */
+  width: 10px;
+  height: 10px;
+  background-color: #ff3d3d; /* Warna merah cerah */
+  border-radius: 50%;
+  border: 2px solid white; /* Beri bingkai agar lebih jelas */
+  display: none; /* Sembunyikan secara default */
+}
+
+/* Kelas ini akan ditambahkan oleh JS saat ada notifikasi baru */
+#notification-bell.has-notification .notification-dot {
+  display: block; /* Tampilkan titik jika ada notifikasi */
+}
