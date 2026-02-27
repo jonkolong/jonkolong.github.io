@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portal Resmi | Kabupaten Deli Serdang</title>
+    <meta name="description" content="Portal resmi Pemerintah Kabupaten Deli Serdang. Akses terintegrasi ke layanan publik, informasi pemerintahan, aplikasi e-Government, dan media sosial resmi Pemkab Deli Serdang.">
+    <meta name="keywords" content="Kabupaten Deli Serdang, Pemkab Deli Serdang, Portal Deli Serdang, Layanan Publik Deli Serdang, e-Government Deli Serdang, Sumatera Utara, Lubuk Pakam, e-Monev Deli Serdang">
+    <meta name="author" content="Pemerintah Kabupaten Deli Serdang">
+    <link href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718002763.png" rel="icon">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portal.deliserdangkab.go.id/">
+    <meta property="og:title" content="Portal Resmi | Kabupaten Deli Serdang">
+    <meta property="og:description" content="Akses terintegrasi ke layanan publik dan informasi resmi Pemerintahan Kabupaten Deli Serdang.">
+    <meta property="og:image" content="https://portal.deliserdangkab.go.id/wp-content/berkas/1725411853.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://portal.deliserdangkab.go.id/">
+    <meta property="twitter:title" content="Portal Resmi | Kabupaten Deli Serdang">
+    <meta property="twitter:description" content="Akses terintegrasi ke layanan publik dan informasi resmi Pemerintahan Kabupaten Deli Serdang.">
+    <meta property="twitter:image" content="https://portal.deliserdangkab.go.id/wp-content/berkas/1725411853.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* Mengunci layar agar TIDAK BISA DI-SCROLL sama sekali */
+        body, html { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; padding: 0;
+            width: 100vw; height: 100vh;
+            overflow: hidden; 
+        }
+
+        /* Container Video Background YouTube */
+        .video-background-container {
+            position: absolute; 
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: -2;
+            background-color: #000;
+        }
+
+        /* Iframe YouTube full cover */
+        .video-background-container iframe {
+            position: absolute; 
+            top: 50%; left: 50%;
+            width: 100vw; 
+            height: 56.25vw; 
+            min-height: 100vh; 
+            min-width: 177.77vh; 
+            transform: translate(-50%, -50%);
+            pointer-events: none; 
+        }
+
+        /* Overlay gelap */
+        .overlay {
+            position: absolute; 
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.50); 
+            z-index: -1;
+        }
+
+        /* Layout Utama */
+        .content-wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly; 
+            align-items: center;
+            padding: 2vh 15px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Header Section */
+        .logo-img {
+            height: clamp(50px, 8vh, 80px); 
+            width: auto;
+            margin-bottom: 1vh;
+        }
+        
+        .header-title {
+            font-size: clamp(1.2rem, 3vh, 1.8rem); 
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        .main-layout-container {
+            width: 100%;
+            max-width: 1400px; 
+            margin: 0 auto;
+        }
+
+        /* Foto Pimpinan */
+        .img-leader {
+            max-height: 55vh; 
+            width: 400px;
+            object-fit: contain;
+            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); 
+            transition: transform 0.4s ease;
+        }
+
+        .img-leader:hover {
+            transform: scale(1.03);
+        }
+
+        /* PEMBATAS GRID */
+        .grid-container {
+            width: 100%;
+            max-width: min(100%, 55vh); 
+            margin: 0 auto;
+        }
+
+        /* Desain Kartu Layanan */
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            aspect-ratio: 1 / 1; 
+            width: 100%;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            padding: 5px;
+            transition: all 0.2s ease; 
+            cursor: pointer;
+            text-decoration: none; 
+            color: white; 
+        }
+
+        .service-card:hover {
+            transform: scale(1.05); 
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: #0f7cf1;
+            color: white; 
+        }
+
+        .icon-box { 
+            color: #0f7cf1; 
+            margin-bottom: 1vh; 
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50%; 
+            font-size: clamp(1.8rem, 4vh, 2.5rem); 
+        }
+
+        .icon-box img {
+            max-height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .service-card:hover .icon-box {
+            transform: scale(1.1); 
+        }
+
+        .service-card h4 {
+            font-weight: 600; 
+            font-size: clamp(0.7rem, 1.8vh, 1rem);
+            margin-bottom: 0; 
+            line-height: 1.2;
+            padding: 0 5px;
+        }
+
+        /* Desain Kustom untuk Kaca Modal */
+        .modal-glass {
+            background: rgba(10, 20, 30, 0.6) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+        }
+        
+        .modal-card {
+            aspect-ratio: 1 / 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-card h4 {
+            font-size: clamp(0.6rem, 1.5vh, 0.85rem);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-background-container">
+        <iframe src="https://www.youtube.com/embed/GGJjr2YsTv4?autoplay=1&mute=1&loop=1&controls=0&disablekb=1&fs=0&modestbranding=1&playsinline=1&playlist=GGJjr2YsTv4" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+        </iframe>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <div class="content-wrapper">
+        
+        <div data-aos="fade-down" data-aos-duration="1000">
+            <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1725411853.png" class="logo-img" alt="Logo Deli Serdang">
+            <h5 class="header-title" data-aos="fade-in" data-aos-delay="400">KABUPATEN</h5>
+            <h4 class="header-title" data-aos="fade-in" data-aos-delay="600">DELI SERDANG</h4>
+        </div>
+
+        <div class="main-layout-container px-3">
+            <div class="row align-items-center justify-content-center w-100 m-0">
+                
+                <div class="col-lg-3 d-none d-lg-flex justify-content-end" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="1300">
+                    <img src="https://dinaskominfostan.deliserdangkab.go.id/wp-content/berkas/1741141641.png" class="img-leader" alt="Bupati Deli Serdang">
+                </div>
+
+                <div class="col-lg-6 col-12">
+                    <div class="grid-container" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="row row-cols-3 g-2">
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="400">
+                                <a href="https://portal.deliserdangkab.go.id" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1725411853.png" style="width: 50px;" alt="">
+                                    </div>
+                                    <h4>Website</h4>
+                                </a>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="700">
+                                <div class="service-card rounded-5" data-bs-toggle="modal" data-bs-target="#socialMediaModal">
+                                    <div class="icon-box">
+                                        <img src="https://deliserdangkab.go.id/wp-content/berkas/1727940037.png" style="width: 70px;" alt="">
+                                    </div>
+                                    <h4>Media Sosial</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="1000">
+                                <a href="https://jdih.deliserdangkab.go.id" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://jdih.deliserdangkab.go.id/wp-content/berkas/olGz5De8AbTY1PTl9atOV6BCeMLLMlxh2CQfj5nu.svg" style="width: 80px;" alt="">
+                                    </div>
+                                    <h4>JDIH</h4>
+                                </a>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="900">
+                                <a href="https://lapor.go.id" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://dinaskominfostan.deliserdangkab.go.id/wp-content/berkas/1718341399.png" style="width: 80px;" alt="">
+                                    </div>
+                                    <h4>Lapor</h4>
+                                </a>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="1100">
+                                <a href="https://ppid.deliserdangkab.go.id" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://dinaskominfostan.deliserdangkab.go.id/wp-content/berkas/1755869390.png" style="width: 80px;" alt="">
+                                    </div>
+                                    <h4>PPID</h4>
+                                </a>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="700">
+                                <a href="https://portal.deliserdangkab.go.id/subdomain-organisasi-perangkat-daerah-opd.html" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1725411853.png" style="width: 50px;" alt="">
+                                    </div>
+                                    <h4>OPD</h4>
+                                </a>
+                            </div>
+
+                            <div class="col" data-aos="zoom-in" data-aos-delay="800">
+                                <a href="https://radio.deliserdangkab.go.id" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://dinaskominfostan.deliserdangkab.go.id/wp-content/berkas/1718336719.svg" style="width: 80px;" alt="">
+                                    </div>
+                                    <h4>Radio DSB</h4>
+                                </a>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="600">
+                                <a href="https://wbs.deliserdangkab.go.id" target="_blank" class="service-card rounded-5">
+                                    <div class="icon-box">
+                                        <img src="https://dinaskominfostan.deliserdangkab.go.id/wp-content/berkas/1772181645.png" style="width: 100px;" alt="">
+                                    </div>
+                                    <h4>WBS</h4>
+                                </a>
+                            </div>
+                            
+                            <div class="col" data-aos="zoom-in" data-aos-delay="1200">
+                                <div class="service-card rounded-5" data-bs-toggle="modal" data-bs-target="#layananPublikModal">
+                                    <div class="icon-box">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pointing_hand_cursor_vector.svg/960px-Pointing_hand_cursor_vector.svg.png" style="width: 70px;" alt="">
+                                    </div>
+                                    <h4>Layan Publik</h4>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 d-none d-lg-flex justify-content-start" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="1300">
+                    <img src="https://dinaskominfostan.deliserdangkab.go.id/wp-content/berkas/1741141656.png" class="img-leader" alt="Wakil Bupati Deli Serdang">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="socialMediaModal" tabindex="-1" aria-labelledby="socialMediaModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-glass">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title text-white fw-bold mx-auto" id="socialMediaModalLabel">Media Sosial Resmi Pemkab DS</h5>
+            <button type="button" class="btn-close btn-close-white position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="row row-cols-3 g-3 justify-content-center">
+                <div class="col">
+                    <a href="https://facebook.com/deliserdangkab/" target="_blank" class="service-card modal-card rounded-5">
+                        <div class="icon-box"><i class="fab fa-facebook-f text-primary"></i></div>
+                        <h4>Facebook</h4>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="https://instagram.com/pemkab.deliserdang/" target="_blank" class="service-card modal-card rounded-5">
+                        <div class="icon-box"><i class="fab fa-instagram" style="color: #E1306C;"></i></div>
+                        <h4>Instagram</h4>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="https://www.youtube.com/channel/UCbdyQVBZnpJPPZSKS8ZocUw" target="_blank" class="service-card modal-card rounded-5">
+                        <div class="icon-box"><i class="fab fa-youtube text-danger"></i></div>
+                        <h4>YouTube</h4>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="https://x.com/DeliSerdang_Kab" target="_blank" class="service-card modal-card rounded-5">
+                        <div class="icon-box"><i class="fab fa-twitter text-info"></i></div>
+                        <h4>Twitter</h4>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="layananPublikModal" tabindex="-1" aria-labelledby="layananPublikModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content modal-glass">
+            <div class="modal-header border-0 pb-0">
+              <h5 class="modal-title text-white fw-bold mx-auto" id="layananPublikModalLabel">Layanan Publik OPD</h5>
+              <button type="button" class="btn-close btn-close-white position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+              
+              <div class="row row-cols-3 g-3 justify-content-center">
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-id-card text-warning"></i></div>
+                          <h4>Disdukcapil</h4>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-file-signature text-info"></i></div>
+                          <h4>DPMPTSP (Izin)</h4>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-file-invoice-dollar text-success"></i></div>
+                          <h4>Bapenda (Pajak)</h4>
+                      </a>
+                  </div>
+                  
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-notes-medical text-danger"></i></div>
+                          <h4>Dinkes</h4>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-graduation-cap text-primary"></i></div>
+                          <h4>Disdik</h4>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-hands-holding-child text-warning"></i></div>
+                          <h4>Dinsos</h4>
+                      </a>
+                  </div>
+  
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-user-tie text-secondary"></i></div>
+                          <h4>Disnaker</h4>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-bus text-info"></i></div>
+                          <h4>Dishub</h4>
+                      </a>
+                  </div>
+                  <div class="col">
+                      <a href="#" target="_blank" class="service-card modal-card rounded-5">
+                          <div class="icon-box"><i class="fas fa-map-location-dot text-success"></i></div>
+                          <h4>Pariwisata</h4>
+                      </a>
+                  </div>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ 
+            once: true,
+            offset: 0 
+        });
+    </script>
+</body>
+</html>
